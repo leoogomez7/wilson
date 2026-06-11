@@ -6,6 +6,7 @@ import p3 from "@/assets/project-3.jpg";
 import p4 from "@/assets/project-4.jpg";
 import p5 from "@/assets/project-5.jpg";
 import { useTranslation } from "@/lib/i18n";
+import { casaProjects } from "@/components/Casas";
 
 type Category = "todos" | "viviendas" | "comercial" | "reformas";
 
@@ -28,6 +29,7 @@ interface Project {
   year: string;
   area: string;
   description: LocalizedString;
+  origin?: "casas" | "proyectos" | "ambos";
 }
 
 const projects: Project[] = [
@@ -108,7 +110,7 @@ const projects: Project[] = [
     },
   },
   {
-    id: "marble-kitchen",
+    id: "casa-recoleta",
     title: {
       es: "Casa Recoleta",
       en: "Recoleta House",
@@ -181,17 +183,56 @@ const filterLabels: Record<"es" | "en" | "pt", { key: Category; label: string }[
   ],
 };
 
+const originFilterLabels: Record<"es" | "en" | "pt", { key: "all" | "casas" | "proyectos"; label: string }[]> = {
+  es: [
+    { key: "all", label: "Todos" },
+    { key: "casas", label: "Casas" },
+    { key: "proyectos", label: "Proyectos" },
+  ],
+  en: [
+    { key: "all", label: "All" },
+    { key: "casas", label: "Houses" },
+    { key: "proyectos", label: "Projects" },
+  ],
+  pt: [
+    { key: "all", label: "Todos" },
+    { key: "casas", label: "Casas" },
+    { key: "proyectos", label: "Projetos" },
+  ],
+};
+
 import { SectionMode } from "@/components/SectionMode";
 
 export function Projects({ mode = "home" }: { mode?: SectionMode }) {
   const { t, language } = useTranslation();
   const [active, setActive] = useState<Category>("todos");
+  const [originFilter, setOriginFilter] = useState<"all" | "casas" | "proyectos">("all");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [navChoiceOpen, setNavChoiceOpen] = useState(false);
 
+  const casaIds = new Set(casaProjects.map((project) => project.id));
+  const combinedProjects: Project[] = [
+    ...casaProjects.map((project) => ({
+      ...project,
+      origin: projects.some((p) => p.id === project.id) ? ("ambos" as const) : ("casas" as const),
+    })),
+    ...projects
+      .filter((project) => !casaIds.has(project.id))
+      .map((project) => ({ ...project, origin: "proyectos" as const })),
+  ];
+
+  const source = mode === "home" ? combinedProjects : projects;
+  const filteredByCategory =
+    active === "todos" ? source : source.filter((p) => p.category === active);
   const visible =
-    active === "todos" ? projects : projects.filter((p) => p.category === active);
-  const selected = selectedId ? projects.find((p) => p.id === selectedId) : null;
+    originFilter === "all"
+      ? filteredByCategory
+      : filteredByCategory.filter((p) =>
+          originFilter === "casas"
+            ? p.origin === "casas" || p.origin === "ambos"
+            : p.origin === "proyectos" || p.origin === "ambos"
+        );
+  const selected = selectedId ? combinedProjects.find((p) => p.id === selectedId) : null;
 
   return (
     <section id="proyectos" className="relative py-5 md:py-8 px-6 md:px-20 bg-white">
@@ -199,7 +240,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
         <div>
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
-            {t.projects.sectionLabel}
+            {mode === "home" ? "Casas y Proyectos" : t.projects.sectionLabel}
           </span>
           <h2 className="font-serif text-5xl md:text-7xl tracking-tight">{t.projects.heading}</h2>
           {mode === "section" ? (
@@ -209,7 +250,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
           ) : null}
         </div>
       </div>
-      <div className="flex gap-6 md:gap-8 text-[10px] uppercase tracking-[0.3em] font-semibold border-b border-brand-light pb-4 w-full md:w-auto overflow-x-auto mb-10">
+      <div className="flex gap-6 md:gap-8 text-[10px] uppercase tracking-[0.3em] font-semibold border-b border-brand-light pb-4 w-full md:w-auto overflow-x-auto mb-6">
         {filterLabels[language].map((f) => (
           <button
             key={f.key}
@@ -222,6 +263,22 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
           </button>
         ))}
       </div>
+
+      {mode === "home" ? (
+        <div className="flex gap-6 md:gap-8 text-[10px] uppercase tracking-[0.3em] font-semibold border-b border-brand-light pb-4 w-full md:w-auto overflow-x-auto mb-10">
+          {originFilterLabels[language].map((f) => (
+            <button
+              key={f.key}
+              onClick={() => setOriginFilter(f.key)}
+              className={`transition-opacity whitespace-nowrap ${
+                originFilter === f.key ? "opacity-100" : "opacity-40 hover:opacity-100"
+              }`}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+      ) : null}
 
       <div className="grid grid-cols-12 gap-y-16 md:gap-y-24 md:gap-x-12">
         {visible.map((project) => (
@@ -240,6 +297,25 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
             </div>
             <div className="flex justify-between items-start gap-4">
               <div>
+                <div className="mb-3 inline-flex items-center rounded-full bg-brand-gray/10 px-3 py-1 text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray">
+                  {project.origin === "ambos"
+                    ? language === "es"
+                      ? "Casas y Proyectos"
+                      : language === "pt"
+                      ? "Casas e Projetos"
+                      : "Houses & Projects"
+                    : project.origin === "casas"
+                    ? language === "es"
+                      ? "Casas"
+                      : language === "pt"
+                      ? "Casas"
+                      : "Houses"
+                    : language === "es"
+                    ? "Proyectos"
+                    : language === "pt"
+                    ? "Projetos"
+                    : "Projects"}
+                </div>
                 <h3 className="text-xl md:text-2xl font-serif mb-1">{project.title[language]}</h3>
                 <p className="text-[10px] uppercase tracking-[0.3em] opacity-50">{project.meta[language]}</p>
               </div>

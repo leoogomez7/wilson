@@ -16,15 +16,18 @@ interface CasaProject {
   id: string;
   title: LocalizedString;
   meta: LocalizedString;
+  description: LocalizedString;
+  category: "viviendas";
   image: string;
   span: string;
   aspect: string;
   location: string;
   year: string;
   area: string;
+  offset?: string;
 }
 
-const casaProjects: CasaProject[] = [
+export const casaProjects: CasaProject[] = [
   {
     id: "los-arboles",
     title: {
@@ -43,6 +46,12 @@ const casaProjects: CasaProject[] = [
     location: "San Isidro, Buenos Aires",
     year: "2023",
     area: "320 m²",
+    description: {
+      es: "Vivienda de líneas puras integrada al paisaje. Hormigón visto, grandes paños vidriados y una circulación que dialoga con el entorno natural.",
+      en: "Pure-lined home integrated with the landscape. Exposed concrete, large glass panels and circulation that dialogues with the natural surroundings.",
+      pt: "Casa de linhas puras integrada à paisagem. Concreto aparente, grandes painéis de vidro e circulação que dialoga com o entorno natural.",
+    },
+    category: "viviendas",
   },
   {
     id: "casa-recoleta",
@@ -62,6 +71,12 @@ const casaProjects: CasaProject[] = [
     location: "Recoleta, CABA",
     year: "2024",
     area: "480 m²",
+    description: {
+      es: "Vivienda de alta gama con cocina integrada al living. Mármol, maderas nobles y aperturas dobles para iluminación natural.",
+      en: "High-end residence with a kitchen integrated into the living area. Marble, noble woods and large openings for natural light.",
+      pt: "Residência de alto padrão com cozinha integrada à sala. Mármore, madeiras nobres e amplas aberturas para luz natural.",
+    },
+    category: "viviendas",
   },
 ];
 
