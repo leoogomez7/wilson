@@ -1,0 +1,147 @@
+import { useEffect, useState } from "react";
+import { useTranslation, type Locale } from "@/lib/i18n";
+import logo from "@/assets/Logo.jpeg";
+
+type NavLabelKey =
+  | "home"
+  | "estudio"
+  | "casas"
+  | "proyectos"
+  | "sustentabilidad"
+  | "servicios"
+  | "proceso"
+  | "contacto";
+
+const navLinks: Array<{ href: string; labelKey: NavLabelKey }> = [
+  { href: "#top", labelKey: "home" },
+  { href: "#equipo", labelKey: "estudio" },
+  { href: "#proyectos", labelKey: "casas" },
+  { href: "#proyectos", labelKey: "proyectos" },
+  { href: "#sustentabilidad", labelKey: "sustentabilidad" },
+  { href: "#servicios", labelKey: "servicios" },
+  { href: "#proceso", labelKey: "proceso" },
+  { href: "#contacto", labelKey: "contacto" },
+];
+
+const languageOptions: Array<{ lang: Locale; label: string }> = [
+  { lang: "es", label: "Español" },
+  { lang: "en", label: "English" },
+  { lang: "pt", label: "Português" },
+];
+
+export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLabelKey) => void }) {
+  const { t, language, setLanguage } = useTranslation();
+  const [open, setOpen] = useState(false);
+  const [languageOpen, setLanguageOpen] = useState(false);
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/85 backdrop-blur-md border-b border-border py-4 text-brand-black">
+      <div className="px-6 md:px-12 flex justify-between items-center">
+        <a href="#top" className="block">
+          <img src={logo} alt="Wilson logo" className="h-10 w-auto object-contain" />
+        </a>
+        <div className="hidden md:flex flex-wrap items-center gap-4 text-[10px] uppercase tracking-[0.3em] font-medium">
+          {navLinks.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(event) => {
+                event.preventDefault();
+                onSelectSection?.(item.labelKey);
+              }}
+              className="hover:opacity-50 transition-opacity"
+            >
+              {t.nav[item.labelKey]}
+            </a>
+          ))}
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setLanguageOpen((value) => !value)}
+              aria-haspopup="menu"
+              aria-expanded={languageOpen}
+              className="uppercase tracking-[0.3em] hover:opacity-50 transition-opacity"
+            >
+              {t.nav.language}
+            </button>
+            {languageOpen && (
+              <div className="absolute right-0 mt-3 min-w-45 rounded-xl border border-border bg-white text-brand-black shadow-xl">
+                <div className="flex flex-col">
+                  {languageOptions.map((option) => (
+                    <button
+                      key={option.lang}
+                      type="button"
+                      onClick={() => {
+                        setLanguage(option.lang);
+                        setLanguageOpen(false);
+                      }}
+                      className={`text-left px-4 py-3 text-sm uppercase tracking-[0.3em] transition-colors hover:bg-brand-light/80 ${
+                        language === option.lang ? "font-bold" : "opacity-70"
+                      }`}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        <button
+          aria-label="Abrir menú"
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden text-[10px] uppercase tracking-widest"
+        >
+          {open ? "Cerrar" : "Menú"}
+        </button>
+      </div>
+      {open && (
+        <div className="md:hidden bg-white border-t border-border text-brand-black px-6 py-6 flex flex-col gap-5">
+          {navLinks.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(event) => {
+                event.preventDefault();
+                setOpen(false);
+                onSelectSection?.(item.labelKey);
+              }}
+              className="text-sm uppercase tracking-[0.3em]"
+            >
+              {t.nav[item.labelKey]}
+            </a>
+          ))}
+          <div>
+            <button
+              type="button"
+              onClick={() => setLanguageOpen((value) => !value)}
+              className="text-sm uppercase tracking-[0.3em] hover:opacity-50 transition-opacity"
+            >
+              {t.nav.language}
+            </button>
+            {languageOpen && (
+              <div className="mt-3 space-y-2 pl-4">
+                {languageOptions.map((option) => (
+                  <button
+                    key={option.lang}
+                    type="button"
+                    onClick={() => {
+                      setLanguage(option.lang);
+                      setLanguageOpen(false);
+                      setOpen(false);
+                    }}
+                    className={`text-left text-sm uppercase tracking-[0.3em] transition-opacity ${
+                      language === option.lang ? "opacity-100 font-bold" : "opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}
