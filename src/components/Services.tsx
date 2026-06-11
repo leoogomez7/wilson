@@ -161,7 +161,7 @@ export function ServiceCapabilities({ mode = "home" }: { mode?: SectionMode }) {
         </h2>
         {mode === "section" ? (
           <p className="max-w-3xl text-base leading-relaxed text-brand-gray mb-10">
-            Nuestros servicios incluyen proyecto arquitectónico, dirección de obra, interiorismo, remodelaciones y gestión integral, acompañando cada etapa con foco en calidad funcional y estética.
+            {t.services.capabilitiesDescription}
           </p>
         ) : null}
         <div className="space-y-0">
@@ -196,7 +196,7 @@ export function ServiceProcess({ mode = "home" }: { mode?: SectionMode }) {
         </h2>
         {mode === "section" ? (
           <p className="max-w-3xl text-base leading-relaxed text-brand-gray mb-10">
-            El proceso de trabajo muestra cómo avanzamos desde la idea inicial hasta la entrega final, con etapas claras de análisis, diseño, presupuesto y construcción para asegurar resultados integrales.
+            {t.services.processDescription}
           </p>
         ) : null}
         <div className="relative">

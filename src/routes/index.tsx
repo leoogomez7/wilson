@@ -80,6 +80,15 @@ function Index() {
     return () => window.removeEventListener("hashchange", resolveHash);
   }, []);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (activeSection !== "all") {
+      window.setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      }, 0);
+    }
+  }, [activeSection]);
+
   const handleSectionChange = (section: SectionKey) => {
     setActiveSection(section === "home" ? "all" : section);
     if (typeof window !== "undefined") {

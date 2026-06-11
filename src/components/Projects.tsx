@@ -221,7 +221,8 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
       .map((project) => ({ ...project, origin: "proyectos" as const })),
   ];
 
-  const source = mode === "home" ? combinedProjects : projects;
+  const sectionSource = combinedProjects.filter((project) => project.origin !== "casas");
+  const source = mode === "home" ? combinedProjects : sectionSource;
   const filteredByCategory =
     active === "todos" ? source : source.filter((p) => p.category === active);
   const visible =
@@ -232,7 +233,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
             ? p.origin === "casas" || p.origin === "ambos"
             : p.origin === "proyectos" || p.origin === "ambos"
         );
-  const selected = selectedId ? combinedProjects.find((p) => p.id === selectedId) : null;
+  const selected = selectedId ? source.find((p) => p.id === selectedId) : null;
 
   return (
     <section id="proyectos" className="relative py-5 md:py-8 px-6 md:px-20 bg-white">
@@ -240,12 +241,12 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
         <div>
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
-            {mode === "home" ? "Casas y Proyectos" : t.projects.sectionLabel}
+            {mode === "home" ? t.projects.homeLabel : t.projects.sectionLabel}
           </span>
           <h2 className="font-serif text-5xl md:text-7xl tracking-tight">{t.projects.heading}</h2>
           {mode === "section" ? (
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-brand-gray">
-              Cada proyecto nace de una visión particular y de un profundo análisis de su contexto. Nos enfocamos en desarrollar propuestas que integren calidad espacial, innovación y funcionalidad, adaptándose a las características del entorno y a los objetivos específicos de cada desafío arquitectónico.
+              {t.projects.sectionDescription}
             </p>
           ) : null}
         </div>
@@ -284,7 +285,9 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
         {visible.map((project) => (
           <article
             key={project.id}
-            className={`col-span-12 ${project.span} ${project.offset ?? ""} group cursor-pointer`}
+            className={`col-span-12 ${
+              mode === "home" ? "md:col-span-6 lg:col-span-4" : project.span
+            } ${mode === "section" ? project.offset ?? "" : ""} group cursor-pointer`}
             onClick={() => setSelectedId(project.id)}
           >
             <div className="overflow-hidden mb-6 bg-brand-light">
@@ -297,30 +300,24 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
             </div>
             <div className="flex justify-between items-start gap-4">
               <div>
-                <div className="mb-3 inline-flex items-center rounded-full bg-brand-gray/10 px-3 py-1 text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray">
+                <div
+                  className={`mb-3 inline-flex items-center rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.3em] font-semibold ${
+                    project.origin === "ambos"
+                      ? "bg-brand-black text-white"
+                      : "bg-brand-gray/10 text-brand-gray"
+                  }`}
+                >
                   {project.origin === "ambos"
-                    ? language === "es"
-                      ? "Casas y Proyectos"
-                      : language === "pt"
-                      ? "Casas e Projetos"
-                      : "Houses & Projects"
+                    ? t.projects.originLabels.ambos
                     : project.origin === "casas"
-                    ? language === "es"
-                      ? "Casas"
-                      : language === "pt"
-                      ? "Casas"
-                      : "Houses"
-                    : language === "es"
-                    ? "Proyectos"
-                    : language === "pt"
-                    ? "Projetos"
-                    : "Projects"}
+                    ? t.projects.originLabels.casas
+                    : t.projects.originLabels.proyectos}
                 </div>
                 <h3 className="text-xl md:text-2xl font-serif mb-1">{project.title[language]}</h3>
                 <p className="text-[10px] uppercase tracking-[0.3em] opacity-50">{project.meta[language]}</p>
               </div>
               <button className="text-[10px] uppercase tracking-[0.3em] font-bold border-b border-brand-black pb-1 shrink-0">
-                {language === "es" ? "Leer más" : language === "pt" ? "Ler mais" : "Read more"}
+                {t.common.readMore}
               </button>
             </div>
           </article>

@@ -25,6 +25,7 @@ interface CasaProject {
   year: string;
   area: string;
   offset?: string;
+  origin?: "casas" | "ambos";
 }
 
 export const casaProjects: CasaProject[] = [
@@ -52,6 +53,7 @@ export const casaProjects: CasaProject[] = [
       pt: "Casa de linhas puras integrada à paisagem. Concreto aparente, grandes painéis de vidro e circulação que dialoga com o entorno natural.",
     },
     category: "viviendas",
+    origin: "ambos",
   },
   {
     id: "casa-recoleta",
@@ -77,6 +79,7 @@ export const casaProjects: CasaProject[] = [
       pt: "Residência de alto padrão com cozinha integrada à sala. Mármore, madeiras nobres e amplas aberturas para luz natural.",
     },
     category: "viviendas",
+    origin: "ambos",
   },
 ];
 
@@ -143,6 +146,17 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
             </div>
             <div className="flex justify-between items-start gap-4">
               <div>
+                <div className="mb-3 inline-flex items-center gap-3">
+                  <span className={`rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.3em] font-semibold ${
+                    project.origin === "ambos"
+                      ? "bg-brand-black text-white"
+                      : "bg-brand-gray/10 text-brand-gray"
+                  }`}>
+                    {project.origin === "ambos"
+                      ? t.projects.originLabels.ambos
+                      : t.projects.originLabels.casas}
+                  </span>
+                </div>
                 <h3 className="text-xl md:text-2xl font-serif mb-1">{project.title[language]}</h3>
                 <p className="text-[10px] uppercase tracking-[0.3em] opacity-50">{project.meta[language]}</p>
               </div>
