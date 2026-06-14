@@ -21,7 +21,7 @@ export function MapSection() {
               <Facebook className="size-4 mt-1" />
               <div>
                 <span className="text-[10px] uppercase tracking-[0.3em] opacity-50 block mb-1">
-                  Facebook
+                  {t.map.facebookLabel}
                 </span>
                 <a
                   href="https://www.facebook.com/people/Wilson-Arquitectura/100067440165213"
@@ -37,7 +37,7 @@ export function MapSection() {
               <img src={whatsappLogo} alt="WhatsApp" className="w-4 h-4 object-contain mt-1" />
               <div>
                 <span className="text-[10px] uppercase tracking-[0.3em] opacity-50 block mb-1">
-                  WhatsApp
+                  {t.map.whatsappLabel}
                 </span>
                 <a href="https://wa.me/5491136115429" target="_blank" rel="noopener noreferrer" className="hover:text-brand-black">
                   +54 9 11 3611-5429
@@ -48,7 +48,7 @@ export function MapSection() {
               <Instagram className="size-4 mt-1" />
               <div>
                 <span className="text-[10px] uppercase tracking-[0.3em] opacity-50 block mb-1">
-                  Instagram
+                  {t.map.instagramLabel}
                 </span>
                 <a
                   href="https://www.instagram.com/wilson.arquitectura"
@@ -86,7 +86,7 @@ export function MapSection() {
               <MapPin className="size-4 mt-1" />
               <div>
                 <span className="text-[10px] uppercase tracking-[0.3em] opacity-50 block mb-1">
-                  {t.map.addressLabel ?? "Dirección"}
+                  {t.map.addressLabel}
                 </span>
                 <a
                   href="https://www.google.com/maps/place/Fragata+Argentina+2063,+B1629+Pilar,+Provincia+de+Buenos+Aires"
@@ -110,7 +110,7 @@ export function MapSection() {
         </div>
         <div className="min-h-100 lg:min-h-130">
           <iframe
-            title="Ubicación de Wilson Arquitectura"
+            title={t.map.locationTitle}
             src="https://www.google.com/maps?q=Fragata+Argentina+2063,+B1629+Pilar,+Provincia+de+Buenos+Aires&output=embed"
             loading="lazy"
             className="w-full h-full grayscale"

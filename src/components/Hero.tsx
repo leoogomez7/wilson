@@ -7,17 +7,17 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative h-screen min-h-[640px] w-full flex items-center justify-center overflow-hidden bg-brand-black"
+      className="relative h-screen .min-h-160 w-full flex items-center justify-center overflow-hidden bg-brand-black"
     >
       <div className="absolute inset-0">
         <img
           src={heroImg}
-          alt="Arquitectura contemporánea de hormigón"
+          alt={t.hero.imageAlt}
           width={1920}
           height={1080}
           className="w-full h-full object-cover opacity-60 animate-slow-zoom"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-black/40 via-transparent to-brand-black/70" />
+        <div className="absolute inset-0 .bg-linear-to-b from-brand-black/40 via-transparent to-brand-black/70" />
       </div>
 
       <div className="relative z-10 text-center text-white px-6 max-w-5xl">

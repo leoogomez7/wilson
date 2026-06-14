@@ -1,12 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "@/lib/i18n";
 
-const stats = [
-  { value: 12, prefix: "+", label: "Años de Experiencia" },
-  { value: 100, suffix: "+", label: "Proyectos Realizados" },
-  { value: 5000, label: "m² Construidos", format: (n: number) => `${(n / 1000).toFixed(0)}k+` },
-];
-
 function Counter({
   target,
   format,
@@ -57,6 +51,11 @@ function Counter({
 
 export function Stats() {
   const { t } = useTranslation();
+  const stats = [
+    { value: 12, prefix: "+", label: t.stats.experience },
+    { value: 100, suffix: "+", label: t.stats.projects },
+    { value: 5000, label: t.stats.builtArea, format: (n: number) => `${(n / 1000).toFixed(0)}k+` },
+  ];
 
   return (
     <section className="bg-brand-black text-white py-5 md:py-8 px-6">

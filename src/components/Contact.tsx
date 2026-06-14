@@ -25,7 +25,7 @@ export function Contact({ mode = "home" }: { mode?: SectionMode }) {
 
   return (
     <section id="contacto" className="py-5 md:py-8 px-6 md:px-20 bg-brand-black text-white">
-      <div className="max-w-4xl mx-auto">
+      <div className="w-full">
         <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 block mb-4 text-center">
           {t.contact.sectionLabel}
         </span>
@@ -46,7 +46,7 @@ export function Contact({ mode = "home" }: { mode?: SectionMode }) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-16 py-5 bg-white text-brand-black uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-brand-light transition-colors"
               >
-                Contactanos por WhatsApp
+                {t.contact.whatsappButton}
                 <img src={whatsappLogo} alt="WhatsApp" className="w-4 h-4 object-contain" />
               </a>
             </div>
@@ -59,7 +59,7 @@ export function Contact({ mode = "home" }: { mode?: SectionMode }) {
                 <Field label={t.contact.fields.name} name="name" required />
                 <Field label={t.contact.fields.email} name="email" type="email" required />
                 <Field label={t.contact.fields.phone} name="phone" />
-                <Field label={t.contact.fields.type} name="type" placeholder="Vivienda, local, reforma…" />
+                <Field label={t.contact.fields.type} name="type" placeholder={t.contact.fields.typePlaceholder} />
                 <div className="md:col-span-2 space-y-2">
                   <label className="text-[10px] uppercase tracking-[0.3em] opacity-40">{t.contact.fields.message}</label>
                   <textarea

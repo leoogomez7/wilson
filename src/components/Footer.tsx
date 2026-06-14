@@ -7,12 +7,12 @@ export function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="py-16 md:py-20 px-6 md:px-12 border-t border-border bg-white">
+    <footer className="py-16 md:py-20 px-6 md:px-12 border-t border-border bg-slate-100 text-brand-black">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
           <div>
             <a href="#top" className="inline-block mb-4">
-              <img src={logo} alt="Wilson logo" className="h-[7.5rem] w-auto object-contain" />
+              <img src={logo} alt="Wilson logo" className=".h-30 w-auto object-contain" />
             </a>
             <p className="text-sm text-brand-gray leading-relaxed max-w-xs">
               {t.footer.description}
@@ -29,7 +29,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#equipo" className="hover:opacity-60">
+                <a href="#estudio" className="hover:opacity-60">
                   {t.nav.estudio}
                 </a>
               </li>
@@ -78,7 +78,7 @@ export function Footer() {
                   className="flex items-center gap-3 hover:opacity-60"
                 >
                   <MapPin className="w-4 h-4" />
-                  Ubicación
+                  {t.footer.location}
                 </a>
               </li>
               <li>
@@ -87,7 +87,7 @@ export function Footer() {
                   className="flex items-center gap-3 hover:opacity-60"
                 >
                   <Mail className="w-4 h-4" />
-                  Email
+                  {t.footer.email}
                 </a>
               </li>
               <li>
@@ -96,7 +96,7 @@ export function Footer() {
                   className="flex items-center gap-3 hover:opacity-60"
                 >
                   <Phone className="w-4 h-4" />
-                  Teléfono
+                  {t.footer.phone}
                 </a>
               </li>
               <li>
@@ -118,7 +118,7 @@ export function Footer() {
                   className="flex items-center gap-3 hover:opacity-60"
                 >
                   <Facebook className="w-4 h-4" />
-                  Facebook
+                  {t.footer.facebook}
                 </a>
               </li>
               <li>
@@ -136,7 +136,7 @@ export function Footer() {
           </div>
         </div>
         <div className="pt-8 border-t border-border text-center text-[10px] uppercase tracking-[0.3em] opacity-50">
-          <span>COPYRIGHT ULTRAARQUITECTURA 2014</span>
+          <span>{t.footer.copyright.replace("{year}", String(new Date().getFullYear()))}</span>
         </div>
       </div>
     </footer>

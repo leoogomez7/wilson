@@ -16,10 +16,24 @@ const translations = {
       proceso: "Proceso de trabajo",
       contacto: "Contacto",
       language: "Idioma",
+      menuOpen: "Menú",
+      menuClose: "Cerrar",
+      menuToggleAriaOpen: "Abrir menú",
+      menuToggleAriaClose: "Cerrar menú",
+      languageOptions: {
+        es: "Español",
+        en: "English",
+        pt: "Português",
+      },
     },
     common: {
       seeMore: "Ver más",
       readMore: "Leer más",
+    },
+    stats: {
+      experience: "Años de Experiencia",
+      projects: "Proyectos Realizados",
+      builtArea: "m² Construidos",
     },
     hero: {
       tagline: "Estudio de Arquitectura · Pilar, Buenos Aires",
@@ -27,6 +41,7 @@ const translations = {
       ctaProjects: "Ver Proyectos",
       ctaContact: "Solicitar Asesoramiento",
       scroll: "Scroll",
+      imageAlt: "Arquitectura contemporánea de hormigón",
     },
     history: {
       sectionLabel: "Nuestro Concepto",
@@ -58,13 +73,79 @@ const translations = {
         area: "Superficie",
         description: "Descripción",
       },
+      originFilterLabels: {
+        all: "Todos",
+        casas: "Casas",
+        proyectos: "Proyectos",
+      },
+    },
+    casas: {
+      sectionLabel: "Hogar propio",
+      heading: "Casas",
+      description:
+        "Cada casa es concebida como un espacio único, diseñado para reflejar la identidad, las necesidades y el estilo de vida de quienes la habitan. Buscamos crear ambientes funcionales, confortables y atemporales, donde la arquitectura se convierta en el escenario de experiencias y recuerdos duraderos.",
+      filters: {
+        todos: "Todos",
+        viviendas: "Viviendas",
+      },
     },
     services: {
       sectionLabel: "Capacidades",
       heading: "Nuestros Servicios",
       capabilitiesDescription:
         "Nuestros servicios incluyen proyecto arquitectónico, dirección de obra, interiorismo, remodelaciones y gestión integral, acompañando cada etapa con foco en calidad funcional y estética.",
+      serviceItems: [
+        {
+          number: "01",
+          title: "Proyecto Arquitectónico",
+          description: "Desarrollamos el diseño conceptual y técnico con planos, maquetas y soluciones adaptadas a tu proyecto.",
+        },
+        {
+          number: "02",
+          title: "Dirección de Obra",
+          description: "Coordinamos el proceso constructivo, supervisando calidad, tiempos y cumplimiento de normativa.",
+        },
+        {
+          number: "03",
+          title: "Construcción",
+          description: "Gestionamos la obra con equipos técnicos y proveedores para entregar el proyecto según estándar profesional.",
+        },
+        {
+          number: "04",
+          title: "Interiorismo & Renders",
+          description: "Diseñamos interiores funcionales y de estilo, complementados con renders para visualizar el resultado final.",
+        },
+        {
+          number: "05",
+          title: "Remodelaciones",
+          description: "Renovamos espacios existentes para optimizar su uso, estética y confort con soluciones actuales.",
+        },
+        {
+          number: "06",
+          title: "Regularizaciones",
+          description: "Tramitamos la documentación y los permisos necesarios para que tu obra cumpla con la normativa.",
+        },
+        {
+          number: "07",
+          title: "Cómputos y Presupuestos",
+          description: "Preparamos mediciones, estimaciones y presupuestos claros para una planificación económica segura.",
+        },
+        {
+          number: "08",
+          title: "Gestión Integral de Obras",
+          description: "Acompañamos todas las etapas del proyecto, desde la idea inicial hasta la entrega final.",
+        },
+      ],
       processLabel: "Metodología",
+      processSteps: [
+        { number: "01", title: "Reunión inicial", description: "Escuchamos la visión y los objetivos del cliente." },
+        { number: "02", title: "Estudio de necesidades", description: "Analizamos el sitio, el programa y las restricciones." },
+        { number: "03", title: "Diseño conceptual", description: "Definimos partido arquitectónico y materialidad." },
+        { number: "04", title: "Proyecto ejecutivo", description: "Documentación técnica completa y planos de obra." },
+        { number: "05", title: "Presupuesto", description: "Cómputos detallados y planificación de costos." },
+        { number: "06", title: "Construcción", description: "Dirección de obra con control de calidad permanente." },
+        { number: "07", title: "Entrega final", description: "Revisión, ajustes y acompañamiento post-obra." },
+      ],
       processHeading: "Proceso de Trabajo",
       processDescription:
         "El proceso de trabajo muestra cómo avanzamos desde la idea inicial hasta la entrega final, con etapas claras de análisis, diseño, presupuesto y construcción para asegurar resultados integrales.",
@@ -74,6 +155,7 @@ const translations = {
       heading: "El Estudio",
       homeDescription:
         "Nuestra trayectoria está guiada por la pasión de crear lugares que trascienden el tiempo. Diseñamos espacios únicos que reflejan una visión de futuro y se transforman en el escenario de historias memorables.",
+      imageAlt: "Equipo Wilson Arquitectura",
       members: [
         {
           id: "josue",
@@ -108,10 +190,13 @@ const translations = {
         email: "Email",
         phone: "Teléfono",
         type: "Tipo de proyecto",
+        typePlaceholder: "Vivienda, local, reforma…",
         message: "Mensaje",
       },
       sendButton: "Enviar Consulta",
       mailtoSubject: "Consulta web —",
+      whatsappButton: "Contactanos por WhatsApp",
+      sendEmailAria: "Enviar correo",
     },
     footer: {
       navigation: "Navegación",
@@ -120,7 +205,11 @@ const translations = {
       description: "Estudio de arquitectura contemporánea. Diseño, dirección y construcción de obras de alto valor.",
       designedFor: "Diseñado para la excelencia",
       copyright: "© {year} Wilson Arquitectura",
+      location: "Ubicación",
+      email: "Email",
+      phone: "Teléfono",
       instagram: "Instagram",
+      facebook: "Facebook",
       whatsapp: "WhatsApp",
     },
     map: {
@@ -132,12 +221,19 @@ const translations = {
       emailLabel: "Email",
       telLabel: "Tel",
       addressLabel: "Dirección",
+      facebookLabel: "Facebook",
+      instagramLabel: "Instagram",
+      whatsappLabel: "WhatsApp",
+      locationTitle: "Ubicación de Wilson Arquitectura",
     },
     sustainability: {
       sectionLabel: "Cuidar el Entorno",
       heading: "Sustentabilidad",
       description:
         "Creemos que el verdadero legado no está en lo que construimos, sino en cómo cuidamos y respetamos el espacio que compartimos.",
+      imageAlt1: "Sustentabilidad 1",
+      imageAlt2: "Sustentabilidad 2",
+      imageAlt3: "Sustentabilidad 3",
       points: [
         {
           title: "Materiales responsables",
@@ -217,10 +313,24 @@ const translations = {
       proceso: "Work Process",
       contacto: "Contact",
       language: "Language",
+      menuOpen: "Menu",
+      menuClose: "Close",
+      menuToggleAriaOpen: "Open menu",
+      menuToggleAriaClose: "Close menu",
+      languageOptions: {
+        es: "Español",
+        en: "English",
+        pt: "Português",
+      },
     },
     common: {
       seeMore: "See more",
       readMore: "Read more",
+    },
+    stats: {
+      experience: "Years of Experience",
+      projects: "Projects Completed",
+      builtArea: "Built Area",
     },
     hero: {
       tagline: "Architecture Studio · Buenos Aires",
@@ -229,6 +339,7 @@ const translations = {
       ctaProjects: "View Projects",
       ctaContact: "Request Consultation",
       scroll: "Scroll",
+      imageAlt: "Contemporary concrete architecture",
     },
     history: {
       sectionLabel: "01 — Our Concept",
@@ -245,6 +356,11 @@ const translations = {
         casas: "House",
         proyectos: "Projects",
         ambos: "Houses & Projects",
+      },
+      originFilterLabels: {
+        all: "All",
+        casas: "Houses",
+        proyectos: "Projects",
       },
       heading: "Projects",
       sectionDescription:
@@ -263,12 +379,73 @@ const translations = {
         description: "Description",
       },
     },
+    casas: {
+      sectionLabel: "Residential Homes",
+      heading: "Houses",
+      description:
+        "Each house is conceived as a unique space designed to reflect the identity, needs and lifestyle of those who inhabit it. We seek to create functional, comfortable and timeless environments, where architecture becomes the setting for lasting experiences and memories.",
+      filters: {
+        todos: "All",
+        viviendas: "Residential",
+      },
+    },
     services: {
       sectionLabel: "02 — Capabilities",
       heading: "Our Services",
       capabilitiesDescription:
         "Our services include architectural design, construction supervision, interior design, renovations and full project management, supporting every stage with a focus on functional quality and aesthetics.",
+      serviceItems: [
+        {
+          number: "01",
+          title: "Architectural Design",
+          description: "We develop conceptual and technical design with plans, models and tailored solutions for your project.",
+        },
+        {
+          number: "02",
+          title: "Construction Supervision",
+          description: "We coordinate construction, supervising quality, schedules and regulatory compliance.",
+        },
+        {
+          number: "03",
+          title: "Construction",
+          description: "We manage the build with technical teams and suppliers to deliver the project professionally.",
+        },
+        {
+          number: "04",
+          title: "Interior Design & Renders",
+          description: "We design functional, stylish interiors and provide renders to visualize the final result.",
+        },
+        {
+          number: "05",
+          title: "Renovations",
+          description: "We renew existing spaces to optimize use, aesthetics and comfort with modern solutions.",
+        },
+        {
+          number: "06",
+          title: "Permits & Legalization",
+          description: "We handle documentation and permits so your project meets all regulations.",
+        },
+        {
+          number: "07",
+          title: "Estimating & Budgeting",
+          description: "We prepare measurements, estimates and budgets for safe economic planning.",
+        },
+        {
+          number: "08",
+          title: "Full Project Management",
+          description: "We support every stage of the project, from initial idea to final delivery.",
+        },
+      ],
       processLabel: "03 — Methodology",
+      processSteps: [
+        { number: "01", title: "Initial meeting", description: "We listen to the client's vision and objectives." },
+        { number: "02", title: "Needs study", description: "We analyze the site, program and constraints." },
+        { number: "03", title: "Concept design", description: "We define the architectural approach and materiality." },
+        { number: "04", title: "Executive design", description: "Complete technical documentation and construction plans." },
+        { number: "05", title: "Budget", description: "Detailed quantities and cost planning." },
+        { number: "06", title: "Construction", description: "Construction management with permanent quality control." },
+        { number: "07", title: "Final delivery", description: "Review, adjustments and post-project support." },
+      ],
       processHeading: "Work Process",
       processDescription:
         "The work process shows how we move from the initial idea to final delivery, with clear stages of analysis, design, budgeting and construction to ensure comprehensive results.",
@@ -312,10 +489,13 @@ const translations = {
         email: "Email",
         phone: "Phone",
         type: "Project type",
+        typePlaceholder: "Residential, commercial, renovation…",
         message: "Message",
       },
       sendButton: "Send Inquiry",
       mailtoSubject: "Web inquiry —",
+      whatsappButton: "Contact us by WhatsApp",
+      sendEmailAria: "Send email",
     },
     footer: {
       navigation: "Navigation",
@@ -324,7 +504,11 @@ const translations = {
       description: "Contemporary architecture studio. Design, management and construction of high-value projects.",
       designedFor: "Designed for excellence",
       copyright: "© {year} Wilson Arquitectura",
+      location: "Location",
+      email: "Email",
+      phone: "Phone",
       instagram: "Instagram",
+      facebook: "Facebook",
       whatsapp: "WhatsApp",
     },
     map: {
@@ -336,12 +520,19 @@ const translations = {
       emailLabel: "Email",
       telLabel: "Tel",
       addressLabel: "Address",
+      facebookLabel: "Facebook",
+      instagramLabel: "Instagram",
+      whatsappLabel: "WhatsApp",
+      locationTitle: "Wilson Arquitectura location",
     },
     sustainability: {
       sectionLabel: "05 — Sustainability",
       heading: "Sustainability",
       description:
         "We integrate efficient solutions and responsible materials in every project to reduce environmental impact.",
+      imageAlt1: "Sustainability 1",
+      imageAlt2: "Sustainability 2",
+      imageAlt3: "Sustainability 3",
       points: [
         {
           title: "Responsible materials",
@@ -421,10 +612,24 @@ const translations = {
       proceso: "Processo de Trabalho",
       contacto: "Contato",
       language: "Idioma",
+      menuOpen: "Menu",
+      menuClose: "Fechar",
+      menuToggleAriaOpen: "Abrir menu",
+      menuToggleAriaClose: "Fechar menu",
+      languageOptions: {
+        es: "Español",
+        en: "English",
+        pt: "Português",
+      },
     },
     common: {
       seeMore: "Ver mais",
       readMore: "Ler mais",
+    },
+    stats: {
+      experience: "Anos de Experiência",
+      projects: "Projetos Realizados",
+      builtArea: "Área Construída",
     },
     hero: {
       tagline: "Estúdio de Arquitetura · Buenos Aires",
@@ -433,6 +638,7 @@ const translations = {
       ctaProjects: "Ver Projetos",
       ctaContact: "Solicitar Consultoria",
       scroll: "Scroll",
+      imageAlt: "Arquitetura contemporânea em concreto",
     },
     history: {
       sectionLabel: "01 — Nosso Conceito",
@@ -449,6 +655,11 @@ const translations = {
         casas: "Casa",
         proyectos: "Projetos",
         ambos: "Casas e Projetos",
+      },
+      originFilterLabels: {
+        all: "Todos",
+        casas: "Casas",
+        proyectos: "Projetos",
       },
       heading: "Projetos",
       sectionDescription:
@@ -467,12 +678,73 @@ const translations = {
         description: "Descrição",
       },
     },
+    casas: {
+      sectionLabel: "Lares",
+      heading: "Casas",
+      description:
+        "Cada casa é concebida como um espaço único, projetado para refletir a identidade, as necessidades e o estilo de vida de quem a habita. Buscamos criar ambientes funcionais, confortáveis e atemporais, onde a arquitetura se torna o cenário de experiências e memórias duradouras.",
+      filters: {
+        todos: "Todos",
+        viviendas: "Residencial",
+      },
+    },
     services: {
       sectionLabel: "02 — Capacidades",
       heading: "Nossos Serviços",
       capabilitiesDescription:
         "Nossos serviços incluem projeto arquitetônico, direção de obra, design de interiores, reformas e gestão completa de projetos, acompanhando cada etapa com foco em qualidade funcional e estética.",
+      serviceItems: [
+        {
+          number: "01",
+          title: "Projeto Arquitetônico",
+          description: "Desenvolvemos o projeto conceitual e técnico com plantas, maquetes e soluções adaptadas ao seu projeto.",
+        },
+        {
+          number: "02",
+          title: "Direção de Obra",
+          description: "Coordenamos o processo construtivo, supervisionando qualidade, prazos e conformidade normativa.",
+        },
+        {
+          number: "03",
+          title: "Construção",
+          description: "Gerenciamos a obra com equipes técnicas e fornecedores para entregar o projeto com padrão profissional.",
+        },
+        {
+          number: "04",
+          title: "Design de Interiores & Renders",
+          description: "Desenhamos interiores funcionais e de estilo, complementados com renders para visualizar o resultado final.",
+        },
+        {
+          number: "05",
+          title: "Reformas",
+          description: "Renovamos espaços existentes para otimizar uso, estética e conforto com soluções atuais.",
+        },
+        {
+          number: "06",
+          title: "Regularizações",
+          description: "Tramitamos a documentação e as licenças necessárias para que sua obra cumpra a norma.",
+        },
+        {
+          number: "07",
+          title: "Orçamentos e Cálculos",
+          description: "Preparamos medições, estimativas e orçamentos claros para um planejamento econômico seguro.",
+        },
+        {
+          number: "08",
+          title: "Gestão Integral de Obras",
+          description: "Acompanhamos todas as etapas do projeto, da ideia inicial à entrega final.",
+        },
+      ],
       processLabel: "03 — Metodologia",
+      processSteps: [
+        { number: "01", title: "Reunião inicial", description: "Ouvimos a visão e os objetivos do cliente." },
+        { number: "02", title: "Estudo de necessidades", description: "Analisamos o local, o programa e as restrições." },
+        { number: "03", title: "Projeto conceitual", description: "Definimos o partido arquitetônico e a materialidade." },
+        { number: "04", title: "Projeto executivo", description: "Documentação técnica completa e plantas de obra." },
+        { number: "05", title: "Orçamento", description: "Cálculos detalhados e planejamento de custos." },
+        { number: "06", title: "Construção", description: "Direção de obra com controle de qualidade permanente." },
+        { number: "07", title: "Entrega final", description: "Revisão, ajustes e acompanhamento pós-obra." },
+      ],
       processHeading: "Processo de Trabalho",
       processDescription:
         "O processo de trabalho mostra como avançamos da ideia inicial até a entrega final, com etapas claras de análise, projeto, orçamento e construção para garantir resultados integrados.",
@@ -516,10 +788,13 @@ const translations = {
         email: "Email",
         phone: "Telefone",
         type: "Tipo de projeto",
+        typePlaceholder: "Residencial, comercial, reforma…",
         message: "Mensagem",
       },
       sendButton: "Enviar Solicitação",
       mailtoSubject: "Consulta web —",
+      whatsappButton: "Contato via WhatsApp",
+      sendEmailAria: "Enviar e-mail",
     },
     footer: {
       navigation: "Navegação",
@@ -528,7 +803,11 @@ const translations = {
       description: "Estúdio de arquitetura contemporânea. Design, direção e construção de obras de alto valor.",
       designedFor: "Projetado para a excelência",
       copyright: "© {year} Wilson Arquitectura",
+      location: "Localização",
+      email: "Email",
+      phone: "Telefone",
       instagram: "Instagram",
+      facebook: "Facebook",
       whatsapp: "WhatsApp",
     },
     map: {
@@ -540,13 +819,18 @@ const translations = {
       emailLabel: "Email",
       telLabel: "Tel",
       addressLabel: "Endereço",
+      facebookLabel: "Facebook",
+      instagramLabel: "Instagram",
+      whatsappLabel: "WhatsApp",
+      locationTitle: "Localização da Wilson Arquitectura",
     },
     sustainability: {
       sectionLabel: "05 — Sustentabilidade",
       heading: "Sustentabilidade",
       description:
-        "Integramos soluções eficientes e materiais responsáveis em cada projeto para reduzir o impacto ambiental.",
-      points: [
+        "Integramos soluções eficientes e materiais responsáveis em cada projeto para reduzir o impacto ambiental.",      imageAlt1: "Sustentabilidade 1",
+      imageAlt2: "Sustentabilidade 2",
+      imageAlt3: "Sustentabilidade 3",      points: [
         {
           title: "Materiais responsáveis",
           description:
@@ -652,16 +936,50 @@ function getPreferredLocale(): Locale {
   return defaultLocale;
 }
 
+function mergeTranslation(base: unknown, override: unknown): unknown {
+  if (Array.isArray(base) || Array.isArray(override)) {
+    return override ?? base;
+  }
+
+  if (typeof base !== "object" || base === null || typeof override !== "object" || override === null) {
+    return override ?? base;
+  }
+
+  const merged = { ...base } as Record<string, unknown>;
+
+  for (const key of Object.keys(override as Record<string, unknown>)) {
+    merged[key] = mergeTranslation(
+      (base as Record<string, unknown>)[key],
+      (override as Record<string, unknown>)[key],
+    );
+  }
+
+  return merged;
+}
+
 export function TranslationProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Locale>(getPreferredLocale);
+  const [language, setLanguage] = useState<Locale>(defaultLocale);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const preferred = getPreferredLocale();
+    if (preferred !== language) {
+      setLanguage(preferred);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
     window.localStorage.setItem("wilson_language", language);
     document.documentElement.lang = language;
   }, [language]);
 
+  const t = mergeTranslation(translations[defaultLocale], translations[language]) as TranslationValue;
+
   return (
-    <TranslationContext.Provider value={{ language, setLanguage, t: translations[language] }}>
+    <TranslationContext.Provider value={{ language, setLanguage, t }}>
       {children}
     </TranslationContext.Provider>
   );

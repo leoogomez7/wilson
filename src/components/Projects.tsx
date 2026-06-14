@@ -73,7 +73,6 @@ const projects: Project[] = [
     category: "comercial",
     image: p2,
     span: "md:col-span-4",
-    offset: "md:mt-48",
     aspect: "aspect-[4/5]",
     location: "Palermo, CABA",
     year: "2022",
@@ -98,7 +97,7 @@ const projects: Project[] = [
     },
     category: "reformas",
     image: p3,
-    span: "md:col-span-5",
+    span: "md:col-span-4",
     aspect: "aspect-[5/6]",
     location: "Palermo Hollywood",
     year: "2024",
@@ -123,8 +122,7 @@ const projects: Project[] = [
     },
     category: "viviendas",
     image: p4,
-    span: "md:col-span-7",
-    offset: "md:mt-32",
+    span: "md:col-span-4",
     aspect: "aspect-[4/3]",
     location: "Recoleta, CABA",
     year: "2024",
@@ -162,45 +160,6 @@ const projects: Project[] = [
   },
 ];
 
-const filterLabels: Record<"es" | "en" | "pt", { key: Category; label: string }[]> = {
-  es: [
-    { key: "todos", label: "Todos" },
-    { key: "viviendas", label: "Viviendas" },
-    { key: "comercial", label: "Comercial" },
-    { key: "reformas", label: "Reformas" },
-  ],
-  en: [
-    { key: "todos", label: "All" },
-    { key: "viviendas", label: "Residential" },
-    { key: "comercial", label: "Commercial" },
-    { key: "reformas", label: "Renovations" },
-  ],
-  pt: [
-    { key: "todos", label: "Todos" },
-    { key: "viviendas", label: "Residencial" },
-    { key: "comercial", label: "Comercial" },
-    { key: "reformas", label: "Reformas" },
-  ],
-};
-
-const originFilterLabels: Record<"es" | "en" | "pt", { key: "all" | "casas" | "proyectos"; label: string }[]> = {
-  es: [
-    { key: "all", label: "Todos" },
-    { key: "casas", label: "Casas" },
-    { key: "proyectos", label: "Proyectos" },
-  ],
-  en: [
-    { key: "all", label: "All" },
-    { key: "casas", label: "Houses" },
-    { key: "proyectos", label: "Projects" },
-  ],
-  pt: [
-    { key: "all", label: "Todos" },
-    { key: "casas", label: "Casas" },
-    { key: "proyectos", label: "Projetos" },
-  ],
-};
-
 import { SectionMode } from "@/components/SectionMode";
 
 export function Projects({ mode = "home" }: { mode?: SectionMode }) {
@@ -234,6 +193,17 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
             : p.origin === "proyectos" || p.origin === "ambos"
         );
   const selected = selectedId ? source.find((p) => p.id === selectedId) : null;
+  const categoryFilters: Array<{ key: Category; label: string }> = [
+    { key: "todos", label: t.projects.filters.todos },
+    { key: "viviendas", label: t.projects.filters.viviendas },
+    { key: "comercial", label: t.projects.filters.comercial },
+    { key: "reformas", label: t.projects.filters.reformas },
+  ];
+  const originFilters: Array<{ key: "all" | "casas" | "proyectos"; label: string }> = [
+    { key: "all", label: t.projects.originFilterLabels.all },
+    { key: "casas", label: t.projects.originFilterLabels.casas },
+    { key: "proyectos", label: t.projects.originFilterLabels.proyectos },
+  ];
 
   return (
     <section id="proyectos" className="relative py-5 md:py-8 px-6 md:px-20 bg-white">
@@ -245,14 +215,14 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
           </span>
           <h2 className="font-serif text-5xl md:text-7xl tracking-tight">{t.projects.heading}</h2>
           {mode === "section" ? (
-            <p className="mt-6 max-w-3xl text-base leading-relaxed text-brand-gray">
+            <p className="mt-6 w-full max-w-none text-base leading-relaxed text-brand-gray">
               {t.projects.sectionDescription}
             </p>
           ) : null}
         </div>
       </div>
       <div className="flex gap-6 md:gap-8 text-[10px] uppercase tracking-[0.3em] font-semibold border-b border-brand-light pb-4 w-full md:w-auto overflow-x-auto mb-6">
-        {filterLabels[language].map((f) => (
+        {categoryFilters.map((f) => (
           <button
             key={f.key}
             onClick={() => setActive(f.key)}
@@ -267,7 +237,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
 
       {mode === "home" ? (
         <div className="flex gap-6 md:gap-8 text-[10px] uppercase tracking-[0.3em] font-semibold border-b border-brand-light pb-4 w-full md:w-auto overflow-x-auto mb-10">
-          {originFilterLabels[language].map((f) => (
+          {originFilters.map((f) => (
             <button
               key={f.key}
               onClick={() => setOriginFilter(f.key)}
@@ -285,9 +255,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
         {visible.map((project) => (
           <article
             key={project.id}
-            className={`col-span-12 ${
-              mode === "home" ? "md:col-span-6 lg:col-span-4" : project.span
-            } ${mode === "section" ? project.offset ?? "" : ""} group cursor-pointer`}
+            className="col-span-12 md:col-span-6 lg:col-span-4 group cursor-pointer"
             onClick={() => setSelectedId(project.id)}
           >
             <div className="overflow-hidden mb-6 bg-brand-light">
@@ -295,7 +263,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
                 src={project.image}
                 alt={project.title[language]}
                 loading="lazy"
-                className={`w-full ${project.aspect} object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-out`}
+                className={`w-full ${project.aspect} object-cover group-hover:scale-105 transition-transform duration-1200 ease-out`}
               />
             </div>
             <div className="flex justify-between items-start gap-4">
@@ -351,10 +319,10 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
                 type="button"
                 onClick={() => setNavChoiceOpen(false)}
                 className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-semibold text-brand-gray transition hover:bg-brand-black hover:text-white"
-                aria-label={language === "es" ? "Cerrar" : language === "pt" ? "Fechar" : "Close"}
+                aria-label={t.projects.modal.close}
               >
                 <X className="h-4 w-4" />
-                {language === "es" ? "Cerrar" : language === "pt" ? "Fechar" : "Close"}
+                {t.projects.modal.close}
               </button>
             </div>
             <div className="grid gap-4">
@@ -363,14 +331,14 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
                 onClick={() => setNavChoiceOpen(false)}
                 className="block rounded-2xl border border-brand-black px-6 py-4 text-center uppercase tracking-[0.3em] font-bold hover:bg-brand-black hover:text-white transition-colors"
               >
-                Casas
+                {t.nav.casas}
               </a>
               <a
                 href="#proyectos"
                 onClick={() => setNavChoiceOpen(false)}
                 className="block rounded-2xl bg-brand-black px-6 py-4 text-center uppercase tracking-[0.3em] font-bold text-white hover:bg-brand-gray transition-colors"
               >
-                Proyectos
+                {t.nav.proyectos}
               </a>
             </div>
           </div>
@@ -385,7 +353,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
   return (
     <div
-      className="fixed inset-0 z-[80] bg-brand-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-12 animate-fade"
+      className="fixed inset-0 z-80 bg-brand-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-12 animate-fade"
       onClick={onClose}
     >
       <div
@@ -399,7 +367,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         >
           {t.projects.modal.close}
         </button>
-        <img src={project.image} alt={project.title[language]} className="w-full aspect-[16/9] object-cover" />
+        <img src={project.image} alt={project.title[language]} className="w-full aspect-video object-cover" />
         <div className="p-8 md:p-12">
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60">
             {project.meta[language]}

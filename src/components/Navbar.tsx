@@ -14,8 +14,8 @@ type NavLabelKey =
 
 const navLinks: Array<{ href: string; labelKey: NavLabelKey }> = [
   { href: "#top", labelKey: "home" },
-  { href: "#equipo", labelKey: "estudio" },
-  { href: "#proyectos", labelKey: "casas" },
+  { href: "#estudio", labelKey: "estudio" },
+  { href: "#casas", labelKey: "casas" },
   { href: "#proyectos", labelKey: "proyectos" },
   { href: "#sustentabilidad", labelKey: "sustentabilidad" },
   { href: "#servicios", labelKey: "servicios" },
@@ -23,14 +23,9 @@ const navLinks: Array<{ href: string; labelKey: NavLabelKey }> = [
   { href: "#contacto", labelKey: "contacto" },
 ];
 
-const languageOptions: Array<{ lang: Locale; label: string }> = [
-  { lang: "es", label: "Español" },
-  { lang: "en", label: "English" },
-  { lang: "pt", label: "Português" },
-];
-
 export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLabelKey) => void }) {
   const { t, language, setLanguage } = useTranslation();
+  const languageOptions = Object.entries(t.nav.languageOptions) as Array<[Locale, string]>;
   const [open, setOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
 
@@ -43,7 +38,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
         <div className="hidden md:flex flex-wrap items-center gap-4 text-[10px] uppercase tracking-[0.3em] font-medium">
           {navLinks.map((item) => (
             <a
-              key={item.href}
+              key={item.labelKey}
               href={item.href}
               onClick={(event) => {
                 event.preventDefault();
@@ -67,19 +62,19 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
             {languageOpen && (
               <div className="absolute right-0 mt-3 min-w-45 rounded-xl border border-border bg-white text-brand-black shadow-xl">
                 <div className="flex flex-col">
-                  {languageOptions.map((option) => (
+                  {languageOptions.map(([lang, label]) => (
                     <button
-                      key={option.lang}
+                      key={lang}
                       type="button"
                       onClick={() => {
-                        setLanguage(option.lang);
+                        setLanguage(lang);
                         setLanguageOpen(false);
                       }}
                       className={`text-left px-4 py-3 text-sm uppercase tracking-[0.3em] transition-colors hover:bg-brand-light/80 ${
-                        language === option.lang ? "font-bold" : "opacity-70"
+                        language === lang ? "font-bold" : "opacity-70"
                       }`}
                     >
-                      {option.label}
+                      {label}
                     </button>
                   ))}
                 </div>
@@ -88,18 +83,18 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
           </div>
         </div>
         <button
-          aria-label="Abrir menú"
+          aria-label={open ? t.nav.menuToggleAriaClose : t.nav.menuToggleAriaOpen}
           onClick={() => setOpen((v) => !v)}
           className="md:hidden text-[10px] uppercase tracking-widest"
         >
-          {open ? "Cerrar" : "Menú"}
+          {open ? t.nav.menuClose : t.nav.menuOpen}
         </button>
       </div>
       {open && (
         <div className="md:hidden bg-white border-t border-border text-brand-black px-6 py-6 flex flex-col gap-5">
           {navLinks.map((item) => (
             <a
-              key={item.href}
+              key={item.labelKey}
               href={item.href}
               onClick={(event) => {
                 event.preventDefault();
@@ -121,20 +116,20 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
             </button>
             {languageOpen && (
               <div className="mt-3 space-y-2 pl-4">
-                {languageOptions.map((option) => (
+                {languageOptions.map(([lang, label]) => (
                   <button
-                    key={option.lang}
+                    key={lang}
                     type="button"
                     onClick={() => {
-                      setLanguage(option.lang);
+                      setLanguage(lang);
                       setLanguageOpen(false);
                       setOpen(false);
                     }}
                     className={`text-left text-sm uppercase tracking-[0.3em] transition-opacity ${
-                      language === option.lang ? "opacity-100 font-bold" : "opacity-60 hover:opacity-100"
+                      language === lang ? "opacity-100 font-bold" : "opacity-60 hover:opacity-100"
                     }`}
                   >
-                    {option.label}
+                    {label}
                   </button>
                 ))}
               </div>

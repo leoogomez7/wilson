@@ -15,6 +15,9 @@ export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
     points: readonly { title: string; description: string }[];
     body1: string;
     body2: string;
+    imageAlt1: string;
+    imageAlt2: string;
+    imageAlt3: string;
     designPrinciplesHeading: string;
     callout: string;
     principles: readonly { title: string; description: string }[];
@@ -41,7 +44,7 @@ export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
             <h2 className="font-serif text-5xl md:text-7xl tracking-tight mb-10">
               {sustainability.heading}
             </h2>
-            <p className="text-brand-gray leading-relaxed max-w-3xl mb-12">
+            <p className="text-brand-gray leading-relaxed w-full max-w-none mb-12">
               {sustainability.description}
             </p>
             <div className="grid gap-8 md:grid-cols-3 mb-12">
@@ -53,20 +56,20 @@ export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
               ))}
             </div>
             <div className="space-y-10">
-              <div className="overflow-hidden rounded-[2rem] bg-brand-light">
-                <img src={s1} alt="Sustentabilidad 1" className="w-full h-auto object-cover" />
+              <div className="overflow-hidden rounded-4xl bg-brand-light">
+                <img src={s1} alt={t.sustainability.imageAlt1} className="w-full h-auto object-cover" />
               </div>
-              <p className="text-base leading-relaxed text-brand-gray max-w-4xl mx-auto">
+              <p className="text-base leading-relaxed text-brand-gray w-full max-w-none">
                 {sustainability.body1}
               </p>
-              <div className="overflow-hidden rounded-[2rem] bg-brand-light">
-                <img src={s2} alt="Sustentabilidad 2" className="w-full h-auto object-cover" />
+              <div className="overflow-hidden rounded-4xl bg-brand-light">
+                <img src={s2} alt={t.sustainability.imageAlt2} className="w-full h-auto object-cover" />
               </div>
-              <p className="text-base leading-relaxed text-brand-gray max-w-4xl mx-auto">
+              <p className="text-base leading-relaxed text-brand-gray w-full max-w-none">
                 {sustainability.body2}
               </p>
-              <div className="overflow-hidden rounded-[2rem] bg-brand-light">
-                <img src={s3} alt="Sustentabilidad 3" className="w-full h-auto object-cover" />
+              <div className="overflow-hidden rounded-4xl bg-brand-light">
+                <img src={s3} alt={t.sustainability.imageAlt3} className="w-full h-auto object-cover" />
               </div>
             </div>
             <div className="mt-16">
@@ -90,7 +93,7 @@ export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
                 })}
               </div>
             </div>
-            <div className="mt-16 rounded-[2rem] border border-border bg-brand-light p-12 text-center">
+            <div className="mt-16 rounded-4xl border border-border bg-brand-light p-12 text-center">
               <p className="text-xl md:text-3xl font-semibold leading-tight">
                 {sustainability.callout}
               </p>
@@ -98,8 +101,8 @@ export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
           </>
         ) : (
           <div className="grid gap-8 md:grid-cols-2 md:items-center">
-            <div className="overflow-hidden rounded-[2rem] bg-brand-light">
-              <img src={s2} alt="Sustentabilidad" className="w-full h-full object-cover" />
+            <div className="overflow-hidden rounded-4xl bg-brand-light">
+              <img src={s2} alt={t.sustainability.imageAlt2} className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col justify-center">
               <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">

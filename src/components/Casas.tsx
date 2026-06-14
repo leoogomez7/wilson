@@ -83,24 +83,14 @@ export const casaProjects: CasaProject[] = [
   },
 ];
 
-const filterLabels: Record<"es" | "en" | "pt", { key: Category; label: string }[]> = {
-  es: [
-    { key: "todos", label: "Todos" },
-    { key: "viviendas", label: "Viviendas" },
-  ],
-  en: [
-    { key: "todos", label: "All" },
-    { key: "viviendas", label: "Residential" },
-  ],
-  pt: [
-    { key: "todos", label: "Todos" },
-    { key: "viviendas", label: "Residencial" },
-  ],
-};
-
 export function Casas({ mode = "home" }: { mode?: SectionMode }) {
   const { t, language } = useTranslation();
   const [active, setActive] = useState<Category>("todos");
+
+  const filterItems: Array<{ key: Category; label: string }> = [
+    { key: "todos", label: t.casas.filters.todos },
+    { key: "viviendas", label: t.casas.filters.viviendas },
+  ];
 
   const visible =
     active === "todos"
@@ -112,16 +102,16 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
         <div>
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
-            Hogar propio
+            {t.casas.sectionLabel}
           </span>
-          <h2 className="font-serif text-5xl md:text-7xl tracking-tight">Casas</h2>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-brand-gray">
-            Cada casa es concebida como un espacio único, diseñado para reflejar la identidad, las necesidades y el estilo de vida de quienes la habitan. Buscamos crear ambientes funcionales, confortables y atemporales, donde la arquitectura se convierta en el escenario de experiencias y recuerdos duraderos.
+          <h2 className="font-serif text-5xl md:text-7xl tracking-tight">{t.casas.heading}</h2>
+          <p className="mt-6 w-full max-w-none text-base leading-relaxed text-brand-gray">
+            {t.casas.description}
           </p>
         </div>
       </div>
       <div className="flex gap-6 md:gap-8 text-[10px] uppercase tracking-[0.3em] font-semibold border-b border-brand-light pb-4 w-full md:w-auto overflow-x-auto">
-        {filterLabels[language].map((f) => (
+        {filterItems.map((f) => (
           <button
             key={f.key}
             onClick={() => setActive(f.key)}
@@ -135,13 +125,13 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
       </div>
       <div className="grid grid-cols-12 gap-y-16 md:gap-y-24 md:gap-x-12 mt-12">
         {visible.map((project) => (
-          <article key={project.id} className={`col-span-12 ${project.span} group`}>
+          <article key={project.id} className="col-span-12 md:col-span-6 group">
             <div className="overflow-hidden mb-6 bg-brand-light">
               <img
                 src={project.image}
                 alt={project.title[language]}
                 loading="lazy"
-                className={`w-full ${project.aspect} object-cover transition-transform duration-[1200ms] ease-out`}
+                className={`w-full ${project.aspect} object-cover transition-transform duration-1200 ease-out`}
               />
             </div>
             <div className="flex justify-between items-start gap-4">

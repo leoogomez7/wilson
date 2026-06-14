@@ -12,7 +12,7 @@ export function VideoImages() {
   useEffect(() => {
     const interval = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % images.length);
-    }, 4000);
+    }, 1700);
 
     return () => window.clearInterval(interval);
   }, []);
@@ -22,7 +22,7 @@ export function VideoImages() {
       <img
         src={images[activeIndex]}
         alt={`Video frame ${activeIndex + 1}`}
-        className="w-full h-[420px] object-cover"
+        className="w-full h-105 object-cover"
       />
     </div>
   );

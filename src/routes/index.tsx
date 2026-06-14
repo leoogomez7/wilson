@@ -91,9 +91,13 @@ function Index() {
 
   const handleSectionChange = (section: SectionKey) => {
     setActiveSection(section === "home" ? "all" : section);
+
     if (typeof window !== "undefined") {
       const hash = section === "home" ? "top" : section;
       window.history.replaceState(null, "", `#${hash}`);
+      if (section === "home") {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      }
     }
   };
 
