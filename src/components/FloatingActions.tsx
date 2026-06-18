@@ -12,34 +12,34 @@ export function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t.contact.whatsappButton}
-        className="size-12 md:size-14 rounded-full bg-white text-black border border-brand-black grid place-items-center shadow-lg hover:scale-110 transition-transform overflow-hidden"
+        className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white text-black border border-brand-black grid place-items-center shadow-lg hover:scale-110 transition-transform overflow-hidden"
       >
-        <img src={whatsappLogo} alt="WhatsApp" className="h-7 w-7 object-contain" />
+        <img src={whatsappLogo} alt="WhatsApp" className="w-4 h-4 object-contain" />
       </a>
       <a
         href="https://www.instagram.com/wilson.arquitectura"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t.footer.instagram}
-        className="size-12 md:size-14 rounded-full bg-white border border-brand-black text-brand-black grid place-items-center shadow-md hover:scale-110 transition-transform"
+        className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white border border-brand-black text-brand-black grid place-items-center shadow-md hover:scale-110 transition-transform"
       >
-        <Instagram className="size-6" />
+        <Instagram className="w-4 h-4" />
       </a>
       <a
         href="https://www.facebook.com/people/Wilson-Arquitectura/100067440165213"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t.footer.facebook}
-        className="size-12 md:size-14 rounded-full bg-white border border-brand-black text-brand-black grid place-items-center shadow-md hover:scale-110 transition-transform"
+        className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white border border-brand-black text-brand-black grid place-items-center shadow-md hover:scale-110 transition-transform"
       >
-        <Facebook className="size-6" />
+        <Facebook className="w-4 h-4" />
       </a>
       <a
         href="mailto:wilson.arquitectura5@gmail.com"
         aria-label={t.contact.sendEmailAria}
-        className="size-12 md:size-14 rounded-full bg-white border border-brand-black text-brand-black grid place-items-center shadow-md hover:scale-110 transition-transform"
+        className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white border border-brand-black text-brand-black grid place-items-center shadow-md hover:scale-110 transition-transform"
       >
-        <Mail className="size-6" />
+        <Mail className="w-4 h-4" />
       </a>
     </div>
   );

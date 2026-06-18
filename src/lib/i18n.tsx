@@ -14,6 +14,7 @@ const translations = {
       sustentabilidad: "Sustentabilidad",
       servicios: "Nuestros Servicios",
       proceso: "Proceso de trabajo",
+      otrosServicios: "Otros servicios",
       contacto: "Contacto",
       language: "Idioma",
       menuOpen: "Menú",
@@ -77,6 +78,12 @@ const translations = {
         all: "Todos",
         casas: "Casas",
         proyectos: "Proyectos",
+      },
+      atmosphereLabel: "Atmósfera",
+      atmospheres: {
+        anochecer: "Anochecer de verano",
+        atardecer: "Atardecer de otoño",
+        amanecer: "Amanecer de primavera",
       },
     },
     casas: {
@@ -311,6 +318,7 @@ const translations = {
       sustentabilidad: "Sustainability",
       servicios: "Our Services",
       proceso: "Work Process",
+      otrosServicios: "Other Services",
       contacto: "Contact",
       language: "Language",
       menuOpen: "Menu",
@@ -361,6 +369,12 @@ const translations = {
         all: "All",
         casas: "Houses",
         proyectos: "Projects",
+      },
+      atmosphereLabel: "Atmosphere",
+      atmospheres: {
+        anochecer: "Summer dusk",
+        atardecer: "Autumn sunset",
+        amanecer: "Spring sunrise",
       },
       heading: "Projects",
       sectionDescription:
@@ -610,6 +624,7 @@ const translations = {
       sustentabilidad: "Sustentabilidade",
       servicios: "Nossos Serviços",
       proceso: "Processo de Trabalho",
+      otrosServicios: "Outros serviços",
       contacto: "Contato",
       language: "Idioma",
       menuOpen: "Menu",
@@ -660,6 +675,12 @@ const translations = {
         all: "Todos",
         casas: "Casas",
         proyectos: "Projetos",
+      },
+      atmosphereLabel: "Atmosfera",
+      atmospheres: {
+        anochecer: "Anoitecer de verão",
+        atardecer: "Pôr do sol de outono",
+        amanecer: "Amanhecer de primavera",
       },
       heading: "Projetos",
       sectionDescription:

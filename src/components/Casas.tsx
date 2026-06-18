@@ -6,6 +6,8 @@ import p4 from "@/assets/project-4.jpg";
 
 type Category = "todos" | "viviendas";
 
+type AtmosphereType = "anochecer" | "atardecer" | "amanecer";
+
 type LocalizedString = {
   es: string;
   en: string;
@@ -19,8 +21,6 @@ interface CasaProject {
   description: LocalizedString;
   category: "viviendas";
   image: string;
-  span: string;
-  aspect: string;
   location: string;
   year: string;
   area: string;
@@ -42,8 +42,6 @@ export const casaProjects: CasaProject[] = [
       pt: "Casa Unifamiliar — 2023",
     },
     image: p1,
-    span: "md:col-span-8",
-    aspect: "aspect-[16/10]",
     location: "San Isidro, Buenos Aires",
     year: "2023",
     area: "320 m²",
@@ -68,8 +66,6 @@ export const casaProjects: CasaProject[] = [
       pt: "Residência Premium — 2024",
     },
     image: p4,
-    span: "md:col-span-7",
-    aspect: "aspect-[4/3]",
     location: "Recoleta, CABA",
     year: "2024",
     area: "480 m²",
@@ -86,6 +82,13 @@ export const casaProjects: CasaProject[] = [
 export function Casas({ mode = "home" }: { mode?: SectionMode }) {
   const { t, language } = useTranslation();
   const [active, setActive] = useState<Category>("todos");
+  const [selectedAtmosphere, setSelectedAtmosphere] = useState<AtmosphereType>("anochecer");
+
+  const atmospheres: Array<{ key: AtmosphereType; label: string }> = [
+    { key: "anochecer", label: t.projects.atmospheres.anochecer },
+    { key: "atardecer", label: t.projects.atmospheres.atardecer },
+    { key: "amanecer", label: t.projects.atmospheres.amanecer },
+  ];
 
   const filterItems: Array<{ key: Category; label: string }> = [
     { key: "todos", label: t.casas.filters.todos },
@@ -104,7 +107,7 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.casas.sectionLabel}
           </span>
-          <h2 className="font-serif text-5xl md:text-7xl tracking-tight">{t.casas.heading}</h2>
+          <h2 className="font-serif text-3xl md:text-4xl tracking-tight">{t.casas.heading}</h2>
           <p className="mt-6 w-full max-w-none text-base leading-relaxed text-brand-gray">
             {t.casas.description}
           </p>
@@ -123,15 +126,32 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
           </button>
         ))}
       </div>
+      <div className="mb-4 text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray">
+        {t.projects.atmosphereLabel}
+      </div>
+      <div className="flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.25em] font-semibold mb-10">
+        {atmospheres.map((atm) => (
+          <button
+            key={atm.key}
+            type="button"
+            onClick={() => setSelectedAtmosphere(atm.key)}
+            className={`rounded-full border border-brand-light px-4 py-2 transition ${
+              selectedAtmosphere === atm.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
+            }`}
+          >
+            {atm.label}
+          </button>
+        ))}
+      </div>
       <div className="grid grid-cols-12 gap-y-16 md:gap-y-24 md:gap-x-12 mt-12">
         {visible.map((project) => (
           <article key={project.id} className="col-span-12 md:col-span-6 group">
-            <div className="overflow-hidden mb-6 bg-brand-light">
+            <div className="overflow-hidden mb-6 bg-brand-light aspect-4/3">
               <img
                 src={project.image}
                 alt={project.title[language]}
                 loading="lazy"
-                className={`w-full ${project.aspect} object-cover transition-transform duration-1200 ease-out`}
+                className="w-full h-full object-cover transition-transform duration-1200 ease-out"
               />
             </div>
             <div className="flex justify-between items-start gap-4">

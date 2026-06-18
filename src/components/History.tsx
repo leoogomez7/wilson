@@ -17,7 +17,7 @@ export function History({ mode = "home" }: { mode?: SectionMode }) {
               <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
                 {t.history.sectionLabel}
               </span>
-              <h2 className="font-serif text-5xl md:text-7xl tracking-tight">
+              <h2 className="font-serif text-4xl md:text-5xl tracking-tight">
                 {t.history.heading}
               </h2>
             </div>

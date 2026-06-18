@@ -28,7 +28,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
       <section id="estudio-home" className="relative py-5 md:py-8 px-6 md:px-20 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div className="overflow-hidden rounded-3xl">
+            <div className="overflow-hidden">
               <img
                 src={equipoImg}
                 alt={t.team.imageAlt}
@@ -40,7 +40,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
               <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
                 {t.team.sectionLabel}
               </span>
-              <h2 className="font-serif text-5xl md:text-7xl tracking-tight mb-8">
+              <h2 className="font-serif text-3xl md:text-4xl tracking-tight mb-8">
                 {t.team.heading}
               </h2>
               <p className="text-brand-gray leading-relaxed mb-10">
@@ -69,9 +69,9 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.team.sectionLabel}
           </span>
-          <h2 className="font-serif text-5xl md:text-7xl tracking-tight">{t.team.heading}</h2>
+          <h2 className="font-serif text-3xl md:text-4xl tracking-tight">{t.team.heading}</h2>
           <div className="mt-10 grid gap-8 lg:grid-cols-[360px_minmax(0,1fr)] items-center">
-            <div className="overflow-hidden rounded-3xl">
+            <div className="overflow-hidden">
               <img
                 src={equipoImg}
                 alt={t.team.imageAlt}
@@ -90,7 +90,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
             return (
               <article key={member.id} className="group flex flex-col items-center text-center">
                 <div
-                  className={`overflow-hidden bg-brand-light mb-6 rounded-full flex items-center justify-center ${
+                  className={`overflow-hidden rounded-full bg-brand-light mb-6 flex items-center justify-center ${
                     isWilson ? "w-56 h-56 md:w-72 md:h-72" : "w-52 h-52 md:w-64 md:h-64"
                   }`}
                 >

@@ -52,7 +52,7 @@ export function Contact({ mode = "home" }: { mode?: SectionMode }) {
             </div>
             {mode === "section" ? (
               <>
-                <h2 className="font-serif text-5xl md:text-7xl mb-16 text-center tracking-tight">
+                <h2 className="font-serif text-3xl md:text-4xl mb-16 text-center tracking-tight">
                   {t.contact.heading}
                 </h2>
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10" onSubmit={onSubmit}>

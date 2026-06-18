@@ -10,6 +10,8 @@ import { casaProjects } from "@/components/Casas";
 
 type Category = "todos" | "viviendas" | "comercial" | "reformas";
 
+type AtmosphereType = "anochecer" | "atardecer" | "amanecer";
+
 interface LocalizedString {
   es: string;
   en: string;
@@ -22,9 +24,6 @@ interface Project {
   meta: LocalizedString;
   category: Exclude<Category, "todos">;
   image: string;
-  span: string;
-  offset?: string;
-  aspect: string;
   location: string;
   year: string;
   area: string;
@@ -47,8 +46,6 @@ const projects: Project[] = [
     },
     category: "viviendas",
     image: p1,
-    span: "md:col-span-8",
-    aspect: "aspect-[16/10]",
     location: "San Isidro, Buenos Aires",
     year: "2023",
     area: "320 m²",
@@ -72,8 +69,6 @@ const projects: Project[] = [
     },
     category: "comercial",
     image: p2,
-    span: "md:col-span-4",
-    aspect: "aspect-[4/5]",
     location: "Palermo, CABA",
     year: "2022",
     area: "150 m²",
@@ -97,8 +92,6 @@ const projects: Project[] = [
     },
     category: "reformas",
     image: p3,
-    span: "md:col-span-4",
-    aspect: "aspect-[5/6]",
     location: "Palermo Hollywood",
     year: "2024",
     area: "210 m²",
@@ -122,8 +115,6 @@ const projects: Project[] = [
     },
     category: "viviendas",
     image: p4,
-    span: "md:col-span-4",
-    aspect: "aspect-[4/3]",
     location: "Recoleta, CABA",
     year: "2024",
     area: "480 m²",
@@ -147,8 +138,6 @@ const projects: Project[] = [
     },
     category: "comercial",
     image: p5,
-    span: "md:col-span-12",
-    aspect: "aspect-[21/9]",
     location: "Vicente López",
     year: "2023",
     area: "1.200 m²",
@@ -166,6 +155,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
   const { t, language } = useTranslation();
   const [active, setActive] = useState<Category>("todos");
   const [originFilter, setOriginFilter] = useState<"all" | "casas" | "proyectos">("all");
+  const [selectedAtmosphere, setSelectedAtmosphere] = useState<AtmosphereType>("anochecer");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [navChoiceOpen, setNavChoiceOpen] = useState(false);
 
@@ -193,6 +183,11 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
             : p.origin === "proyectos" || p.origin === "ambos"
         );
   const selected = selectedId ? source.find((p) => p.id === selectedId) : null;
+  const atmospheres: Array<{ key: AtmosphereType; label: string }> = [
+    { key: "anochecer", label: t.projects.atmospheres.anochecer },
+    { key: "atardecer", label: t.projects.atmospheres.atardecer },
+    { key: "amanecer", label: t.projects.atmospheres.amanecer },
+  ];
   const categoryFilters: Array<{ key: Category; label: string }> = [
     { key: "todos", label: t.projects.filters.todos },
     { key: "viviendas", label: t.projects.filters.viviendas },
@@ -213,7 +208,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {mode === "home" ? t.projects.homeLabel : t.projects.sectionLabel}
           </span>
-          <h2 className="font-serif text-5xl md:text-7xl tracking-tight">{t.projects.heading}</h2>
+          <h2 className="font-serif text-3xl md:text-4xl tracking-tight">{t.projects.heading}</h2>
           {mode === "section" ? (
             <p className="mt-6 w-full max-w-none text-base leading-relaxed text-brand-gray">
               {t.projects.sectionDescription}
@@ -251,6 +246,24 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
         </div>
       ) : null}
 
+      <div className="mb-4 text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray">
+        {t.projects.atmosphereLabel}
+      </div>
+      <div className="flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.25em] font-semibold mb-10">
+        {atmospheres.map((atm) => (
+          <button
+            key={atm.key}
+            type="button"
+            onClick={() => setSelectedAtmosphere(atm.key)}
+            className={`rounded-full border border-brand-light px-4 py-2 transition ${
+              selectedAtmosphere === atm.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
+            }`}
+          >
+            {atm.label}
+          </button>
+        ))}
+      </div>
+
       <div className="grid grid-cols-12 gap-y-16 md:gap-y-24 md:gap-x-12">
         {visible.map((project) => (
           <article
@@ -258,12 +271,12 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
             className="col-span-12 md:col-span-6 lg:col-span-4 group cursor-pointer"
             onClick={() => setSelectedId(project.id)}
           >
-            <div className="overflow-hidden mb-6 bg-brand-light">
+            <div className="overflow-hidden mb-6 bg-brand-light aspect-4/3">
               <img
                 src={project.image}
                 alt={project.title[language]}
                 loading="lazy"
-                className={`w-full ${project.aspect} object-cover group-hover:scale-105 transition-transform duration-1200 ease-out`}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1200 ease-out"
               />
             </div>
             <div className="flex justify-between items-start gap-4">

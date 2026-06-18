@@ -10,6 +10,7 @@ type NavLabelKey =
   | "sustentabilidad"
   | "servicios"
   | "proceso"
+  | "otrosServicios"
   | "contacto";
 
 const navLinks: Array<{ href: string; labelKey: NavLabelKey }> = [
@@ -17,9 +18,10 @@ const navLinks: Array<{ href: string; labelKey: NavLabelKey }> = [
   { href: "#estudio", labelKey: "estudio" },
   { href: "#casas", labelKey: "casas" },
   { href: "#proyectos", labelKey: "proyectos" },
-  { href: "#sustentabilidad", labelKey: "sustentabilidad" },
   { href: "#servicios", labelKey: "servicios" },
+  { href: "#sustentabilidad", labelKey: "sustentabilidad" },
   { href: "#proceso", labelKey: "proceso" },
+  { href: "#servicios", labelKey: "otrosServicios" },
   { href: "#contacto", labelKey: "contacto" },
 ];
 

@@ -12,7 +12,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
           <div>
             <a href="#top" className="inline-block mb-4">
-              <img src={logo} alt="Wilson logo" className=".h-30 w-auto object-contain" />
+              <img src={logo} alt="Wilson logo" className="h-16 w-auto object-contain" />
             </a>
             <p className="text-sm text-brand-gray leading-relaxed max-w-xs">
               {t.footer.description}

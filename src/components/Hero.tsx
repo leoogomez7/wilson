@@ -20,11 +20,11 @@ export function Hero() {
         <div className="absolute inset-0 .bg-linear-to-b from-brand-black/40 via-transparent to-brand-black/70" />
       </div>
 
-      <div className="relative z-10 text-center text-white px-6 max-w-5xl">
+      <div className="relative z-10 text-center text-white px-6 max-w-full">
         <p className="text-[10px] uppercase tracking-[0.5em] opacity-70 mb-8 animate-fade">
           {t.hero.tagline}
         </p>
-        <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl mb-8 tracking-tight leading-[0.95] animate-reveal">
+        <h1 className="font-serif w-full max-w-none text-[clamp(3.5rem,10vw,9rem)] sm:text-[clamp(4.5rem,10vw,10rem)] lg:text-[clamp(5.5rem,10vw,11rem)] mb-8 tracking-[0.3em] leading-[0.9] animate-reveal">
           Wilson<br />Arquitectura
         </h1>
         <p

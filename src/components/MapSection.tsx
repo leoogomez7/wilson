@@ -12,7 +12,7 @@ export function MapSection() {
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.map.sectionLabel}
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl mb-8 tracking-tight">{t.map.heading}</h2>
+          <h2 className="font-serif text-2xl md:text-3xl mb-8 tracking-tight">{t.map.heading}</h2>
           <p className="text-brand-gray leading-relaxed mb-8 max-w-md">
             {t.map.description}
           </p>

@@ -12,7 +12,7 @@ export function Services({ mode = "home" }: { mode?: SectionMode }) {
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.services.sectionLabel}
           </span>
-          <h2 className="font-serif text-5xl md:text-6xl mb-10 tracking-tight">
+          <h2 className="font-serif text-3xl md:text-4xl mb-10 tracking-tight">
             {t.services.heading}
           </h2>
           {mode === "home" ? (
@@ -69,25 +69,45 @@ export function Services({ mode = "home" }: { mode?: SectionMode }) {
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.services.processLabel}
           </span>
-          <h2 className="font-serif text-5xl md:text-6xl mb-12 tracking-tight">
+          <h2 className="font-serif text-3xl md:text-4xl mb-6 tracking-tight">
             {t.services.processHeading}
           </h2>
-          <div className="relative">
-            <div className="absolute left-4.5 top-2 bottom-2 w-px bg-brand-black/15" />
-            <div className="space-y-8">
-              {t.services.processSteps.map(({ number, title, description }) => (
-                <div key={number} className="flex gap-6 items-start">
-                  <div className="relative z-10 size-10 shrink-0 rounded-full bg-white border border-brand-black flex items-center justify-center text-[10px] font-bold tracking-widest">
-                    {number}
+          {mode === "home" ? (
+            <>
+              <p className="w-full max-w-none text-base leading-relaxed text-brand-gray mb-10">
+                {t.services.processDescription}
+              </p>
+              <div className="space-y-4">
+                {t.services.processSteps.map(({ number, title }) => (
+                  <div key={number} className="rounded-3xl border border-brand-black/10 bg-white px-5 py-5">
+                    <div className="flex items-center gap-4">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-black bg-white text-sm font-semibold">
+                        {number}
+                      </span>
+                      <span className="text-lg md:text-xl font-semibold">{title}</span>
+                    </div>
                   </div>
-                  <div className="pt-1.5">
-                    <h4 className="font-serif text-xl mb-1">{title}</h4>
-                    <p className="text-sm text-brand-gray leading-relaxed">{description}</p>
+                ))}
+              </div>
+            </>
+          ) : (
+            <div className="relative">
+              <div className="absolute left-4.5 top-2 bottom-2 w-px bg-brand-black/15" />
+              <div className="space-y-8">
+                {t.services.processSteps.map(({ number, title, description }) => (
+                  <div key={number} className="flex gap-6 items-start">
+                    <div className="relative z-10 size-10 shrink-0 rounded-full bg-white border border-brand-black flex items-center justify-center text-[10px] font-bold tracking-widest">
+                      {number}
+                    </div>
+                    <div className="pt-1.5">
+                      <h4 className="font-serif text-xl mb-1">{title}</h4>
+                      <p className="text-sm text-brand-gray leading-relaxed">{description}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
           <div className="mt-12 text-right">
             <a
               href="#proceso"
@@ -121,7 +141,7 @@ export function ServiceCapabilities({ mode = "home" }: { mode?: SectionMode }) {
         <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
           {t.services.sectionLabel}
         </span>
-        <h2 className="font-serif text-5xl md:text-6xl mb-10 tracking-tight">
+        <h2 className="font-serif text-3xl md:text-4xl mb-10 tracking-tight">
           {t.services.heading}
         </h2>
         {mode === "section" ? (
@@ -167,7 +187,7 @@ export function ServiceProcess({ mode = "home" }: { mode?: SectionMode }) {
         <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
           {t.services.processLabel}
         </span>
-        <h2 className="font-serif text-5xl md:text-6xl mb-12 tracking-tight">
+        <h2 className="font-serif text-3xl md:text-4xl mb-12 tracking-tight">
           {t.services.processHeading}
         </h2>
         {mode === "section" ? (
@@ -175,21 +195,29 @@ export function ServiceProcess({ mode = "home" }: { mode?: SectionMode }) {
             {t.services.processDescription}
           </p>
         ) : null}
-        <div className="relative">
-          <div className="absolute left-4.5 top-2 bottom-2 w-px bg-brand-black/15" />
-          <div className="space-y-8">
+        <div className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-4">
             {t.services.processSteps.map(({ number, title, description }) => (
-              <div key={number} className="flex gap-6 items-start">
-                <div className="relative z-10 size-10 shrink-0 rounded-full bg-white border border-brand-black flex items-center justify-center text-[10px] font-bold tracking-widest">
-                  {number}
-                </div>
-                <div className="pt-1.5">
-                  <h4 className="font-serif text-xl mb-1">{title}</h4>
-                  <p className="text-sm text-brand-gray leading-relaxed">{description}</p>
-                </div>
-              </div>
+              <AccordionItem key={number} value={`process-step-${number}`}>
+                <AccordionTrigger className="rounded-3xl border border-brand-black/10 bg-white px-5 py-5 text-left transition hover:border-brand-black">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-black bg-white text-sm font-semibold">
+                        {number}
+                      </span>
+                      <span className="text-lg md:text-xl font-semibold">{title}</span>
+                    </div>
+                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-gray">
+                      {t.common.readMore}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="mt-4 text-sm text-brand-gray leading-relaxed">{description}</p>
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </div>
     </section>
