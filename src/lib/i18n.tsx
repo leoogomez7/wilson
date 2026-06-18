@@ -154,8 +154,6 @@ const translations = {
         { number: "07", title: "Entrega final", description: "Revisión, ajustes y acompañamiento post-obra." },
       ],
       processHeading: "Proceso de Trabajo",
-      processDescription:
-        "El proceso de trabajo muestra cómo avanzamos desde la idea inicial hasta la entrega final, con etapas claras de análisis, diseño, presupuesto y construcción para asegurar resultados integrales.",
     },
     team: {
       sectionLabel: "12 años de trayectoria",
