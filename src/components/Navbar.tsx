@@ -33,11 +33,11 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/85 backdrop-blur-md py-4 text-brand-black">
-      <div className="px-6 md:px-12 flex justify-between items-center">
-        <a href="#top" className="block">
+      <div className="px-6 md:px-12 flex items-center">
+        <a href="#top" className="block mr-auto">
           <img src={logo} alt="Wilson logo" className="h-10 w-auto object-contain" />
         </a>
-        <div className="hidden md:flex flex-1 justify-end flex-nowrap items-center gap-6 text-[10px] uppercase tracking-[0.3em] font-medium">
+        <div className="hidden md:flex items-center justify-end flex-nowrap gap-6 text-[10px] uppercase tracking-[0.3em] font-medium">
           {navLinks.map((item) => (
             <a
               key={item.labelKey}

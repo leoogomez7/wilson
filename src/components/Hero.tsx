@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[calc(100vh-5rem)] w-full flex items-start justify-center py-28 pb-16 overflow-visible bg-brand-black"
+      className="relative min-h-[calc(100vh-5rem)] w-full flex items-start justify-center py-28 pb-16 overflow-hidden bg-brand-black"
     >
       <div className="absolute inset-0">
         <img
