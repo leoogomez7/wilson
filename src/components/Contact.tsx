@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "@/lib/i18n";
 import { SectionMode } from "@/components/SectionMode";
-import whatsappLogo from "@/assets/whatsapp.jpg";
+import whatsappLogo from "@/assets/Whatsapp.jpg";
 
 export function Contact({ mode = "home" }: { mode?: SectionMode }) {
   const { t } = useTranslation();
