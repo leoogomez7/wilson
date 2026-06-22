@@ -37,7 +37,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
         <a href="#top" className="block">
           <img src={logo} alt="Wilson logo" className="h-10 w-auto object-contain" />
         </a>
-        <div className="hidden md:flex flex-1 md:flex-nowrap flex-wrap justify-center items-center gap-6 text-[10px] uppercase tracking-[0.3em] font-medium">
+        <div className="hidden md:flex flex-1 justify-end flex-nowrap items-center gap-6 text-[10px] uppercase tracking-[0.3em] font-medium">
           {navLinks.map((item) => (
             <a
               key={item.labelKey}

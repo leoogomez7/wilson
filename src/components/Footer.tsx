@@ -44,13 +44,13 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#sustentabilidad" className="hover:opacity-60 whitespace-nowrap">
-                  {t.nav.sustentabilidad}
+                <a href="#servicios" className="hover:opacity-60 whitespace-nowrap">
+                  {t.nav.servicios}
                 </a>
               </li>
               <li>
-                <a href="#servicios" className="hover:opacity-60 whitespace-nowrap">
-                  {t.nav.servicios}
+                <a href="#sustentabilidad" className="hover:opacity-60 whitespace-nowrap">
+                  {t.nav.sustentabilidad}
                 </a>
               </li>
               <li>

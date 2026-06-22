@@ -121,8 +121,8 @@ function Index() {
         {activeSection === "all" && <History mode={sectionMode} />}
         {activeSection === "all" && <Team mode={sectionMode} />}
         {activeSection === "all" && <Projects mode={sectionMode} />}
-        {activeSection === "all" && <Sustainability mode={sectionMode} />}
         {activeSection === "all" && <Services mode={sectionMode} />}
+        {activeSection === "all" && <Sustainability mode={sectionMode} />}
         {activeSection === "all" && <Contact mode={sectionMode} />}
         {activeSection === "all" && <MapSection />}
 

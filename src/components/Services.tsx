@@ -72,24 +72,27 @@ export function Services({ mode = "home" }: { mode?: SectionMode }) {
           <h2 className="font-serif text-2xl md:text-3xl mb-6 tracking-tight">
             {t.services.processHeading}
           </h2>
+          {mode === "section" ? (
+            <p className="w-full max-w-none text-base leading-relaxed text-brand-gray mb-10">
+              {t.services.processDescription}
+            </p>
+          ) : null}
           {mode === "home" ? (
-            <>
-              <p className="w-full max-w-none text-base leading-relaxed text-brand-gray mb-6">
-                {t.services.processDescription}
-              </p>
-              <div className="space-y-4">
-                {t.services.processSteps.map(({ number, title }) => (
-                  <div key={number} className="border border-brand-black/10 bg-white px-5 py-5">
-                    <div className="flex items-center gap-4">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-black bg-white text-sm font-semibold">
-                        {number}
-                      </span>
-                      <span className="text-lg md:text-xl font-semibold">{title}</span>
-                    </div>
+            <div className="space-y-4">
+              {t.services.processSteps.map(({ number, title }) => (
+                <div
+                  key={number}
+                  className="border border-brand-black/10 bg-white px-5 py-5"
+                >
+                  <div className="flex items-center gap-4">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-black bg-white text-sm font-semibold">
+                      {number}
+                    </span>
+                    <span className="text-lg md:text-xl font-semibold">{title}</span>
                   </div>
-                ))}
-              </div>
-            </>
+                </div>
+              ))}
+            </div>
           ) : (
             <div className="relative">
               <div className="absolute left-4.5 top-2 bottom-2 w-px bg-brand-black/15" />
