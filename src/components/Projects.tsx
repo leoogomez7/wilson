@@ -203,7 +203,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
   return (
     <section id="proyectos" className="relative py-5 md:py-8 px-6 md:px-20 bg-white">
       <div id="casas" className="absolute -top-24" />
-      <div className="flex flex-col md:flex-row justify-between items-end mb-2 md:mb-4 gap-6">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-2 md:mb-4 gap-6">
         <div>
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {mode === "home" ? t.projects.homeLabel : t.projects.sectionLabel}
