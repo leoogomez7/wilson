@@ -24,8 +24,8 @@ export function Hero() {
         <p className="text-[16px] uppercase tracking-[0.5em] opacity-70 mb-8 animate-fade">
           {t.hero.tagline}
         </p>
-        <h1 className="font-serif w-full max-w-none text-[clamp(2rem,8vw,5.5rem)] sm:text-[clamp(4.5rem,10vw,10rem)] lg:text-[clamp(5.5rem,10vw,11rem)] mb-8 tracking-[0.12em] sm:tracking-[0.3em] leading-[0.95] break-words whitespace-normal animate-reveal">
-          Wilson<br />Arquitectura
+        <h1 className="font-serif w-full max-w-none text-[clamp(2.8rem,11vw,7rem)] sm:text-[clamp(4.5rem,10vw,10rem)] lg:text-[clamp(5.5rem,10vw,11rem)] mb-8 tracking-[0.12em] sm:tracking-[0.3em] leading-[0.95] whitespace-normal animate-reveal">
+          Wilson<br /><span className="inline-block whitespace-nowrap">Arquitectura</span>
         </h1>
         <p
           className="text-[11px] md:text-sm uppercase tracking-[0.4em] font-light max-w-xl mx-auto leading-loose opacity-80 animate-reveal"
