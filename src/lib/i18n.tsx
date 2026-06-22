@@ -38,7 +38,7 @@ const translations = {
     },
     hero: {
       tagline: "Estudio de Arquitectura · Pilar, Buenos Aires",
-      description: "Te acompañamos desde el asesoramiento inicial hasta que puedas disfrutar del espacio que tenés en mente, brindándote la garantía de nuestro servicio.",
+      description: "Creamos espacios exclusivos, donde el diseño, la funcionalidad y la calidad se integran en cada detalle. Transformamos ideas en obras que reflejan el estilo y las necesidades de cada cliente.",
       ctaProjects: "Ver Proyectos",
       ctaContact: "Solicitar Asesoramiento",
       scroll: "Scroll",
@@ -49,14 +49,16 @@ const translations = {
       heading: "Proyección, Dirección y Ejecución",
       description:
         "Somos un estudio de arquitectura que cuenta con doce años de experiencia, nuestro enfoque es combinar diseños, planificación, estratégica y gestión integral, con el compromiso claro de transformar ideas en espacios concretos funcionales de alto valor, con profesionalismo y visión.",
+      description2:
+        "Cada proyecto comienza con una conversación cercana con el cliente y un análisis profundo del contexto, para ofrecer soluciones constructivas elegantes y duraderas.",
     },
     projects: {
       sectionLabel: "Análisis y Visión",
-      homeLabel: "Casas y Proyectos",
+      homeLabel: "Casas",
       originLabels: {
-        casas: "Casa",
+        casas: "Casas",
         proyectos: "Proyectos",
-        ambos: "Casas y Proyectos",
+        ambos: "Casas",
       },
       heading: "Proyectos",
       sectionDescription:
@@ -67,6 +69,7 @@ const translations = {
         comercial: "Comercial",
         reformas: "Reformas",
       },
+      categoryFilterTitle: "Categoría",
       modal: {
         close: "Cerrar",
         location: "Ubicación",
@@ -74,6 +77,7 @@ const translations = {
         area: "Superficie",
         description: "Descripción",
       },
+      originFilterTitle: "Origen",
       originFilterLabels: {
         all: "Todos",
         casas: "Casas",
@@ -154,6 +158,7 @@ const translations = {
         { number: "07", title: "Entrega final", description: "Revisión, ajustes y acompañamiento post-obra." },
       ],
       processHeading: "Proceso de Trabajo",
+      processDescription: "Nuestro proceso combina diálogo con el cliente, análisis de sitio y coordenadas técnicas para entregar proyectos claros, eficientes y listos para construirse.",
     },
     team: {
       sectionLabel: "12 años de trayectoria",
@@ -339,16 +344,16 @@ const translations = {
       builtArea: "Built Area",
     },
     hero: {
-      tagline: "Architecture Studio · Buenos Aires",
+      tagline: "Architecture Studio · Pilar, Buenos Aires",
       description:
-        "We design spaces that transcend. We turn ideas into meaningful architecture.",
+        "Project management, construction supervision and execution. We design unique spaces with exclusivity in every detail. We turn your ideas and dreams into reality.",
       ctaProjects: "View Projects",
       ctaContact: "Request Consultation",
       scroll: "Scroll",
       imageAlt: "Contemporary concrete architecture",
     },
     history: {
-      sectionLabel: "01 — Our Concept",
+      sectionLabel: "Our Concept",
       heading: "Projection, Direction and Execution",
       description:
         "We are an architecture studio with twelve years of experience, focused on combining design, planning, strategic management and construction with a clear commitment to turning ideas into high-value functional spaces.",
@@ -356,7 +361,7 @@ const translations = {
         "Each project begins with a close conversation with the client and a thorough reading of the context, to propose elegant, lasting constructive solutions.",
     },
     projects: {
-      sectionLabel: "02 — Featured Works",
+      sectionLabel: "Featured Works",
       homeLabel: "Houses & Projects",
       originLabels: {
         casas: "House",
@@ -383,6 +388,8 @@ const translations = {
         comercial: "Commercial",
         reformas: "Renovations",
       },
+      categoryFilterTitle: "Category",
+      originFilterTitle: "Origin",
       modal: {
         close: "Close",
         location: "Location",
@@ -402,7 +409,7 @@ const translations = {
       },
     },
     services: {
-      sectionLabel: "02 — Capabilities",
+      sectionLabel: "Capabilities",
       heading: "Our Services",
       capabilitiesDescription:
         "Our services include architectural design, construction supervision, interior design, renovations and full project management, supporting every stage with a focus on functional quality and aesthetics.",
@@ -448,7 +455,7 @@ const translations = {
           description: "We support every stage of the project, from initial idea to final delivery.",
         },
       ],
-      processLabel: "03 — Methodology",
+      processLabel: "Methodology",
       processSteps: [
         { number: "01", title: "Initial meeting", description: "We listen to the client's vision and objectives." },
         { number: "02", title: "Needs study", description: "We analyze the site, program and constraints." },
@@ -463,7 +470,7 @@ const translations = {
         "The work process shows how we move from the initial idea to final delivery, with clear stages of analysis, design, budgeting and construction to ensure comprehensive results.",
     },
     team: {
-      sectionLabel: "04 — Leadership",
+      sectionLabel: "Leadership",
       heading: "The Studio",
       homeDescription:
         "Our journey is guided by a passion for creating places that transcend time. We design unique spaces that reflect a future vision and become the setting for memorable stories.",
@@ -492,7 +499,7 @@ const translations = {
       ],
     },
     contact: {
-      sectionLabel: "05 — Contact",
+      sectionLabel: "Contact",
       heading: "Let's talk about your idea",
       thankYou: "Thank you for your inquiry.",
       sentMessage: "Your email client will open to complete the message.",
@@ -524,7 +531,7 @@ const translations = {
       whatsapp: "WhatsApp",
     },
     map: {
-      sectionLabel: "06 — Location",
+      sectionLabel: "Location",
       heading: "Visit the studio",
       description:
         "We work by appointment in Buenos Aires, Argentina. We schedule site visits and project meetings on demand.",
@@ -538,7 +545,7 @@ const translations = {
       locationTitle: "Wilson Arquitectura location",
     },
     sustainability: {
-      sectionLabel: "05 — Sustainability",
+      sectionLabel: "Sustainability",
       heading: "Sustainability",
       description:
         "We integrate efficient solutions and responsible materials in every project to reduce environmental impact.",
@@ -645,16 +652,16 @@ const translations = {
       builtArea: "Área Construída",
     },
     hero: {
-      tagline: "Estúdio de Arquitetura · Buenos Aires",
+      tagline: "Estúdio de Arquitetura · Pilar, Buenos Aires",
       description:
-        "Projetamos espaços que transcendem. Transformamos ideias em arquitetura de valor.",
+        "Projeto, direção de obra e execução. Projetamos espaços únicos com exclusividade em cada detalhe. Transformamos suas ideias e sonhos em realidade.",
       ctaProjects: "Ver Projetos",
       ctaContact: "Solicitar Consultoria",
       scroll: "Scroll",
       imageAlt: "Arquitetura contemporânea em concreto",
     },
     history: {
-      sectionLabel: "01 — Nosso Conceito",
+      sectionLabel: "Nosso Conceito",
       heading: "Projeção, Direção e Execução",
       description:
         "Somos um estúdio de arquitetura com doze anos de experiência, focado em combinar design, planejamento, gestão estratégica e construção com um compromisso claro de transformar ideias em espaços funcionais de alto valor.",
@@ -662,7 +669,7 @@ const translations = {
         "Cada projeto começa com uma conversa próxima com o cliente e uma leitura cuidadosa do contexto, para propor soluções construtivas elegantes e duradouras.",
     },
     projects: {
-      sectionLabel: "02 — Obras em Destaque",
+      sectionLabel: "Obras em Destaque",
       homeLabel: "Casas e Projetos",
       originLabels: {
         casas: "Casa",
@@ -689,6 +696,8 @@ const translations = {
         comercial: "Comercial",
         reformas: "Reformas",
       },
+      categoryFilterTitle: "Categoria",
+      originFilterTitle: "Origem",
       modal: {
         close: "Fechar",
         location: "Localização",
@@ -708,7 +717,7 @@ const translations = {
       },
     },
     services: {
-      sectionLabel: "02 — Capacidades",
+      sectionLabel: "Capacidades",
       heading: "Nossos Serviços",
       capabilitiesDescription:
         "Nossos serviços incluem projeto arquitetônico, direção de obra, design de interiores, reformas e gestão completa de projetos, acompanhando cada etapa com foco em qualidade funcional e estética.",
@@ -754,7 +763,7 @@ const translations = {
           description: "Acompanhamos todas as etapas do projeto, da ideia inicial à entrega final.",
         },
       ],
-      processLabel: "03 — Metodologia",
+      processLabel: "Metodologia",
       processSteps: [
         { number: "01", title: "Reunião inicial", description: "Ouvimos a visão e os objetivos do cliente." },
         { number: "02", title: "Estudo de necessidades", description: "Analisamos o local, o programa e as restrições." },
@@ -769,7 +778,7 @@ const translations = {
         "O processo de trabalho mostra como avançamos da ideia inicial até a entrega final, com etapas claras de análise, projeto, orçamento e construção para garantir resultados integrados.",
     },
     team: {
-      sectionLabel: "04 — Liderança",
+      sectionLabel: "Liderança",
       heading: "O Estúdio",
       homeDescription:
         "Nossa trajetória é guiada pela paixão de criar lugares que transcendem o tempo. Projetamos espaços únicos que refletem uma visão de futuro e se tornam o cenário de histórias memoráveis.",
@@ -798,7 +807,7 @@ const translations = {
       ],
     },
     contact: {
-      sectionLabel: "05 — Contato",
+      sectionLabel: "Contato",
       heading: "Vamos falar sobre sua ideia",
       thankYou: "Obrigado pelo seu contato.",
       sentMessage: "Seu cliente de e-mail será aberto para confirmar o envio.",
@@ -830,7 +839,7 @@ const translations = {
       whatsapp: "WhatsApp",
     },
     map: {
-      sectionLabel: "06 — Localização",
+      sectionLabel: "Localização",
       heading: "Visite o estúdio",
       description:
         "Atendemos com hora marcada em Buenos Aires, Argentina. Agendamos visitas e reuniões de projeto sob medida.",
@@ -844,7 +853,7 @@ const translations = {
       locationTitle: "Localização da Wilson Arquitectura",
     },
     sustainability: {
-      sectionLabel: "05 — Sustentabilidade",
+      sectionLabel: "Sustentabilidade",
       heading: "Sustentabilidade",
       description:
         "Integramos soluções eficientes e materiais responsáveis em cada projeto para reduzir o impacto ambiental.",      imageAlt1: "Sustentabilidade 1",

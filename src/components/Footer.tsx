@@ -12,7 +12,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
           <div>
             <a href="#top" className="inline-block mb-4">
-              <img src={logo} alt="Wilson logo" className="h-16 w-auto object-contain" />
+              <img src={logo} alt="Wilson logo" className="h-20 w-auto object-contain" />
             </a>
             <p className="text-sm text-brand-gray leading-relaxed max-w-xs">
               {t.footer.description}
@@ -24,42 +24,42 @@ export function Footer() {
             </span>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#top" className="hover:opacity-60">
+                <a href="#top" className="hover:opacity-60 whitespace-nowrap">
                   {t.nav.home}
                 </a>
               </li>
               <li>
-                <a href="#estudio" className="hover:opacity-60">
+                <a href="#estudio" className="hover:opacity-60 whitespace-nowrap">
                   {t.nav.estudio}
                 </a>
               </li>
               <li>
-                <a href="#proyectos" className="hover:opacity-60">
+                <a href="#proyectos" className="hover:opacity-60 whitespace-nowrap">
                   {t.nav.casas}
                 </a>
               </li>
               <li>
-                <a href="#proyectos" className="hover:opacity-60">
+                <a href="#proyectos" className="hover:opacity-60 whitespace-nowrap">
                   {t.nav.proyectos}
                 </a>
               </li>
               <li>
-                <a href="#sustentabilidad" className="hover:opacity-60">
+                <a href="#sustentabilidad" className="hover:opacity-60 whitespace-nowrap">
                   {t.nav.sustentabilidad}
                 </a>
               </li>
               <li>
-                <a href="#servicios" className="hover:opacity-60">
+                <a href="#servicios" className="hover:opacity-60 whitespace-nowrap">
                   {t.nav.servicios}
                 </a>
               </li>
               <li>
-                <a href="#proceso" className="hover:opacity-60">
+                <a href="#proceso" className="hover:opacity-60 whitespace-nowrap">
                   {t.nav.proceso}
                 </a>
               </li>
               <li>
-                <a href="#contacto" className="hover:opacity-60">
+                <a href="#contacto" className="hover:opacity-60 whitespace-nowrap">
                   {t.nav.contacto}
                 </a>
               </li>
@@ -75,7 +75,7 @@ export function Footer() {
                   href="https://www.google.com/maps/place/Fragata+Argentina+2063,+B1629+Pilar,+Provincia+de+Buenos+Aires"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:opacity-60"
+                  className="flex items-center gap-3 hover:opacity-60 whitespace-nowrap"
                 >
                   <MapPin className="w-4 h-4" />
                   {t.footer.location}
@@ -84,7 +84,7 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:wilson.arquitectura5@gmail.com"
-                  className="flex items-center gap-3 hover:opacity-60"
+                  className="flex items-center gap-3 hover:opacity-60 whitespace-nowrap"
                 >
                   <Mail className="w-4 h-4" />
                   {t.footer.email}
@@ -93,7 +93,7 @@ export function Footer() {
               <li>
                 <a
                   href="tel:+5491136115429"
-                  className="flex items-center gap-3 hover:opacity-60"
+                  className="flex items-center gap-3 hover:opacity-60 whitespace-nowrap"
                 >
                   <Phone className="w-4 h-4" />
                   {t.footer.phone}
@@ -104,7 +104,7 @@ export function Footer() {
                   href="https://www.instagram.com/wilson.arquitectura"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:opacity-60"
+                  className="flex items-center gap-3 hover:opacity-60 whitespace-nowrap"
                 >
                   <Instagram className="w-4 h-4" />
                   {t.footer.instagram}
@@ -115,7 +115,7 @@ export function Footer() {
                   href="https://www.facebook.com/people/Wilson-Arquitectura/100067440165213"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:opacity-60"
+                  className="flex items-center gap-3 hover:opacity-60 whitespace-nowrap"
                 >
                   <Facebook className="w-4 h-4" />
                   {t.footer.facebook}
@@ -126,7 +126,7 @@ export function Footer() {
                   href="https://wa.me/5491136115429"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:opacity-60"
+                  className="flex items-center gap-3 hover:opacity-60 whitespace-nowrap"
                 >
                   <img src={whatsappLogo} alt="WhatsApp" className="w-4 h-4 object-contain" />
                   {t.footer.whatsapp}

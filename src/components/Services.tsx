@@ -12,7 +12,7 @@ export function Services({ mode = "home" }: { mode?: SectionMode }) {
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.services.sectionLabel}
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl mb-10 tracking-tight">
+          <h2 className="font-serif text-2xl md:text-3xl mb-4 tracking-tight">
             {t.services.heading}
           </h2>
           {mode === "home" ? (
@@ -20,7 +20,7 @@ export function Services({ mode = "home" }: { mode?: SectionMode }) {
               {t.services.serviceItems.map((service) => (
                 <div
                   key={service.title}
-                  className="rounded-3xl border border-brand-black/10 bg-white px-5 py-5"
+                  className="border border-brand-black/10 bg-white px-5 py-5"
                 >
                   <div className="flex items-center gap-4">
                     <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-black bg-white text-sm font-semibold">
@@ -35,15 +35,15 @@ export function Services({ mode = "home" }: { mode?: SectionMode }) {
             <Accordion type="single" collapsible className="space-y-4">
               {t.services.serviceItems.map((service, i) => (
                 <AccordionItem key={service.title} value={`service-${i}`}>
-                  <AccordionTrigger className="rounded-3xl border border-brand-black/10 bg-white px-5 py-5 text-left transition hover:border-brand-black">
-                    <div className="flex items-center justify-between gap-6">
-                      <div className="flex items-center gap-4">
-                        <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-black bg-white text-sm font-semibold">
-                          {service.number}
-                        </span>
-                        <span className="text-lg md:text-xl font-semibold">{service.title}</span>
-                      </div>
-                      <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-gray">
+                  <AccordionTrigger className="border border-brand-black/10 bg-white px-5 py-5 text-left transition hover:border-brand-black">
+                    <div className="flex items-center gap-4">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-black bg-white text-sm font-semibold">
+                        {service.number}
+                      </span>
+                      <span className="text-lg md:text-xl font-semibold">{service.title}</span>
+                    </div>
+                    <div className="ml-auto flex items-center gap-2">
+                      <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-gray whitespace-nowrap">
                         {t.common.readMore}
                       </span>
                     </div>
@@ -58,7 +58,7 @@ export function Services({ mode = "home" }: { mode?: SectionMode }) {
           <div className="mt-12 text-right">
             <a
               href="#servicios"
-              className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
+              className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
             >
               {t.common.seeMore}
             </a>
@@ -69,17 +69,17 @@ export function Services({ mode = "home" }: { mode?: SectionMode }) {
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.services.processLabel}
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl mb-6 tracking-tight">
+          <h2 className="font-serif text-2xl md:text-3xl mb-6 tracking-tight">
             {t.services.processHeading}
           </h2>
           {mode === "home" ? (
             <>
-              <p className="w-full max-w-none text-base leading-relaxed text-brand-gray mb-10">
+              <p className="w-full max-w-none text-base leading-relaxed text-brand-gray mb-6">
                 {t.services.processDescription}
               </p>
               <div className="space-y-4">
                 {t.services.processSteps.map(({ number, title }) => (
-                  <div key={number} className="rounded-3xl border border-brand-black/10 bg-white px-5 py-5">
+                  <div key={number} className="border border-brand-black/10 bg-white px-5 py-5">
                     <div className="flex items-center gap-4">
                       <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-black bg-white text-sm font-semibold">
                         {number}
@@ -111,7 +111,7 @@ export function Services({ mode = "home" }: { mode?: SectionMode }) {
           <div className="mt-12 text-right">
             <a
               href="#proceso"
-              className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
+              className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
             >
               {t.common.seeMore}
             </a>
@@ -122,7 +122,7 @@ export function Services({ mode = "home" }: { mode?: SectionMode }) {
         <div className="mt-12 text-right">
           <a
             href="#sustentabilidad"
-            className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
+            className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
           >
             {t.common.seeMore}
           </a>
@@ -141,7 +141,7 @@ export function ServiceCapabilities({ mode = "home" }: { mode?: SectionMode }) {
         <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
           {t.services.sectionLabel}
         </span>
-        <h2 className="font-serif text-3xl md:text-4xl mb-10 tracking-tight">
+        <h2 className="font-serif text-2xl md:text-3xl mb-4 tracking-tight">
           {t.services.heading}
         </h2>
         {mode === "section" ? (
@@ -153,15 +153,15 @@ export function ServiceCapabilities({ mode = "home" }: { mode?: SectionMode }) {
           <Accordion type="single" collapsible className="space-y-4">
             {t.services.serviceItems.map((service, i) => (
               <AccordionItem key={service.title} value={`service-${i}`}>
-                <AccordionTrigger className="rounded-3xl border border-brand-black/10 bg-white px-5 py-5 text-left transition hover:border-brand-black">
-                  <div className="flex items-center justify-between gap-6">
-                    <div className="flex items-center gap-4">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-black bg-white text-sm font-semibold">
-                        {service.number}
-                      </span>
-                      <span className="text-lg md:text-xl font-semibold">{service.title}</span>
-                    </div>
-                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-gray">
+                <AccordionTrigger className="border border-brand-black/10 bg-white px-5 py-5 text-left transition hover:border-brand-black">
+                  <div className="flex items-center gap-4">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-black bg-white text-sm font-semibold">
+                      {service.number}
+                    </span>
+                    <span className="text-lg md:text-xl font-semibold">{service.title}</span>
+                  </div>
+                  <div className="ml-auto flex items-center gap-2">
+                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-gray whitespace-nowrap">
                       {t.common.readMore}
                     </span>
                   </div>
@@ -187,7 +187,7 @@ export function ServiceProcess({ mode = "home" }: { mode?: SectionMode }) {
         <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
           {t.services.processLabel}
         </span>
-        <h2 className="font-serif text-3xl md:text-4xl mb-12 tracking-tight">
+        <h2 className="font-serif text-2xl md:text-3xl mb-4 tracking-tight">
           {t.services.processHeading}
         </h2>
         {mode === "section" ? (
@@ -199,15 +199,15 @@ export function ServiceProcess({ mode = "home" }: { mode?: SectionMode }) {
           <Accordion type="single" collapsible className="space-y-4">
             {t.services.processSteps.map(({ number, title, description }) => (
               <AccordionItem key={number} value={`process-step-${number}`}>
-                <AccordionTrigger className="rounded-3xl border border-brand-black/10 bg-white px-5 py-5 text-left transition hover:border-brand-black">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-4">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-black bg-white text-sm font-semibold">
-                        {number}
-                      </span>
-                      <span className="text-lg md:text-xl font-semibold">{title}</span>
-                    </div>
-                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-gray">
+                <AccordionTrigger className="border border-brand-black/10 bg-white px-5 py-5 text-left transition hover:border-brand-black">
+                  <div className="flex items-center gap-4">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-black bg-white text-sm font-semibold">
+                      {number}
+                    </span>
+                    <span className="text-lg md:text-xl font-semibold">{title}</span>
+                  </div>
+                  <div className="ml-auto flex items-center gap-2">
+                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-gray whitespace-nowrap">
                       {t.common.readMore}
                     </span>
                   </div>

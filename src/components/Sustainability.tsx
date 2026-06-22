@@ -41,10 +41,10 @@ export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
             <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
               {sustainability.sectionLabel}
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl tracking-tight mb-10">
+            <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">
               {sustainability.heading}
             </h2>
-            <p className="text-brand-gray leading-relaxed w-full max-w-none mb-12">
+            <p className="text-brand-gray leading-relaxed w-full max-w-none mb-8">
               {sustainability.description}
             </p>
             <div className="grid gap-8 md:grid-cols-3 mb-12">
@@ -105,19 +105,19 @@ export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
               <img src={s2} alt={t.sustainability.imageAlt2} className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
+              <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-2">
                 {sustainability.sectionLabel}
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl tracking-tight mb-8">
+              <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">
                 {sustainability.heading}
               </h2>
-              <p className="text-base leading-relaxed text-brand-gray mb-10">
+              <p className="text-base leading-relaxed text-brand-gray mb-6">
                 {sustainability.description}
               </p>
-              <div className="text-left">
+              <div className="text-right">
                 <a
                   href="#sustentabilidad"
-                  className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
+                  className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
                 >
                   {t.common.seeMore}
                 </a>

@@ -18,7 +18,7 @@ import { SectionMode } from "@/components/SectionMode";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Wilson Arquitectura — Estudio de Arquitectura en Buenos Aires" },
+      { title: "Wilson Arquitectura" },
       {
         name: "description",
         content:
@@ -111,7 +111,7 @@ function Index() {
       />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet"
       />
       <Navbar onSelectSection={(section) => handleSectionChange(section as SectionKey)} />

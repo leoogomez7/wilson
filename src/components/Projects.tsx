@@ -163,7 +163,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
   const combinedProjects: Project[] = [
     ...casaProjects.map((project) => ({
       ...project,
-      origin: projects.some((p) => p.id === project.id) ? ("ambos" as const) : ("casas" as const),
+      origin: ("casas" as const),
     })),
     ...projects
       .filter((project) => !casaIds.has(project.id))
@@ -203,59 +203,69 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
   return (
     <section id="proyectos" className="relative py-5 md:py-8 px-6 md:px-20 bg-white">
       <div id="casas" className="absolute -top-24" />
-      <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
+      <div className="flex flex-col md:flex-row justify-between items-end mb-2 md:mb-4 gap-6">
         <div>
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {mode === "home" ? t.projects.homeLabel : t.projects.sectionLabel}
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl tracking-tight">{t.projects.heading}</h2>
+          <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">{t.projects.heading}</h2>
           {mode === "section" ? (
-            <p className="mt-6 w-full max-w-none text-base leading-relaxed text-brand-gray">
+            <p className="mt-4 w-full max-w-none text-base leading-relaxed text-brand-gray">
               {t.projects.sectionDescription}
             </p>
           ) : null}
         </div>
       </div>
-      <div className="flex gap-6 md:gap-8 text-[10px] uppercase tracking-[0.3em] font-semibold border-b border-brand-light pb-4 w-full md:w-auto overflow-x-auto mb-6">
-        {categoryFilters.map((f) => (
-          <button
-            key={f.key}
-            onClick={() => setActive(f.key)}
-            className={`transition-opacity whitespace-nowrap ${
-              active === f.key ? "opacity-100" : "opacity-40 hover:opacity-100"
-            }`}
-          >
-            {f.label}
-          </button>
-        ))}
-      </div>
-
-      {mode === "home" ? (
-        <div className="flex gap-6 md:gap-8 text-[10px] uppercase tracking-[0.3em] font-semibold border-b border-brand-light pb-4 w-full md:w-auto overflow-x-auto mb-10">
-          {originFilters.map((f) => (
+      <div className="mb-4">
+        <div className="text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray mb-4">
+          {t.projects.categoryFilterTitle}
+        </div>
+        <div className="flex flex-wrap gap-6 md:gap-8 text-[10px] uppercase tracking-[0.25em] font-semibold">
+          {categoryFilters.map((f) => (
             <button
               key={f.key}
-              onClick={() => setOriginFilter(f.key)}
-              className={`transition-opacity whitespace-nowrap ${
-                originFilter === f.key ? "opacity-100" : "opacity-40 hover:opacity-100"
+              onClick={() => setActive(f.key)}
+              className={`rounded-none border border-brand-light px-4 py-2 transition whitespace-nowrap ${
+                active === f.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
               }`}
             >
               {f.label}
             </button>
           ))}
         </div>
+      </div>
+
+      {mode === "home" ? (
+        <div className="mb-6">
+          <div className="text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray mb-4">
+            {t.projects.originFilterTitle}
+          </div>
+          <div className="flex flex-wrap gap-6 md:gap-8 text-[10px] uppercase tracking-[0.25em] font-semibold">
+            {originFilters.map((f) => (
+              <button
+                key={f.key}
+                onClick={() => setOriginFilter(f.key)}
+                className={`rounded-none border border-brand-light px-4 py-2 transition whitespace-nowrap ${
+                  originFilter === f.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </div>
       ) : null}
 
       <div className="mb-4 text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray">
         {t.projects.atmosphereLabel}
       </div>
-      <div className="flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.25em] font-semibold mb-10">
+      <div className="flex flex-wrap gap-6 md:gap-8 text-[10px] uppercase tracking-[0.25em] font-semibold mb-10">
         {atmospheres.map((atm) => (
           <button
             key={atm.key}
             type="button"
             onClick={() => setSelectedAtmosphere(atm.key)}
-            className={`rounded-full border border-brand-light px-4 py-2 transition ${
+            className={`rounded-none border border-brand-light px-4 py-2 transition ${
               selectedAtmosphere === atm.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
             }`}
           >
@@ -279,28 +289,25 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1200 ease-out"
               />
             </div>
-            <div className="flex justify-between items-start gap-4">
-              <div>
-                <div
-                  className={`mb-3 inline-flex items-center rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.3em] font-semibold ${
-                    project.origin === "ambos"
-                      ? "bg-brand-black text-white"
-                      : "bg-brand-gray/10 text-brand-gray"
-                  }`}
-                >
-                  {project.origin === "ambos"
-                    ? t.projects.originLabels.ambos
-                    : project.origin === "casas"
-                    ? t.projects.originLabels.casas
-                    : t.projects.originLabels.proyectos}
-                </div>
-                <h3 className="text-xl md:text-2xl font-serif mb-1">{project.title[language]}</h3>
-                <p className="text-[10px] uppercase tracking-[0.3em] opacity-50">{project.meta[language]}</p>
-              </div>
-              <button className="text-[10px] uppercase tracking-[0.3em] font-bold border-b border-brand-black pb-1 shrink-0">
-                {t.common.readMore}
-              </button>
+            <div className={`mb-3 inline-flex items-center rounded-none px-3 py-1 text-[10px] uppercase tracking-[0.3em] font-semibold whitespace-nowrap ${
+                    project.origin === "proyectos"
+                      ? "bg-brand-gray/10 text-brand-gray"
+                      : "bg-brand-black text-white"
+                  }`}>
+              {project.origin === "ambos"
+                ? t.projects.originLabels.ambos
+                : project.origin === "casas"
+                ? t.projects.originLabels.casas
+                : t.projects.originLabels.proyectos}
             </div>
+            <h3 className="text-xl md:text-2xl font-serif mb-1">{project.title[language]}</h3>
+            <p className="text-[10px] uppercase tracking-[0.3em] opacity-50 mb-2">{project.meta[language]}</p>
+            <div className="flex flex-col items-start gap-2 mb-6">
+              <div className="text-[10px] uppercase tracking-[0.3em] opacity-70">{project.location}</div>
+            </div>
+            <button className="text-[10px] uppercase tracking-[0.3em] font-bold border-b border-brand-black pb-1 whitespace-nowrap">
+              {t.common.readMore}
+            </button>
           </article>
         ))}
       </div>
@@ -311,7 +318,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
           <button
             type="button"
             onClick={() => setNavChoiceOpen(true)}
-            className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
+            className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
           >
             {t.common.seeMore}
           </button>
@@ -324,14 +331,14 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
           onClick={() => setNavChoiceOpen(false)}
         >
           <div
-            className="w-full max-w-sm rounded-3xl border border-border bg-white p-8 shadow-2xl"
+            className="w-full max-w-sm border border-border bg-white p-8 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-end mb-6">
               <button
                 type="button"
                 onClick={() => setNavChoiceOpen(false)}
-                className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-semibold text-brand-gray transition hover:bg-brand-black hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-semibold text-brand-gray transition hover:bg-brand-black hover:text-white whitespace-nowrap"
                 aria-label={t.projects.modal.close}
               >
                 <X className="h-4 w-4" />
@@ -342,14 +349,14 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
               <a
                 href="#casas"
                 onClick={() => setNavChoiceOpen(false)}
-                className="block rounded-2xl border border-brand-black px-6 py-4 text-center uppercase tracking-[0.3em] font-bold hover:bg-brand-black hover:text-white transition-colors"
+                className="block rounded-2xl border border-brand-black px-6 py-4 text-center uppercase tracking-[0.3em] font-bold hover:bg-brand-black hover:text-white transition-colors whitespace-nowrap"
               >
                 {t.nav.casas}
               </a>
               <a
                 href="#proyectos"
                 onClick={() => setNavChoiceOpen(false)}
-                className="block rounded-2xl bg-brand-black px-6 py-4 text-center uppercase tracking-[0.3em] font-bold text-white hover:bg-brand-gray transition-colors"
+                className="block rounded-2xl bg-brand-black px-6 py-4 text-center uppercase tracking-[0.3em] font-bold text-white hover:bg-brand-gray transition-colors whitespace-nowrap"
               >
                 {t.nav.proyectos}
               </a>
@@ -376,7 +383,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         <button
           onClick={onClose}
           aria-label={t.projects.modal.close}
-          className="absolute top-4 right-4 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black"
+          className="absolute top-4 right-4 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
         >
           {t.projects.modal.close}
         </button>

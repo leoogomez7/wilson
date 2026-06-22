@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "@/lib/i18n";
 import { SectionMode } from "@/components/SectionMode";
-import whatsappLogo from "@/assets/Whatsapp.jpg";
+import whatsappLogo from "@/assets/whatsapp.jpg";
 
 export function Contact({ mode = "home" }: { mode?: SectionMode }) {
   const { t } = useTranslation();
@@ -44,7 +44,7 @@ export function Contact({ mode = "home" }: { mode?: SectionMode }) {
                 href="https://wa.me/5491136115429"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-16 py-5 bg-white text-brand-black uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-brand-light transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-16 py-5 bg-white text-brand-black uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-brand-light transition-colors whitespace-nowrap"
               >
                 {t.contact.whatsappButton}
                 <img src={whatsappLogo} alt="WhatsApp" className="w-4 h-4 object-contain" />
@@ -52,7 +52,7 @@ export function Contact({ mode = "home" }: { mode?: SectionMode }) {
             </div>
             {mode === "section" ? (
               <>
-                <h2 className="font-serif text-3xl md:text-4xl mb-16 text-center tracking-tight">
+                <h2 className="font-serif text-2xl md:text-3xl mb-4 text-center tracking-tight">
                   {t.contact.heading}
                 </h2>
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10" onSubmit={onSubmit}>
@@ -72,7 +72,7 @@ export function Contact({ mode = "home" }: { mode?: SectionMode }) {
                 <div className="md:col-span-2 pt-8 text-center">
                   <button
                     type="submit"
-                    className="px-16 py-5 bg-white text-brand-black uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-brand-light transition-colors"
+                    className="px-16 py-5 bg-white text-brand-black uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-brand-light transition-colors whitespace-nowrap"
                   >
                     {t.contact.sendButton}
                   </button>
@@ -84,10 +84,10 @@ export function Contact({ mode = "home" }: { mode?: SectionMode }) {
         )}
       </div>
       {mode === "home" ? (
-        <div className="mt-12 text-right px-6 md:px-20">
+        <div className="mt-12 text-right">
           <a
             href="#contacto"
-            className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
+            className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
           >
             {t.common.seeMore}
           </a>

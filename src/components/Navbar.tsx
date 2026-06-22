@@ -32,12 +32,12 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
   const [languageOpen, setLanguageOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/85 backdrop-blur-md border-b border-border py-4 text-brand-black">
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/85 backdrop-blur-md py-4 text-brand-black">
       <div className="px-6 md:px-12 flex justify-between items-center">
         <a href="#top" className="block">
           <img src={logo} alt="Wilson logo" className="h-10 w-auto object-contain" />
         </a>
-        <div className="hidden md:flex flex-1 flex-wrap justify-center items-center gap-6 text-[10px] uppercase tracking-[0.3em] font-medium">
+        <div className="hidden md:flex flex-1 md:flex-nowrap flex-wrap justify-center items-center gap-6 text-[10px] uppercase tracking-[0.3em] font-medium">
           {navLinks.map((item) => (
             <a
               key={item.labelKey}
@@ -46,7 +46,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
                 event.preventDefault();
                 onSelectSection?.(item.labelKey);
               }}
-              className="hover:opacity-50 transition-opacity"
+              className="hover:opacity-50 transition-opacity whitespace-nowrap"
             >
               {t.nav[item.labelKey]}
             </a>
@@ -57,12 +57,12 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
               onClick={() => setLanguageOpen((value) => !value)}
               aria-haspopup="menu"
               aria-expanded={languageOpen}
-              className="uppercase tracking-[0.3em] hover:opacity-50 transition-opacity"
+              className="uppercase tracking-[0.3em] hover:opacity-50 transition-opacity whitespace-nowrap"
             >
               {t.nav.language}
             </button>
             {languageOpen && (
-              <div className="absolute right-0 mt-3 min-w-45 rounded-xl border border-border bg-white text-brand-black shadow-xl">
+              <div className="absolute right-0 mt-3 min-w-44 rounded-xl border border-border bg-white text-brand-black shadow-xl">
                 <div className="flex flex-col">
                   {languageOptions.map(([lang, label]) => (
                     <button
@@ -72,7 +72,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
                         setLanguage(lang);
                         setLanguageOpen(false);
                       }}
-                      className={`text-left px-4 py-3 text-sm uppercase tracking-[0.3em] transition-colors hover:bg-brand-light/80 ${
+                      className={`text-left px-4 py-3 text-sm uppercase tracking-[0.3em] transition-colors hover:bg-brand-light/80 whitespace-nowrap ${
                         language === lang ? "font-bold" : "opacity-70"
                       }`}
                     >
@@ -87,7 +87,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
         <button
           aria-label={open ? t.nav.menuToggleAriaClose : t.nav.menuToggleAriaOpen}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden text-[10px] uppercase tracking-widest"
+          className="md:hidden text-[10px] uppercase tracking-widest whitespace-nowrap"
         >
           {open ? t.nav.menuClose : t.nav.menuOpen}
         </button>
@@ -103,7 +103,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
                 setOpen(false);
                 onSelectSection?.(item.labelKey);
               }}
-              className="text-sm uppercase tracking-[0.3em]"
+              className="text-sm uppercase tracking-[0.3em] whitespace-nowrap"
             >
               {t.nav[item.labelKey]}
             </a>
@@ -112,7 +112,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
             <button
               type="button"
               onClick={() => setLanguageOpen((value) => !value)}
-              className="text-sm uppercase tracking-[0.3em] hover:opacity-50 transition-opacity"
+              className="text-sm uppercase tracking-[0.3em] hover:opacity-50 transition-opacity whitespace-nowrap"
             >
               {t.nav.language}
             </button>
@@ -127,7 +127,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
                       setLanguageOpen(false);
                       setOpen(false);
                     }}
-                    className={`text-left text-sm uppercase tracking-[0.3em] transition-opacity ${
+                    className={`block w-full text-left text-sm uppercase tracking-[0.3em] transition-opacity whitespace-nowrap ${
                       language === lang ? "opacity-100 font-bold" : "opacity-60 hover:opacity-100"
                     }`}
                   >

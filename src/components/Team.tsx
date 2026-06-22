@@ -40,16 +40,16 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
               <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
                 {t.team.sectionLabel}
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl tracking-tight mb-8">
+              <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">
                 {t.team.heading}
               </h2>
-              <p className="text-brand-gray leading-relaxed mb-10">
+              <p className="text-brand-gray leading-relaxed mb-6">
                 {t.team.homeDescription}
               </p>
-              <div className="text-left">
+              <div className="text-right">
                 <a
                   href="#estudio"
-                  className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
+                  className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
                 >
                   {t.common.seeMore}
                 </a>
@@ -69,8 +69,8 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.team.sectionLabel}
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl tracking-tight">{t.team.heading}</h2>
-          <div className="mt-10 grid gap-8 lg:grid-cols-[360px_minmax(0,1fr)] items-center">
+          <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">{t.team.heading}</h2>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[360px_minmax(0,1fr)] items-center">
             <div className="overflow-hidden">
               <img
                 src={equipoImg}
@@ -107,7 +107,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                 </p>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <button className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-black hover:text-brand-gray transition-colors">
+                    <button className="text-[10px] uppercase tracking-[0.3em] font-bold text-brand-black hover:text-brand-gray transition-colors whitespace-nowrap">
                       {t.common.seeMore}
                     </button>
                   </DialogTrigger>

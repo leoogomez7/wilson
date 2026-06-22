@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import logoPestana from "../assets/Logo-pestaña.jpeg";
 import { reportError } from "../lib/error-reporting";
 import { TranslationProvider } from "@/lib/i18n";
 
@@ -78,10 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Wilson Website" },
+      { title: "Wilson Arquitectura" },
       { name: "description", content: "LRG Store website built with TanStack Start" },
       { name: "author", content: "Wilson" },
-      { property: "og:title", content: "Wilson Website" },
+      { property: "og:title", content: "Wilson Arquitectura" },
       { property: "og:description", content: "LRG Store website built with TanStack Start" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -90,6 +91,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "icon",
+        href: logoPestana,
       },
     ],
   }),

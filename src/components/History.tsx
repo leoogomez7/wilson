@@ -13,21 +13,21 @@ export function History({ mode = "home" }: { mode?: SectionMode }) {
             <VideoImages />
           </div>
           <div>
-            <div className="mb-10 md:mb-14">
-              <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
+            <div className="mb-4 md:mb-6">
+              <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-3">
                 {t.history.sectionLabel}
               </span>
-              <h2 className="font-serif text-4xl md:text-5xl tracking-tight">
+              <h2 className="font-serif text-3xl md:text-4xl tracking-tight mb-4">
                 {t.history.heading}
               </h2>
             </div>
-            <div className="grid gap-8 text-brand-gray text-base leading-relaxed">
+            <div className="grid gap-2 text-brand-gray text-base leading-relaxed">
               <p>{t.history.description}</p>
             </div>
-            <div className="mt-12 md:mt-16 text-right md:text-left">
+            <div className="mt-12 md:mt-16 text-right">
               <a
                 href="#estudio"
-                className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
+                className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
               >
                 {t.common.seeMore}
               </a>

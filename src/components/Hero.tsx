@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative h-screen .min-h-160 w-full flex items-center justify-center overflow-hidden bg-brand-black"
+      className="relative min-h-[calc(100vh-5rem)] w-full flex items-start justify-center py-28 pb-16 overflow-visible bg-brand-black"
     >
       <div className="absolute inset-0">
         <img
@@ -21,7 +21,7 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 text-center text-white px-6 max-w-full">
-        <p className="text-[10px] uppercase tracking-[0.5em] opacity-70 mb-8 animate-fade">
+        <p className="text-[16px] uppercase tracking-[0.5em] opacity-70 mb-8 animate-fade">
           {t.hero.tagline}
         </p>
         <h1 className="font-serif w-full max-w-none text-[clamp(3.5rem,10vw,9rem)] sm:text-[clamp(4.5rem,10vw,10rem)] lg:text-[clamp(5.5rem,10vw,11rem)] mb-8 tracking-[0.3em] leading-[0.9] animate-reveal">
@@ -39,13 +39,13 @@ export function Hero() {
         >
           <a
             href="#proyectos"
-            className="border border-white/40 px-10 py-4 text-[10px] uppercase tracking-[0.3em] hover:bg-white hover:text-brand-black transition-all duration-300"
+            className="border border-white/40 px-10 py-4 text-[10px] uppercase tracking-[0.3em] hover:bg-white hover:text-brand-black transition-all duration-300 whitespace-nowrap"
           >
             {t.hero.ctaProjects}
           </a>
           <a
             href="#contacto"
-            className="bg-white text-brand-black px-10 py-4 text-[10px] uppercase tracking-[0.3em] hover:bg-transparent hover:text-white border border-white transition-all duration-300"
+            className="bg-white text-brand-black px-10 py-4 text-[10px] uppercase tracking-[0.3em] hover:bg-transparent hover:text-white border border-white transition-all duration-300 whitespace-nowrap"
           >
             {t.hero.ctaContact}
           </a>

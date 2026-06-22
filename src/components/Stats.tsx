@@ -72,7 +72,7 @@ export function Stats() {
       <div className="mt-12 text-right">
         <a
           href="#concepto"
-          className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity"
+          className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
         >
           {t.common.seeMore}
         </a>
