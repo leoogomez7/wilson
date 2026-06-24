@@ -36,9 +36,9 @@ const memberImagePositions: Record<string, string> = {
 };
 
 const memberModalImagePositions: Record<string, string> = {
-  josue: "center 80%",
-  wilson: "center 75%",
-  keyla: "center 90%",
+  josue: "50% 40%",
+  wilson: "50% 35%",
+  keyla: "50% 15%",
 };
 
 const memberImageSizes: Record<string, string> = {
