@@ -32,7 +32,7 @@ export function VideoImages() {
   }
 
   return (
-    <div className="mb-12 overflow-hidden border border-border w-full">
+    <div className="mb-1 overflow-hidden border border-border w-full">
       <img
         src={images[activeIndex]}
         alt={`Video frame ${activeIndex + 1}`}
