@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, HeadContent } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { useTranslation } from "@/lib/i18n";
 import { History } from "@/components/History";
 import { Projects } from "@/components/Projects";
 import { Casas } from "@/components/Casas";
@@ -16,23 +17,6 @@ import { FloatingActions } from "@/components/FloatingActions";
 import { SectionMode } from "@/components/SectionMode";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Wilson Arquitectura" },
-      {
-        name: "description",
-        content:
-          "Estudio de arquitectura contemporánea en Buenos Aires. Proyectos residenciales, comerciales, dirección de obra, interiorismo y gestión integral.",
-      },
-      { property: "og:title", content: "Wilson Arquitectura — Estudio Premium" },
-      {
-        property: "og:description",
-        content:
-          "Diseñamos espacios que trascienden. Arquitectura, dirección de obra e interiorismo en Buenos Aires.",
-      },
-      { property: "og:type", content: "website" },
-    ],
-  }),
   component: Index,
 });
 
@@ -48,6 +32,7 @@ type SectionKey =
   | "contacto";
 
 function Index() {
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState<SectionKey>("all");
 
   useEffect(() => {

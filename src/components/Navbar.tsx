@@ -35,7 +35,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/85 backdrop-blur-md py-4 text-brand-black">
       <div className="px-6 md:px-12 flex items-center justify-between">
         <a href="#top" className="block flex-none ml-4 md:ml-10 pr-8 md:pr-12">
-          <img src={logo} alt="Wilson logo" className="h-10 w-auto object-contain" />
+          <img src={logo} alt={t.nav.logoAlt} className="h-10 w-auto object-contain" />
         </a>
         <div className="hidden md:flex items-center justify-end flex-nowrap gap-6 text-[10px] uppercase tracking-[0.3em] font-medium">
           {navLinks.map((item) => (

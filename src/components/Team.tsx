@@ -148,14 +148,14 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                       {t.common.seeMore}
                     </button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-3xl rounded-none">
+                  <DialogContent className="w-[90vw] sm:max-w-3xl sm:max-h-none max-h-none overflow-visible sm:overflow-visible rounded-none sm:rounded-none">
                     <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-                      <div className="overflow-hidden w-full max-w-[20rem] h-[20rem] sm:w-[22rem] sm:h-[22rem] shrink-0 rounded-none">
+                      <div className="overflow-hidden w-full max-w-[20rem] .h-[20rem] .sm:w-[22rem] .sm:h-[22rem] shrink-0 rounded-none">
                         <img
                           src={memberImg}
                           alt={`Foto de ${member.name}`}
                           style={{ objectPosition: memberModalImagePositions[member.id] || "center" }}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover rounded-none"
                           loading="lazy"
                         />
                       </div>

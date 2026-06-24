@@ -21,6 +21,7 @@ const translations = {
       menuClose: "Cerrar",
       menuToggleAriaOpen: "Abrir menú",
       menuToggleAriaClose: "Cerrar menú",
+      logoAlt: "Logo Wilson",
       languageOptions: {
         es: "Español",
         en: "English",
@@ -30,6 +31,21 @@ const translations = {
     common: {
       seeMore: "Ver más",
       readMore: "Leer más",
+    },
+    meta: {
+      title: "Wilson Arquitectura",
+      description: "Estudio de arquitectura contemporánea en Pilar, Buenos Aires. Residencial, comercial, dirección de obra e interiorismo.",
+      ogTitle: "Wilson Arquitectura",
+      ogDescription: "Diseñamos espacios que trascienden. Arquitectura, dirección de obra e interiorismo en Buenos Aires.",
+      twitterCard: "summary",
+    },
+    errors: {
+      pageNotFound: "Página no encontrada",
+      pageNotFoundDescription: "Lo sentimos, no pudimos encontrar esta página.",
+      goHome: "Volver al inicio",
+      pageLoadFailed: "No se pudo cargar la página",
+      pageLoadFailedDescription: "Hubo un problema al cargar el contenido. Intenta nuevamente o vuelve al inicio.",
+      tryAgain: "Intentar de nuevo",
     },
     stats: {
       experience: "Años de Experiencia",
@@ -63,6 +79,7 @@ const translations = {
       heading: "Proyectos",
       sectionDescription:
         "Cada proyecto nace de una visión particular y de un profundo análisis de su contexto. Nos enfocamos en desarrollar propuestas que integren calidad espacial, innovación y funcionalidad, adaptándose a las características del entorno y a los objetivos específicos de cada desafío arquitectónico.",
+      noResults: "No se encontraron resultados",
       filters: {
         todos: "Todos",
         viviendas: "Viviendas",
@@ -76,6 +93,10 @@ const translations = {
         year: "Año",
         area: "Superficie",
         description: "Descripción",
+      },
+      pagination: {
+        previous: "Anterior",
+        next: "Siguiente",
       },
       originFilterTitle: "Origen",
       originFilterLabels: {
@@ -213,6 +234,7 @@ const translations = {
       navigation: "Navegación",
       contact: "Contacto",
       social: "Redes",
+      logoAlt: "Logo Wilson",
       description: "Estudio de arquitectura contemporánea. Diseño, dirección y construcción de obras de alto valor.",
       designedFor: "Diseñado para la excelencia",
       copyright: "© {year} Wilson Arquitectura",
@@ -235,6 +257,7 @@ const translations = {
       facebookLabel: "Facebook",
       instagramLabel: "Instagram",
       whatsappLabel: "WhatsApp",
+      brandName: "Wilson Arquitectura",
       locationTitle: "Ubicación de Wilson Arquitectura",
     },
     sustainability: {
@@ -329,6 +352,7 @@ const translations = {
       menuClose: "Close",
       menuToggleAriaOpen: "Open menu",
       menuToggleAriaClose: "Close menu",
+      logoAlt: "Wilson logo",
       languageOptions: {
         es: "Español",
         en: "English",
@@ -338,6 +362,13 @@ const translations = {
     common: {
       seeMore: "See more",
       readMore: "Read more",
+    },
+    meta: {
+      title: "Wilson Architecture",
+      description: "Contemporary architecture studio in Pilar, Buenos Aires. Residential, commercial, construction supervision and interior design.",
+      ogTitle: "Wilson Architecture",
+      ogDescription: "We design spaces that transcend. Architecture, construction supervision and interior design in Buenos Aires.",
+      twitterCard: "summary",
     },
     stats: {
       experience: "Years of Experience",
@@ -369,6 +400,7 @@ const translations = {
         proyectos: "Projects",
         ambos: "Houses & Projects",
       },
+      noResults: "No results found",
       originFilterLabels: {
         all: "All",
         casas: "Houses",
@@ -398,6 +430,10 @@ const translations = {
         year: "Year",
         area: "Area",
         description: "Description",
+      },
+      pagination: {
+        previous: "Previous",
+        next: "Next",
       },
     },
     casas: {
@@ -523,6 +559,7 @@ const translations = {
       navigation: "Navigation",
       contact: "Contact",
       social: "Social",
+      logoAlt: "Wilson logo",
       description: "Contemporary architecture studio. Design, management and construction of high-value projects.",
       designedFor: "Designed for excellence",
       copyright: "© {year} Wilson Arquitectura",
@@ -545,6 +582,7 @@ const translations = {
       facebookLabel: "Facebook",
       instagramLabel: "Instagram",
       whatsappLabel: "WhatsApp",
+      brandName: "Wilson Arquitectura",
       locationTitle: "Wilson Arquitectura location",
     },
     sustainability: {
@@ -639,6 +677,7 @@ const translations = {
       menuClose: "Fechar",
       menuToggleAriaOpen: "Abrir menu",
       menuToggleAriaClose: "Fechar menu",
+      logoAlt: "Logo Wilson",
       languageOptions: {
         es: "Español",
         en: "English",
@@ -648,6 +687,13 @@ const translations = {
     common: {
       seeMore: "Ver mais",
       readMore: "Ler mais",
+    },
+    meta: {
+      title: "Wilson Arquitetura",
+      description: "Estúdio de arquitetura contemporânea em Pilar, Buenos Aires. Residencial, comercial, direção de obra e design de interiores.",
+      ogTitle: "Wilson Arquitetura",
+      ogDescription: "Projetamos espaços que transcendem. Arquitetura, direção de obra e design de interiores em Buenos Aires.",
+      twitterCard: "summary",
     },
     stats: {
       experience: "Anos de Experiência",
@@ -679,6 +725,7 @@ const translations = {
         proyectos: "Projetos",
         ambos: "Casas e Projetos",
       },
+      noResults: "Nenhum resultado encontrado",
       originFilterLabels: {
         all: "Todos",
         casas: "Casas",
@@ -708,6 +755,10 @@ const translations = {
         year: "Ano",
         area: "Área",
         description: "Descrição",
+      },
+      pagination: {
+        previous: "Anterior",
+        next: "Próximo",
       },
     },
     casas: {
@@ -833,6 +884,7 @@ const translations = {
       navigation: "Navegação",
       contact: "Contato",
       social: "Redes",
+      logoAlt: "Logo Wilson",
       description: "Estúdio de arquitetura contemporânea. Design, direção e construção de obras de alto valor.",
       designedFor: "Projetado para a excelência",
       copyright: "© {year} Wilson Arquitectura",
@@ -855,6 +907,7 @@ const translations = {
       facebookLabel: "Facebook",
       instagramLabel: "Instagram",
       whatsappLabel: "WhatsApp",
+      brandName: "Wilson Arquitectura",
       locationTitle: "Localização da Wilson Arquitectura",
     },
     sustainability: {

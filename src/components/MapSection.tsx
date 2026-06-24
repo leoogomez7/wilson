@@ -29,7 +29,7 @@ export function MapSection() {
                   rel="noopener noreferrer"
                   className="hover:text-brand-black whitespace-nowrap"
                 >
-                  Wilson Arquitectura
+                  {t.map.brandName}
                 </a>
               </div>
             </div>

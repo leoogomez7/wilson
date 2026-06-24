@@ -499,7 +499,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
       <div className="grid grid-cols-12 gap-y-16 md:gap-y-24 md:gap-x-12">
         {visible.length === 0 ? (
           <div className="col-span-12 rounded-none border border-brand-light bg-brand-gray/5 p-8 text-center text-sm uppercase tracking-[0.3em] text-brand-gray">
-            No hay resultados para mostrar
+            {t.projects.noResults}
           </div>
         ) : (
           visible.map((project) => (
@@ -690,7 +690,7 @@ function ProjectModal({
                   type="button"
                   onClick={() => setActiveSlide((prev) => (prev - 1 + galleryItems.length) % galleryItems.length)}
                   className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-brand-black/70 text-white transition hover:bg-brand-black/90"
-                  aria-label="Anterior"
+                  aria-label={t.projects.pagination.previous}
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </button>
@@ -698,7 +698,7 @@ function ProjectModal({
                   type="button"
                   onClick={() => setActiveSlide((prev) => (prev + 1) % galleryItems.length)}
                   className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-brand-black/70 text-white transition hover:bg-brand-black/90"
-                  aria-label="Siguiente"
+                  aria-label={t.projects.pagination.next}
                 >
                   <ChevronRight className="h-4 w-4" />
                 </button>
