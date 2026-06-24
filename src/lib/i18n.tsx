@@ -7,7 +7,7 @@ export const defaultLocale: Locale = "es";
 const translations = {
   es: {
     nav: {
-      home: "Home",
+      home: "Inicio",
       estudio: "Estudio",
       casas: "Casas",
       proyectos: "Proyectos",
@@ -55,10 +55,10 @@ const translations = {
     },
     hero: {
       tagline: "Estudio de Arquitectura · Pilar, Buenos Aires",
-      description: "Creamos espacios exclusivos, dónde el diseño, la funcionalidad y la calidad se integran en cada detalle. Transformamos ideas en obras que reflejan el estilo y las necesidades de cada cliente.",
+      description: "Creamos espacios exclusivos, donde el diseño, la funcionalidad y la calidad se integran en cada detalle. Transformamos ideas en obras que reflejan el estilo y las necesidades de cada cliente.",
       ctaProjects: "Ver Proyectos",
       ctaContact: "Solicitar Asesoramiento",
-      scroll: "Scroll",
+      scroll: "Desplazar",
       imageAlt: "Arquitectura contemporánea de hormigón",
     },
     history: {
@@ -75,7 +75,7 @@ const translations = {
       originLabels: {
         casas: "Casas",
         proyectos: "Proyectos",
-        ambos: "Casas",
+        ambos: "Casas y Proyectos",
       },
       heading: "Proyectos",
       sectionDescription:
@@ -398,7 +398,7 @@ const translations = {
       sectionLabel: "Featured Works",
       homeLabel: "Houses & Projects",
       originLabels: {
-        casas: "House",
+        casas: "Houses",
         proyectos: "Projects",
         ambos: "Houses & Projects",
       },
@@ -665,7 +665,7 @@ const translations = {
   },
   pt: {
     nav: {
-      home: "Home",
+      home: "Início",
       estudio: "Estúdio",
       casas: "Casas",
       proyectos: "Projetos",
@@ -709,7 +709,7 @@ const translations = {
         "Projeto, direção de obra e execução. Projetamos espaços únicos com exclusividade em cada detalhe. Transformamos suas ideias e sonhos em realidade.",
       ctaProjects: "Ver Projetos",
       ctaContact: "Solicitar Consultoria",
-      scroll: "Scroll",
+      scroll: "Rolar",
       imageAlt: "Arquitetura contemporânea em concreto",
     },
     history: {
@@ -724,7 +724,7 @@ const translations = {
       sectionLabel: "Obras em Destaque",
       homeLabel: "Casas e Projetos",
       originLabels: {
-        casas: "Casa",
+        casas: "Casas",
         proyectos: "Projetos",
         ambos: "Casas e Projetos",
       },
