@@ -511,7 +511,7 @@ const translations = {
       sectionLabel: "Leadership",
       heading: "The Studio",
       homeDescription:
-        "Our journey is guided by a passion for creating places that transcend time. We design unique spaces that reflect a future vision and become the setting for memorable stories.",
+        "Our journey is guided by a passion for creating places that transcend time. We design unique spaces that reflect a future vision and become the setting for memorable stories. We combine vision, creativity and precision to create spaces that inspire, endure and enhance the experience of those who inhabit them.",
       imageAlt: "Wilson Architecture Team",
       members: [
         {
@@ -836,7 +836,7 @@ const translations = {
       sectionLabel: "Liderança",
       heading: "O Estúdio",
       homeDescription:
-        "Nossa trajetória é guiada pela paixão de criar lugares que transcendem o tempo. Projetamos espaços únicos que refletem uma visão de futuro e se tornam o cenário de histórias memoráveis.",
+        "Nossa trajetória é guiada pela paixão de criar lugares que transcendem o tempo. Projetamos espaços únicos que refletem uma visão de futuro e se tornam o cenário de histórias memoráveis. Unimos visão, criatividade e precisão para criar espaços que inspiram, perduram e melhoram a experiência de quem os habita.",
       imageAlt: "Equipe Wilson Arquitetura",
       members: [
         {

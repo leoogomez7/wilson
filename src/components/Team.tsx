@@ -2,10 +2,10 @@ import w from "@/assets/Estudio/Wilson.jpeg";
 import j from "@/assets/Estudio/Josue.jpeg";
 import k from "@/assets/Estudio/Keyla.jpeg";
 import grupal from "@/assets/Estudio/Grupal.jpeg";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import zAmanecer from "@/assets/Proyectos/Z/Amanecer de primavera.png";
 import zAmanecerCF from "@/assets/Proyectos/Z/Amanecer de primavera_CF.png";
-import zAmanecerExterior from "@/assets/Proyectos/Z/Amanecer de Primavera_Exterior L.png";
+import zAmanecerExterior from "@/assets/Proyectos/Z/Anochecer de primavera_Exterior L.png";
 import zAnochecerCF from "@/assets/Proyectos/Z/Anochecer de verano_CF.png";
 import zAnochecerFrente from "@/assets/Proyectos/Z/Anochecer de verano_Frente.png";
 import zAnochecerExterior from "@/assets/Proyectos/Z/Anochecer de vernano_Exterior L.png";
@@ -52,6 +52,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
   const { t } = useTranslation();
   const team = t.team.members;
   const [estudioSlide, setEstudioSlide] = useState(0);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
   const estudioGallery = [grupal];
 
   useEffect(() => {
@@ -149,7 +150,10 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                       {t.common.seeMore}
                     </button>
                   </DialogTrigger>
-                  <DialogContent className="w-[90vw] sm:w-auto sm:min-w-[44rem] max-w-[90vw] sm:max-w-[80vw] rounded-none sm:rounded-none overflow-y-auto max-h-[300vh]">
+                  <DialogContent
+                    className="w-[90vw] max-w-[90vw] rounded-none sm:rounded-none overflow-y-auto max-h-[300vh]"
+                    ref={scrollRef}
+                  >
                     <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
                       <div className="overflow-hidden w-full max-w-[20rem] h-80 sm:w-88 sm:h-88 shrink-0 rounded-none">
                         <img
@@ -172,11 +176,14 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                         </div>
                       </div>
                     </div>
-                    <div className="sticky bottom-0 z-10 mt-4 flex flex-col items-center justify-center gap-2 border-t border-brand-gray/10 bg-white/95 py-4 backdrop-blur-sm sm:hidden">
-                      <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/70">
+                    <div className="sticky bottom-0 z-10 mt-0 flex flex-col items-center justify-center gap-2 border-t border-brand-gray/10 bg-white/95 py-4 backdrop-blur-sm sm:hidden">
+                      <button
+                        type="button"
+                        className="text-[10px] uppercase tracking-[0.4em] text-brand-black font-bold"
+                        onClick={() => scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" })}
+                      >
                         {t.common.scroll}
-                      </span>
-                      <ChevronDown className="h-4 w-4 text-brand-gray/70 animate-bounce" />
+                      </button>
                     </div>
                   </DialogContent>
                 </Dialog>
