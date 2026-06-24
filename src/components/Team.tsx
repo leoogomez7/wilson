@@ -1,6 +1,7 @@
 import w from "@/assets/Estudio/Wilson.jpeg";
 import j from "@/assets/Estudio/Josue.jpeg";
 import k from "@/assets/Estudio/Keyla.jpeg";
+import grupal from "@/assets/Estudio/Grupal.jpeg";
 import { useEffect, useState } from "react";
 import zAmanecer from "@/assets/Proyectos/Z/Amanecer de primavera.png";
 import zAmanecerCF from "@/assets/Proyectos/Z/Amanecer de primavera_CF.png";
@@ -38,17 +39,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
   const { t } = useTranslation();
   const team = t.team.members;
   const [estudioSlide, setEstudioSlide] = useState(0);
-  const estudioGallery = [
-    zAmanecer,
-    zAmanecerCF,
-    zAmanecerExterior,
-    zAnochecerCF,
-    zAnochecerFrente,
-    zAnochecerExterior,
-    zAtardecer,
-    zAtardecerJpg,
-    zAtardecerExterior,
-  ];
+  const estudioGallery = [grupal];
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {

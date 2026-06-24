@@ -1,10 +1,20 @@
 import { useEffect, useState } from "react";
-import image1 from "@/assets/ParaVideo/Para-video1.jpeg";
-import image2 from "@/assets/ParaVideo/Para-video2.jpeg";
-import image3 from "@/assets/ParaVideo/Para-video3.jpeg";
-import image4 from "@/assets/ParaVideo/Para-video4.jpeg";
 
-const images = [image1, image2, image3, image4];
+const casaImages = Object.values(
+  import.meta.glob("../assets/Casas/*.{png,jpg,jpeg}", {
+    eager: true,
+    import: "default",
+  }) as Record<string, string>
+);
+
+const proyectoImages = Object.values(
+  import.meta.glob("../assets/Proyectos/**/*.{png,jpg,jpeg}", {
+    eager: true,
+    import: "default",
+  }) as Record<string, string>
+);
+
+const images = [...casaImages, ...proyectoImages];
 
 export function VideoImages() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -16,6 +26,10 @@ export function VideoImages() {
 
     return () => window.clearInterval(interval);
   }, []);
+
+  if (images.length === 0) {
+    return null;
+  }
 
   return (
     <div className="mb-12 overflow-hidden border border-border">
