@@ -6,7 +6,11 @@ import { X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-const Dialog = DialogPrimitive.Root;
+const Dialog = ({ children, ...props }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Root>) => (
+  <DialogPrimitive.Root {...props} preventScroll>
+    {children}
+  </DialogPrimitive.Root>
+);
 
 const DialogTrigger = DialogPrimitive.Trigger;
 

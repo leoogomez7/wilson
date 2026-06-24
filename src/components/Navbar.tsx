@@ -51,7 +51,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
               {t.nav[item.labelKey]}
             </a>
           ))}
-          <div className="relative flex-shrink-0">
+          <div className="relative shrink-0">
             <button
               type="button"
               onClick={() => setLanguageOpen((value) => !value)}

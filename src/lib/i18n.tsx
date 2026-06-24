@@ -31,6 +31,7 @@ const translations = {
     common: {
       seeMore: "Ver más",
       readMore: "Leer más",
+      scroll: "Seguir leyendo",
     },
     meta: {
       title: "Wilson Arquitectura",
@@ -362,6 +363,7 @@ const translations = {
     common: {
       seeMore: "See more",
       readMore: "Read more",
+      scroll: "Continue reading",
     },
     meta: {
       title: "Wilson Architecture",
@@ -687,6 +689,7 @@ const translations = {
     common: {
       seeMore: "Ver mais",
       readMore: "Ler mais",
+      scroll: "Continuar lendo",
     },
     meta: {
       title: "Wilson Arquitetura",

@@ -151,7 +151,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                     </button>
                   </DialogTrigger>
                   <DialogContent
-                    className="w-[90vw] max-w-[90vw] rounded-none sm:rounded-none overflow-y-auto max-h-[300vh]"
+                    className="w-[90vw] max-w-[90vw] rounded-none sm:rounded-none overflow-y-auto max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-4rem)] min-h-[60vh] sm:min-h-[70vh]"
                     ref={scrollRef}
                   >
                     <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
@@ -176,11 +176,19 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                         </div>
                       </div>
                     </div>
-                    <div className="sticky bottom-0 z-10 mt-0 flex flex-col items-center justify-center gap-2 border-t border-brand-gray/10 bg-white/95 py-4 backdrop-blur-sm sm:hidden">
+                    <div className="sticky bottom-0 z-10 mt-0 flex items-center justify-center border-t border-brand-gray/10 bg-white/95 py-4 backdrop-blur-sm sm:hidden">
                       <button
                         type="button"
-                        className="text-[10px] uppercase tracking-[0.4em] text-brand-black font-bold"
-                        onClick={() => scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" })}
+                        className="w-full max-w-[18rem] text-center text-[10px] uppercase tracking-[0.4em] text-brand-black font-bold"
+                        onClick={() => {
+                          const container = scrollRef.current;
+                          if (container) {
+                            container.scrollTo({
+                              top: container.scrollHeight - container.clientHeight,
+                              behavior: "smooth",
+                            });
+                          }
+                        }}
                       >
                         {t.common.scroll}
                       </button>
