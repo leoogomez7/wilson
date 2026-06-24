@@ -37,7 +37,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
         <a href="#top" className="block flex-none ml-4 md:ml-10 pr-8 md:pr-12">
           <img src={logo} alt={t.nav.logoAlt} className="h-10 w-auto object-contain" />
         </a>
-        <div className="hidden md:flex items-center justify-end flex-nowrap gap-6 text-[10px] uppercase tracking-[0.3em] font-medium">
+        <div className="hidden md:flex min-w-0 flex-wrap items-center justify-end gap-4 text-[10px] uppercase tracking-[0.3em] font-medium">
           {navLinks.map((item) => (
             <a
               key={item.labelKey}
@@ -51,7 +51,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
               {t.nav[item.labelKey]}
             </a>
           ))}
-          <div className="relative">
+          <div className="relative flex-shrink-0">
             <button
               type="button"
               onClick={() => setLanguageOpen((value) => !value)}

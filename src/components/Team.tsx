@@ -149,7 +149,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                       {t.common.seeMore}
                     </button>
                   </DialogTrigger>
-                  <DialogContent className="w-[90vw] max-h-[calc(100vh-4rem)] sm:max-w-3xl rounded-3xl overflow-hidden">
+                  <DialogContent className="w-[90vw] sm:w-auto sm:min-w-[44rem] max-w-[90vw] sm:max-w-[80vw] rounded-none sm:rounded-none overflow-y-auto max-h-[300vh]">
                     <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
                       <div className="overflow-hidden w-full max-w-[20rem] h-80 sm:w-88 sm:h-88 shrink-0 rounded-none">
                         <img
@@ -172,7 +172,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                         </div>
                       </div>
                     </div>
-                    <div className="mt-4 flex items-center justify-center gap-2 sm:hidden">
+                    <div className="sticky bottom-0 z-10 mt-4 flex flex-col items-center justify-center gap-2 border-t border-brand-gray/10 bg-white/95 py-4 backdrop-blur-sm sm:hidden">
                       <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/70">
                         {t.common.scroll}
                       </span>
