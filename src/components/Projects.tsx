@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import p1 from "@/assets/project-1.jpg";
-import p2 from "@/assets/project-2.jpg";
-import p3 from "@/assets/project-3.jpg";
 import p4 from "@/assets/project-4.jpg";
-import p5 from "@/assets/project-5.jpg";
 import zAmanecer from "@/assets/Proyectos/Z/Amanecer de primavera.png";
 import zAmanecerCF from "@/assets/Proyectos/Z/Amanecer de primavera_CF.png";
 import zAmanecerExterior from "@/assets/Proyectos/Z/Amanecer de Primavera_Exterior L.png";
@@ -97,7 +94,7 @@ const projects: Project[] = [
       pt: "Casa Unifamiliar — 2025",
     },
     category: "viviendas",
-    image: p2,
+    image: p4,
     location: "Pilar, Buenos Aires",
     year: "2025",
     area: "239.21 m²",
@@ -194,7 +191,7 @@ const projects: Project[] = [
       pt: "Casa Unifamiliar — 2026",
     },
     category: "viviendas",
-    image: p3,
+    image: p1,
     location: "Pilar, Buenos Aires",
     year: "2026",
     area: "187.82 m²",
@@ -680,7 +677,7 @@ function ProjectModal({
         </button>
         {galleryItems.length > 0 ? (
           <div className="w-full">
-            <div className="overflow-hidden h-[360px] sm:h-[420px] bg-brand-light">
+            <div className="overflow-hidden .h-[360px] .sm:h-[420px] bg-brand-light">
               <img
                 src={activeItem.src}
                 alt={activeItem.label[language]}
