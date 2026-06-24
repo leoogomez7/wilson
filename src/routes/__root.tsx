@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import logoPestana from "../assets/Logo-pestaña.jpeg";
 import { reportError } from "../lib/error-reporting";
-import { TranslationProvider, defaultLocale, useTranslation } from "@/lib/i18n";
+import { TranslationProvider, useTranslation } from "@/lib/i18n";
 
 function NotFoundComponent() {
   const { t } = useTranslation();
@@ -76,27 +76,6 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Wilson Arquitectura" },
-      { name: "description", content: "Contemporary architecture studio in Pilar, Buenos Aires. Residential, commercial, construction supervision and interior design." },
-      { name: "author", content: "Wilson" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      {
-        rel: "icon",
-        href: logoPestana,
-      },
-    ],
-  }),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -104,11 +83,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
-  const { language } = useTranslation();
+  return (
+    <TranslationProvider>
+      <RootShellContent>{children}</RootShellContent>
+    </TranslationProvider>
+  );
+}
+
+function RootShellContent({ children }: { children: ReactNode }) {
+  const { t, language } = useTranslation();
 
   return (
     <html lang={language}>
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{t.meta.title}</title>
+        <meta name="description" content={t.meta.description} />
+        <meta name="author" content="Wilson" />
+        <meta property="og:title" content={t.meta.ogTitle} />
+        <meta property="og:description" content={t.meta.ogDescription} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content={t.meta.twitterCard} />
+        <link rel="stylesheet" href={appCss} />
+        <link rel="icon" href={logoPestana} />
         <HeadContent />
       </head>
       <body>
@@ -124,10 +122,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TranslationProvider>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
-      </TranslationProvider>
+      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <Outlet />
     </QueryClientProvider>
   );
 }
