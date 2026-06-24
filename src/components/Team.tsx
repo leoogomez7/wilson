@@ -36,9 +36,9 @@ const memberImagePositions: Record<string, string> = {
 };
 
 const memberModalImagePositions: Record<string, string> = {
-  josue: "50% 40%",
-  wilson: "50% 35%",
-  keyla: "50% 15%",
+  josue: "60% 40%",
+  wilson: "60% 35%",
+  keyla: "60% 15%",
 };
 
 const memberImageSizes: Record<string, string> = {
@@ -150,7 +150,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-xl">
                     <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-                      <div className="overflow-hidden w-full sm:w-52 h-56 sm:h-64 shrink-0">
+                      <div className="overflow-hidden w-full sm:w-56 h-72 sm:h-80 shrink-0 rounded-3xl">
                         <img
                           src={memberImg}
                           alt={`Foto de ${member.name}`}
