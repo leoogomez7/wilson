@@ -1,9 +1,9 @@
 import { useTranslation } from "@/lib/i18n";
 import { SectionMode } from "@/components/SectionMode";
 import { Leaf, Wind, Thermometer, Box, Zap, Cpu, TreeDeciduous, Sun } from "lucide-react";
-import s1 from "@/assets/s1.jpg";
-import s2 from "@/assets/s2.jpg";
-import s3 from "@/assets/s3.jpg";
+import s1 from "@/assets/Sustentabilidad/s1.jpg";
+import s2 from "@/assets/Sustentabilidad/s2.jpg";
+import s3 from "@/assets/Sustentabilidad/s3.jpg";
 
 export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
   const { t } = useTranslation();

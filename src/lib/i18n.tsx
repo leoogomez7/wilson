@@ -38,7 +38,7 @@ const translations = {
     },
     hero: {
       tagline: "Estudio de Arquitectura · Pilar, Buenos Aires",
-      description: "Creamos espacios exclusivos, donde el diseño, la funcionalidad y la calidad se integran en cada detalle. Transformamos ideas en obras que reflejan el estilo y las necesidades de cada cliente.",
+      description: "Creamos espacios exclusivos, dónde el diseño, la funcionalidad y la calidad se integran en cada detalle. Transformamos ideas en obras que reflejan el estilo y las necesidades de cada cliente.",
       ctaProjects: "Ver Proyectos",
       ctaContact: "Solicitar Asesoramiento",
       scroll: "Scroll",
@@ -85,6 +85,7 @@ const translations = {
       },
       atmosphereLabel: "Atmósfera",
       atmospheres: {
+        todos: "Todos",
         anochecer: "Anochecer de verano",
         atardecer: "Atardecer de otoño",
         amanecer: "Amanecer de primavera",
@@ -375,6 +376,7 @@ const translations = {
       },
       atmosphereLabel: "Atmosphere",
       atmospheres: {
+        todos: "All",
         anochecer: "Summer dusk",
         atardecer: "Autumn sunset",
         amanecer: "Spring sunrise",
@@ -474,6 +476,7 @@ const translations = {
       heading: "The Studio",
       homeDescription:
         "Our journey is guided by a passion for creating places that transcend time. We design unique spaces that reflect a future vision and become the setting for memorable stories.",
+      imageAlt: "Wilson Architecture Team",
       members: [
         {
           id: "josue",
@@ -683,6 +686,7 @@ const translations = {
       },
       atmosphereLabel: "Atmosfera",
       atmospheres: {
+        todos: "Todos",
         anochecer: "Anoitecer de verão",
         atardecer: "Pôr do sol de outono",
         amanecer: "Amanhecer de primavera",
@@ -782,6 +786,7 @@ const translations = {
       heading: "O Estúdio",
       homeDescription:
         "Nossa trajetória é guiada pela paixão de criar lugares que transcendem o tempo. Projetamos espaços únicos que refletem uma visão de futuro e se tornam o cenário de histórias memoráveis.",
+      imageAlt: "Equipe Wilson Arquitetura",
       members: [
         {
           id: "josue",

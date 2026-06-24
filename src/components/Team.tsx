@@ -1,7 +1,16 @@
-import w from "@/assets/team-wilson.jpg";
-import j from "@/assets/team-josue.jpg";
-import k from "@/assets/team-keyla.jpg";
-import equipoImg from "@/assets/Equipo.jpg";
+import w from "@/assets/Estudio/Wilson.jpeg";
+import j from "@/assets/Estudio/Josue.jpeg";
+import k from "@/assets/Estudio/Keyla.jpeg";
+import { useEffect, useState } from "react";
+import zAmanecer from "@/assets/Proyectos/Z/Amanecer de primavera.png";
+import zAmanecerCF from "@/assets/Proyectos/Z/Amanecer de primavera_CF.png";
+import zAmanecerExterior from "@/assets/Proyectos/Z/Amanecer de Primavera_Exterior L.png";
+import zAnochecerCF from "@/assets/Proyectos/Z/Anochecer de verano_CF.png";
+import zAnochecerFrente from "@/assets/Proyectos/Z/Anochecer de verano_Frente.png";
+import zAnochecerExterior from "@/assets/Proyectos/Z/Anochecer de vernano_Exterior L.png";
+import zAtardecer from "@/assets/Proyectos/Z/Atardecer de otoño.png";
+import zAtardecerJpg from "@/assets/Proyectos/Z/Atardecer de otoño.jpeg";
+import zAtardecerExterior from "@/assets/Proyectos/Z/Atardecer de otoño_ Exterior.png";
 import { useTranslation } from "@/lib/i18n";
 import { SectionMode } from "@/components/SectionMode";
 import {
@@ -19,9 +28,35 @@ const memberImages: Record<string, string> = {
   keyla: k,
 };
 
+const memberImagePositions: Record<string, string> = {
+  josue: "center 39%",
+  wilson: "center 35%",
+  keyla: "center 15%",
+};
+
 export function Team({ mode = "home" }: { mode?: SectionMode }) {
   const { t } = useTranslation();
   const team = t.team.members;
+  const [estudioSlide, setEstudioSlide] = useState(0);
+  const estudioGallery = [
+    zAmanecer,
+    zAmanecerCF,
+    zAmanecerExterior,
+    zAnochecerCF,
+    zAnochecerFrente,
+    zAnochecerExterior,
+    zAtardecer,
+    zAtardecerJpg,
+    zAtardecerExterior,
+  ];
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setEstudioSlide((prev) => (prev + 1) % estudioGallery.length);
+    }, 1500);
+
+    return () => window.clearInterval(intervalId);
+  }, [estudioGallery.length]);
 
   if (mode === "home") {
     return (
@@ -30,7 +65,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div className="overflow-hidden">
               <img
-                src={equipoImg}
+                src={estudioGallery[estudioSlide]}
                 alt={t.team.imageAlt}
                 className="w-full h-full min-h-105 object-cover"
                 loading="lazy"
@@ -70,16 +105,16 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
             {t.team.sectionLabel}
           </span>
           <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">{t.team.heading}</h2>
-          <div className="mt-8 grid gap-8 lg:grid-cols-[360px_minmax(0,1fr)] items-center">
+          <div className="mt-8 grid gap-8">
+            <p className="text-brand-gray leading-relaxed">{t.team.homeDescription}</p>
             <div className="overflow-hidden">
               <img
-                src={equipoImg}
+                src={estudioGallery[estudioSlide]}
                 alt={t.team.imageAlt}
                 className="w-full h-auto object-cover"
                 loading="lazy"
               />
             </div>
-            <p className="text-brand-gray leading-relaxed">{t.team.homeDescription}</p>
           </div>
         </div>
 
@@ -98,6 +133,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                     src={memberImg}
                     alt={`Retrato de ${member.name}`}
                     loading="lazy"
+                    style={{ objectPosition: memberImagePositions[member.id] || "center" }}
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
                   />
                 </div>
@@ -112,14 +148,26 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                     </button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-xl">
-                    <DialogHeader>
-                      <DialogTitle>{member.name}</DialogTitle>
-                      <DialogDescription className="text-sm text-brand-gray">
-                        {member.role}
-                      </DialogDescription>
-                    </DialogHeader>
-                    <div className="mt-4 text-sm leading-relaxed text-brand-gray">
-                      {member.bio}
+                    <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
+                      <div className="overflow-hidden w-full sm:w-40 h-44 sm:h-52 shrink-0">
+                        <img
+                          src={memberImg}
+                          alt={`Foto de ${member.name}`}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <DialogHeader>
+                          <DialogTitle>{member.name}</DialogTitle>
+                          <DialogDescription className="text-sm text-brand-gray">
+                            {member.role}
+                          </DialogDescription>
+                        </DialogHeader>
+                        <div className="text-sm leading-relaxed text-brand-gray mt-4">
+                          {member.bio}
+                        </div>
+                      </div>
                     </div>
                   </DialogContent>
                 </Dialog>

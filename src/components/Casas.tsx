@@ -160,14 +160,8 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
               />
             </div>
             <div className="mb-3 inline-flex items-center gap-3">
-              <span className={`rounded-none px-3 py-1 text-[10px] uppercase tracking-[0.3em] font-semibold whitespace-nowrap ${
-                project.origin === "proyectos"
-                  ? "bg-brand-gray/10 text-brand-gray"
-                  : "bg-brand-black text-white"
-              }`}>
-                {project.origin === "proyectos"
-                  ? t.projects.originLabels.proyectos
-                  : t.projects.originLabels.casas}
+              <span className="rounded-none px-3 py-1 text-[10px] uppercase tracking-[0.3em] font-semibold whitespace-nowrap bg-brand-black text-white">
+                {t.projects.originLabels.casas}
               </span>
             </div>
             <h3 className="text-xl md:text-2xl font-serif mb-1">{project.title[language]}</h3>

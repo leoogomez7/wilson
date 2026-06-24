@@ -1,16 +1,31 @@
-import { useState } from "react";
-import { X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import p1 from "@/assets/project-1.jpg";
 import p2 from "@/assets/project-2.jpg";
 import p3 from "@/assets/project-3.jpg";
 import p4 from "@/assets/project-4.jpg";
 import p5 from "@/assets/project-5.jpg";
+import zAmanecer from "@/assets/Proyectos/Z/Amanecer de primavera.png";
+import zAmanecerCF from "@/assets/Proyectos/Z/Amanecer de primavera_CF.png";
+import zAmanecerExterior from "@/assets/Proyectos/Z/Amanecer de Primavera_Exterior L.png";
+import zAnochecerCF from "@/assets/Proyectos/Z/Anochecer de verano_CF.png";
+import zAnochecerFrente from "@/assets/Proyectos/Z/Anochecer de verano_Frente.png";
+import zAnochecerExterior from "@/assets/Proyectos/Z/Anochecer de vernano_Exterior L.png";
+import zAtardecer from "@/assets/Proyectos/Z/Atardecer de otoño.png";
+import zAtardecerJpg from "@/assets/Proyectos/Z/Atardecer de otoño.jpeg";
+import zAtardecerExterior from "@/assets/Proyectos/Z/Atardecer de otoño_ Exterior.png";
+import cAmanecer from "@/assets/Proyectos/CyG/Amanecer de primavera.png";
+import cAnochecer from "@/assets/Proyectos/CyG/Anochecer de verano.png";
+import cAnochecerBack from "@/assets/Proyectos/CyG/Anochecer de verano_Contrafrente.png";
+import cAtardecer from "@/assets/Proyectos/CyG/Atardecer de otoño.png";
+import cAtardecerFrente from "@/assets/Proyectos/CyG/Frente_Atardecer de otoño.png";
+import cInteriorComedor from "@/assets/Proyectos/CyG/Interior_Comedor.png";
 import { useTranslation } from "@/lib/i18n";
 import { casaProjects } from "@/components/Casas";
 
 type Category = "todos" | "viviendas" | "comercial" | "reformas";
 
-type AtmosphereType = "anochecer" | "atardecer" | "amanecer";
+type AtmosphereType = "todos" | "anochecer" | "atardecer" | "amanecer";
 
 interface LocalizedString {
   es: string;
@@ -28,8 +43,22 @@ interface Project {
   year: string;
   area: string;
   description: LocalizedString;
+  gallery?: Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>;
   origin?: "casas" | "proyectos" | "ambos";
 }
+
+const uniqueGalleryBySrc = (
+  gallery: Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>
+) =>
+  gallery.reduce(
+    (acc, item) => {
+      if (!acc.some((existing) => existing.src === item.src)) {
+        acc.push(item);
+      }
+      return acc;
+    },
+    [] as Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>
+  );
 
 const projects: Project[] = [
   {
@@ -58,48 +87,205 @@ const projects: Project[] = [
   {
     id: "nexo",
     title: {
-      es: "Nexo Comercial",
-      en: "Nexo Commercial",
-      pt: "Nexo Comercial",
+      es: "Proyecto CyG",
+      en: "CyG Project",
+      pt: "Projeto CyG",
     },
     meta: {
-      es: "Local Comercial — 2022",
-      en: "Retail Space — 2022",
-      pt: "Loja Comercial — 2022",
+      es: "Vivienda Unifamiliar - 2025",
+      en: "Single Family Home — 2025",
+      pt: "Casa Unifamiliar — 2025",
     },
-    category: "comercial",
+    category: "viviendas",
     image: p2,
-    location: "Palermo, CABA",
-    year: "2022",
-    area: "150 m²",
+    location: "Pilar, Buenos Aires",
+    year: "2025",
+    area: "239.21 m²",
     description: {
-      es: "Diseño de local retail con foco en la experiencia de marca. Iluminación escenográfica, paleta neutra y mobiliario a medida.",
-      en: "Retail design focused on brand experience. Scenic lighting, a neutral palette, and custom furnishings.",
-      pt: "Design de loja com foco na experiência da marca. Iluminação cênica, paleta neutra e mobiliário sob medida.",
+      es: "Estética, precisión y carácter en cada línea. Una propuesta pensada para quienes eligen calidad sin concesiones.",
+      en: "Aesthetic precision and character in every line. A proposal designed for those who choose uncompromising quality.",
+      pt: "Estética, precisão e caráter em cada linha. Uma proposta pensada para quem escolhe qualidade sem concessões.",
     },
+    gallery: [
+      {
+        src: cAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de Amanecer de primavera",
+          en: "spring dawn filter",
+          pt: "filtro de Amanhecer de primavera",
+        },
+      },
+      {
+        src: cAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de Anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de Anoitecer de verão",
+        },
+      },
+      {
+        src: cAnochecerBack,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de Anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de Anoitecer de verão",
+        },
+      },
+      {
+        src: cAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de Atardecer de otoño",
+          en: "autumn dusk filter",
+          pt: "filtro de Entardecer de outono",
+        },
+      },
+      {
+        src: cAtardecerFrente,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de Atardecer de otoño",
+          en: "autumn dusk filter",
+          pt: "filtro de Entardecer de outono",
+        },
+      },
+      {
+        src: cInteriorComedor,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de las 3 atmosferas",
+          en: "all atmospheres filter",
+          pt: "filtro das 3 atmosferas",
+        },
+      },
+      {
+        src: cInteriorComedor,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de las 3 atmosferas",
+          en: "all atmospheres filter",
+          pt: "filtro das 3 atmosferas",
+        },
+      },
+      {
+        src: cInteriorComedor,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de las 3 atmosferas",
+          en: "all atmospheres filter",
+          pt: "filtro das 3 atmosferas",
+        },
+      },
+    ],
   },
   {
     id: "fitz-roy",
     title: {
-      es: "Intervención Fitz Roy",
-      en: "Fitz Roy Intervention",
-      pt: "Intervenção Fitz Roy",
+      es: "Proyecto Z",
+      en: "Project Z",
+      pt: "Projeto Z",
     },
     meta: {
-      es: "Reforma Integral — 2024",
-      en: "Full Renovation — 2024",
-      pt: "Reforma Integral — 2024",
+      es: "Vivienda Unifamiliar - 2026",
+      en: "Single Family Home — 2026",
+      pt: "Casa Unifamiliar — 2026",
     },
-    category: "reformas",
+    category: "viviendas",
     image: p3,
-    location: "Palermo Hollywood",
-    year: "2024",
-    area: "210 m²",
+    location: "Pilar, Buenos Aires",
+    year: "2026",
+    area: "187.82 m²",
     description: {
-      es: "Reconversión de antiguo galpón a loft contemporáneo conservando la estructura industrial original.",
-      en: "Conversion of an old warehouse into a contemporary loft while preserving the original industrial structure.",
-      pt: "Conversão de antigo galpão em loft contemporâneo, preservando a estrutura industrial original.",
+      es: "Propuesta arquitectónica de carácter minimalista, donde la pureza volumétrica y la atención al detalle constructivo definen una imagen elegante, funcional y atemporal.",
+      en: "Architectural proposal with a minimalist character, where volumetric purity and attention to construction detail define an elegant, functional, and timeless image.",
+      pt: "Proposta arquitetônica de caráter minimalista, onde a pureza volumétrica e a atenção ao detalhe construtivo definem uma imagem elegante, funcional e atemporal.",
     },
+    gallery: [
+      {
+        src: zAmanecerCF,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de amanecer de primavera",
+          en: "spring dawn filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: zAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de amanecer de primavera",
+          en: "spring dawn filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: zAmanecerExterior,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de amanecer de primavera",
+          en: "spring dawn filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: zAnochecerCF,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: zAnochecerFrente,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: zAnochecerExterior,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: zAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de atardecer de otoño",
+          en: "autumn dusk filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: zAtardecerJpg,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de atardecer de otoño",
+          en: "autumn dusk filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: zAtardecerExterior,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de atardecer de otoño",
+          en: "autumn dusk filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+    ],
   },
   {
     id: "casa-recoleta",
@@ -124,29 +310,7 @@ const projects: Project[] = [
       pt: "Residência de alto padrão com cozinha integrada à sala. Mármore, madeiras nobres e amplas aberturas para luz natural.",
     },
   },
-  {
-    id: "lobby-civico",
-    title: {
-      es: "Centro Cívico",
-      en: "Civic Center",
-      pt: "Centro Cívico",
-    },
-    meta: {
-      es: "Obra Institucional — 2023",
-      en: "Institutional Project — 2023",
-      pt: "Projeto Institucional — 2023",
-    },
-    category: "comercial",
-    image: p5,
-    location: "Vicente López",
-    year: "2023",
-    area: "1.200 m²",
-    description: {
-      es: "Proyecto institucional con doble altura, geometría curva e iluminación arquitectónica indirecta.",
-      en: "Institutional project with double-height spaces, curved geometry and indirect architectural lighting.",
-      pt: "Projeto institucional com pé-direito duplo, geometria curva e iluminação arquitetônica indireta.",
-    },
-  },
+
 ];
 
 import { SectionMode } from "@/components/SectionMode";
@@ -155,9 +319,63 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
   const { t, language } = useTranslation();
   const [active, setActive] = useState<Category>("todos");
   const [originFilter, setOriginFilter] = useState<"all" | "casas" | "proyectos">("all");
-  const [selectedAtmosphere, setSelectedAtmosphere] = useState<AtmosphereType>("anochecer");
+  const [listAtmosphere, setListAtmosphere] = useState<AtmosphereType>("todos");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [navChoiceOpen, setNavChoiceOpen] = useState(false);
+  const [projectZSlide, setProjectZSlide] = useState(0);
+  const [projectCyGSlide, setProjectCyGSlide] = useState(0);
+
+  const zGallery = projects.find((project) => project.id === "fitz-roy")?.gallery ?? [];
+  const cyGGallery = projects.find((project) => project.id === "nexo")?.gallery ?? [];
+
+  const uniqueGalleryBySrc = (
+    gallery: Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>
+  ) =>
+    gallery.reduce(
+      (acc, item) => {
+        if (!acc.some((existing) => existing.src === item.src)) {
+          acc.push(item);
+        }
+        return acc;
+      },
+      [] as Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>
+    );
+
+  const filteredZGallery =
+    listAtmosphere === "todos"
+      ? uniqueGalleryBySrc(zGallery)
+      : zGallery.filter((item) => item.atmosphere === listAtmosphere);
+  const filteredCyGGallery =
+    listAtmosphere === "todos"
+      ? uniqueGalleryBySrc(cyGGallery)
+      : cyGGallery.filter((item) => item.atmosphere === listAtmosphere);
+
+  const zSlideIndex = filteredZGallery.length > 0 ? projectZSlide % filteredZGallery.length : 0;
+  const cyGSlideIndex = filteredCyGGallery.length > 0 ? projectCyGSlide % filteredCyGGallery.length : 0;
+
+  useEffect(() => {
+    if (filteredZGallery.length === 0) {
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setProjectZSlide((prev) => (prev + 1) % filteredZGallery.length);
+    }, 1500);
+
+    return () => window.clearInterval(intervalId);
+  }, [filteredZGallery.length]);
+
+  useEffect(() => {
+    if (filteredCyGGallery.length === 0) {
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setProjectCyGSlide((prev) => (prev + 1) % filteredCyGGallery.length);
+    }, 1500);
+
+    return () => window.clearInterval(intervalId);
+  }, [filteredCyGGallery.length]);
 
   const casaIds = new Set(casaProjects.map((project) => project.id));
   const combinedProjects: Project[] = [
@@ -174,7 +392,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
   const source = mode === "home" ? combinedProjects : sectionSource;
   const filteredByCategory =
     active === "todos" ? source : source.filter((p) => p.category === active);
-  const visible =
+  const visibleByOrigin =
     originFilter === "all"
       ? filteredByCategory
       : filteredByCategory.filter((p) =>
@@ -182,8 +400,15 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
             ? p.origin === "casas" || p.origin === "ambos"
             : p.origin === "proyectos" || p.origin === "ambos"
         );
+  const visible =
+    listAtmosphere === "todos"
+      ? visibleByOrigin
+      : visibleByOrigin.filter(
+          (p) => p.gallery?.some((item) => item.atmosphere === listAtmosphere) ?? false
+        );
   const selected = selectedId ? source.find((p) => p.id === selectedId) : null;
   const atmospheres: Array<{ key: AtmosphereType; label: string }> = [
+    { key: "todos", label: t.projects.atmospheres.todos },
     { key: "anochecer", label: t.projects.atmospheres.anochecer },
     { key: "atardecer", label: t.projects.atmospheres.atardecer },
     { key: "amanecer", label: t.projects.atmospheres.amanecer },
@@ -264,9 +489,9 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
           <button
             key={atm.key}
             type="button"
-            onClick={() => setSelectedAtmosphere(atm.key)}
+            onClick={() => setListAtmosphere(atm.key)}
             className={`rounded-none border border-brand-light px-4 py-2 transition ${
-              selectedAtmosphere === atm.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
+              listAtmosphere === atm.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
             }`}
           >
             {atm.label}
@@ -275,16 +500,33 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
       </div>
 
       <div className="grid grid-cols-12 gap-y-16 md:gap-y-24 md:gap-x-12">
-        {visible.map((project) => (
-          <article
-            key={project.id}
-            className="col-span-12 md:col-span-6 lg:col-span-4 group cursor-pointer"
-            onClick={() => setSelectedId(project.id)}
-          >
+        {visible.length === 0 ? (
+          <div className="col-span-12 rounded-none border border-brand-light bg-brand-gray/5 p-8 text-center text-sm uppercase tracking-[0.3em] text-brand-gray">
+            No hay resultados para mostrar
+          </div>
+        ) : (
+          visible.map((project) => (
+            <article
+              key={project.id}
+              className="col-span-12 md:col-span-6 lg:col-span-4 group cursor-pointer"
+              onClick={() => setSelectedId(project.id)}
+            >
             <div className="overflow-hidden mb-6 bg-brand-light aspect-4/3">
               <img
-                src={project.image}
-                alt={project.title[language]}
+                src={
+                  project.id === "fitz-roy" && filteredZGallery.length > 0
+                    ? filteredZGallery[zSlideIndex].src
+                    : project.id === "nexo" && filteredCyGGallery.length > 0
+                    ? filteredCyGGallery[cyGSlideIndex].src
+                    : project.image
+                }
+                alt={
+                  project.id === "fitz-roy" && filteredZGallery.length > 0
+                    ? filteredZGallery[zSlideIndex].label[language]
+                    : project.id === "nexo" && filteredCyGGallery.length > 0
+                    ? filteredCyGGallery[cyGSlideIndex].label[language]
+                    : project.title[language]
+                }
                 loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1200 ease-out"
               />
@@ -309,10 +551,17 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
               {t.common.readMore}
             </button>
           </article>
-        ))}
+          ))
+        )}
       </div>
 
-      {selected && <ProjectModal project={selected} onClose={() => setSelectedId(null)} />}
+      {selected && (
+        <ProjectModal
+          project={selected}
+          selectedAtmosphere={listAtmosphere}
+          onClose={() => setSelectedId(null)}
+        />
+      )}
       {mode === "home" ? (
         <div className="mt-12 text-right">
           <button
@@ -368,12 +617,54 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
   );
 }
 
-function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+function ProjectModal({
+  project,
+  selectedAtmosphere,
+  onClose,
+}: {
+  project: Project;
+  selectedAtmosphere: AtmosphereType;
+  onClose: () => void;
+}) {
   const { t, language } = useTranslation();
+  const [modalAtmosphere, setModalAtmosphere] = useState<AtmosphereType>(selectedAtmosphere);
+  const atmosphereButtons: Array<{ key: AtmosphereType; label: string }> = [
+    { key: "todos", label: t.projects.atmospheres.todos },
+    { key: "anochecer", label: t.projects.atmospheres.anochecer },
+    { key: "atardecer", label: t.projects.atmospheres.atardecer },
+    { key: "amanecer", label: t.projects.atmospheres.amanecer },
+  ];
+  const galleryItems = uniqueGalleryBySrc(
+    project.gallery?.filter(
+      (item) => modalAtmosphere === "todos" || item.atmosphere === modalAtmosphere
+    ) ?? []
+  );
+  const [activeSlide, setActiveSlide] = useState(0);
+  const activeIndex = galleryItems.length > 0 ? activeSlide % galleryItems.length : 0;
+
+  useEffect(() => {
+    setModalAtmosphere(selectedAtmosphere);
+  }, [selectedAtmosphere]);
+
+  useEffect(() => {
+    setActiveSlide(0);
+
+    if (galleryItems.length === 0) {
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % galleryItems.length);
+    }, 1500);
+
+    return () => window.clearInterval(intervalId);
+  }, [modalAtmosphere, galleryItems.length]);
+
+  const activeItem = galleryItems[activeIndex];
 
   return (
     <div
-      className="fixed inset-0 z-80 bg-brand-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-12 animate-fade"
+      className="fixed inset-0 z-80 bg-brand-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
       onClick={onClose}
     >
       <div
@@ -387,7 +678,53 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         >
           {t.projects.modal.close}
         </button>
-        <img src={project.image} alt={project.title[language]} className="w-full aspect-video object-cover" />
+        {galleryItems.length > 0 ? (
+          <div className="w-full">
+            <div className="overflow-hidden h-[360px] sm:h-[420px] bg-brand-light">
+              <img
+                src={activeItem.src}
+                alt={activeItem.label[language]}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="px-8 md:px-12 pt-4">
+              <div className="flex items-center justify-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setActiveSlide((prev) => (prev - 1 + galleryItems.length) % galleryItems.length)}
+                  className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-brand-black/70 text-white transition hover:bg-brand-black/90"
+                  aria-label="Anterior"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveSlide((prev) => (prev + 1) % galleryItems.length)}
+                  className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-brand-black/70 text-white transition hover:bg-brand-black/90"
+                  aria-label="Siguiente"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {atmosphereButtons.map((atm) => (
+                  <button
+                    key={atm.key}
+                    type="button"
+                    onClick={() => setModalAtmosphere(atm.key)}
+                    className={`rounded-none border border-brand-light px-4 py-2 text-[10px] uppercase tracking-[0.25em] transition whitespace-nowrap ${
+                      modalAtmosphere === atm.key
+                        ? "bg-brand-black text-white border-brand-black"
+                        : "bg-white text-brand-black hover:bg-brand-light"
+                    }`}
+                  >
+                    {atm.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : null}
         <div className="p-8 md:p-12">
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60">
             {project.meta[language]}
