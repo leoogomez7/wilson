@@ -51,35 +51,33 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
 
   if (mode === "home") {
     return (
-      <section id="estudio-home" className="relative py-5 md:py-8 px-6 md:px-20 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div className="overflow-hidden relative">
-              <img
-                src={estudioGallery[estudioSlide]}
-                alt={t.team.imageAlt}
-                className="block w-[calc(100%+3rem)] -mx-6 md:w-full md:mx-0 h-auto object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col justify-center">
-              <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
-                {t.team.sectionLabel}
-              </span>
-              <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">
-                {t.team.heading}
-              </h2>
-              <p className="text-brand-gray leading-relaxed mb-6">
-                {t.team.homeDescription}
-              </p>
-              <div className="text-right">
-                <a
-                  href="#estudio"
-                  className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
-                >
-                  {t.common.seeMore}
-                </a>
-              </div>
+      <section id="estudio-home" className="relative py-5 md:py-8 px-6 md:px-0 bg-white overflow-hidden">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div className="overflow-hidden relative">
+            <img
+              src={estudioGallery[estudioSlide]}
+              alt={t.team.imageAlt}
+              className="block w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="flex flex-col justify-center md:px-20">
+            <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
+              {t.team.sectionLabel}
+            </span>
+            <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">
+              {t.team.heading}
+            </h2>
+            <p className="text-brand-gray leading-relaxed mb-6">
+              {t.team.homeDescription}
+            </p>
+            <div className="text-right">
+              <a
+                href="#estudio"
+                className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
+              >
+                {t.common.seeMore}
+              </a>
             </div>
           </div>
         </div>
@@ -140,7 +138,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-xl">
                     <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-                      <div className="overflow-hidden w-full sm:w-40 h-44 sm:h-52 shrink-0">
+                      <div className="overflow-hidden w-full sm:w-52 h-56 sm:h-64 shrink-0">
                         <img
                           src={memberImg}
                           alt={`Foto de ${member.name}`}
