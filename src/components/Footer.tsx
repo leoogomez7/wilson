@@ -54,6 +54,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#servicios" className="hover:opacity-60 whitespace-nowrap">
+                  {t.nav.otrosServicios}
+                </a>
+              </li>
+              <li>
                 <a href="#proceso" className="hover:opacity-60 whitespace-nowrap">
                   {t.nav.proceso}
                 </a>
