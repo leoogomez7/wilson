@@ -447,7 +447,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
             <button
               key={f.key}
               onClick={() => setActive(f.key)}
-              className={`rounded-none border border-brand-light px-4 py-2 transition whitespace-nowrap ${
+              className={`rounded-none border border-brand-light px-4 py-2 uppercase transition whitespace-nowrap ${
                 active === f.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
               }`}
             >
@@ -467,7 +467,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
               <button
                 key={f.key}
                 onClick={() => setOriginFilter(f.key)}
-                className={`rounded-none border border-brand-light px-4 py-2 transition whitespace-nowrap ${
+                className={`rounded-none border border-brand-light px-4 py-2 uppercase transition whitespace-nowrap ${
                   originFilter === f.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
                 }`}
               >
@@ -481,13 +481,13 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
       <div className="mb-4 text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray">
         {t.projects.atmosphereLabel}
       </div>
-      <div className="flex flex-wrap gap-6 md:gap-8 text-[10px] uppercase tracking-[0.25em] font-semibold mb-10">
+      <div className="flex flex-wrap gap-4 md:flex-nowrap md:gap-6 text-[10px] uppercase tracking-[0.2em] font-semibold mb-10">
         {atmospheres.map((atm) => (
           <button
             key={atm.key}
             type="button"
             onClick={() => setListAtmosphere(atm.key)}
-            className={`rounded-none border border-brand-light px-4 py-2 transition ${
+            className={`rounded-none border border-brand-light px-3 py-2 text-[10px] uppercase tracking-[0.2em] transition whitespace-nowrap ${
               listAtmosphere === atm.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
             }`}
           >
@@ -703,13 +703,13 @@ function ProjectModal({
                   <ChevronRight className="h-4 w-4" />
                 </button>
               </div>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-nowrap gap-2 overflow-hidden">
                 {atmosphereButtons.map((atm) => (
                   <button
                     key={atm.key}
                     type="button"
                     onClick={() => setModalAtmosphere(atm.key)}
-                    className={`rounded-none border border-brand-light px-4 py-2 text-[10px] uppercase tracking-[0.25em] transition whitespace-nowrap ${
+                    className={`rounded-none border border-brand-light px-3 py-2 text-[9px] uppercase tracking-[0.15em] transition whitespace-nowrap ${
                       modalAtmosphere === atm.key
                         ? "bg-brand-black text-white border-brand-black"
                         : "bg-white text-brand-black hover:bg-brand-light"

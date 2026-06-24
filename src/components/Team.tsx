@@ -54,11 +54,11 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
       <section id="estudio-home" className="relative py-5 md:py-8 px-6 md:px-20 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div className="overflow-hidden">
+            <div className="overflow-hidden relative">
               <img
                 src={estudioGallery[estudioSlide]}
                 alt={t.team.imageAlt}
-                className="w-full h-full min-h-105 object-cover"
+                className="block w-[calc(100%+3rem)] -mx-6 md:w-full md:mx-0 h-auto object-cover"
                 loading="lazy"
               />
             </div>

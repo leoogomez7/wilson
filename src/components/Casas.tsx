@@ -6,7 +6,7 @@ import p4 from "@/assets/project-4.jpg";
 
 type Category = "todos" | "viviendas";
 
-type AtmosphereType = "anochecer" | "atardecer" | "amanecer";
+type AtmosphereType = "todos" | "anochecer" | "atardecer" | "amanecer";
 
 type LocalizedString = {
   es: string;
@@ -82,9 +82,10 @@ export const casaProjects: CasaProject[] = [
 export function Casas({ mode = "home" }: { mode?: SectionMode }) {
   const { t, language } = useTranslation();
   const [active, setActive] = useState<Category>("todos");
-  const [selectedAtmosphere, setSelectedAtmosphere] = useState<AtmosphereType>("anochecer");
+  const [selectedAtmosphere, setSelectedAtmosphere] = useState<AtmosphereType>("todos");
 
   const atmospheres: Array<{ key: AtmosphereType; label: string }> = [
+    { key: "todos", label: t.projects.atmospheres.todos },
     { key: "anochecer", label: t.projects.atmospheres.anochecer },
     { key: "atardecer", label: t.projects.atmospheres.atardecer },
     { key: "amanecer", label: t.projects.atmospheres.amanecer },
@@ -122,7 +123,7 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
             <button
               key={f.key}
               onClick={() => setActive(f.key)}
-              className={`rounded-none border border-brand-light px-4 py-2 transition whitespace-nowrap ${
+              className={`rounded-none border border-brand-light px-4 py-2 uppercase transition whitespace-nowrap ${
                 active === f.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
               }`}
             >
@@ -134,13 +135,13 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
       <div className="mb-4 text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray">
         {t.projects.atmosphereLabel}
       </div>
-      <div className="flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.25em] font-semibold mb-10">
+      <div className="flex flex-wrap md:flex-nowrap gap-3 text-[10px] uppercase tracking-[0.25em] font-semibold mb-10">
         {atmospheres.map((atm) => (
           <button
             key={atm.key}
             type="button"
             onClick={() => setSelectedAtmosphere(atm.key)}
-            className={`border border-brand-light px-4 py-2 transition whitespace-nowrap ${
+            className={`rounded-none border border-brand-light px-4 py-2 text-[10px] uppercase tracking-[0.25em] transition whitespace-nowrap ${
               selectedAtmosphere === atm.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
             }`}
           >

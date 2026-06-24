@@ -90,15 +90,17 @@ function Index() {
   }, [activeSection]);
 
   const handleSectionChange = (section: SectionKey) => {
-    setActiveSection(section === "home" ? "all" : section);
+    const nextSection = section === "home" ? "all" : section;
+    const hash = section === "home" ? "top" : section;
 
     if (typeof window !== "undefined") {
-      const hash = section === "home" ? "top" : section;
-      window.history.replaceState(null, "", `#${hash}`);
-      if (section === "home") {
+      if (activeSection === nextSection) {
         window.scrollTo({ top: 0, left: 0, behavior: "auto" });
       }
+      window.history.replaceState(null, "", `#${hash}`);
     }
+
+    setActiveSection(nextSection);
   };
 
   const sectionMode: SectionMode = activeSection === "all" ? "home" : "section";
