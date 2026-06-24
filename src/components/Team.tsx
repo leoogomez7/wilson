@@ -35,6 +35,12 @@ const memberImagePositions: Record<string, string> = {
   keyla: "center 15%",
 };
 
+const memberImageSizes: Record<string, string> = {
+  josue: "w-52 h-52 md:w-64 md:h-64",
+  wilson: "w-56 h-56 md:w-72 md:h-72",
+  keyla: "w-52 h-76 md:w-64 md:h-64",
+};
+
 export function Team({ mode = "home" }: { mode?: SectionMode }) {
   const { t } = useTranslation();
   const team = t.team.members;
@@ -111,14 +117,12 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
           {team.map((member) => {
-            const isWilson = member.name === "Wilson";
             const memberImg = memberImages[member.id];
+            const memberSize = memberImageSizes[member.id] ?? "w-52 h-52 md:w-64 md:h-64";
             return (
               <article key={member.id} className="group flex flex-col items-center text-center">
                 <div
-                  className={`overflow-hidden rounded-full bg-brand-light mb-6 flex items-center justify-center ${
-                    isWilson ? "w-56 h-56 md:w-72 md:h-72" : "w-52 h-52 md:w-64 md:h-64"
-                  }`}
+                  className={`overflow-hidden rounded-full bg-brand-light mb-6 flex items-center justify-center ${memberSize}`}
                 >
                   <img
                     src={memberImg}

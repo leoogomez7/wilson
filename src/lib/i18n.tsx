@@ -165,7 +165,7 @@ const translations = {
       sectionLabel: "12 años de trayectoria",
       heading: "El Estudio",
       homeDescription:
-        "Nuestra trayectoria está guiada por la pasión de crear lugares que trascienden el tiempo. Diseñamos espacios únicos que reflejan una visión de futuro y se transforman en el escenario de historias memorables.",
+        "Nuestra trayectoria está guiada por la pasión de crear lugares que trascienden el tiempo. Diseñamos espacios únicos que reflejan una visión de futuro y se transforman en el escenario de historias memorables. combinamos creatividad, sensibilidad y excelencia técnica para dar forma a proyectos que dialogan con su entorno, responden a las necesidades de quienes los habitan y generan un impacto duradero. Cada obra es una oportunidad para materializar ideas innovadoras y construir experiencias que perduren.",
       imageAlt: "Equipo Wilson Arquitectura",
       members: [
         {
