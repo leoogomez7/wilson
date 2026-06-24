@@ -35,10 +35,16 @@ const memberImagePositions: Record<string, string> = {
   keyla: "center 15%",
 };
 
+const memberModalImagePositions: Record<string, string> = {
+  josue: "center 70%",
+  wilson: "center 65%",
+  keyla: "center 75%",
+};
+
 const memberImageSizes: Record<string, string> = {
   josue: "w-52 h-52 md:w-64 md:h-64",
   wilson: "w-56 h-56 md:w-72 md:h-72",
-  keyla: "w-52 h-76 md:w-64 md:h-64",
+  keyla: "w-52 h-52 md:w-64 md:h-64",
 };
 
 export function Team({ mode = "home" }: { mode?: SectionMode }) {
@@ -148,6 +154,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                         <img
                           src={memberImg}
                           alt={`Foto de ${member.name}`}
+                          style={{ objectPosition: memberModalImagePositions[member.id] || "center" }}
                           className="w-full h-full object-cover"
                           loading="lazy"
                         />
