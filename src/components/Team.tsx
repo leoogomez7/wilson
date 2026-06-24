@@ -14,6 +14,7 @@ import zAtardecerJpg from "@/assets/Proyectos/Z/Atardecer de otoño.jpeg";
 import zAtardecerExterior from "@/assets/Proyectos/Z/Atardecer de otoño_ Exterior.png";
 import { useTranslation } from "@/lib/i18n";
 import { SectionMode } from "@/components/SectionMode";
+import { ChevronDown } from "lucide-react";
 import {
   Dialog,
   DialogTrigger,
@@ -148,9 +149,9 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                       {t.common.seeMore}
                     </button>
                   </DialogTrigger>
-                  <DialogContent className="w-[90vw] sm:max-w-3xl sm:max-h-none max-h-none overflow-visible sm:overflow-visible rounded-none sm:rounded-none">
+                  <DialogContent className="w-[90vw] max-h-[calc(100vh-4rem)] sm:max-w-3xl rounded-3xl overflow-hidden">
                     <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-                      <div className="overflow-hidden w-full max-w-[20rem] .h-[20rem] .sm:w-[22rem] .sm:h-[22rem] shrink-0 rounded-none">
+                      <div className="overflow-hidden w-full max-w-[20rem] h-80 sm:w-88 sm:h-88 shrink-0 rounded-none">
                         <img
                           src={memberImg}
                           alt={`Foto de ${member.name}`}
@@ -170,6 +171,12 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                           {member.bio}
                         </div>
                       </div>
+                    </div>
+                    <div className="mt-4 flex items-center justify-center gap-2 sm:hidden">
+                      <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/70">
+                        {t.common.scroll}
+                      </span>
+                      <ChevronDown className="h-4 w-4 text-brand-gray/70 animate-bounce" />
                     </div>
                   </DialogContent>
                 </Dialog>
