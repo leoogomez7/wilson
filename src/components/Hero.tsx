@@ -32,7 +32,7 @@ export function Hero() {
           {t.hero.description}
         </p>
         <div
-          className="mt-14 flex flex-col sm:flex-row gap-4 justify-center animate-reveal"
+          className="mt-10 md:mt-8 flex flex-col sm:flex-row gap-4 justify-center animate-reveal"
           style={{ animationDelay: "400ms" }}
         >
           <a
