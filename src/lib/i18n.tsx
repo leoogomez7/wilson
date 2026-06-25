@@ -65,7 +65,7 @@ const translations = {
       sectionLabel: "Nuestro Concepto",
       heading: "Proyección, Dirección y Ejecución",
       description:
-        "Somos un estudio de arquitectura que cuenta con doce años de experiencia, nuestro enfoque es combinar diseños, planificación, estratégica y gestión integral, con el compromiso claro de transformar ideas en espacios concretos funcionales de alto valor, con profesionalismo y visión.",
+        "Somos un estudio de arquitectura que cuenta con doce años de experiencia, nuestro enfoque es combinar diseño, planificación estratégico y gestión integral, con el compromiso claro de transformar ideas en espacios concretos funcionales de alto valor, con profesionalismo y visión.",
       description2:
         "Cada proyecto comienza con una conversación cercana con el cliente y un análisis profundo del contexto, para ofrecer soluciones constructivas elegantes y duraderas.",
     },
@@ -187,7 +187,7 @@ const translations = {
       sectionLabel: "12 años de trayectoria",
       heading: "El Estudio",
       homeDescription:
-        "Nuestra trayectoria está guiada por la pasión de crear lugares que trascienden el tiempo. Diseñamos espacios únicos que reflejan una visión de futuro y se transforman en el escenario de historias memorables. Unimos visión, creatividad y precisión para crear espacios que inspiran, perduran y mejoran la experiencia de quienes los habitan.",
+        "Nuestra trayectoria está guiada por la pasión de crear lugares que trasciendan en el tiempo. Diseñamos espacios únicos que reflejan una visión de futuro y se transforman en el escenario de historias memorables. Unimos visión, creatividad y precisión para crear espacios que inspiran, perduran y mejoran la experiencia de quienes los habitan.",
       imageAlt: "Equipo Wilson Arquitectura",
       members: [
         {

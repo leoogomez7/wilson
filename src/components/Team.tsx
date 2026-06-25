@@ -68,7 +68,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
       <section id="estudio-home" className="relative py-5 md:py-8 px-6 md:px-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col gap-8">
-            <div className="overflow-hidden relative">
+            <div className="overflow-hidden relative w-full">
               <img
                 src={estudioGallery[estudioSlide]}
                 alt={t.team.imageAlt}
@@ -76,17 +76,19 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                 loading="lazy"
               />
             </div>
-            <div className="flex flex-col justify-center md:px-20 w-full max-w-5xl mx-auto">
-              <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
-                {t.team.sectionLabel}
-              </span>
-              <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">
-                {t.team.heading}
-              </h2>
-              <p className="text-brand-gray leading-relaxed mb-6">
-                {t.team.homeDescription}
-              </p>
-              <div className="text-right">
+            <div className="flex flex-col justify-center md:px-0 w-full">
+              <div className="w-full">
+                <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4 text-left">
+                  {t.team.sectionLabel}
+                </span>
+                <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4 text-left">
+                  {t.team.heading}
+                </h2>
+                <p className="text-brand-gray leading-relaxed mb-6 text-left max-w-3xl">
+                  {t.team.homeDescription}
+                </p>
+              </div>
+              <div className="w-full flex justify-end">
                 <a
                   href="#estudio"
                   className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"

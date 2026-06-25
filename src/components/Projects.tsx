@@ -94,7 +94,7 @@ const projects: Project[] = [
       pt: "Casa Unifamiliar — 2025",
     },
     category: "viviendas",
-    image: p4,
+    image: cAtardecer,
     location: "Pilar, Buenos Aires",
     year: "2025",
     area: "239.21 m²",
@@ -191,7 +191,7 @@ const projects: Project[] = [
       pt: "Casa Unifamiliar — 2026",
     },
     category: "viviendas",
-    image: p1,
+    image: zAnochecerCF,
     location: "Pilar, Buenos Aires",
     year: "2026",
     area: "187.82 m²",
@@ -319,60 +319,6 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
   const [listAtmosphere, setListAtmosphere] = useState<AtmosphereType>("todos");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [navChoiceOpen, setNavChoiceOpen] = useState(false);
-  const [projectZSlide, setProjectZSlide] = useState(0);
-  const [projectCyGSlide, setProjectCyGSlide] = useState(0);
-
-  const zGallery = projects.find((project) => project.id === "fitz-roy")?.gallery ?? [];
-  const cyGGallery = projects.find((project) => project.id === "nexo")?.gallery ?? [];
-
-  const uniqueGalleryBySrc = (
-    gallery: Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>
-  ) =>
-    gallery.reduce(
-      (acc, item) => {
-        if (!acc.some((existing) => existing.src === item.src)) {
-          acc.push(item);
-        }
-        return acc;
-      },
-      [] as Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>
-    );
-
-  const filteredZGallery =
-    listAtmosphere === "todos"
-      ? uniqueGalleryBySrc(zGallery)
-      : zGallery.filter((item) => item.atmosphere === listAtmosphere);
-  const filteredCyGGallery =
-    listAtmosphere === "todos"
-      ? uniqueGalleryBySrc(cyGGallery)
-      : cyGGallery.filter((item) => item.atmosphere === listAtmosphere);
-
-  const zSlideIndex = filteredZGallery.length > 0 ? projectZSlide % filteredZGallery.length : 0;
-  const cyGSlideIndex = filteredCyGGallery.length > 0 ? projectCyGSlide % filteredCyGGallery.length : 0;
-
-  useEffect(() => {
-    if (filteredZGallery.length === 0) {
-      return;
-    }
-
-    const intervalId = window.setInterval(() => {
-      setProjectZSlide((prev) => (prev + 1) % filteredZGallery.length);
-    }, 1500);
-
-    return () => window.clearInterval(intervalId);
-  }, [filteredZGallery.length]);
-
-  useEffect(() => {
-    if (filteredCyGGallery.length === 0) {
-      return;
-    }
-
-    const intervalId = window.setInterval(() => {
-      setProjectCyGSlide((prev) => (prev + 1) % filteredCyGGallery.length);
-    }, 1500);
-
-    return () => window.clearInterval(intervalId);
-  }, [filteredCyGGallery.length]);
 
   const casaIds = new Set(casaProjects.map((project) => project.id));
   const combinedProjects: Project[] = [
@@ -478,24 +424,6 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
         </div>
       ) : null}
 
-      <div className="mb-4 text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray">
-        {t.projects.atmosphereLabel}
-      </div>
-      <div className="flex flex-wrap gap-4 md:flex-nowrap md:gap-6 text-[10px] uppercase tracking-[0.2em] font-semibold mb-10">
-        {atmospheres.map((atm) => (
-          <button
-            key={atm.key}
-            type="button"
-            onClick={() => setListAtmosphere(atm.key)}
-            className={`rounded-none border border-brand-light px-3 py-2 text-[10px] uppercase tracking-[0.2em] transition whitespace-nowrap ${
-              listAtmosphere === atm.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
-            }`}
-          >
-            {atm.label}
-          </button>
-        ))}
-      </div>
-
       <div className="grid grid-cols-12 gap-y-16 md:gap-y-24 md:gap-x-12">
         {visible.length === 0 ? (
           <div className="col-span-12 rounded-none border border-brand-light bg-brand-gray/5 p-8 text-center text-sm uppercase tracking-[0.3em] text-brand-gray">
@@ -510,20 +438,8 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
             >
             <div className="overflow-hidden mb-6 bg-brand-light aspect-4/3">
               <img
-                src={
-                  project.id === "fitz-roy" && filteredZGallery.length > 0
-                    ? filteredZGallery[zSlideIndex].src
-                    : project.id === "nexo" && filteredCyGGallery.length > 0
-                    ? filteredCyGGallery[cyGSlideIndex].src
-                    : project.image
-                }
-                alt={
-                  project.id === "fitz-roy" && filteredZGallery.length > 0
-                    ? filteredZGallery[zSlideIndex].label[language]
-                    : project.id === "nexo" && filteredCyGGallery.length > 0
-                    ? filteredCyGGallery[cyGSlideIndex].label[language]
-                    : project.title[language]
-                }
+                src={project.image}
+                alt={project.title[language]}
                 loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1200 ease-out"
               />
@@ -624,7 +540,7 @@ function ProjectModal({
   onClose: () => void;
 }) {
   const { t, language } = useTranslation();
-  const [modalAtmosphere, setModalAtmosphere] = useState<AtmosphereType>(selectedAtmosphere);
+  const [modalAtmosphere, setModalAtmosphere] = useState<AtmosphereType>("todos");
   const atmosphereButtons: Array<{ key: AtmosphereType; label: string }> = [
     { key: "todos", label: t.projects.atmospheres.todos },
     { key: "anochecer", label: t.projects.atmospheres.anochecer },
@@ -645,16 +561,6 @@ function ProjectModal({
 
   useEffect(() => {
     setActiveSlide(0);
-
-    if (galleryItems.length === 0) {
-      return;
-    }
-
-    const intervalId = window.setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % galleryItems.length);
-    }, 1500);
-
-    return () => window.clearInterval(intervalId);
   }, [modalAtmosphere, galleryItems.length]);
 
   const activeItem = galleryItems[activeIndex];
@@ -703,21 +609,36 @@ function ProjectModal({
                   <ChevronRight className="h-4 w-4" />
                 </button>
               </div>
-              <div className="mt-4 flex flex-nowrap gap-2 overflow-hidden">
-                {atmosphereButtons.map((atm) => (
-                  <button
-                    key={atm.key}
-                    type="button"
-                    onClick={() => setModalAtmosphere(atm.key)}
-                    className={`rounded-none border border-brand-light px-3 py-2 text-[9px] uppercase tracking-[0.15em] transition whitespace-nowrap ${
-                      modalAtmosphere === atm.key
+              <div className="mt-4 flex flex-nowrap items-center justify-center gap-3 overflow-visible py-1">
+                {atmosphereButtons
+                  .filter((atm) => atm.key !== "todos")
+                  .map((atm) => {
+                    const colorClass =
+                      atm.key === "anochecer"
                         ? "bg-brand-black text-white border-brand-black"
-                        : "bg-white text-brand-black hover:bg-brand-light"
-                    }`}
-                  >
-                    {atm.label}
-                  </button>
-                ))}
+                        : atm.key === "atardecer"
+                          ? "bg-[#d97706] text-white border-[#d97706]"
+                          : "bg-[#facc15] text-brand-black border-[#facc15]";
+
+                    const isActive = modalAtmosphere === atm.key;
+
+                    return (
+                      <button
+                        key={atm.key}
+                        type="button"
+                        onClick={() => setModalAtmosphere(atm.key)}
+                        title={atm.label}
+                        aria-label={atm.label}
+                        className={`relative inline-flex h-10 w-10 items-center justify-center rounded-full border transition ${
+                          isActive ? "scale-105 shadow-sm ring-2 ring-brand-black ring-offset-2" : "hover:scale-105"
+                        } ${colorClass}`}
+                      >
+                        {isActive ? (
+                          <span className="text-[14px] font-bold leading-none">✓</span>
+                        ) : null}
+                      </button>
+                    );
+                  })}
               </div>
             </div>
           </div>
