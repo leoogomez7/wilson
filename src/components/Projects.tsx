@@ -11,12 +11,20 @@ import zAnochecerExterior from "@/assets/Proyectos/Z/Anochecer de vernano_Exteri
 import zAtardecer from "@/assets/Proyectos/Z/Atardecer de otoño.png";
 import zAtardecerJpg from "@/assets/Proyectos/Z/Atardecer de otoño.jpeg";
 import zAtardecerExterior from "@/assets/Proyectos/Z/Atardecer de otoño_ Exterior.png";
+import zInteriorCocina from "@/assets/Proyectos/Z/Interior_Cocina.png";
+import zInteriorComedor from "@/assets/Proyectos/Z/Interior_Comedor.png";
+import zInteriorLivingComedor from "@/assets/Proyectos/Z/Interior_Living_Comedor.png";
+import zInteriorLiving from "@/assets/Proyectos/Z/Interior_Living.png";
+import zInteriorLiving02 from "@/assets/Proyectos/Z/Interior_Living02.png";
+import zInteriorVistaPiso from "@/assets/Proyectos/Z/Interior_Vista entre piso.png";
 import cAmanecer from "@/assets/Proyectos/CyG/Amanecer de primavera.png";
 import cAnochecer from "@/assets/Proyectos/CyG/Anochecer de verano.png";
 import cAnochecerBack from "@/assets/Proyectos/CyG/Anochecer de verano_Contrafrente.png";
 import cAtardecer from "@/assets/Proyectos/CyG/Atardecer de otoño.png";
 import cAtardecerFrente from "@/assets/Proyectos/CyG/Frente_Atardecer de otoño.png";
 import cInteriorComedor from "@/assets/Proyectos/CyG/Interior_Comedor.png";
+import cInteriorLiving from "@/assets/Proyectos/CyG/Interior_Living.png";
+import cInteriorSuite from "@/assets/Proyectos/CyG/Interior_Suite.png";
 import { useTranslation } from "@/lib/i18n";
 import { casaProjects } from "@/components/Casas";
 
@@ -59,29 +67,6 @@ const uniqueGalleryBySrc = (
 
 const projects: Project[] = [
   {
-    id: "los-arboles",
-    title: {
-      es: "Residencia Los Árboles",
-      en: "Los Árboles Residence",
-      pt: "Residência Los Árboles",
-    },
-    meta: {
-      es: "Vivienda Unifamiliar — 2023",
-      en: "Single Family Home — 2023",
-      pt: "Casa Unifamiliar — 2023",
-    },
-    category: "viviendas",
-    image: p1,
-    location: "San Isidro, Buenos Aires",
-    year: "2023",
-    area: "320 m²",
-    description: {
-      es: "Vivienda de líneas puras integrada al paisaje. Hormigón visto, grandes paños vidriados y una circulación que dialoga con el entorno natural.",
-      en: "Pure-lined home integrated with the landscape. Exposed concrete, large glass panels and circulation that dialogues with the natural surroundings.",
-      pt: "Casa de linhas puras integrada à paisagem. Concreto aparente, grandes painéis de vidro e circulação que dialoga com o entorno natural.",
-    },
-  },
-  {
     id: "nexo",
     title: {
       es: "Proyecto CyG",
@@ -90,8 +75,8 @@ const projects: Project[] = [
     },
     meta: {
       es: "Vivienda Unifamiliar - 2025",
-      en: "Single Family Home — 2025",
-      pt: "Casa Unifamiliar — 2025",
+      en: "Single-family home — 2025",
+      pt: "Casa unifamiliar — 2025",
     },
     category: "viviendas",
     image: cAtardecer,
@@ -100,8 +85,8 @@ const projects: Project[] = [
     area: "239.21 m²",
     description: {
       es: "Estética, precisión y carácter en cada línea. Una propuesta pensada para quienes eligen calidad sin concesiones.",
-      en: "Aesthetic precision and character in every line. A proposal designed for those who choose uncompromising quality.",
-      pt: "Estética, precisão e caráter em cada linha. Uma proposta pensada para quem escolhe qualidade sem concessões.",
+      en: "Aesthetic precision and character in every line. A proposal created for those who value uncompromising quality.",
+      pt: "Estética, precisão e caráter em cada linha. Uma proposta pensada para quem valoriza qualidade sem concessões.",
     },
     gallery: [
       {
@@ -109,8 +94,8 @@ const projects: Project[] = [
         atmosphere: "amanecer",
         label: {
           es: "filtro de Amanecer de primavera",
-          en: "spring dawn filter",
-          pt: "filtro de Amanhecer de primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
         },
       },
       {
@@ -119,7 +104,7 @@ const projects: Project[] = [
         label: {
           es: "filtro de Anochecer de verano",
           en: "summer dusk filter",
-          pt: "filtro de Anoitecer de verão",
+          pt: "filtro de anoitecer de verão",
         },
       },
       {
@@ -128,7 +113,7 @@ const projects: Project[] = [
         label: {
           es: "filtro de Anochecer de verano",
           en: "summer dusk filter",
-          pt: "filtro de Anoitecer de verão",
+          pt: "filtro de anoitecer de verão",
         },
       },
       {
@@ -136,8 +121,8 @@ const projects: Project[] = [
         atmosphere: "atardecer",
         label: {
           es: "filtro de Atardecer de otoño",
-          en: "autumn dusk filter",
-          pt: "filtro de Entardecer de outono",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
         },
       },
       {
@@ -145,8 +130,8 @@ const projects: Project[] = [
         atmosphere: "atardecer",
         label: {
           es: "filtro de Atardecer de otoño",
-          en: "autumn dusk filter",
-          pt: "filtro de Entardecer de outono",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
         },
       },
       {
@@ -154,8 +139,8 @@ const projects: Project[] = [
         atmosphere: "amanecer",
         label: {
           es: "filtro de las 3 atmosferas",
-          en: "all atmospheres filter",
-          pt: "filtro das 3 atmosferas",
+          en: "filter for all atmospheres",
+          pt: "filtro para todas as atmosferas",
         },
       },
       {
@@ -163,8 +148,8 @@ const projects: Project[] = [
         atmosphere: "anochecer",
         label: {
           es: "filtro de las 3 atmosferas",
-          en: "all atmospheres filter",
-          pt: "filtro das 3 atmosferas",
+          en: "filter for all atmospheres",
+          pt: "filtro para todas as atmosferas",
         },
       },
       {
@@ -172,8 +157,62 @@ const projects: Project[] = [
         atmosphere: "atardecer",
         label: {
           es: "filtro de las 3 atmosferas",
-          en: "all atmospheres filter",
-          pt: "filtro das 3 atmosferas",
+          en: "filter for all atmospheres",
+          pt: "filtro para todas as atmosferas",
+        },
+      },
+      {
+        src: cInteriorLiving,
+        atmosphere: "amanecer",
+        label: {
+          es: "interior living",
+          en: "living room interior",
+          pt: "interior da sala de estar",
+        },
+      },
+      {
+        src: cInteriorLiving,
+        atmosphere: "anochecer",
+        label: {
+          es: "interior living",
+          en: "living room interior",
+          pt: "interior da sala de estar",
+        },
+      },
+      {
+        src: cInteriorLiving,
+        atmosphere: "atardecer",
+        label: {
+          es: "interior living",
+          en: "living room interior",
+          pt: "interior da sala de estar",
+        },
+      },
+      {
+        src: cInteriorSuite,
+        atmosphere: "amanecer",
+        label: {
+          es: "interior suite",
+          en: "suite interior",
+          pt: "interior da suíte",
+        },
+      },
+      {
+        src: cInteriorSuite,
+        atmosphere: "anochecer",
+        label: {
+          es: "interior suite",
+          en: "suite interior",
+          pt: "interior da suíte",
+        },
+      },
+      {
+        src: cInteriorSuite,
+        atmosphere: "atardecer",
+        label: {
+          es: "interior suite",
+          en: "suite interior",
+          pt: "interior da suíte",
         },
       },
     ],
@@ -187,8 +226,8 @@ const projects: Project[] = [
     },
     meta: {
       es: "Vivienda Unifamiliar - 2026",
-      en: "Single Family Home — 2026",
-      pt: "Casa Unifamiliar — 2026",
+      en: "Single-family home — 2026",
+      pt: "Casa unifamiliar — 2026",
     },
     category: "viviendas",
     image: zAnochecerCF,
@@ -196,9 +235,9 @@ const projects: Project[] = [
     year: "2026",
     area: "187.82 m²",
     description: {
-      es: "Propuesta arquitectónica de carácter minimalista, donde la pureza volumétrica y la atención al detalle constructivo definen una imagen elegante, funcional y atemporal.",
-      en: "Architectural proposal with a minimalist character, where volumetric purity and attention to construction detail define an elegant, functional, and timeless image.",
-      pt: "Proposta arquitetônica de caráter minimalista, onde a pureza volumétrica e a atenção ao detalhe construtivo definem uma imagem elegante, funcional e atemporal.",
+      es: "Proyecto de estilo minimalista, donde la pureza volumétrica y la atención al detalle definen una imagen elegante, funcional y atemporal.",
+      en: "A minimalist architectural proposal where volumetric purity and attention to detail define an elegant, functional, and timeless image.",
+      pt: "Uma proposta arquitetônica minimalista em que a pureza volumétrica e a atenção aos detalhes definem uma imagem elegante, funcional e atemporal.",
     },
     gallery: [
       {
@@ -206,7 +245,7 @@ const projects: Project[] = [
         atmosphere: "amanecer",
         label: {
           es: "filtro de amanecer de primavera",
-          en: "spring dawn filter",
+          en: "spring sunrise filter",
           pt: "filtro de amanhecer de primavera",
         },
       },
@@ -215,7 +254,7 @@ const projects: Project[] = [
         atmosphere: "amanecer",
         label: {
           es: "filtro de amanecer de primavera",
-          en: "spring dawn filter",
+          en: "spring sunrise filter",
           pt: "filtro de amanhecer de primavera",
         },
       },
@@ -224,7 +263,7 @@ const projects: Project[] = [
         atmosphere: "amanecer",
         label: {
           es: "filtro de amanecer de primavera",
-          en: "spring dawn filter",
+          en: "spring sunrise filter",
           pt: "filtro de amanhecer de primavera",
         },
       },
@@ -260,7 +299,7 @@ const projects: Project[] = [
         atmosphere: "atardecer",
         label: {
           es: "filtro de atardecer de otoño",
-          en: "autumn dusk filter",
+          en: "autumn sunset filter",
           pt: "filtro de entardecer de outono",
         },
       },
@@ -269,7 +308,7 @@ const projects: Project[] = [
         atmosphere: "atardecer",
         label: {
           es: "filtro de atardecer de otoño",
-          en: "autumn dusk filter",
+          en: "autumn sunset filter",
           pt: "filtro de entardecer de outono",
         },
       },
@@ -278,36 +317,174 @@ const projects: Project[] = [
         atmosphere: "atardecer",
         label: {
           es: "filtro de atardecer de otoño",
-          en: "autumn dusk filter",
+          en: "autumn sunset filter",
           pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: zInteriorCocina,
+        atmosphere: "amanecer",
+        label: {
+          es: "interior de cocina",
+          en: "kitchen interior",
+          pt: "interior da cozinha",
+        },
+      },
+      {
+        src: zInteriorCocina,
+        atmosphere: "anochecer",
+        label: {
+          es: "interior de cocina",
+          en: "kitchen interior",
+          pt: "interior da cozinha",
+        },
+      },
+      {
+        src: zInteriorCocina,
+        atmosphere: "atardecer",
+        label: {
+          es: "interior de cocina",
+          en: "kitchen interior",
+          pt: "interior da cozinha",
+        },
+      },
+      {
+        src: zInteriorComedor,
+        atmosphere: "amanecer",
+        label: {
+          es: "interior de comedor",
+          en: "dining room interior",
+          pt: "interior da sala de jantar",
+        },
+      },
+      {
+        src: zInteriorComedor,
+        atmosphere: "anochecer",
+        label: {
+          es: "interior de comedor",
+          en: "dining room interior",
+          pt: "interior da sala de jantar",
+        },
+      },
+      {
+        src: zInteriorComedor,
+        atmosphere: "atardecer",
+        label: {
+          es: "interior de comedor",
+          en: "dining room interior",
+          pt: "interior da sala de jantar",
+        },
+      },
+      {
+        src: zInteriorLivingComedor,
+        atmosphere: "amanecer",
+        label: {
+          es: "interior living comedor",
+          en: "living and dining interior",
+          pt: "interior da sala de estar e jantar",
+        },
+      },
+      {
+        src: zInteriorLivingComedor,
+        atmosphere: "anochecer",
+        label: {
+          es: "interior living comedor",
+          en: "living and dining interior",
+          pt: "interior da sala de estar e jantar",
+        },
+      },
+      {
+        src: zInteriorLivingComedor,
+        atmosphere: "atardecer",
+        label: {
+          es: "interior living comedor",
+          en: "living and dining interior",
+          pt: "interior da sala de estar e jantar",
+        },
+      },
+      {
+        src: zInteriorLiving,
+        atmosphere: "amanecer",
+        label: {
+          es: "interior living",
+          en: "living room interior",
+          pt: "interior da sala de estar",
+        },
+      },
+      {
+        src: zInteriorLiving,
+        atmosphere: "anochecer",
+        label: {
+          es: "interior living",
+          en: "living room interior",
+          pt: "interior da sala de estar",
+        },
+      },
+      {
+        src: zInteriorLiving,
+        atmosphere: "atardecer",
+        label: {
+          es: "interior living",
+          en: "living room interior",
+          pt: "interior da sala de estar",
+        },
+      },
+      {
+        src: zInteriorLiving02,
+        atmosphere: "amanecer",
+        label: {
+          es: "interior living 02",
+          en: "living room interior 02",
+          pt: "interior da sala de estar 02",
+        },
+      },
+      {
+        src: zInteriorLiving02,
+        atmosphere: "anochecer",
+        label: {
+          es: "interior living 02",
+          en: "living room interior 02",
+          pt: "interior da sala de estar 02",
+        },
+      },
+      {
+        src: zInteriorLiving02,
+        atmosphere: "atardecer",
+        label: {
+          es: "interior living 02",
+          en: "living room interior 02",
+          pt: "interior da sala de estar 02",
+        },
+      },
+      {
+        src: zInteriorVistaPiso,
+        atmosphere: "amanecer",
+        label: {
+          es: "vista entre piso",
+          en: "between-floor view",
+          pt: "vista entre os pisos",
+        },
+      },
+      {
+        src: zInteriorVistaPiso,
+        atmosphere: "anochecer",
+        label: {
+          es: "vista entre piso",
+          en: "between-floor view",
+          pt: "vista entre os pisos",
+        },
+      },
+      {
+        src: zInteriorVistaPiso,
+        atmosphere: "atardecer",
+        label: {
+          es: "vista entre piso",
+          en: "between-floor view",
+          pt: "vista entre os pisos",
         },
       },
     ],
   },
-  {
-    id: "casa-recoleta",
-    title: {
-      es: "Casa Recoleta",
-      en: "Recoleta House",
-      pt: "Casa Recoleta",
-    },
-    meta: {
-      es: "Vivienda Premium — 2024",
-      en: "Premium Residence — 2024",
-      pt: "Residência Premium — 2024",
-    },
-    category: "viviendas",
-    image: p4,
-    location: "Recoleta, CABA",
-    year: "2024",
-    area: "480 m²",
-    description: {
-      es: "Vivienda de alta gama con cocina integrada al living. Mármol, maderas nobles y aperturas dobles para iluminación natural.",
-      en: "High-end residence with a kitchen integrated into the living area. Marble, noble woods and large openings for natural light.",
-      pt: "Residência de alto padrão com cozinha integrada à sala. Mármore, madeiras nobres e amplas aberturas para luz natural.",
-    },
-  },
-
 ];
 
 import { SectionMode } from "@/components/SectionMode";
@@ -320,11 +497,19 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [navChoiceOpen, setNavChoiceOpen] = useState(false);
 
-  const casaIds = new Set(casaProjects.map((project) => project.id));
+  const casaProjectsWithIds = casaProjects.map((project, index) => ({
+    ...project,
+    id: project.id ?? `casa-${index + 1}`,
+  }));
+  const casaIds = new Set(casaProjectsWithIds.map((project) => project.id));
   const combinedProjects: Project[] = [
-    ...casaProjects.map((project) => ({
+    ...casaProjectsWithIds.map((project) => ({
       ...project,
       origin: ("casas" as const),
+      gallery: project.gallery?.map((item) => ({
+        ...item,
+        label: project.title,
+      })),
     })),
     ...projects
       .filter((project) => !casaIds.has(project.id))

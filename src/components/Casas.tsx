@@ -4,6 +4,9 @@ import { useTranslation } from "@/lib/i18n";
 import { SectionMode } from "@/components/SectionMode";
 import p1 from "@/assets/project-1.jpg";
 import p4 from "@/assets/project-4.jpg";
+import delLimoneroAtardecer from "@/assets/Casas/Del Limonero/Exterior_Atardecer de otoño.jpeg";
+import delLimoneroAmanecer from "@/assets/Casas/Del Limonero/Exterior_Amanecer de primavera.jpeg";
+import delLimoneroAnochecer from "@/assets/Casas/Del Limonero/Exterior_Anochecer de verano.jpeg";
 
 type Category = "todos" | "viviendas";
 type AtmosphereType = "todos" | "anochecer" | "atardecer" | "amanecer";
@@ -15,7 +18,7 @@ type LocalizedString = {
 };
 
 interface CasaProject {
-  id: string;
+  id?: string;
   title: LocalizedString;
   meta: LocalizedString;
   description: LocalizedString;
@@ -26,45 +29,74 @@ interface CasaProject {
   area: string;
   offset?: string;
   origin?: "casas" | "ambos";
-  gallery?: Array<{ src: string; atmosphere: Exclude<AtmosphereType, "todos"> }>;
+  gallery?: Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>;
 }
 
 export const casaProjects: CasaProject[] = [
   {
     id: "los-arboles",
     title: {
-      es: "Residencia Los Árboles",
-      en: "Los Árboles Residence",
-      pt: "Residência Los Árboles",
+      es: "Casa Del Limonero",
+      en: "Limonero House",
+      pt: "Casa do Limonero",
     },
     meta: {
-      es: "Vivienda Unifamiliar — 2023",
-      en: "Single Family Home — 2023",
-      pt: "Casa Unifamiliar — 2023",
+      es: "Vivienda Unifamiliar - 2021",
+      en: "Single-family home — 2021",
+      pt: "Casa unifamiliar — 2021",
     },
-    image: p1,
-    location: "San Isidro, Buenos Aires",
-    year: "2023",
-    area: "320 m²",
+    image: delLimoneroAnochecer,
+    location: "Pte. Derqui, Pilar, Buenos Aires.",
+    year: "2021",
+    area: "280 m²",
     description: {
-      es: "Vivienda de líneas puras integrada al paisaje. Hormigón visto, grandes paños vidriados y una circulación que dialoga con el entorno natural.",
-      en: "Pure-lined home integrated with the landscape. Exposed concrete, large glass panels and circulation that dialogues with the natural surroundings.",
-      pt: "Casa de linhas puras integrada à paisagem. Concreto aparente, grandes painéis de vidro e circulação que dialoga com o entorno natural.",
+      es: "Geometría, elegancia y presencia. Una propuesta de estilo industrial donde los volúmenes puros y la iluminación arquitectónica crean una identidad sólida y atemporal.",
+      en: "Geometry, elegance, and presence. An industrial-style proposal where pure volumes and architectural lighting create a solid, timeless identity.",
+      pt: "Geometria, elegância e presença. Uma proposta de estilo industrial em que os volumes puros e a iluminação arquitetônica criam uma identidade sólida e atemporal.",
     },
     category: "viviendas",
     origin: "ambos",
+    gallery: [
+      {
+        src: delLimoneroAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de Anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: delLimoneroAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de Atardecer de otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: delLimoneroAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de Amanecer de primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+    ],
   },
   {
     id: "casa-recoleta",
     title: {
       es: "Casa Recoleta",
       en: "Recoleta House",
-      pt: "Casa Recoleta",
+      pt: "Casa de Recoleta",
     },
     meta: {
       es: "Vivienda Premium — 2024",
-      en: "Premium Residence — 2024",
-      pt: "Residência Premium — 2024",
+      en: "Premium residence — 2024",
+      pt: "Residência premium — 2024",
     },
     image: p4,
     location: "Recoleta, CABA",
@@ -72,7 +104,7 @@ export const casaProjects: CasaProject[] = [
     area: "480 m²",
     description: {
       es: "Vivienda de alta gama con cocina integrada al living. Mármol, maderas nobles y aperturas dobles para iluminación natural.",
-      en: "High-end residence with a kitchen integrated into the living area. Marble, noble woods and large openings for natural light.",
+      en: "High-end home with a kitchen integrated into the living area. Marble, fine woods, and double openings for natural light.",
       pt: "Residência de alto padrão com cozinha integrada à sala. Mármore, madeiras nobres e amplas aberturas para luz natural.",
     },
     category: "viviendas",
