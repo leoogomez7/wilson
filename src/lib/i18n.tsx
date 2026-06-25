@@ -265,7 +265,7 @@ const translations = {
       sectionLabel: "Cuidar el Entorno",
       heading: "Sustentabilidad",
       description:
-        "Creemos que el verdadero legado no está en lo que construimos, sino en cómo cuidamos y respetamos el espacio que compartimos.",
+        "Creemos que el verdadero legado de la arquitectura se refleja en el impacto positivo que genera en las personas y en su entorno. Por eso diseñamos espacios eficientes, funcionales y sostenibles, donde la innovación y el respeto por los recursos forman parte de cada decisión. Cada proyecto es concebido para mejorar la calidad de vida, optimizar el uso de la energía y crear soluciones duraderas que respondan a las necesidades actuales sin comprometer el futuro.",
       imageAlt1: "Sustentabilidad 1",
       imageAlt2: "Sustentabilidad 2",
       imageAlt3: "Sustentabilidad 3",
@@ -599,7 +599,7 @@ const translations = {
       sectionLabel: "Sustainability",
       heading: "Sustainability",
       description:
-        "We integrate efficient solutions and responsible materials in every project to reduce environmental impact.",
+        "We believe that the true legacy of architecture is reflected in the positive impact it has on people and their surroundings. That is why we design efficient, functional, and sustainable spaces, where innovation and respect for resources are part of every decision. Each project is conceived to improve quality of life, optimize energy use, and create lasting solutions that meet today’s needs without compromising the future.",
       imageAlt1: "Sustainability 1",
       imageAlt2: "Sustainability 2",
       imageAlt3: "Sustainability 3",
@@ -933,7 +933,8 @@ const translations = {
       sectionLabel: "Sustentabilidade",
       heading: "Sustentabilidade",
       description:
-        "Integramos soluções eficientes e materiais responsáveis em cada projeto para reduzir o impacto ambiental.",      imageAlt1: "Sustentabilidade 1",
+        "Acreditamos que o verdadeiro legado da arquitetura se reflete no impacto positivo que gera nas pessoas e em seu entorno. Por isso, projetamos espaços eficientes, funcionais e sustentáveis, onde a inovação e o respeito pelos recursos fazem parte de cada decisão. Cada projeto é concebido para melhorar a qualidade de vida, otimizar o uso de energia e criar soluções duradouras que atendam às necessidades atuais sem comprometer o futuro.",
+      imageAlt1: "Sustentabilidade 1",
       imageAlt2: "Sustentabilidade 2",
       imageAlt3: "Sustentabilidade 3",      points: [
         {
