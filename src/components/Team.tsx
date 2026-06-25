@@ -77,11 +77,11 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
               />
             </div>
             <div className="flex flex-col justify-center md:px-0 w-full lg:pl-8">
-              <div className="w-full">
+              <div className="w-full max-w-none">
                 <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4 text-left">
                   {t.team.sectionLabel}
                 </span>
-                <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4 text-left">
+                <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4 text-left w-full">
                   {t.team.heading}
                 </h2>
                 <p className="text-brand-gray leading-relaxed mb-6 text-left max-w-3xl">
