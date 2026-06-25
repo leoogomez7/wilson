@@ -26,7 +26,7 @@ export function Hero() {
           <span className="block whitespace-nowrap font-medium uppercase text-[0.72em] sm:text-[0.7em] lg:text-[0.68em]">Arquitectura</span>
         </h1>
         <p
-          className="text-[11px] md:text-sm uppercase tracking-[0.4em] font-light max-w-xl mx-auto leading-loose opacity-80 animate-reveal"
+          className="text-[11px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.25em] font-light max-w-3xl mx-auto leading-loose opacity-80 animate-reveal"
           style={{ animationDelay: "200ms" }}
         >
           {t.hero.description}
@@ -37,13 +37,13 @@ export function Hero() {
         >
           <a
             href="#proyectos"
-            className="border border-white/40 px-10 py-4 text-[10px] uppercase tracking-[0.3em] hover:bg-white hover:text-brand-black transition-all duration-300 whitespace-nowrap"
+            className="border border-white/40 px-10 py-4 text-[10px] uppercase tracking-[0.2em] md:tracking-[0.25em] hover:bg-white hover:text-brand-black transition-all duration-300 whitespace-nowrap"
           >
             {t.hero.ctaProjects}
           </a>
           <a
             href="#contacto"
-            className="px-10 py-4 text-[10px] uppercase tracking-[0.3em] text-white hover:bg-white hover:text-brand-black border border-white transition-all duration-300 whitespace-nowrap"
+            className="px-10 py-4 text-[10px] uppercase tracking-[0.2em] md:tracking-[0.25em] text-white hover:bg-white hover:text-brand-black border border-white transition-all duration-300 whitespace-nowrap"
           >
             {t.hero.ctaContact}
           </a>
