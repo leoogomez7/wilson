@@ -22,8 +22,8 @@ export function Hero() {
           {t.hero.tagline}
         </p>
         <h1 className="font-serif w-full max-w-none text-[clamp(2.8rem,11vw,7rem)] sm:text-[clamp(4.5rem,10vw,10rem)] lg:text-[clamp(5.5rem,10vw,11rem)] mb-8 tracking-[0.12em] sm:tracking-[0.3em] leading-[0.95] whitespace-normal animate-reveal">
-          <span className="block font-bold uppercase text-[1.05em] sm:text-[1.08em] lg:text-[1.1em]">Wilson</span>
-          <span className="block whitespace-nowrap font-semibold uppercase text-[0.95em] sm:text-[0.92em] lg:text-[0.9em]">Arquitectura</span>
+          <span className="block font-semibold uppercase text-[1.05em] sm:text-[1.08em] lg:text-[1.1em]">Wilson</span>
+          <span className="block whitespace-nowrap font-medium uppercase text-[0.72em] sm:text-[0.7em] lg:text-[0.68em]">Arquitectura</span>
         </h1>
         <p
           className="text-[11px] md:text-sm uppercase tracking-[0.4em] font-light max-w-xl mx-auto leading-loose opacity-80 animate-reveal"

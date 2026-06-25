@@ -8,7 +8,7 @@ export function History({ mode = "home" }: { mode?: SectionMode }) {
   return (
     <section id="concepto" className="py-5 md:py-8 px-6 md:px-20 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="grid gap-8">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div>
             <div className="mb-4 md:mb-6">
               <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-3">
@@ -18,10 +18,12 @@ export function History({ mode = "home" }: { mode?: SectionMode }) {
                 {t.history.heading}
               </h2>
             </div>
+          </div>
+          <div className="lg:pl-8">
             <div className="grid gap-2 text-brand-gray text-base leading-relaxed">
               <p>{t.history.description}</p>
             </div>
-            <div className="mt-12 md:mt-16 text-right">
+            <div className="mt-8 md:mt-10 text-right">
               <a
                 href="#estudio"
                 className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
