@@ -35,7 +35,7 @@ export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
 
   return (
     <section id={sectionId} className="py-5 md:py-8 px-6 md:px-20 bg-white">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full max-w-none">
         {mode === "section" ? (
           <>
             <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">

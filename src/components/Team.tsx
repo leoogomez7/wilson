@@ -66,7 +66,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
   if (mode === "home") {
     return (
       <section id="estudio-home" className="relative py-5 md:py-8 px-6 md:px-20 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full max-w-none">
           <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div className="overflow-hidden relative w-full">
               <img
@@ -106,7 +106,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
   return (
     <section id="equipo" className="relative py-5 md:py-8 px-6 md:px-20 bg-white scroll-mt-24">
       <div id="estudio" className="absolute -top-32 scroll-mt-32" />
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full max-w-none">
         <div className="mb-16 md:mb-20 w-full max-w-none">
           <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.team.sectionLabel}
