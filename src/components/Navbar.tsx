@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation, type Locale } from "@/lib/i18n";
-import logo from "@/assets/Logo.jpeg";
+import logo from "@/assets/Logo.png";
 
 type NavLabelKey =
   | "home"

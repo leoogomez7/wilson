@@ -30,9 +30,6 @@ export function History({ mode = "home" }: { mode?: SectionMode }) {
               </a>
             </div>
           </div>
-          <div>
-            <VideoImages />
-          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
-import heroImg from "@/assets/hero.jpg";
 import { useTranslation } from "@/lib/i18n";
+import { VideoImages } from "@/components/video-images";
 
 export function Hero() {
   const { t } = useTranslation();
@@ -10,14 +10,11 @@ export function Hero() {
       className="relative min-h-[calc(100vh-5rem)] w-full flex items-start justify-center py-28 pb-16 overflow-hidden bg-brand-black"
     >
       <div className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt={t.hero.imageAlt}
-          width={1920}
-          height={1080}
-          className="w-full h-full object-cover opacity-60 animate-slow-zoom"
+        <VideoImages
+          className="absolute inset-0 h-full w-full overflow-hidden"
+          imageClassName="h-full w-full object-cover opacity-60 animate-slow-zoom"
         />
-        <div className="absolute inset-0 .bg-linear-to-b from-brand-black/40 via-transparent to-brand-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-black/40 via-transparent to-brand-black/70" />
       </div>
 
       <div className="relative z-10 text-center text-white px-6 max-w-full">
@@ -45,7 +42,7 @@ export function Hero() {
           </a>
           <a
             href="#contacto"
-            className="bg-white text-brand-black px-10 py-4 text-[10px] uppercase tracking-[0.3em] hover:bg-transparent hover:text-white border border-white transition-all duration-300 whitespace-nowrap"
+            className="px-10 py-4 text-[10px] uppercase tracking-[0.3em] text-white hover:bg-white hover:text-brand-black border border-white transition-all duration-300 whitespace-nowrap"
           >
             {t.hero.ctaContact}
           </a>

@@ -372,6 +372,14 @@ const translations = {
       ogDescription: "We design spaces that transcend. Architecture, construction supervision and interior design in Buenos Aires.",
       twitterCard: "summary",
     },
+    errors: {
+      pageNotFound: "Page not found",
+      pageNotFoundDescription: "Sorry, we couldn't find that page.",
+      goHome: "Back to home",
+      pageLoadFailed: "The page could not be loaded",
+      pageLoadFailedDescription: "There was a problem loading the content. Please try again or go back home.",
+      tryAgain: "Try again",
+    },
     stats: {
       experience: "Years of Experience",
       projects: "Projects Completed",
@@ -697,6 +705,14 @@ const translations = {
       ogTitle: "Wilson Arquitetura",
       ogDescription: "Projetamos espaços que transcendem. Arquitetura, direção de obra e design de interiores em Buenos Aires.",
       twitterCard: "summary",
+    },
+    errors: {
+      pageNotFound: "Página não encontrada",
+      pageNotFoundDescription: "Desculpe, não conseguimos encontrar esta página.",
+      goHome: "Voltar ao início",
+      pageLoadFailed: "Não foi possível carregar a página",
+      pageLoadFailedDescription: "Ocorreu um problema ao carregar o conteúdo. Tente novamente ou volte ao início.",
+      tryAgain: "Tentar novamente",
     },
     stats: {
       experience: "Anos de Experiência",

@@ -67,8 +67,16 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
     return (
       <section id="estudio-home" className="relative py-5 md:py-8 px-6 md:px-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div className="flex flex-col justify-center md:px-20">
+          <div className="flex flex-col gap-8">
+            <div className="overflow-hidden relative">
+              <img
+                src={estudioGallery[estudioSlide]}
+                alt={t.team.imageAlt}
+                className="block w-full h-auto object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex flex-col justify-center md:px-20 w-full max-w-5xl mx-auto">
               <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
                 {t.team.sectionLabel}
               </span>
@@ -86,14 +94,6 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                   {t.common.seeMore}
                 </a>
               </div>
-            </div>
-            <div className="overflow-hidden relative">
-              <img
-                src={estudioGallery[estudioSlide]}
-                alt={t.team.imageAlt}
-                className="block w-full h-auto object-cover"
-                loading="lazy"
-              />
             </div>
           </div>
         </div>

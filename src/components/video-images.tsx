@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 
+type VideoImagesProps = {
+  className?: string;
+  imageClassName?: string;
+};
+
 const casaImages = Object.values(
   import.meta.glob("../assets/Casas/*.{png,jpg,jpeg}", {
     eager: true,
@@ -16,7 +21,7 @@ const proyectoImages = Object.values(
 
 const images = [...casaImages, ...proyectoImages];
 
-export function VideoImages() {
+export function VideoImages({ className = "mb-1 overflow-hidden border border-border w-full", imageClassName = "w-full h-auto object-cover" }: VideoImagesProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -32,11 +37,11 @@ export function VideoImages() {
   }
 
   return (
-    <div className="mb-1 overflow-hidden border border-border w-full">
+    <div className={className}>
       <img
         src={images[activeIndex]}
         alt={`Video frame ${activeIndex + 1}`}
-        className="w-full h-auto object-cover"
+        className={imageClassName}
       />
     </div>
   );

@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import logoPestana from "../assets/Logo-pestaña.jpeg";
+import logoPestana from "../assets/Logo-pestaña.png";
 import { reportError } from "../lib/error-reporting";
 import { TranslationProvider, useTranslation } from "@/lib/i18n";
 

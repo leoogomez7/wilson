@@ -1,7 +1,7 @@
 import { Facebook, Instagram, MapPin, Mail, Phone } from "lucide-react";
 import { useTranslation } from "@/lib/i18n";
 import whatsappLogo from "@/assets/Whatsapp.jpg";
-import logo from "@/assets/Logo.jpeg";
+import logo from "@/assets/Logo.png";
 
 export function Footer() {
   const { t } = useTranslation();
