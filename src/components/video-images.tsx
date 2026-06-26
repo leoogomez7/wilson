@@ -6,7 +6,7 @@ type VideoImagesProps = {
 };
 
 const casaImages = Object.values(
-  import.meta.glob("../assets/Casas/*.{png,jpg,jpeg}", {
+  import.meta.glob("../assets/Casas/**/*.{png,jpg,jpeg}", {
     eager: true,
     import: "default",
   }) as Record<string, string>

@@ -7,6 +7,16 @@ import p4 from "@/assets/project-4.jpg";
 import delLimoneroAtardecer from "@/assets/Casas/Del Limonero/Exterior_Atardecer de otoño.jpeg";
 import delLimoneroAmanecer from "@/assets/Casas/Del Limonero/Exterior_Amanecer de primavera.jpeg";
 import delLimoneroAnochecer from "@/assets/Casas/Del Limonero/Exterior_Anochecer de verano.jpeg";
+import delLimoneroExteriorGaleria from "@/assets/Casas/Del Limonero/CasaDelLimonero-Exterior_Galería.png";
+import delLimoneroDormitorio from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Dormitorio.png";
+import delLimoneroLiving from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Living.png";
+import delLimoneroOficina from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Oficina.png";
+import casaCoffeExteriorAmanecer from "@/assets/Casas/Coffe/CasaCoffe-Exterior_Amanecer de primavera.png";
+import casaCoffeExteriorAnochecer from "@/assets/Casas/Coffe/CasaCoffe-Exterior_Anochecer de verano..png";
+import casaCoffeExteriorAtardecer from "@/assets/Casas/Coffe/CasaCoffe-Exterior_Atardecer de otoño..png";
+import casaCoffeExteriorContrafachada from "@/assets/Casas/Coffe/CasaCoffe-Exterior_Contrafachada..png";
+import casaCoffeInteriorLiving from "@/assets/Casas/Coffe/CasaCoffe-Interior_Living..png";
+import casaCoffeInteriorSuite from "@/assets/Casas/Coffe/CasaCoffe-Interior_Suite..png";
 
 type Category = "todos" | "viviendas";
 type AtmosphereType = "todos" | "anochecer" | "atardecer" | "amanecer";
@@ -32,9 +42,22 @@ interface CasaProject {
   gallery?: Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>;
 }
 
+const uniqueGalleryBySrc = (
+  gallery: Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>
+) =>
+  gallery.reduce(
+    (acc, item) => {
+      if (!acc.some((existing) => existing.src === item.src)) {
+        acc.push(item);
+      }
+      return acc;
+    },
+    [] as Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>
+  );
+
 export const casaProjects: CasaProject[] = [
   {
-    id: "los-arboles",
+    id: "casa-del-limonero",
     title: {
       es: "Casa Del Limonero",
       en: "Limonero House",
@@ -84,31 +107,249 @@ export const casaProjects: CasaProject[] = [
           pt: "filtro de amanhecer de primavera",
         },
       },
+      {
+        src: delLimoneroExteriorGaleria,
+        atmosphere: "anochecer",
+        label: {
+          es: "imagen adicional de exterior",
+          en: "additional exterior image",
+          pt: "imagem adicional de exterior",
+        },
+      },
+      {
+        src: delLimoneroExteriorGaleria,
+        atmosphere: "amanecer",
+        label: {
+          es: "imagen adicional de exterior",
+          en: "additional exterior image",
+          pt: "imagem adicional de exterior",
+        },
+      },
+      {
+        src: delLimoneroExteriorGaleria,
+        atmosphere: "atardecer",
+        label: {
+          es: "imagen adicional de exterior",
+          en: "additional exterior image",
+          pt: "imagem adicional de exterior",
+        },
+      },
+      {
+        src: delLimoneroDormitorio,
+        atmosphere: "atardecer",
+        label: {
+          es: "imagen adicional de dormitorio",
+          en: "additional bedroom image",
+          pt: "imagem adicional de quarto",
+        },
+      },
+      {
+        src: delLimoneroDormitorio,
+        atmosphere: "anochecer",
+        label: {
+          es: "imagen adicional de dormitorio",
+          en: "additional bedroom image",
+          pt: "imagem adicional de quarto",
+        },
+      },
+      {
+        src: delLimoneroDormitorio,
+        atmosphere: "amanecer",
+        label: {
+          es: "imagen adicional de dormitorio",
+          en: "additional bedroom image",
+          pt: "imagem adicional de quarto",
+        },
+      },
+      {
+        src: delLimoneroLiving,
+        atmosphere: "amanecer",
+        label: {
+          es: "imagen adicional de living",
+          en: "additional living room image",
+          pt: "imagem adicional de sala",
+        },
+      },
+      {
+        src: delLimoneroLiving,
+        atmosphere: "atardecer",
+        label: {
+          es: "imagen adicional de living",
+          en: "additional living room image",
+          pt: "imagem adicional de sala",
+        },
+      },
+      {
+        src: delLimoneroLiving,
+        atmosphere: "anochecer",
+        label: {
+          es: "imagen adicional de living",
+          en: "additional living room image",
+          pt: "imagem adicional de sala",
+        },
+      },
+      {
+        src: delLimoneroOficina,
+        atmosphere: "amanecer",
+        label: {
+          es: "imagen adicional de oficina",
+          en: "additional office image",
+          pt: "imagem adicional de escritório",
+        },
+      },
+      {
+        src: delLimoneroOficina,
+        atmosphere: "atardecer",
+        label: {
+          es: "imagen adicional de oficina",
+          en: "additional office image",
+          pt: "imagem adicional de escritório",
+        },
+      },
+      {
+        src: delLimoneroOficina,
+        atmosphere: "anochecer",
+        label: {
+          es: "imagen adicional de oficina",
+          en: "additional office image",
+          pt: "imagem adicional de escritório",
+        },
+      },
     ],
   },
   {
-    id: "casa-recoleta",
+    id: "casa-coffe",
     title: {
-      es: "Casa Recoleta",
-      en: "Recoleta House",
-      pt: "Casa de Recoleta",
+      es: "Casa Coffe",
+      en: "Casa Coffe",
+      pt: "Casa Coffe",
     },
     meta: {
-      es: "Vivienda Premium — 2024",
-      en: "Premium residence — 2024",
-      pt: "Residência premium — 2024",
+      es: "Vivienda Unifamiliar - 2024",
+      en: "Single-family home - 2024",
+      pt: "Casa unifamiliar - 2024",
     },
-    image: p4,
-    location: "Recoleta, CABA",
+    image: casaCoffeExteriorContrafachada,
+    location: "Pilar, Buenos Aires",
     year: "2024",
-    area: "480 m²",
+    area: "95.41 m²",
     description: {
-      es: "Vivienda de alta gama con cocina integrada al living. Mármol, maderas nobles y aperturas dobles para iluminación natural.",
-      en: "High-end home with a kitchen integrated into the living area. Marble, fine woods, and double openings for natural light.",
-      pt: "Residência de alto padrão com cozinha integrada à sala. Mármore, madeiras nobres e amplas aberturas para luz natural.",
+      es: "Sólida, equilibrada y de gran presencia visual. El diseño explora la relación entre estructuras, luz y proporción, que destaca por la fuerza de sus trazos horizontales y la integración de elementos estructurales como parte de la expresión estética.",
+      en: "Solid, balanced, and visually striking. The design explores the relationship between structure, light, and proportion, standing out for the strength of its horizontal strokes and the integration of structural elements as part of the aesthetic expression.",
+      pt: "Sólida, equilibrada e de grande presença visual. O projeto explora a relação entre estruturas, luz e proporção, destacando-se pela força de suas linhas horizontais e pela integração de elementos estruturais como parte da expressão estética.",
     },
     category: "viviendas",
     origin: "ambos",
+    gallery: [
+      {
+        src: casaCoffeExteriorAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de Amanecer de primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: casaCoffeExteriorAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de Anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: casaCoffeExteriorAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de Atardecer de otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: casaCoffeExteriorContrafachada,
+        atmosphere: "amanecer",
+        label: {
+          es: "imagen adicional de contrafachada",
+          en: "additional rear facade image",
+          pt: "imagem adicional de fachada traseira",
+        },
+      },
+      {
+        src: casaCoffeExteriorContrafachada,
+        atmosphere: "atardecer",
+        label: {
+          es: "imagen adicional de contrafachada",
+          en: "additional rear facade image",
+          pt: "imagem adicional de fachada traseira",
+        },
+      },
+      {
+        src: casaCoffeExteriorContrafachada,
+        atmosphere: "anochecer",
+        label: {
+          es: "imagen adicional de contrafachada",
+          en: "additional rear facade image",
+          pt: "imagem adicional de fachada traseira",
+        },
+      },
+      {
+        src: casaCoffeInteriorLiving,
+        atmosphere: "amanecer",
+        label: {
+          es: "imagen adicional de living",
+          en: "additional living room image",
+          pt: "imagem adicional de sala",
+        },
+      },
+      {
+        src: casaCoffeInteriorLiving,
+        atmosphere: "atardecer",
+        label: {
+          es: "imagen adicional de living",
+          en: "additional living room image",
+          pt: "imagem adicional de sala",
+        },
+      },
+      {
+        src: casaCoffeInteriorLiving,
+        atmosphere: "anochecer",
+        label: {
+          es: "imagen adicional de living",
+          en: "additional living room image",
+          pt: "imagem adicional de sala",
+        },
+      },
+      {
+        src: casaCoffeInteriorSuite,
+        atmosphere: "amanecer",
+        label: {
+          es: "imagen adicional de suite",
+          en: "additional suite image",
+          pt: "imagem adicional de suíte",
+        },
+      },
+      {
+        src: casaCoffeInteriorSuite,
+        atmosphere: "atardecer",
+        label: {
+          es: "imagen adicional de suite",
+          en: "additional suite image",
+          pt: "imagem adicional de suíte",
+        },
+      },
+      {
+        src: casaCoffeInteriorSuite,
+        atmosphere: "anochecer",
+        label: {
+          es: "imagen adicional de suite",
+          en: "additional suite image",
+          pt: "imagem adicional de suíte",
+        },
+      },
+    ],
   },
 ];
 
@@ -135,15 +376,39 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
     { key: "amanecer", label: t.projects.atmospheres.amanecer },
   ];
 
-  const galleryItems = (
-    selectedProject?.gallery?.length
-      ? selectedProject.gallery
-      : [
-          { src: selectedProject?.image ?? p1, atmosphere: "anochecer" as const },
-          { src: selectedProject?.image ?? p1, atmosphere: "atardecer" as const },
-          { src: selectedProject?.image ?? p1, atmosphere: "amanecer" as const },
-        ]
-  ).filter((item) => modalAtmosphere === "todos" || item.atmosphere === modalAtmosphere);
+  const baseGalleryItems: Array<{
+    src: string;
+    label: LocalizedString;
+    atmosphere: Exclude<AtmosphereType, "todos">;
+  }> = selectedProject?.gallery?.length
+    ? selectedProject.gallery
+    : [
+        {
+          src: selectedProject?.image ?? p1,
+          atmosphere: "anochecer" as const,
+          label: selectedProject?.title ?? { es: "Imagen", en: "Image", pt: "Imagem" },
+        },
+        {
+          src: selectedProject?.image ?? p1,
+          atmosphere: "atardecer" as const,
+          label: selectedProject?.title ?? { es: "Imagen", en: "Image", pt: "Imagem" },
+        },
+        {
+          src: selectedProject?.image ?? p1,
+          atmosphere: "amanecer" as const,
+          label: selectedProject?.title ?? { es: "Imagen", en: "Image", pt: "Imagem" },
+        },
+      ];
+
+  const galleryItems = uniqueGalleryBySrc(
+    baseGalleryItems.filter((item) => {
+      if (modalAtmosphere === "todos") {
+        return true;
+      }
+
+      return item.atmosphere === modalAtmosphere;
+    })
+  );
   const activeIndex = galleryItems.length > 0 ? activeSlide % galleryItems.length : 0;
   const activeItem = galleryItems[activeIndex];
 

@@ -67,7 +67,7 @@ const uniqueGalleryBySrc = (
 
 const projects: Project[] = [
   {
-    id: "nexo",
+    id: "proyecto-cyg",
     title: {
       es: "Proyecto CyG",
       en: "CyG Project",
@@ -218,7 +218,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: "fitz-roy",
+    id: "proyecto-z",
     title: {
       es: "Proyecto Z",
       en: "Project Z",
