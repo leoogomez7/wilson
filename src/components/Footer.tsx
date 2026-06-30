@@ -11,7 +11,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[minmax(320px,1fr)_240px_240px_200px] gap-8 md:gap-10 mb-8">
           <div>
-            <a href="#top" className="inline-block mb-4">
+            <a href="#home" className="inline-block mb-4">
               <img src={logo} alt={t.footer.logoAlt} className="h-24 md:h-28 w-auto object-contain" />
             </a>
             <p className="text-base md:text-xl text-brand-gray leading-relaxed max-w-sm md:max-w-lg">
@@ -24,7 +24,7 @@ export function Footer() {
             </span>
             <ul className="space-y-3 text-base md:text-lg">
               <li>
-                <a href="#top" className="hover:opacity-60 whitespace-nowrap">
+                <a href="#home" className="hover:opacity-60 whitespace-nowrap">
                   {t.nav.home}
                 </a>
               </li>

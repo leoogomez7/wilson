@@ -39,7 +39,7 @@ function Index() {
     const resolveHash = () => {
       const hash = window.location.hash.replace("#", "");
       const [section] = hash.split("?", 2);
-      if (section === "top" || section === "home") {
+      if (section === "home") {
         setActiveSection("all");
         return;
       }
@@ -72,7 +72,7 @@ function Index() {
 
   const handleSectionChange = (section: SectionKey) => {
     const nextSection = section === "home" ? "all" : section;
-    const hash = section === "home" ? "top" : section;
+    const hash = section === "home" ? "home" : section;
 
     if (typeof window !== "undefined") {
       if (activeSection === nextSection) {
@@ -98,7 +98,7 @@ function Index() {
         rel="stylesheet"
       />
       <Navbar onSelectSection={(section) => handleSectionChange(section as SectionKey)} />
-      <main id="top" className="pt-20">
+      <main id="home" className="pt-20">
         {activeSection === "all" && <Hero />}
         {activeSection === "all" && <Stats />}
         {activeSection === "all" && <History mode={sectionMode} />}

@@ -14,7 +14,7 @@ type NavLabelKey =
   | "contacto";
 
 const navLinks: Array<{ href: string; labelKey: NavLabelKey }> = [
-  { href: "#top", labelKey: "home" },
+  { href: "#home", labelKey: "home" },
   { href: "#estudio", labelKey: "estudio" },
   { href: "#proyectos", labelKey: "proyectos" },
   { href: "#servicios", labelKey: "servicios" },
@@ -33,7 +33,7 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/85 backdrop-blur-md py-4 text-brand-black">
       <div className="px-6 md:px-12 flex items-center justify-between">
-        <a href="#top" className="block flex-none ml-4 md:ml-10 pr-8 md:pr-12">
+        <a href="#home" className="block flex-none ml-4 md:ml-10 pr-8 md:pr-12">
           <img src={logo} alt={t.nav.logoAlt} className="h-10 w-auto object-contain" />
         </a>
         <div className="hidden md:flex min-w-0 flex-wrap items-center justify-end gap-4 text-[10px] uppercase tracking-[0.3em] font-medium">
