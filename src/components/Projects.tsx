@@ -230,7 +230,7 @@ export const projects: Project[] = [
       pt: "Casa unifamiliar — 2026",
     },
     category: "viviendas",
-    image: zAnochecerCF,
+    image: zAnochecerFrente,
     location: "Pilar, Buenos Aires",
     year: "2026",
     area: "187.82 m²",
