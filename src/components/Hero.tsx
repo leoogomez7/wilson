@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[calc(100vh-5rem)] w-full flex items-start justify-center pt-0 pb-16 sm:pt-2 lg:pt-4 overflow-hidden bg-brand-black"
+      className="relative min-h-[calc(100vh-5rem)] w-full flex items-center sm:items-start justify-center pt-8 pb-16 sm:pt-2 lg:pt-4 overflow-hidden bg-brand-black"
     >
       <div className="absolute inset-0">
         <VideoImages
