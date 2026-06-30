@@ -9,12 +9,12 @@ export function Footer() {
   return (
     <footer className="py-16 md:py-20 px-6 md:px-12 border-t border-border bg-slate-100 text-brand-black">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-[260px_1fr_1fr] gap-12 mb-16">
           <div>
             <a href="#top" className="inline-block mb-4">
               <img src={logo} alt={t.footer.logoAlt} className="h-24 md:h-28 w-auto object-contain" />
             </a>
-            <p className="text-base md:text-xl text-brand-gray leading-relaxed max-w-xs">
+            <p className="text-base md:text-xl text-brand-gray leading-relaxed max-w-sm md:max-w-md">
               {t.footer.description}
             </p>
           </div>
