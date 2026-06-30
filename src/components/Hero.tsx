@@ -27,9 +27,9 @@ export function Hero() {
         <p className="text-[16px] uppercase tracking-[0.5em] opacity-70 mb-8 animate-fade">
           {t.hero.tagline}
         </p>
-        <h1 className="font-serif w-full max-w-none text-[clamp(2.8rem,11vw,7rem)] sm:text-[clamp(4.5rem,10vw,10rem)] lg:text-[clamp(5.5rem,10vw,11rem)] mb-8 tracking-[0.12em] sm:tracking-[0.3em] leading-[0.95] whitespace-normal animate-reveal">
-          <span className="block font-semibold uppercase text-[1.05em] sm:text-[1.08em] lg:text-[1.1em]">Wilson</span>
-          <span className="block whitespace-nowrap font-medium uppercase text-[0.72em] sm:text-[0.7em] lg:text-[0.68em]">Arquitectura</span>
+        <h1 className="font-serif inline-flex flex-col items-center text-center mx-auto text-[clamp(2.8rem,11vw,7rem)] sm:text-[clamp(4.5rem,10vw,10rem)] lg:text-[clamp(5.5rem,10vw,11rem)] mb-8 tracking-[0.06em] sm:tracking-[0.08em] leading-[0.95] whitespace-normal animate-reveal">
+          <span className="block font-semibold uppercase text-[1.05em] sm:text-[1.08em] lg:text-[1.375em]">Wilson</span>
+          <span className="block whitespace-nowrap font-medium uppercase text-[0.72em] sm:text-[0.7em] lg:text-[0.7875em] tracking-[0.01em]">Arquitectura</span>
         </h1>
         <p
           className="text-[11px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.25em] font-light max-w-3xl mx-auto leading-loose opacity-80 animate-reveal"
