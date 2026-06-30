@@ -1,6 +1,6 @@
 import { useTranslation } from "@/lib/i18n";
 import { VideoImages } from "@/components/video-images";
-import { casaProjects } from "@/components/Casas";
+import { casaProjects } from "@/components/project-data";
 import { projects } from "@/components/Projects";
 
 export function Hero() {
@@ -20,7 +20,7 @@ export function Hero() {
             ...projects.map((project) => project.image),
           ]}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-black/40 via-transparent to-brand-black/70" />
+        <div className="absolute inset-0 .bg-gradient-to-b from-brand-black/40 via-transparent to-brand-black/70" />
       </div>
 
       <div className="relative z-10 text-center text-white px-6 max-w-full">

@@ -5,7 +5,6 @@ import { Hero } from "@/components/Hero";
 import { useTranslation } from "@/lib/i18n";
 import { History } from "@/components/History";
 import { Projects } from "@/components/Projects";
-import { Casas } from "@/components/Casas";
 import { Stats } from "@/components/Stats";
 import { Services, ServiceCapabilities, ServiceProcess } from "@/components/Services";
 import { Sustainability } from "@/components/Sustainability";
@@ -24,7 +23,6 @@ type SectionKey =
   | "all"
   | "home"
   | "estudio"
-  | "casas"
   | "proyectos"
   | "sustentabilidad"
   | "servicios"
@@ -40,23 +38,21 @@ function Index() {
 
     const resolveHash = () => {
       const hash = window.location.hash.replace("#", "");
-      if (hash === "top" || hash === "home") {
+      const [section] = hash.split("?", 2);
+      if (section === "top" || section === "home") {
         setActiveSection("all");
         return;
       }
 
       if (
-        hash === "estudio" ||
-        hash === "casas" ||
-        hash === "proyectos" ||
-        hash === "sustentabilidad" ||
-        hash === "servicios" ||
-        hash === "proceso" ||
-        hash === "contacto"
+        section === "estudio" ||
+        section === "proyectos" ||
+        section === "sustentabilidad" ||
+        section === "servicios" ||
+        section === "proceso" ||
+        section === "contacto"
       ) {
-        setActiveSection(hash as SectionKey);
-      } else {
-        setActiveSection("all");
+        setActiveSection(section as SectionKey);
       }
     };
 
@@ -114,8 +110,7 @@ function Index() {
         {activeSection === "all" && <MapSection />}
 
         {activeSection === "estudio" && <Team mode={sectionMode} />}
-        {activeSection === "casas" && <Casas mode={sectionMode} />}
-        {activeSection === "proyectos" && <Projects mode={sectionMode} />}
+        {activeSection === "proyectos" && <Projects mode={sectionMode} section="proyectos" />}
         {activeSection === "sustentabilidad" && <Sustainability mode={sectionMode} />}
         {activeSection === "servicios" && <ServiceCapabilities mode={sectionMode} />}
         {activeSection === "proceso" && <ServiceProcess mode={sectionMode} />}

@@ -71,13 +71,13 @@ const translations = {
     },
     projects: {
       sectionLabel: "Análisis y Visión",
-      homeLabel: "Casas",
+      homeLabel: "Casas y Proyectos",
       originLabels: {
         casas: "Casas",
         proyectos: "Proyectos",
         ambos: "Casas y Proyectos",
       },
-      heading: "Proyectos",
+      heading: "Casas y Proyectos",
       sectionDescription:
         "Cada proyecto nace de una visión particular y de un profundo análisis de su contexto. Nos enfocamos en desarrollar propuestas que integren calidad espacial, innovación y funcionalidad, adaptándose a las características del entorno y a los objetivos específicos de cada desafío arquitectónico.",
       noResults: "No se encontraron resultados",
@@ -100,6 +100,7 @@ const translations = {
         next: "Siguiente",
       },
       originFilterTitle: "Origen",
+      typeFilterTitle: "Tipo",
       originFilterLabels: {
         all: "Todos",
         casas: "Casas",
@@ -403,7 +404,7 @@ const translations = {
         "Each project begins with a close conversation with the client and a thorough reading of the context, to propose elegant, lasting constructive solutions.",
     },
     projects: {
-      sectionLabel: "Featured Works",
+      sectionLabel: "Analysis and Vision",
       homeLabel: "Houses & Projects",
       originLabels: {
         casas: "Houses",
@@ -423,7 +424,7 @@ const translations = {
         atardecer: "Autumn sunset",
         amanecer: "Spring sunrise",
       },
-      heading: "Projects",
+      heading: "Houses & Projects",
       sectionDescription:
         "Each project is born from a specific vision and a deep analysis of its context. We focus on developing proposals that integrate spatial quality, innovation and functionality, adapting to the characteristics of the environment and the specific objectives of each architectural challenge.",
       filters: {
@@ -433,6 +434,7 @@ const translations = {
         reformas: "Renovations",
       },
       categoryFilterTitle: "Category",
+      typeFilterTitle: "Type",
       originFilterTitle: "Origin",
       modal: {
         close: "Close",
@@ -737,7 +739,7 @@ const translations = {
         "Cada projeto começa com uma conversa próxima com o cliente e uma leitura cuidadosa do contexto, para propor soluções construtivas elegantes e duradouras.",
     },
     projects: {
-      sectionLabel: "Obras em Destaque",
+      sectionLabel: "Análise e Visão",
       homeLabel: "Casas e Projetos",
       originLabels: {
         casas: "Casas",
@@ -757,7 +759,7 @@ const translations = {
         atardecer: "Pôr do sol de outono",
         amanecer: "Amanhecer de primavera",
       },
-      heading: "Projetos",
+      heading: "Casas e Projetos",
       sectionDescription:
         "Cada projeto nasce de uma visão particular e de uma análise profunda do seu contexto. Nosso foco é desenvolver propostas que integrem qualidade espacial, inovação e funcionalidade, adaptando-se às características do entorno e aos objetivos específicos de cada desafio arquitetônico.",
       filters: {
@@ -767,6 +769,7 @@ const translations = {
         reformas: "Reformas",
       },
       categoryFilterTitle: "Categoria",
+      typeFilterTitle: "Tipo de projeto",
       originFilterTitle: "Origem",
       modal: {
         close: "Fechar",

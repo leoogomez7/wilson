@@ -35,11 +35,6 @@ export function Footer() {
               </li>
               <li>
                 <a href="#proyectos" className="hover:opacity-60 whitespace-nowrap">
-                  {t.nav.casas}
-                </a>
-              </li>
-              <li>
-                <a href="#proyectos" className="hover:opacity-60 whitespace-nowrap">
                   {t.nav.proyectos}
                 </a>
               </li>

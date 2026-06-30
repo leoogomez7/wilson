@@ -26,11 +26,13 @@ import cInteriorComedor from "@/assets/Proyectos/CyG/Interior_Comedor.png";
 import cInteriorLiving from "@/assets/Proyectos/CyG/Interior_Living.png";
 import cInteriorSuite from "@/assets/Proyectos/CyG/Interior_Suite.png";
 import { useTranslation } from "@/lib/i18n";
-import { casaProjects } from "@/components/Casas";
+import { casaProjects } from "@/components/project-data";
 
 type Category = "todos" | "viviendas" | "comercial" | "reformas";
 
 type AtmosphereType = "todos" | "anochecer" | "atardecer" | "amanecer";
+
+type SectionOrigin = "casas" | "proyectos";
 
 interface LocalizedString {
   es: string;
@@ -49,7 +51,7 @@ interface Project {
   area: string;
   description: LocalizedString;
   gallery?: Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>;
-  origin?: "casas" | "proyectos" | "ambos";
+  origin?: "casas" | "proyectos";
 }
 
 const uniqueGalleryBySrc = (
@@ -489,13 +491,48 @@ export const projects: Project[] = [
 
 import { SectionMode } from "@/components/SectionMode";
 
-export function Projects({ mode = "home" }: { mode?: SectionMode }) {
+export function Projects({ mode = "home", section }: { mode?: SectionMode; section?: SectionOrigin }) {
   const { t, language } = useTranslation();
   const [active, setActive] = useState<Category>("todos");
   const [originFilter, setOriginFilter] = useState<"all" | "casas" | "proyectos">("all");
   const [listAtmosphere, setListAtmosphere] = useState<AtmosphereType>("todos");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [navChoiceOpen, setNavChoiceOpen] = useState(false);
+
+  const updateOriginFilterFromHash = () => {
+    if (typeof window === "undefined") return;
+    if (mode !== "section" || section !== "proyectos") return;
+
+    const hash = window.location.hash.replace("#", "");
+    const [, queryString] = hash.split("?", 2);
+    const params = new URLSearchParams(queryString ?? "");
+    const type = params.get("type");
+
+    if (type === "casas") {
+      setOriginFilter("casas");
+    } else if (type === "proyectos") {
+      setOriginFilter("proyectos");
+    } else if (type === "all" || type === "todos") {
+      setOriginFilter("all");
+    }
+  };
+
+  useEffect(() => {
+    if (mode !== "section" || section !== "proyectos") return;
+    setOriginFilter("all");
+  }, [mode, section]);
+
+  useEffect(() => {
+    updateOriginFilterFromHash();
+    if (typeof window === "undefined") return;
+
+    const handleHashChange = () => {
+      updateOriginFilterFromHash();
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, [mode, section]);
 
   const casaProjectsWithIds = casaProjects.map((project, index) => ({
     ...project,
@@ -505,7 +542,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
   const combinedProjects: Project[] = [
     ...casaProjectsWithIds.map((project) => ({
       ...project,
-      origin: ("casas" as const),
+      origin: project.origin ?? ("casas" as const),
       gallery: project.gallery?.map((item) => ({
         ...item,
         label: project.title,
@@ -516,18 +553,14 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
       .map((project) => ({ ...project, origin: "proyectos" as const })),
   ];
 
-  const sectionSource = combinedProjects.filter((project) => project.origin !== "casas");
-  const source = mode === "home" ? combinedProjects : sectionSource;
+  const source = combinedProjects;
+  const sectionId = mode === "section" && section ? section : "proyectos";
   const filteredByCategory =
     active === "todos" ? source : source.filter((p) => p.category === active);
   const visibleByOrigin =
     originFilter === "all"
       ? filteredByCategory
-      : filteredByCategory.filter((p) =>
-          originFilter === "casas"
-            ? p.origin === "casas" || p.origin === "ambos"
-            : p.origin === "proyectos" || p.origin === "ambos"
-        );
+      : filteredByCategory.filter((p) => p.origin === originFilter);
   const visible =
     listAtmosphere === "todos"
       ? visibleByOrigin
@@ -547,7 +580,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
     { key: "comercial", label: t.projects.filters.comercial },
     { key: "reformas", label: t.projects.filters.reformas },
   ];
-  const originFilters: Array<{ key: "all" | "casas" | "proyectos"; label: string }> = [
+  const typeFilters: Array<{ key: "all" | "casas" | "proyectos"; label: string }> = [
     { key: "all", label: t.projects.originFilterLabels.all },
     { key: "casas", label: t.projects.originFilterLabels.casas },
     { key: "proyectos", label: t.projects.originFilterLabels.proyectos },
@@ -559,13 +592,18 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-2 md:mb-4 gap-6">
         <div>
           <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
-            {mode === "home" ? t.projects.homeLabel : t.projects.sectionLabel}
+            {t.projects.sectionLabel}
           </span>
           <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">{t.projects.heading}</h2>
           {mode === "section" ? (
-            <p className="mt-4 w-full max-w-none text-base leading-relaxed text-brand-gray">
-              {t.projects.sectionDescription}
-            </p>
+            <>
+              <p className="mt-4 w-full max-w-none text-base leading-relaxed text-brand-gray">
+                {t.projects.sectionDescription}
+              </p>
+              <p className="mt-4 w-full max-w-none text-base leading-relaxed text-brand-gray">
+                {t.casas.description}
+              </p>
+            </>
           ) : null}
         </div>
       </div>
@@ -588,26 +626,24 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
         </div>
       </div>
 
-      {mode === "home" ? (
-        <div className="mb-6">
-          <div className="text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray mb-4">
-            {t.projects.originFilterTitle}
-          </div>
-          <div className="flex flex-wrap gap-6 md:gap-8 text-[10px] uppercase tracking-[0.25em] font-semibold">
-            {originFilters.map((f) => (
-              <button
-                key={f.key}
-                onClick={() => setOriginFilter(f.key)}
-                className={`rounded-none border border-brand-light px-4 py-2 uppercase transition whitespace-nowrap ${
-                  originFilter === f.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
+      <div className="mb-6">
+        <div className="text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray mb-4">
+          {t.projects.typeFilterTitle}
         </div>
-      ) : null}
+        <div className="flex flex-wrap gap-6 md:gap-8 text-[10px] uppercase tracking-[0.25em] font-semibold">
+          {typeFilters.map((f) => (
+            <button
+              key={f.key}
+              onClick={() => setOriginFilter(f.key)}
+              className={`rounded-none border border-brand-light px-4 py-2 uppercase transition whitespace-nowrap ${
+                originFilter === f.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
+              }`}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
       <div className="grid grid-cols-12 gap-y-16 md:gap-y-24 md:gap-x-12">
         {visible.length === 0 ? (
@@ -634,11 +670,9 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
                       ? "bg-brand-gray/10 text-brand-gray"
                       : "bg-brand-black text-white"
                   }`}>
-              {project.origin === "ambos"
-                ? t.projects.originLabels.ambos
-                : project.origin === "casas"
-                ? t.projects.originLabels.casas
-                : t.projects.originLabels.proyectos}
+              {project.origin === "proyectos"
+                ? t.projects.originLabels.proyectos
+                : t.projects.originLabels.casas}
             </div>
             <h3 className="text-xl md:text-2xl font-serif mb-1">{project.title[language]}</h3>
             <p className="text-[10px] uppercase tracking-[0.3em] opacity-50 mb-2">{project.meta[language]}</p>
@@ -694,18 +728,37 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
             </div>
             <div className="grid gap-4">
               <a
-                href="#casas"
-                onClick={() => setNavChoiceOpen(false)}
+                href="#proyectos?type=all"
+                onClick={(event) => {
+                  event.preventDefault();
+                  window.location.hash = "#proyectos?type=all";
+                  setNavChoiceOpen(false);
+                }}
                 className="block rounded-2xl border border-brand-black px-6 py-4 text-center uppercase tracking-[0.3em] font-bold hover:bg-brand-black hover:text-white transition-colors whitespace-nowrap"
               >
-                {t.nav.casas}
+                {t.projects.originFilterLabels.all}
               </a>
               <a
-                href="#proyectos"
-                onClick={() => setNavChoiceOpen(false)}
-                className="block rounded-2xl bg-brand-black px-6 py-4 text-center uppercase tracking-[0.3em] font-bold text-white hover:bg-brand-gray transition-colors whitespace-nowrap"
+                href="#proyectos?type=casas"
+                onClick={(event) => {
+                  event.preventDefault();
+                  window.location.hash = "#proyectos?type=casas";
+                  setNavChoiceOpen(false);
+                }}
+                className="block rounded-2xl border border-brand-black px-6 py-4 text-center uppercase tracking-[0.3em] font-bold hover:bg-brand-black hover:text-white transition-colors whitespace-nowrap"
               >
-                {t.nav.proyectos}
+                {t.projects.originFilterLabels.casas}
+              </a>
+              <a
+                href="#proyectos?type=proyectos"
+                onClick={(event) => {
+                  event.preventDefault();
+                  window.location.hash = "#proyectos?type=proyectos";
+                  setNavChoiceOpen(false);
+                }}
+                className="block rounded-2xl border border-brand-black px-6 py-4 text-center uppercase tracking-[0.3em] font-bold hover:bg-brand-black hover:text-white transition-colors whitespace-nowrap"
+              >
+                {t.projects.originFilterLabels.proyectos}
               </a>
             </div>
           </div>

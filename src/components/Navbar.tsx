@@ -16,7 +16,6 @@ type NavLabelKey =
 const navLinks: Array<{ href: string; labelKey: NavLabelKey }> = [
   { href: "#top", labelKey: "home" },
   { href: "#estudio", labelKey: "estudio" },
-  { href: "#casas", labelKey: "casas" },
   { href: "#proyectos", labelKey: "proyectos" },
   { href: "#servicios", labelKey: "servicios" },
   { href: "#proceso", labelKey: "proceso" },
