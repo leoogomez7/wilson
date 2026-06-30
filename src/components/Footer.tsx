@@ -4,17 +4,17 @@ import whatsappLogo from "@/assets/Whatsapp.jpg";
 import logo from "@/assets/Logo.png";
 
 export function Footer() {
-  const { t } = useTranslation();
+  const { t, language, setLanguage } = useTranslation();
 
   return (
     <footer className="py-16 md:py-20 px-6 md:px-12 border-t border-border bg-slate-100 text-brand-black">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(420px,1fr)_280px_280px] gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(320px,1fr)_240px_240px_200px] gap-8 md:gap-10 mb-8">
           <div>
             <a href="#top" className="inline-block mb-4">
               <img src={logo} alt={t.footer.logoAlt} className="h-24 md:h-28 w-auto object-contain" />
             </a>
-            <p className="text-base md:text-xl text-brand-gray leading-relaxed max-w-sm md:max-w-md">
+            <p className="text-base md:text-xl text-brand-gray leading-relaxed max-w-sm md:max-w-lg">
               {t.footer.description}
             </p>
           </div>
@@ -139,8 +139,28 @@ export function Footer() {
               </li>
             </ul>
           </div>
+          <div>
+            <span className="text-[12px] md:text-base uppercase tracking-[0.3em] font-bold block mb-4">
+              {t.nav.language}
+            </span>
+            <ul className="space-y-3 text-base md:text-lg">
+              {Object.entries(t.nav.languageOptions).map(([lang, label]) => (
+                <li key={lang}>
+                  <button
+                    type="button"
+                    onClick={() => setLanguage(lang as typeof language)}
+                    className={`transition-opacity hover:opacity-60 whitespace-nowrap ${
+                      language === lang ? "font-bold" : "opacity-70"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="pt-8 border-t border-border text-center text-[12px] md:text-base uppercase tracking-[0.3em] opacity-50">
+        <div className="border-t border-border text-center text-[12px] md:text-base uppercase tracking-[0.3em] opacity-50 pt-4">
           <span>{t.footer.copyright.replace("{year}", String(new Date().getFullYear()))}</span>
         </div>
       </div>
