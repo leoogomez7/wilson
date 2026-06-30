@@ -2,7 +2,7 @@ import { useTranslation } from "@/lib/i18n";
 import { SectionMode } from "@/components/SectionMode";
 import { Leaf, Wind, Thermometer, Box, Zap, Cpu, TreeDeciduous, Sun } from "lucide-react";
 import s1 from "@/assets/Sustentabilidad/s1.jpg";
-import s2 from "@/assets/Sustentabilidad/s2.jpg";
+import s2 from "@/assets/Sustentabilidad/s2.png";
 import s3 from "@/assets/Sustentabilidad/s3.jpg";
 
 export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
@@ -38,7 +38,7 @@ export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
       <div className="w-full max-w-none">
         {mode === "section" ? (
           <>
-            <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
+            <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
               {sustainability.sectionLabel}
             </span>
             <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">
@@ -105,7 +105,7 @@ export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
               <img src={s2} alt={t.sustainability.imageAlt2} className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-2">
+              <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-2">
                 {sustainability.sectionLabel}
               </span>
               <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">
@@ -129,3 +129,5 @@ export function Sustainability({ mode = "home" }: { mode?: SectionMode }) {
     </section>
   );
 }
+
+

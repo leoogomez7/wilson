@@ -19,8 +19,8 @@ const navLinks: Array<{ href: string; labelKey: NavLabelKey }> = [
   { href: "#casas", labelKey: "casas" },
   { href: "#proyectos", labelKey: "proyectos" },
   { href: "#servicios", labelKey: "servicios" },
-  { href: "#sustentabilidad", labelKey: "sustentabilidad" },
   { href: "#proceso", labelKey: "proceso" },
+  { href: "#sustentabilidad", labelKey: "sustentabilidad" },
   { href: "#servicios", labelKey: "otrosServicios" },
   { href: "#contacto", labelKey: "contacto" },
 ];
@@ -142,3 +142,5 @@ export function Navbar({ onSelectSection }: { onSelectSection?: (section: NavLab
     </nav>
   );
 }
+
+

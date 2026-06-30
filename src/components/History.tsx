@@ -10,7 +10,7 @@ export function History({ mode = "home" }: { mode?: SectionMode }) {
       <div className="w-full max-w-none">
         <div className="flex flex-col gap-6 lg:gap-8">
           <div className="w-full max-w-none">
-            <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-3">
+            <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-3">
               {t.history.sectionLabel}
             </span>
             <h2 className="font-serif text-3xl md:text-4xl tracking-tight mb-4 w-full">
@@ -33,3 +33,5 @@ export function History({ mode = "home" }: { mode?: SectionMode }) {
     </section>
   );
 }
+
+

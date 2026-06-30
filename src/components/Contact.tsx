@@ -26,7 +26,7 @@ export function Contact({ mode = "home" }: { mode?: SectionMode }) {
   return (
     <section id="contacto" className="py-5 md:py-8 px-6 md:px-20 bg-brand-black text-white">
       <div className="w-full">
-        <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 block mb-4 text-center">
+        <span className="text-[15px] uppercase tracking-[0.4em] text-white/40 block mb-4 text-center">
           {t.contact.sectionLabel}
         </span>
 
@@ -123,3 +123,5 @@ function Field({
     </div>
   );
 }
+
+

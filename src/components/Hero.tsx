@@ -1,5 +1,7 @@
 import { useTranslation } from "@/lib/i18n";
 import { VideoImages } from "@/components/video-images";
+import { casaProjects } from "@/components/Casas";
+import { projects } from "@/components/Projects";
 
 export function Hero() {
   const { t } = useTranslation();
@@ -13,6 +15,10 @@ export function Hero() {
         <VideoImages
           className="absolute inset-0 h-full w-full overflow-hidden"
           imageClassName="h-full w-full object-cover opacity-60 animate-slow-zoom"
+          images={[
+            ...casaProjects.map((project) => project.image),
+            ...projects.map((project) => project.image),
+          ]}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-black/40 via-transparent to-brand-black/70" />
       </div>
@@ -52,3 +58,5 @@ export function Hero() {
     </section>
   );
 }
+
+

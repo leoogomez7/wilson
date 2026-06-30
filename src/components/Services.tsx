@@ -9,7 +9,7 @@ export function Services({ mode = "home" }: { mode?: SectionMode }) {
     <section id="servicios" className="py-5 md:py-8 px-6 md:px-20 bg-brand-light/20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
         <div>
-          <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
+          <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.services.sectionLabel}
           </span>
           <h2 className="font-serif text-2xl md:text-3xl mb-4 tracking-tight">
@@ -66,7 +66,7 @@ export function Services({ mode = "home" }: { mode?: SectionMode }) {
         </div>
 
         <div id="proceso">
-          <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
+          <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.services.processLabel}
           </span>
           <h2 className="font-serif text-2xl md:text-3xl mb-6 tracking-tight">
@@ -141,7 +141,7 @@ export function ServiceCapabilities({ mode = "home" }: { mode?: SectionMode }) {
   return (
     <section id="servicios" className="py-5 md:py-8 px-6 md:px-20 bg-brand-light/20">
       <div className="max-w-7xl mx-auto">
-        <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
+        <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
           {t.services.sectionLabel}
         </span>
         <h2 className="font-serif text-2xl md:text-3xl mb-4 tracking-tight">
@@ -187,7 +187,7 @@ export function ServiceProcess({ mode = "home" }: { mode?: SectionMode }) {
   return (
     <section id="proceso" className="py-5 md:py-8 px-6 md:px-20 bg-brand-light/20">
       <div className="max-w-7xl mx-auto">
-        <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
+        <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
           {t.services.processLabel}
         </span>
         <h2 className="font-serif text-2xl md:text-3xl mb-4 tracking-tight">
@@ -226,3 +226,5 @@ export function ServiceProcess({ mode = "home" }: { mode?: SectionMode }) {
     </section>
   );
 }
+
+

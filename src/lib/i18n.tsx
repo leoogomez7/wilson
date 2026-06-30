@@ -63,7 +63,7 @@ const translations = {
     },
     history: {
       sectionLabel: "Nuestro Concepto",
-      heading: "Proyección, Dirección y Ejecución",
+      heading: "Proyecto, Dirección y Ejecución de obra",
       description:
         "Somos un estudio de arquitectura que cuenta con doce años de experiencia, nuestro enfoque es combinar diseño, planificación estratégico y gestión integral, con el compromiso claro de transformar ideas en espacios concretos funcionales de alto valor, con profesionalismo y visión.",
       description2:
@@ -396,7 +396,7 @@ const translations = {
     },
     history: {
       sectionLabel: "Our Concept",
-      heading: "Projection, Direction and Execution",
+      heading: "Project, direction and execution",
       description:
         "We are an architecture studio with twelve years of experience, focused on combining design, planning, strategic management and construction with a clear commitment to turning ideas into high-value functional spaces.",
       description2:
@@ -730,7 +730,7 @@ const translations = {
     },
     history: {
       sectionLabel: "Nosso Conceito",
-      heading: "Projeção, Direção e Execução",
+      heading: "Projeto, direção e execução",
       description:
         "Somos um estúdio de arquitetura com doze anos de experiência, focado em combinar design, planejamento, gestão estratégica e construção com um compromisso claro de transformar ideias em espaços funcionais de alto valor.",
       description2:

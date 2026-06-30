@@ -78,7 +78,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
             </div>
             <div className="flex flex-col justify-center md:px-0 w-full lg:pl-8">
               <div className="w-full max-w-none">
-                <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4 text-left">
+                <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4 text-left">
                   {t.team.sectionLabel}
                 </span>
                 <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4 text-left w-full">
@@ -108,7 +108,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
       <div id="estudio" className="absolute -top-32 scroll-mt-32" />
       <div className="w-full max-w-none">
         <div className="mb-16 md:mb-20 w-full max-w-none">
-          <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
+          <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.team.sectionLabel}
           </span>
           <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">{t.team.heading}</h2>
@@ -181,7 +181,7 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
                     <div className="sticky bottom-0 z-10 flex items-center justify-center border-t border-brand-gray/10 bg-white/95 pb-0 backdrop-blur-sm sm:hidden">
                       <button
                         type="button"
-                        className="w-full max-w-[18rem] text-center text-[10px] uppercase tracking-[0.4em] text-brand-black font-bold py-3"
+                        className="w-full max-w-[18rem] text-center text-[15px] uppercase tracking-[0.4em] text-brand-black font-bold py-3"
                         onClick={() => {
                           const container = scrollRef.current;
                           if (container) {
@@ -205,3 +205,5 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
     </section>
   );
 }
+
+

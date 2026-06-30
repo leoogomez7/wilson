@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 type VideoImagesProps = {
   className?: string;
   imageClassName?: string;
+  autoPlay?: boolean;
+  images?: string[];
 };
 
 const casaImages = Object.values(
@@ -19,18 +21,27 @@ const proyectoImages = Object.values(
   }) as Record<string, string>
 );
 
-const images = [...casaImages, ...proyectoImages];
+const defaultImages = [...casaImages, ...proyectoImages];
 
-export function VideoImages({ className = "mb-1 overflow-hidden border border-border w-full", imageClassName = "w-full h-auto object-cover" }: VideoImagesProps) {
+export function VideoImages({
+  className = "mb-1 overflow-hidden border border-border w-full",
+  imageClassName = "w-full h-auto object-cover",
+  autoPlay = true,
+  images = defaultImages,
+}: VideoImagesProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
+    if (!autoPlay) {
+      return;
+    }
+
     const interval = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % images.length);
     }, 1700);
 
     return () => window.clearInterval(interval);
-  }, []);
+  }, [autoPlay, images.length]);
 
   if (images.length === 0) {
     return null;

@@ -9,7 +9,7 @@ export function MapSection() {
     <section id="mapa" className="bg-white border-t border-border">
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div className="p-12 md:p-20 flex flex-col justify-center">
-          <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-2">
+          <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-2">
             {t.map.sectionLabel}
           </span>
           <h2 className="font-serif text-2xl md:text-3xl mb-4 tracking-tight">{t.map.heading}</h2>
@@ -121,3 +121,5 @@ export function MapSection() {
     </section>
   );
 }
+
+

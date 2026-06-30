@@ -96,8 +96,8 @@ export const casaProjects: CasaProject[] = [
     id: "casa-del-limonero",
     title: {
       es: "Casa Del Limonero",
-      en: "Limonero House",
-      pt: "Casa do Limonero",
+      en: "Casa Del Limonero",
+      pt: "Casa Del Limonero",
     },
     meta: {
       es: "Vivienda Unifamiliar - 2021",
@@ -257,7 +257,7 @@ export const casaProjects: CasaProject[] = [
     id: "casa-inti",
     title: {
       es: "Casa Inti",
-      en: "Inti House",
+      en: "Casa Inti",
       pt: "Casa Inti",
     },
     meta: {
@@ -585,7 +585,7 @@ export const casaProjects: CasaProject[] = [
     id: "casa-scott",
     title: {
       es: "Casa Scott",
-      en: "Scott House",
+      en: "Casa Scott",
       pt: "Casa Scott",
     },
     meta: {
@@ -749,7 +749,7 @@ export const casaProjects: CasaProject[] = [
     id: "casa-navarro",
     title: {
       es: "Casa Navarro",
-      en: "Navarro House",
+      en: "Casa Navarro",
       pt: "Casa Navarro",
     },
     meta: {
@@ -1058,7 +1058,7 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
       <div id="casas-section" className="absolute -top-24" />
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-2 md:mb-4 gap-6">
         <div>
-          <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
+          <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {t.casas.sectionLabel}
           </span>
           <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">{t.casas.heading}</h2>
@@ -1142,7 +1142,7 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
               {t.projects.modal.close}
             </button>
             <div className="w-full">
-              <div className="overflow-hidden bg-brand-light aspect-4/3">
+              <div className="overflow-hidden bg-brand-light .h-[360px] .sm:h-[420px]">
                 <img
                   src={activeItem?.src ?? selectedProject.image}
                   alt={selectedProject.title[language]}
@@ -1200,7 +1200,7 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
               </div>
             </div>
             <div className="p-8 md:p-12">
-              <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60">
+              <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60">
                 {selectedProject.meta[language]}
               </span>
               <h3 className="mt-3 mb-8 font-serif text-3xl md:text-5xl">{selectedProject.title[language]}</h3>
@@ -1228,3 +1228,5 @@ export function Casas({ mode = "home" }: { mode?: SectionMode }) {
     </section>
   );
 }
+
+

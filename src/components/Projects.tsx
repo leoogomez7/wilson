@@ -65,13 +65,13 @@ const uniqueGalleryBySrc = (
     [] as Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>
   );
 
-const projects: Project[] = [
+export const projects: Project[] = [
   {
     id: "proyecto-cyg",
     title: {
       es: "Proyecto CyG",
-      en: "CyG Project",
-      pt: "Projeto CyG",
+      en: "Proyecto CyG",
+      pt: "Proyecto CyG",
     },
     meta: {
       es: "Vivienda Unifamiliar - 2025",
@@ -221,8 +221,8 @@ const projects: Project[] = [
     id: "proyecto-z",
     title: {
       es: "Proyecto Z",
-      en: "Project Z",
-      pt: "Projeto Z",
+      en: "Proyecto Z",
+      pt: "Proyecto Z",
     },
     meta: {
       es: "Vivienda Unifamiliar - 2026",
@@ -558,7 +558,7 @@ export function Projects({ mode = "home" }: { mode?: SectionMode }) {
       <div id="casas" className="absolute -top-24" />
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-2 md:mb-4 gap-6">
         <div>
-          <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
+          <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-4">
             {mode === "home" ? t.projects.homeLabel : t.projects.sectionLabel}
           </span>
           <h2 className="font-serif text-2xl md:text-3xl tracking-tight mb-4">{t.projects.heading}</h2>
@@ -829,7 +829,7 @@ function ProjectModal({
           </div>
         ) : null}
         <div className="p-8 md:p-12">
-          <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gray/60">
+          <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60">
             {project.meta[language]}
           </span>
           <h3 className="font-serif text-3xl md:text-5xl mt-3 mb-8">{project.title[language]}</h3>
@@ -853,3 +853,5 @@ function ProjectModal({
     </div>
   );
 }
+
+
