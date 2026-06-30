@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="py-16 md:py-20 px-6 md:px-12 border-t border-border bg-slate-100 text-brand-black">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_260px_260px] gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(420px,1fr)_280px_280px] gap-12 mb-16">
           <div>
             <a href="#top" className="inline-block mb-4">
               <img src={logo} alt={t.footer.logoAlt} className="h-24 md:h-28 w-auto object-contain" />
@@ -18,7 +18,7 @@ export function Footer() {
               {t.footer.description}
             </p>
           </div>
-          <div>
+          <div className="md:translate-x-6">
             <span className="text-[12px] md:text-base uppercase tracking-[0.3em] font-bold block mb-4">
               {t.footer.navigation}
             </span>
@@ -70,7 +70,7 @@ export function Footer() {
               </li>
             </ul>
           </div>
-          <div>
+          <div className="md:translate-x-10">
             <span className="text-[12px] md:text-base uppercase tracking-[0.3em] font-bold block mb-4">
               {t.footer.contact}
             </span>
