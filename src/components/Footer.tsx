@@ -12,17 +12,17 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
           <div>
             <a href="#top" className="inline-block mb-4">
-              <img src={logo} alt={t.footer.logoAlt} className="h-20 md:h-24 w-auto object-contain" />
+              <img src={logo} alt={t.footer.logoAlt} className="h-24 md:h-28 w-auto object-contain" />
             </a>
-            <p className="text-sm md:text-base text-brand-gray leading-relaxed max-w-xs">
+            <p className="text-base md:text-xl text-brand-gray leading-relaxed max-w-xs">
               {t.footer.description}
             </p>
           </div>
           <div>
-            <span className="text-[10px] md:text-sm uppercase tracking-[0.3em] font-bold block mb-4">
+            <span className="text-[12px] md:text-base uppercase tracking-[0.3em] font-bold block mb-4">
               {t.footer.navigation}
             </span>
-            <ul className="space-y-2 text-sm md:text-base">
+            <ul className="space-y-3 text-base md:text-lg">
               <li>
                 <a href="#top" className="hover:opacity-60 whitespace-nowrap">
                   {t.nav.home}
@@ -71,10 +71,10 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <span className="text-[10px] md:text-sm uppercase tracking-[0.3em] font-bold block mb-4">
+            <span className="text-[12px] md:text-base uppercase tracking-[0.3em] font-bold block mb-4">
               {t.footer.contact}
             </span>
-            <ul className="space-y-2 text-sm md:text-base">
+            <ul className="space-y-3 text-base md:text-lg">
               <li>
                 <a
                   href="https://www.google.com/maps/place/Fragata+Argentina+2063,+B1629+Pilar,+Provincia+de+Buenos+Aires"
@@ -140,7 +140,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="pt-8 border-t border-border text-center text-[10px] md:text-sm uppercase tracking-[0.3em] opacity-50">
+        <div className="pt-8 border-t border-border text-center text-[12px] md:text-base uppercase tracking-[0.3em] opacity-50">
           <span>{t.footer.copyright.replace("{year}", String(new Date().getFullYear()))}</span>
         </div>
       </div>
