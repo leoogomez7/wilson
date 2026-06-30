@@ -250,7 +250,7 @@ const translations = {
       sectionLabel: "Ubicación",
       heading: "Visite el estudio",
       description:
-        "Atendemos con cita previa en Buenos Aires, Argentina. Coordinamos visitas a obra y reuniones de proyecto a medida.",
+        "Atendemos con cita previa en Pilar, Buenos Aires. Coordinamos visitas a obra y reuniones de proyecto a medida.",
       howToGetThere: "Cómo llegar",
       emailLabel: "Email",
       telLabel: "Tel",
@@ -584,7 +584,7 @@ const translations = {
       sectionLabel: "Location",
       heading: "Visit the studio",
       description:
-        "We work by appointment in Buenos Aires, Argentina. We schedule site visits and project meetings on demand.",
+        "We work by appointment in Pilar, Buenos Aires. We schedule site visits and project meetings on demand.",
       howToGetThere: "How to get there",
       emailLabel: "Email",
       telLabel: "Tel",
@@ -918,7 +918,7 @@ const translations = {
       sectionLabel: "Localização",
       heading: "Visite o estúdio",
       description:
-        "Atendemos com hora marcada em Buenos Aires, Argentina. Agendamos visitas e reuniões de projeto sob medida.",
+        "Atendemos com hora marcada em Pilar, Buenos Aires. Agendamos visitas e reuniões de projeto sob medida.",
       howToGetThere: "Como chegar",
       emailLabel: "Email",
       telLabel: "Tel",

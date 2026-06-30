@@ -32,7 +32,7 @@ export function Hero() {
           <span className="block whitespace-nowrap font-medium uppercase text-[0.72em] sm:text-[0.7em] lg:text-[0.7875em] tracking-[0.01em]">Arquitectura</span>
         </h1>
         <p
-          className="text-[11px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.25em] font-light max-w-3xl mx-auto leading-loose opacity-80 animate-reveal"
+          className="text-[11px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.25em] font-light max-w-4xl mx-auto leading-loose opacity-80 animate-reveal"
           style={{ animationDelay: "200ms" }}
         >
           {t.hero.description}
