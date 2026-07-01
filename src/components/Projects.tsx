@@ -25,6 +25,23 @@ import cAtardecerFrente from "@/assets/Proyectos/CyG/Frente_Atardecer de otoño.
 import cInteriorComedor from "@/assets/Proyectos/CyG/Interior_Comedor.png";
 import cInteriorLiving from "@/assets/Proyectos/CyG/Interior_Living.png";
 import cInteriorSuite from "@/assets/Proyectos/CyG/Interior_Suite.png";
+import proyectoCarlaContrafachadaAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-Contrafachada_Amanecer de Primavera.png";
+import proyectoCarlaContrafachadaAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-Contrafachada_Anochecer de Verano.png";
+import proyectoCarlaContrafachadaAtardecer from "@/assets/Proyectos/Carla/ProyectoCarla-Contrafachada_Atardecer de Otoño.jpeg";
+import proyectoCarlaContrafachadaLateralAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-ContrafachadaLateral_Amanecer de Primavera.png";
+import proyectoCarlaExtHallAtardecer from "@/assets/Proyectos/Carla/ProyectoCarla-Ext.Hall_Atardecer de Otoño.png";
+import proyectoCarlaExteriorAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-Exterior_Amanecer de Primavera.png";
+import proyectoCarlaExteriorAtardecer from "@/assets/Proyectos/Carla/ProyectoCarla-Exterior_Atardecer de otoño.png";
+import proyectoCarlaExteriorAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-Exterior-Anochecer de Verano.png";
+import proyectoCarlaExteriorContrafachadaAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-ExteriorContraf._Anochecer de Verano.png";
+import proyectoCarlaExteriorHallAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-ExteriorHall_Anochecer de verano.png";
+import proyectoCarlaExteriorLateralAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-ExteriorLateral_Amanecer de Primavera.png";
+import proyectoCarlaExteriorLateralAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-ExteriorLateral_Anochecer de Varano.png";
+import proyectoCarlaExteriorLateralAtardecer from "@/assets/Proyectos/Carla/ProyectoCarla-ExteriorLateral_Atardecer de otoño.png";
+import proyectoCarlaHallAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-Hall_Amanecer de Primavera.png";
+import proyectoCarlaInterior from "@/assets/Proyectos/Carla/ProyectoCarla-Interior.png";
+import proyectoCarlaInterior02 from "@/assets/Proyectos/Carla/ProyectoCarla-Interior02.png";
+import proyectoCarlaParrillaAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-Parrilla_Anochecer de Verano.png";
 import { useTranslation } from "@/lib/i18n";
 import { casaProjects } from "@/components/project-data";
 
@@ -215,6 +232,184 @@ export const projects: Project[] = [
           es: "interior suite",
           en: "suite interior",
           pt: "interior da suíte",
+        },
+      },
+    ],
+  },
+  {
+    id: "proyecto-carla",
+    title: {
+      es: "Proyecto Carla",
+      en: "Carla Project",
+      pt: "Projeto Carla",
+    },
+    meta: {
+      es: "Comercial - 2026",
+      en: "Commercial — 2026",
+      pt: "Comercial — 2026",
+    },
+    category: "comercial",
+    image: proyectoCarlaExteriorAnochecer,
+    location: "Manzone, Pilar, Buenos Aires",
+    year: "2026",
+    area: "200 m²",
+    description: {
+      es: "El local de eventos se define mediante un gran marco volumétrico que jerarquiza la fachada y refuerza su carácter contemporáneo. Las celosías metálicas, los planos neutros y la vegetación construyen una imagen sobria e imponente. El acceso conecta directamente con un salón de doble altura y una terraza exterior como expansión del evento. La iluminación cálida y la materialidad neutra permiten un espacio versátil, funcional y adaptable de día y de noche.",
+      en: "The event venue is defined by a large volumetric frame that hierarchizes the façade and reinforces its contemporary character. Metallic lattices, neutral planes, and greenery build a sober and imposing image. The entrance connects directly to a double-height hall and an exterior terrace as event expansion. Warm lighting and neutral materials create a versatile, functional space adaptable by day and night.",
+      pt: "O local de eventos é definido por uma grande moldura volumétrica que hierarquiza a fachada e reforça seu caráter contemporâneo. As brises metálicas, os planos neutros e a vegetação constroem uma imagem sóbria e imponente. O acesso conecta diretamente a um salão de pé-direito duplo e a um terraço exterior como expansão do evento. A iluminação quente e a materialidade neutra permitem um espaço versátil, funcional e adaptável de dia e de noite.",
+    },
+    gallery: [
+      {
+        src: proyectoCarlaExteriorAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de Amanecer de Primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: proyectoCarlaExteriorAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de Atardecer de otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: proyectoCarlaExteriorAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de Anochecer de Verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: proyectoCarlaContrafachadaAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de Amanecer de Primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: proyectoCarlaContrafachadaAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de Anochecer de Verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: proyectoCarlaContrafachadaAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de Atardecer de Otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: proyectoCarlaContrafachadaLateralAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de Amanecer de Primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: proyectoCarlaExtHallAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de Atardecer de Otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: proyectoCarlaExteriorContrafachadaAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de Anochecer de Verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: proyectoCarlaExteriorHallAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de Anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: proyectoCarlaExteriorLateralAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de Amanecer de Primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: proyectoCarlaExteriorLateralAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de Anochecer de Varano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: proyectoCarlaExteriorLateralAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de Atardecer de otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: proyectoCarlaHallAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de Amanecer de Primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: proyectoCarlaInterior,
+        atmosphere: "amanecer",
+        label: {
+          es: "sin filtro",
+          en: "no filter",
+          pt: "sem filtro",
+        },
+      },
+      {
+        src: proyectoCarlaInterior02,
+        atmosphere: "atardecer",
+        label: {
+          es: "sin filtro",
+          en: "no filter",
+          pt: "sem filtro",
+        },
+      },
+      {
+        src: proyectoCarlaParrillaAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de Anochecer de Verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
         },
       },
     ],
@@ -821,7 +1016,7 @@ function ProjectModal({
         </button>
         {galleryItems.length > 0 ? (
           <div className="w-full">
-            <div className="overflow-hidden .h-[360px] .sm:h-[420px] bg-brand-light">
+            <div className="overflow-hidden h-[360px] sm:h-[420px] bg-brand-light">
               <img
                 src={activeItem.src}
                 alt={activeItem.label[language]}
