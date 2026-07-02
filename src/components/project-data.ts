@@ -2,6 +2,9 @@ import delLimoneroAtardecer from "@/assets/Casas/Del Limonero/Exterior_Atardecer
 import delLimoneroAmanecer from "@/assets/Casas/Del Limonero/Exterior_Amanecer de primavera.jpeg";
 import delLimoneroAnochecer from "@/assets/Casas/Del Limonero/Exterior_Anochecer de verano.jpeg";
 import delLimoneroExteriorGaleria from "@/assets/Casas/Del Limonero/CasaDelLimonero-Exterior_Galería.png";
+import delLimoneroContrafachadaAmanecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Amanecer de Primavera.png";
+import delLimoneroContrafachadaAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Anochecer de Invierno.png";
+import delLimoneroContrafachadaAtardecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Atardecer de Otoño..png";
 import delLimoneroDormitorio from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Dormitorio.png";
 import delLimoneroLiving from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Living.png";
 import delLimoneroOficina from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Oficina.png";
@@ -9,12 +12,18 @@ import casaCoffeeExteriorAmanecer from "@/assets/Casas/Coffee/CasaCoffee-Exterio
 import casaCoffeeExteriorAnochecer from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Anochecer de verano..png";
 import casaCoffeeExteriorAtardecer from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Atardecer de otoño..png";
 import casaCoffeeExteriorContrafachada from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Contrafachada..png";
+import casaCoffeeContrafachadaAmanecer from "@/assets/Casas/Coffee/CasaCoffee_Contrafachada_Amanecer de Primavera.png";
+import casaCoffeeContrafachadaAnochecer from "@/assets/Casas/Coffee/CasaCoffe-Contrafachada_Anochecer de verano.png";
+import casaCoffeeContrafachadaAtardecer from "@/assets/Casas/Coffee/CasaCoffe-Contrafachada_Atardecer de otoño.png";
 import casaCoffeeInteriorLiving from "@/assets/Casas/Coffee/CasaCoffee-Interior_Living..png";
 import casaCoffeeInteriorSuite from "@/assets/Casas/Coffee/CasaCoffee-Interior_Suite..png";
 import casaScottExteriorAmanecer from "@/assets/Casas/Scott/CasaScott-Exterior_Amanecer de primavera.png";
 import casaScottExteriorAnochecer from "@/assets/Casas/Scott/CasaScott-Exterior_Anochecer de verano.png";
 import casaScottExteriorAtardecer from "@/assets/Casas/Scott/CasaScott-Exterior_Atardecer de otoño.png";
 import casaScottExteriorContrafachada from "@/assets/Casas/Scott/CasaScott-Exterior_Contrafachada.png";
+import casaScottContrafachadaAmanecer from "@/assets/Casas/Scott/CasaScott-Contrafachada_Amanecer de Primavera.png";
+import casaScottContrafachadaAnochecer from "@/assets/Casas/Scott/CasaScott-Contrafachada_Anochecer de Verano.png";
+import casaScottContrafachadaAtardecer from "@/assets/Casas/Scott/CasaScott-Contrafachada_Atardecer de Otoño.png";
 import casaScottInteriorCocina from "@/assets/Casas/Scott/CasaScott-Interior_Cocina..png";
 import casaScottInteriorLiving from "@/assets/Casas/Scott/CasaScott-Interior_Living.png";
 import casaScottInteriorSuite from "@/assets/Casas/Scott/CasaScott-Interior_Suite..png";
@@ -28,6 +37,9 @@ import casaIntiInterior from "@/assets/Casas/Inti/CasaInti-Interior.png";
 import casaIntiInteriorCocina from "@/assets/Casas/Inti/CasaInti-Interior_Cocina.png";
 import casaIntiInteriorLiving from "@/assets/Casas/Inti/CasaInti-Interior_Living.png";
 import casaIntiInteriorLiving02 from "@/assets/Casas/Inti/CasaInti-Interior_Living02.png";
+import casaNavarroExteriorAmanecer from "@/assets/Casas/Navarro/CasaNavarro-Exterior_Amanecer de Primavera.png";
+import casaNavarroExteriorAnochecer from "@/assets/Casas/Navarro/CasaNavarro-Exterior_Anochecer de Verano.png";
+import casaNavarroExteriorAtardecer from "@/assets/Casas/Navarro/CasaNavarro-Exterior_Atardecer de otoño.png";
 import casaNavarroExteriorContrafrenteAmanecer from "@/assets/Casas/Navarro/CasaNavarro-ExteriorContrafrente_Amanecer de Primavera.png";
 import casaNavarroExteriorContrafrenteAnochecer from "@/assets/Casas/Navarro/CasaNavarro-ExteriorContrafrente_Anochcer de Verano.png";
 import casaNavarroExteriorContrafrenteAtardecer from "@/assets/Casas/Navarro/CasaNavarro-ExteriorContrafrente_Atardecer de otoño.png";
@@ -135,6 +147,33 @@ export const casaProjects: CasaProject[] = [
           es: "filtro de Amanecer de primavera",
           en: "spring sunrise filter",
           pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: delLimoneroContrafachadaAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "AMANECER PRIMAVERA",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: delLimoneroContrafachadaAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "FILTRO ANOCHECER VERANO",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: delLimoneroContrafachadaAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "FILTRO DE ATARDECER OTOÑO",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
         },
       },
       {
@@ -272,16 +311,6 @@ export const casaProjects: CasaProject[] = [
     origin: "casas",
     gallery: [
       {
-        src: casaIntiContrafachadaAmanecer,
-        atmosphere: "amanecer",
-        isFeatured: true,
-        label: {
-          es: "filtro de Amanecer de Primavera",
-          en: "spring sunrise filter",
-          pt: "filtro de amanhecer de primavera",
-        },
-      },
-      {
         src: casaIntiContrafachadaAnochecer,
         atmosphere: "anochecer",
         isFeatured: true,
@@ -289,6 +318,16 @@ export const casaProjects: CasaProject[] = [
           es: "filtro de Anochecer de Verano",
           en: "summer dusk filter",
           pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: casaIntiContrafachadaAmanecer,
+        atmosphere: "amanecer",
+        isFeatured: true,
+        label: {
+          es: "filtro de Amanecer de Primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
         },
       },
       {
@@ -450,7 +489,7 @@ export const casaProjects: CasaProject[] = [
       en: "Single-family home - 2024",
       pt: "Casa unifamiliar - 2024",
     },
-    image: casaCoffeeExteriorContrafachada,
+    image: casaCoffeeExteriorAnochecer,
     location: "Pilar, Buenos Aires",
     year: "2024",
     area: "95.41 m²",
@@ -463,16 +502,6 @@ export const casaProjects: CasaProject[] = [
     origin: "casas",
     gallery: [
       {
-        src: casaCoffeeExteriorAmanecer,
-        atmosphere: "amanecer",
-        isFeatured: true,
-        label: {
-          es: "filtro de Amanecer de primavera",
-          en: "spring sunrise filter",
-          pt: "filtro de amanhecer de primavera",
-        },
-      },
-      {
         src: casaCoffeeExteriorAnochecer,
         atmosphere: "anochecer",
         isFeatured: true,
@@ -483,11 +512,51 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
+        src: casaCoffeeExteriorAmanecer,
+        atmosphere: "amanecer",
+        isFeatured: true,
+        label: {
+          es: "filtro de Amanecer de primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
         src: casaCoffeeExteriorAtardecer,
         atmosphere: "atardecer",
         isFeatured: true,
         label: {
           es: "filtro de Atardecer de otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: casaCoffeeContrafachadaAmanecer,
+        atmosphere: "amanecer",
+        isFeatured: true,
+        label: {
+          es: "AMANECER PRIMAVERA",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: casaCoffeeContrafachadaAnochecer,
+        atmosphere: "anochecer",
+        isFeatured: true,
+        label: {
+          es: "FILTRO ANOCHECER VERANO",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: casaCoffeeContrafachadaAtardecer,
+        atmosphere: "atardecer",
+        isFeatured: true,
+        label: {
+          es: "FILTRO DE ATARDECER OTOÑO",
           en: "autumn sunset filter",
           pt: "filtro de entardecer de outono",
         },
@@ -630,6 +699,36 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
+        src: casaScottContrafachadaAmanecer,
+        atmosphere: "amanecer",
+        isFeatured: true,
+        label: {
+          es: "filtro de Amanecer de primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: casaScottContrafachadaAnochecer,
+        atmosphere: "anochecer",
+        isFeatured: true,
+        label: {
+          es: "filtro de Anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: casaScottContrafachadaAtardecer,
+        atmosphere: "atardecer",
+        isFeatured: true,
+        label: {
+          es: "filtro de Atardecer de otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
         src: casaScottExteriorContrafachada,
         atmosphere: "amanecer",
         label: {
@@ -751,7 +850,7 @@ export const casaProjects: CasaProject[] = [
       en: "Single-family home - 2024",
       pt: "Casa unifamiliar - 2024",
     },
-    image: casaNavarroExteriorContrafrenteAnochecer,
+    image: casaNavarroExteriorAnochecer,
     location: "Pilar, Buenos Aires",
     year: "2024",
     area: "190 m²",
@@ -764,6 +863,36 @@ export const casaProjects: CasaProject[] = [
     origin: "casas",
     gallery: [
       {
+        src: casaNavarroExteriorAmanecer,
+        atmosphere: "amanecer",
+        isFeatured: true,
+        label: {
+          es: "filtro de Amanecer de primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: casaNavarroExteriorAtardecer,
+        atmosphere: "atardecer",
+        isFeatured: true,
+        label: {
+          es: "filtro de Atardecer de otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: casaNavarroExteriorAnochecer,
+        atmosphere: "anochecer",
+        isFeatured: true,
+        label: {
+          es: "filtro de Anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
         src: casaNavarroExteriorContrafrenteAmanecer,
         atmosphere: "amanecer",
         isFeatured: true,
@@ -774,16 +903,6 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
-        src: casaNavarroExteriorContrafrenteAnochecer,
-        atmosphere: "anochecer",
-        isFeatured: true,
-        label: {
-          es: "filtro de Anochecer de verano",
-          en: "summer dusk filter",
-          pt: "filtro de anoitecer de verão",
-        },
-      },
-      {
         src: casaNavarroExteriorContrafrenteAtardecer,
         atmosphere: "atardecer",
         isFeatured: true,
@@ -791,6 +910,16 @@ export const casaProjects: CasaProject[] = [
           es: "filtro de Atardecer de otoño",
           en: "autumn sunset filter",
           pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: casaNavarroExteriorContrafrenteAnochecer,
+        atmosphere: "anochecer",
+        isFeatured: true,
+        label: {
+          es: "filtro de Anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
         },
       },
       {

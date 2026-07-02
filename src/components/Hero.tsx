@@ -15,6 +15,7 @@ export function Hero() {
         <VideoImages
           className="absolute inset-0 h-full w-full overflow-hidden"
           imageClassName="h-full w-full object-cover opacity-60 animate-slow-zoom"
+          intervalMs={1700}
           images={[
             ...casaProjects.map((project) => project.image),
             ...projects.map((project) => project.image),

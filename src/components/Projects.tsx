@@ -11,6 +11,8 @@ import zAnochecerExterior from "@/assets/Proyectos/Z/Anochecer de vernano_Exteri
 import zAtardecer from "@/assets/Proyectos/Z/Atardecer de otoño.png";
 import zAtardecerJpg from "@/assets/Proyectos/Z/Atardecer de otoño.jpeg";
 import zAtardecerExterior from "@/assets/Proyectos/Z/Atardecer de otoño_ Exterior.png";
+import zContrafachadaAmanecer from "@/assets/Proyectos/Z/ProyectoZ-Contrafachada_Amanecer de Primavera..png";
+import zContrafachadaAtardecer from "@/assets/Proyectos/Z/ProyectoZ-Contrafachada_Atardecer de Otoño..png";
 import zInteriorCocina from "@/assets/Proyectos/Z/Interior_Cocina.png";
 import zInteriorComedor from "@/assets/Proyectos/Z/Interior_Comedor.png";
 import zInteriorLivingComedor from "@/assets/Proyectos/Z/Interior_Living_Comedor.png";
@@ -22,6 +24,8 @@ import cAnochecer from "@/assets/Proyectos/CyG/Anochecer de verano.png";
 import cAnochecerBack from "@/assets/Proyectos/CyG/Anochecer de verano_Contrafrente.png";
 import cAtardecer from "@/assets/Proyectos/CyG/Atardecer de otoño.png";
 import cAtardecerFrente from "@/assets/Proyectos/CyG/Frente_Atardecer de otoño.png";
+import cContrafachadaAmanecer from "@/assets/Proyectos/CyG/CasaCyG-Contrafachada_Amanecer de Primavera.png";
+import cContrafachadaAtardecer from "@/assets/Proyectos/CyG/CasaCyG-Contrafachada_Atardecer de Otoño.png";
 import cInteriorComedor from "@/assets/Proyectos/CyG/Interior_Comedor.png";
 import cInteriorLiving from "@/assets/Proyectos/CyG/Interior_Living.png";
 import cInteriorSuite from "@/assets/Proyectos/CyG/Interior_Suite.png";
@@ -98,7 +102,7 @@ export const projects: Project[] = [
       pt: "Casa unifamiliar — 2025",
     },
     category: "viviendas",
-    image: cAtardecer,
+    image: cAnochecer,
     location: "Pilar, Buenos Aires",
     year: "2025",
     area: "239.21 m²",
@@ -136,6 +140,16 @@ export const projects: Project[] = [
         },
       },
       {
+        src: cContrafachadaAmanecer,
+        atmosphere: "amanecer",
+        isFeatured: true,
+        label: {
+          es: "AMANECER PRIMAVERA",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
         src: cAtardecer,
         atmosphere: "atardecer",
         label: {
@@ -149,6 +163,16 @@ export const projects: Project[] = [
         atmosphere: "atardecer",
         label: {
           es: "filtro de Atardecer de otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: cContrafachadaAtardecer,
+        atmosphere: "atardecer",
+        isFeatured: true,
+        label: {
+          es: "FILTRO DE ATARDECER OTOÑO",
           en: "autumn sunset filter",
           pt: "filtro de entardecer de outono",
         },
@@ -489,6 +513,24 @@ export const projects: Project[] = [
           es: "filtro de anochecer de verano",
           en: "summer dusk filter",
           pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: zContrafachadaAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "AMANECER PRIMAVERA",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: zContrafachadaAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "FILTRO DE ATARDECER OTOÑO",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
         },
       },
       {
@@ -973,7 +1015,7 @@ function ProjectModal({
   onClose: () => void;
 }) {
   const { t, language } = useTranslation();
-  const [modalAtmosphere, setModalAtmosphere] = useState<AtmosphereType>("todos");
+  const [modalAtmosphere, setModalAtmosphere] = useState<AtmosphereType>(selectedAtmosphere);
   const atmosphereButtons: Array<{ key: AtmosphereType; label: string }> = [
     { key: "todos", label: t.projects.atmospheres.todos },
     { key: "anochecer", label: t.projects.atmospheres.anochecer },
@@ -985,8 +1027,216 @@ function ProjectModal({
       (item) => modalAtmosphere === "todos" || item.atmosphere === modalAtmosphere
     ) ?? []
   );
+
+  let reorderedGalleryItems = galleryItems;
+
+  const applyMoves = <T,>(items: T[], moves: Array<{ from: number; to: number }>): T[] => {
+    const res = items.slice();
+    for (const mv of moves) {
+      const from = mv.from;
+      const to = mv.to;
+      if (from < 0 || from >= res.length) continue;
+      const [item] = res.splice(from, 1);
+      const dest = Math.min(Math.max(0, to), res.length);
+      res.splice(dest, 0, item);
+    }
+    return res;
+  };
+
+  // Casa del Limonero: 4->6, 5->4, 6->5
+  if (project.id === "casa-del-limonero") {
+    // Move 4th item so it appears after the 6th (1-based: 4 -> after 6 -> zero-based: 3 -> 6)
+    reorderedGalleryItems = applyMoves(reorderedGalleryItems, [
+      { from: 3, to: 6 },
+      // Move 6th to become 7th (1-based 6 -> 7 => zero-based 5 -> 6)
+      { from: 5, to: 6 },
+    ]);
+  }
+
+  // Casa Coffee: 1 stays, swap 2<->3, then rotate 4->5,5->6,6->4
+  if (project.id === "casa-coffee") {
+    if (galleryItems.length >= 6) {
+      reorderedGalleryItems = [
+        galleryItems[0],
+        galleryItems[2],
+        galleryItems[1],
+        galleryItems[4],
+        galleryItems[5],
+        galleryItems[3],
+        ...galleryItems.slice(6),
+      ];
+    } else if (galleryItems.length >= 3) {
+      reorderedGalleryItems = [galleryItems[0], galleryItems[2], galleryItems[1], ...galleryItems.slice(3)];
+    }
+  }
+
+  // Casa Scott: user-specified mapping
+  // 1 <- 2, 2 <- 3, 3 <- 1, 4 <- 6, 5 <- 4, 6 <- 5
+  // zero-based final order for first 6: [1,2,0,5,3,4]
+  if (project.id === "casa-scott") {
+    if (galleryItems.length >= 6) {
+      reorderedGalleryItems = [
+        galleryItems[1],
+        galleryItems[2],
+        galleryItems[0],
+        galleryItems[4],
+        galleryItems[5],
+        galleryItems[3],
+        ...galleryItems.slice(6),
+      ];
+    } else if (galleryItems.length >= 3) {
+      // Fallback: rotate first three when there are fewer than 6 items
+      reorderedGalleryItems = [galleryItems[1], galleryItems[2], galleryItems[0], ...galleryItems.slice(3)];
+    }
+  }
+
+  // Casa Inti: 1 stays, swap 2<->3, then rotate 4..6 (4->6,5->4,6->5)
+  if (project.id === "casa-inti") {
+    if (galleryItems.length >= 6) {
+      reorderedGalleryItems = [
+        galleryItems[0],
+        galleryItems[2],
+        galleryItems[1],
+        galleryItems[4],
+        galleryItems[5],
+        galleryItems[3],
+        ...galleryItems.slice(6),
+      ];
+    } else if (galleryItems.length >= 3) {
+      // simple swap 2 and 3
+      reorderedGalleryItems = [galleryItems[0], galleryItems[2], galleryItems[1], ...galleryItems.slice(3)];
+    }
+  }
+
+  // Casa Navarro exact mapping:
+  // 1 <- 3, 2 stays, 3 <- 1, 4 <- 6, 5 stays, 6 <- 4,
+  // 7 <- 8, 8 <- 9, 9 <- 7, 10 <- 11, 11 <- 12, 12 <- 10
+  if (project.id === "casa-navarro") {
+    if (galleryItems.length >= 12) {
+      reorderedGalleryItems = [
+        galleryItems[2],
+        galleryItems[1],
+        galleryItems[0],
+        galleryItems[5],
+        galleryItems[4],
+        galleryItems[3],
+        galleryItems[7],
+        galleryItems[8],
+        galleryItems[6],
+        galleryItems[10],
+        galleryItems[11],
+        galleryItems[9],
+        ...galleryItems.slice(12),
+      ];
+    } else {
+      reorderedGalleryItems = applyMoves(reorderedGalleryItems, [
+        { from: 0, to: 2 },
+        { from: 2, to: 0 },
+        { from: 3, to: 5 },
+        { from: 5, to: 3 },
+      ]);
+    }
+  }
+
+  // Proyecto Z exact ordering by asset:
+  // 1=Anochecer de verano_Frente, 2=Atardecer de otoño.jpeg, 3=Amanecer de primavera,
+  // 4=Anochecer de vernano_Exterior L, 5=Atardecer de otoño_ Exterior,
+  // 6=Amanecer de Primavera_Exterior L, 7=Anochecer de verano_CF,
+  // 8=Atardecer de otoño.png, 9=Amanecer de primavera_CF,
+  // 10=ProyectoZ-Contrafachada_Atardecer de Otoño., 11=ProyectoZ-Contrafachada_Amanecer de Primavera.
+  if (project.id === "proyecto-z") {
+    if (galleryItems.length >= 11) {
+      reorderedGalleryItems = [
+        galleryItems[4],
+        galleryItems[9],
+        galleryItems[1],
+        galleryItems[5],
+        galleryItems[10],
+        galleryItems[2],
+        galleryItems[3],
+        galleryItems[0],
+        galleryItems[8],
+        galleryItems[7],
+        galleryItems[6],
+        ...galleryItems.slice(11),
+      ];
+    } else {
+      reorderedGalleryItems = reorderedGalleryItems;
+    }
+  }
+
+  // Proyecto CyG exact mapping by asset:
+  // 1=Anochecer de verano, 2=Atardecer de otoño, 3=Frente_Atardecer de otoño,
+  // 4=Amanecer de primavera, 5=Anochecer de verano_Contrafrente,
+  // 6=CasaCyG-Contrafachada_Atardecer de Otoño,
+  // 7=CasaCyG-Contrafachada_Amanecer de Primavera
+  if (project.id === "proyecto-cyg") {
+    if (galleryItems.length >= 7) {
+      reorderedGalleryItems = [
+        galleryItems[1],
+        galleryItems[4],
+        galleryItems[5],
+        galleryItems[0],
+        galleryItems[2],
+        galleryItems[6],
+        galleryItems[3],
+        ...galleryItems.slice(7),
+      ];
+    } else {
+      reorderedGalleryItems = applyMoves(reorderedGalleryItems, [
+        { from: 1, to: 0 },
+        { from: 4, to: 1 },
+        { from: 5, to: 2 },
+        { from: 0, to: 3 },
+        { from: 2, to: 4 },
+      ]);
+    }
+  }
+
+  // Proyecto Carla exact ordering by asset:
+  // 1=Exterior-Anochecer de Verano, 2=Exterior_Atardecer de otoño,
+  // 3=Exterior_Amanecer de Primavera, 4=ExteriorContraf._Anochecer de Verano,
+  // 5=Contrafachada_Amanecer de Primavera, 6=Contrafachada_Anochecer de Verano,
+  // 7=Contrafachada_Atardecer de Otoño, 8=ContrafachadaLateral_Amanecer de Primavera,
+  // 9=ExteriorHall_Anochecer de verano, 10=Ext.Hall_Atardecer de Otoño,
+  // 11=Hall_Amanecer de Primavera, 12=ExteriorLateral_Anochecer de Varano,
+  // 13=ExteriorLateral_Atardecer de otoño, 14=ExteriorLateral_Amanecer de Primavera,
+  // 15=Interior02, 16=Parrilla_Anochecer de Verano, 17=Interior
+  if (project.id === "proyecto-carla") {
+    if (galleryItems.length >= 17) {
+      reorderedGalleryItems = [
+        galleryItems[2],
+        galleryItems[1],
+        galleryItems[0],
+        galleryItems[8],
+        galleryItems[3],
+        galleryItems[4],
+        galleryItems[5],
+        galleryItems[6],
+        galleryItems[9],
+        galleryItems[7],
+        galleryItems[13],
+        galleryItems[11],
+        galleryItems[12],
+        galleryItems[10],
+        galleryItems[15],
+        galleryItems[16],
+        galleryItems[14],
+        ...galleryItems.slice(17),
+      ];
+    } else {
+      reorderedGalleryItems = applyMoves(reorderedGalleryItems, [
+        { from: 0, to: 2 },
+        { from: 2, to: 0 },
+        { from: 3, to: 5 },
+        { from: 4, to: 3 },
+        { from: 5, to: 4 },
+      ]);
+    }
+  }
+
   const [activeSlide, setActiveSlide] = useState(0);
-  const activeIndex = galleryItems.length > 0 ? activeSlide % galleryItems.length : 0;
+  const activeIndex = reorderedGalleryItems.length > 0 ? activeSlide % reorderedGalleryItems.length : 0;
 
   useEffect(() => {
     setModalAtmosphere(selectedAtmosphere);
@@ -996,7 +1246,11 @@ function ProjectModal({
     setActiveSlide(0);
   }, [modalAtmosphere, galleryItems.length]);
 
-  const activeItem = galleryItems[activeIndex];
+  useEffect(() => {
+    setActiveSlide(0);
+  }, [project.id, selectedAtmosphere]);
+
+  const activeItem = reorderedGalleryItems[activeIndex];
 
   return (
     <div

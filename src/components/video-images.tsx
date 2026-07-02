@@ -4,6 +4,7 @@ type VideoImagesProps = {
   className?: string;
   imageClassName?: string;
   autoPlay?: boolean;
+  intervalMs?: number;
   images?: string[];
 };
 
@@ -27,6 +28,7 @@ export function VideoImages({
   className = "mb-1 overflow-hidden border border-border w-full",
   imageClassName = "w-full h-auto object-cover",
   autoPlay = true,
+  intervalMs = 1700,
   images = defaultImages,
 }: VideoImagesProps) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -38,10 +40,10 @@ export function VideoImages({
 
     const interval = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % images.length);
-    }, 1700);
+    }, intervalMs);
 
     return () => window.clearInterval(interval);
-  }, [autoPlay, images.length]);
+  }, [autoPlay, images.length, intervalMs]);
 
   if (images.length === 0) {
     return null;
