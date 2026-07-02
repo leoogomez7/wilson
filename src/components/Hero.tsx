@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[calc(100vh-5rem)] w-full flex items-center sm:items-start justify-center pt-8 pb-16 sm:pt-2 lg:pt-4 overflow-hidden bg-brand-black"
+      className="relative min-h-[calc(100vh-5rem)] w-full flex items-start justify-center pt-16 pb-16 sm:pt-2 lg:pt-4 overflow-hidden bg-brand-black"
     >
       <div className="absolute inset-0">
         <VideoImages
@@ -30,7 +30,7 @@ export function Hero() {
         </p>
         <h1 className="font-serif inline-flex flex-col items-center text-center mx-auto text-[clamp(3rem,12vw,7rem)] sm:text-[clamp(4.5rem,10vw,10rem)] lg:text-[clamp(5.5rem,10vw,11rem)] max-w-[90vw] mb-8 tracking-[0.06em] sm:tracking-[0.08em] leading-[0.95] whitespace-normal animate-reveal">
           <span className="block font-semibold uppercase text-[1.15em] sm:text-[1.08em] lg:text-[1.375em]">Wilson</span>
-          <span className="block whitespace-nowrap font-medium uppercase text-[0.82em] sm:text-[0.7em] lg:text-[0.7875em] tracking-[0.01em]">Arquitectura</span>
+          <span className="block whitespace-nowrap font-medium uppercase text-[0.82em] sm:text-[0.7em] lg:text-[0.7875em] tracking-[0.01em] mobile-justify-full">Arquitectura</span>
         </h1>
         <p
           className="text-[11px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.25em] font-light max-w-4xl mx-auto leading-loose opacity-80 animate-reveal"

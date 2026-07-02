@@ -75,3 +75,11 @@
 @utility animate-slow-zoom {
   animation: slow-zoom 12s ease-out both;
 }
+
+@media (max-width: 640px) {
+  .mobile-justify-full {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
