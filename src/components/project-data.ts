@@ -54,8 +54,26 @@ import casaNavarroInteriorDormitorio02 from "@/assets/Casas/Navarro/CasaNavarro-
 import casaNavarroInteriorLiving02 from "@/assets/Casas/Navarro/CasaNavarro-Interior_Living02.png";
 import casaNavarroInteriorCocina from "@/assets/Casas/Navarro/CasaNavarro-InteriorCocina.png";
 import casaNavarroInteriorLiving from "@/assets/Casas/Navarro/CasaNavarro-InteriorLiving.png";
+import casaPiliBanio from "@/assets/Casas/Pili/Baño.jpg";
+import casaPiliBanioAntes from "@/assets/Casas/Pili/Baño_Antes.jpg";
+import casaPiliBanioDespues from "@/assets/Casas/Pili/Baño_Después.jpg";
+import casaPiliContrafrente from "@/assets/Casas/Pili/Contrafrente.png";
+import casaPiliContrafrenteAntes from "@/assets/Casas/Pili/Contrafrente_Antes.png";
+import casaPiliContrafrenteDespues from "@/assets/Casas/Pili/Contrafrente_Después.png";
+import casaPiliCocina from "@/assets/Casas/Pili/Cocina.jpg";
+import casaPiliCocinaAntes from "@/assets/Casas/Pili/Cocina_Antes.jpg";
+import casaPiliCocinaDespues from "@/assets/Casas/Pili/Cocina-Después.jpg";
+import casaPiliDormitorio from "@/assets/Casas/Pili/Dormitorio.png";
+import casaPiliDormitorioAntes from "@/assets/Casas/Pili/Dormitorio_Antes.png";
+import casaPiliDormitorioDespues from "@/assets/Casas/Pili/Dormitorio_Después.png";
+import casaPiliFrente from "@/assets/Casas/Pili/Frente.jpg";
+import casaPiliFrenteAntes from "@/assets/Casas/Pili/Frente_Antes.jpg";
+import casaPiliFrenteDespues from "@/assets/Casas/Pili/Frente_Después.jpg";
+import casaPiliFrenteLateral from "@/assets/Casas/Pili/Frente_Lateral.jpg";
+import casaPiliFrenteLateralAntes from "@/assets/Casas/Pili/Frente_Lateral_Antes.jpg";
+import casaPiliFrenteLateralDespues from "@/assets/Casas/Pili/Frente_Lateral_Después.jpg";
 
-type Category = "todos" | "viviendas";
+type Category = "todos" | "viviendas" | "reformas";
 type AtmosphereType = "todos" | "anochecer" | "atardecer" | "amanecer";
 
 type LocalizedString = {
@@ -68,6 +86,7 @@ interface CasaGalleryItem {
   src: string;
   label: LocalizedString;
   atmosphere: Exclude<AtmosphereType, "todos">;
+  phase?: "antes" | "despues" | "ambos";
   isFeatured?: boolean;
 }
 
@@ -76,8 +95,9 @@ interface CasaProject {
   title: LocalizedString;
   meta: LocalizedString;
   description: LocalizedString;
-  category: "viviendas";
+  category: Category extends "todos" ? never : Exclude<Category, "todos">;
   image: string;
+  previewImages?: string[];
   location: string;
   year: string;
   area: string;
@@ -98,6 +118,213 @@ const uniqueGalleryBySrc = (gallery: CasaGalleryItem[]) =>
   );
 
 export const casaProjects: CasaProject[] = [
+  {
+    id: "casa-pili",
+    title: {
+      es: "Casa Pili",
+      en: "Casa Pili",
+      pt: "Casa Pili",
+    },
+    meta: {
+      es: "Vivienda Unifamiliar - 2025",
+      en: "Single-family home — 2025",
+      pt: "Casa unifamiliar — 2025",
+    },
+    image: casaPiliFrente,
+    previewImages: [casaPiliFrente, casaPiliFrenteAntes, casaPiliFrenteDespues],
+    location: "Luján, Buenos Aires",
+    year: "2026",
+    area: "65 m²",
+    description: {
+      es: "La intervención redefine la imagen de la vivienda mediante una composición de planos puros y una materialidad contemporánea, otorgándole una identidad renovada y mayor presencia urbana. La propuesta mejora la funcionalidad y la privacidad del conjunto, incorporando un cerramiento metálico y una paleta de materiales sobria que aportan unidad, durabilidad y carácter.",
+      en: "The intervention redefines the home’s image through a composition of pure planes and contemporary materials, giving it a renewed identity and greater urban presence. The proposal improves the functionality and privacy of the ensemble by incorporating a metal enclosure and a sober material palette that brings unity, durability, and character.",
+      pt: "A intervenção redefine a imagem da residência por meio de uma composição de planos puros e uma materialidade contemporânea, conferindo-lhe uma identidade renovada e maior presença urbana. A proposta melhora a funcionalidade e a privacidade do conjunto, incorporando um fechamento metálico e uma paleta de materiais sóbria que trazem unidade, durabilidade e caráter.",
+    },
+    category: "reformas",
+    origin: "casas",
+    gallery: [
+      {
+        src: casaPiliFrenteAntes,
+        atmosphere: "amanecer",
+        phase: "antes",
+        label: {
+          es: "Frente antes",
+          en: "Front before",
+          pt: "Fachada anterior",
+        },
+      },
+      {
+        src: casaPiliFrenteDespues,
+        atmosphere: "anochecer",
+        phase: "despues",
+        label: {
+          es: "Frente después",
+          en: "Front after",
+          pt: "Fachada depois",
+        },
+      },
+      {
+        src: casaPiliFrente,
+        atmosphere: "atardecer",
+        phase: "ambos",
+        label: {
+          es: "Frente",
+          en: "Front",
+          pt: "Fachada",
+        },
+      },
+      {
+        src: casaPiliFrenteLateralAntes,
+        atmosphere: "amanecer",
+        phase: "antes",
+        label: {
+          es: "Frente lateral antes",
+          en: "Side before",
+          pt: "Vista lateral antes",
+        },
+      },
+      {
+        src: casaPiliFrenteLateralDespues,
+        atmosphere: "anochecer",
+        phase: "despues",
+        label: {
+          es: "Frente lateral después",
+          en: "Side after",
+          pt: "Vista lateral depois",
+        },
+      },
+      {
+        src: casaPiliFrenteLateral,
+        atmosphere: "atardecer",
+        phase: "ambos",
+        label: {
+          es: "Frente lateral",
+          en: "Side view",
+          pt: "Vista lateral",
+        },
+      },
+      {
+        src: casaPiliContrafrenteAntes,
+        atmosphere: "amanecer",
+        phase: "antes",
+        label: {
+          es: "Contrafrente antes",
+          en: "Rear before",
+          pt: "Contrafachada antes",
+        },
+      },
+      {
+        src: casaPiliContrafrenteDespues,
+        atmosphere: "anochecer",
+        phase: "despues",
+        label: {
+          es: "Contrafrente después",
+          en: "Rear after",
+          pt: "Contrafachada depois",
+        },
+      },
+      {
+        src: casaPiliContrafrente,
+        atmosphere: "atardecer",
+        phase: "ambos",
+        label: {
+          es: "Contrafrente",
+          en: "Rear façade",
+          pt: "Contrafachada",
+        },
+      },
+      {
+        src: casaPiliDormitorioAntes,
+        atmosphere: "amanecer",
+        phase: "antes",
+        label: {
+          es: "Dormitorio antes",
+          en: "Bedroom before",
+          pt: "Quarto antes",
+        },
+      },
+      {
+        src: casaPiliDormitorioDespues,
+        atmosphere: "anochecer",
+        phase: "despues",
+        label: {
+          es: "Dormitorio después",
+          en: "Bedroom after",
+          pt: "Quarto depois",
+        },
+      },
+      {
+        src: casaPiliDormitorio,
+        atmosphere: "atardecer",
+        phase: "ambos",
+        label: {
+          es: "Dormitorio",
+          en: "Bedroom",
+          pt: "Quarto",
+        },
+      },
+      {
+        src: casaPiliCocinaAntes,
+        atmosphere: "amanecer",
+        phase: "antes",
+        label: {
+          es: "Cocina antes",
+          en: "Kitchen before",
+          pt: "Cozinha antes",
+        },
+      },
+      {
+        src: casaPiliCocinaDespues,
+        atmosphere: "anochecer",
+        phase: "despues",
+        label: {
+          es: "Cocina después",
+          en: "Kitchen after",
+          pt: "Cozinha depois",
+        },
+      },
+      {
+        src: casaPiliCocina,
+        atmosphere: "atardecer",
+        phase: "ambos",
+        label: {
+          es: "Cocina",
+          en: "Kitchen",
+          pt: "Cozinha",
+        },
+      },
+      {
+        src: casaPiliBanioAntes,
+        atmosphere: "amanecer",
+        phase: "antes",
+        label: {
+          es: "Baño antes",
+          en: "Bathroom before",
+          pt: "Banheiro antes",
+        },
+      },
+      {
+        src: casaPiliBanioDespues,
+        atmosphere: "anochecer",
+        phase: "despues",
+        label: {
+          es: "Baño después",
+          en: "Bathroom after",
+          pt: "Banheiro depois",
+        },
+      },
+      {
+        src: casaPiliBanio,
+        atmosphere: "amanecer",
+        phase: "ambos",
+        label: {
+          es: "Baño",
+          en: "Bathroom",
+          pt: "Banheiro",
+        },
+      },
+    ],
+  },
   {
     id: "casa-del-limonero",
     title: {

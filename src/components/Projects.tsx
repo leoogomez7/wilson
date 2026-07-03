@@ -67,11 +67,17 @@ interface Project {
   meta: LocalizedString;
   category: Exclude<Category, "todos">;
   image: string;
+  previewImages?: string[];
   location: string;
   year: string;
   area: string;
   description: LocalizedString;
-  gallery?: Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>;
+  gallery?: Array<{
+    src: string;
+    label: LocalizedString;
+    atmosphere: Exclude<AtmosphereType, "todos">;
+    phase?: "antes" | "despues";
+  }>;
   origin?: "casas" | "proyectos";
 }
 
@@ -895,12 +901,35 @@ export function Projects({ mode = "home", section }: { mode?: SectionMode; secti
               onClick={() => setSelectedId(project.id)}
             >
             <div className="overflow-hidden mb-6 bg-brand-light aspect-4/3">
-              <img
-                src={project.image}
-                alt={project.title[language]}
-                loading="lazy"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1200 ease-out"
-              />
+              {project.id === "casa-pili" && project.previewImages?.length ? (
+                <div className="relative h-full w-full p-2">
+                  <img
+                    src={project.previewImages[0]}
+                    alt={project.title[language]}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <img
+                    src={project.previewImages[1]}
+                    alt={`${project.title[language]} lateral`}
+                    loading="lazy"
+                    className="absolute top-3 left-3 h-[34%] w-[38%] rounded-sm border-2 border-white object-cover shadow-lg"
+                  />
+                  <img
+                    src={project.previewImages[2] ?? project.previewImages[1]}
+                    alt={`${project.title[language]} detalle`}
+                    loading="lazy"
+                    className="absolute bottom-3 right-3 h-[34%] w-[38%] rounded-sm border-2 border-white object-cover shadow-lg"
+                  />
+                </div>
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title[language]}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1200 ease-out"
+                />
+              )}
             </div>
             <div className={`mb-3 inline-flex items-center rounded-none px-3 py-1 text-[10px] uppercase tracking-[0.3em] font-semibold whitespace-nowrap ${
                     project.origin === "proyectos"
@@ -1016,17 +1045,29 @@ function ProjectModal({
 }) {
   const { t, language } = useTranslation();
   const [modalAtmosphere, setModalAtmosphere] = useState<AtmosphereType>(selectedAtmosphere);
+  const [piliFilter, setPiliFilter] = useState<"antes" | "despues" | "ambos">("ambos");
+  const isPiliProject = project.id === "casa-pili";
   const atmosphereButtons: Array<{ key: AtmosphereType; label: string }> = [
     { key: "todos", label: t.projects.atmospheres.todos },
     { key: "anochecer", label: t.projects.atmospheres.anochecer },
     { key: "atardecer", label: t.projects.atmospheres.atardecer },
     { key: "amanecer", label: t.projects.atmospheres.amanecer },
   ];
-  const galleryItems = uniqueGalleryBySrc(
-    project.gallery?.filter(
-      (item) => modalAtmosphere === "todos" || item.atmosphere === modalAtmosphere
-    ) ?? []
-  );
+  const pilisFilterButtons = [
+    { key: "antes", label: t.projects.piliFilters.antes },
+    { key: "despues", label: t.projects.piliFilters.despues },
+    { key: "ambos", label: t.projects.piliFilters.ambos },
+  ] as const;
+  const galleryItems = isPiliProject
+    ? uniqueGalleryBySrc(project.gallery ?? []).filter((item) => {
+        if (piliFilter === "ambos") return item.phase === "ambos";
+        return item.phase === piliFilter;
+      })
+    : uniqueGalleryBySrc(
+        project.gallery?.filter(
+          (item) => modalAtmosphere === "todos" || item.atmosphere === modalAtmosphere
+        ) ?? []
+      );
 
   let reorderedGalleryItems = galleryItems;
 
@@ -1243,8 +1284,14 @@ function ProjectModal({
   }, [selectedAtmosphere]);
 
   useEffect(() => {
+    if (isPiliProject) {
+      setPiliFilter("ambos");
+    }
+  }, [isPiliProject, project.id]);
+
+  useEffect(() => {
     setActiveSlide(0);
-  }, [modalAtmosphere, galleryItems.length]);
+  }, [modalAtmosphere, piliFilter, galleryItems.length]);
 
   useEffect(() => {
     setActiveSlide(0);
@@ -1261,16 +1308,39 @@ function ProjectModal({
         className="relative bg-white max-w-5xl w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          onClick={onClose}
-          aria-label={t.projects.modal.close}
-          className="absolute top-4 right-4 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
-        >
-          {t.projects.modal.close}
-        </button>
+        {galleryItems.length > 0 ? (
+          <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => window.open(activeItem.src, "_blank", "noopener,noreferrer")}
+              aria-label={t.projects.modal.openImage}
+              title={t.projects.modal.openImage}
+              className="text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
+            >
+              {t.projects.modal.openImage}
+            </button>
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label={t.projects.modal.close}
+              className="text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
+            >
+              {t.projects.modal.close}
+            </button>
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label={t.projects.modal.close}
+            className="absolute top-4 right-4 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
+          >
+            {t.projects.modal.close}
+          </button>
+        )}
         {galleryItems.length > 0 ? (
           <div className="w-full">
-            <div className="overflow-hidden h-[360px] sm:h-[420px] bg-brand-light">
+            <div className="overflow-hidden h-90 sm:h-105 bg-brand-light">
               <img
                 src={activeItem.src}
                 alt={activeItem.label[language]}
@@ -1297,35 +1367,57 @@ function ProjectModal({
                 </button>
               </div>
               <div className="mt-4 flex flex-nowrap items-center justify-center gap-3 overflow-visible py-1">
-                {atmosphereButtons
-                  .filter((atm) => atm.key !== "todos")
-                  .map((atm) => {
-                    const colorClass =
-                      atm.key === "anochecer"
-                        ? "bg-brand-black text-white border-brand-black"
-                        : atm.key === "atardecer"
-                          ? "bg-[#d97706] text-white border-[#d97706]"
-                          : "bg-[#facc15] text-brand-black border-[#facc15]";
-
-                    const isActive = modalAtmosphere === atm.key;
-
+                {isPiliProject ? (
+                  pilisFilterButtons.map((button) => {
+                    const isActive = piliFilter === button.key;
                     return (
                       <button
-                        key={atm.key}
+                        key={button.key}
                         type="button"
-                        onClick={() => setModalAtmosphere(atm.key)}
-                        title={atm.label}
-                        aria-label={atm.label}
-                        className={`relative inline-flex h-10 w-10 items-center justify-center rounded-full border transition ${
-                          isActive ? "scale-105 shadow-sm ring-2 ring-brand-black ring-offset-2" : "hover:scale-105"
-                        } ${colorClass}`}
+                        onClick={() => setPiliFilter(button.key)}
+                        title={button.label}
+                        aria-label={button.label}
+                        className={`relative rounded-none border px-4 py-2 text-[10px] uppercase tracking-[0.3em] transition ${
+                          isActive
+                            ? "bg-brand-black text-white shadow-sm ring-2 ring-brand-black ring-offset-2"
+                            : "bg-white text-brand-black hover:bg-brand-black hover:text-white"
+                        }`}
                       >
-                        {isActive ? (
-                          <span className="text-[14px] font-bold leading-none">✓</span>
-                        ) : null}
+                        {button.label}
                       </button>
                     );
-                  })}
+                  })
+                ) : (
+                  atmosphereButtons
+                    .filter((atm) => atm.key !== "todos")
+                    .map((atm) => {
+                      const colorClass =
+                        atm.key === "anochecer"
+                          ? "bg-brand-black text-white border-brand-black"
+                          : atm.key === "atardecer"
+                            ? "bg-[#d97706] text-white border-[#d97706]"
+                            : "bg-[#facc15] text-brand-black border-[#facc15]";
+
+                      const isActive = modalAtmosphere === atm.key;
+
+                      return (
+                        <button
+                          key={atm.key}
+                          type="button"
+                          onClick={() => setModalAtmosphere(atm.key)}
+                          title={atm.label}
+                          aria-label={atm.label}
+                          className={`relative inline-flex h-10 w-10 items-center justify-center rounded-full border transition ${
+                            isActive ? "scale-105 shadow-sm ring-2 ring-brand-black ring-offset-2" : "hover:scale-105"
+                          } ${colorClass}`}
+                        >
+                          {isActive ? (
+                            <span className="text-[14px] font-bold leading-none">✓</span>
+                          ) : null}
+                        </button>
+                      );
+                    })
+                )}
               </div>
             </div>
           </div>

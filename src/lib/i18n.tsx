@@ -87,9 +87,15 @@ const translations = {
         comercial: "Comercial",
         reformas: "Reformas",
       },
+      piliFilters: {
+        antes: "Antes",
+        despues: "Después",
+        ambos: "Ambos",
+      },
       categoryFilterTitle: "Categoría",
       modal: {
         close: "Cerrar",
+        openImage: "Abrir imagen",
         location: "Ubicación",
         year: "Año",
         area: "Superficie",
@@ -433,11 +439,17 @@ const translations = {
         comercial: "Commercial",
         reformas: "Renovations",
       },
+      piliFilters: {
+        antes: "Before",
+        despues: "After",
+        ambos: "Both",
+      },
       categoryFilterTitle: "Category",
       typeFilterTitle: "Type",
       originFilterTitle: "Origin",
       modal: {
         close: "Close",
+        openImage: "Open image",
         location: "Location",
         year: "Year",
         area: "Area",
@@ -773,6 +785,7 @@ const translations = {
       originFilterTitle: "Origem",
       modal: {
         close: "Fechar",
+        openImage: "Abrir imagem",
         location: "Localização",
         year: "Ano",
         area: "Área",
