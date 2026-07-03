@@ -1332,7 +1332,7 @@ function ProjectModal({
               <img
                 src={activeItem.src}
                 alt={activeItem.label[language]}
-                className="w-full h-full object-cover"
+                className={`w-full h-full ${activeItem.imageClassName ?? "object-cover"}`}
               />
             </div>
             <div className="px-8 md:px-12 pt-4">

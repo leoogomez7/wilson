@@ -57,7 +57,9 @@ import casaNavarroInteriorLiving from "@/assets/Casas/Navarro/CasaNavarro-Interi
 import casaPiliBanio from "@/assets/Casas/Pili/Baño.jpg";
 import casaPiliBanioAmbos from "@/assets/Casas/Pili/Baño_ambos.jpg";
 import casaPiliBanioAntes from "@/assets/Casas/Pili/Baño_Antes.jpg";
+import casaPiliBanioAntesModal from "@/assets/Casas/Pili/Baño_Antes_modal.jpg";
 import casaPiliBanioDespues from "@/assets/Casas/Pili/Baño_Después.jpg";
+import casaPiliBanioDespuesModal from "@/assets/Casas/Pili/Baño_Después_modal.jpg";
 import casaPiliContrafrente from "@/assets/Casas/Pili/Contrafrente.png";
 import casaPiliContrafrenteAmbos from "@/assets/Casas/Pili/Contrafrente_ambos.jpg";
 import casaPiliContrafrenteAntes from "@/assets/Casas/Pili/Contrafrente_Antes.png";
@@ -91,6 +93,7 @@ type LocalizedString = {
 interface CasaGalleryItem {
   src: string;
   openSrc?: string;
+  imageClassName?: string;
   label: LocalizedString;
   atmosphere: Exclude<AtmosphereType, "todos">;
   phase?: "antes" | "despues" | "ambos";
@@ -306,7 +309,9 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
-        src: casaPiliBanioAntes,
+        src: casaPiliBanioAntesModal,
+        openSrc: casaPiliBanioAntes,
+        imageClassName: "object-contain",
         atmosphere: "amanecer",
         phase: "antes",
         label: {
@@ -316,7 +321,9 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
-        src: casaPiliBanioDespues,
+        src: casaPiliBanioDespuesModal,
+        openSrc: casaPiliBanioDespues,
+        imageClassName: "object-contain",
         atmosphere: "anochecer",
         phase: "despues",
         label: {

@@ -12,34 +12,34 @@ export function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t.contact.whatsappButton}
-        className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-black text-white border border-brand-black grid place-items-center shadow-lg hover:scale-110 transition-transform overflow-hidden"
+        className="w-9 h-9 md:w-12 md:h-12 rounded-full bg-brand-black text-white border border-brand-black grid place-items-center shadow-lg hover:scale-110 transition-transform overflow-hidden"
       >
-        <img src={whatsappLogo} alt="WhatsApp" className="w-4 h-4 object-contain" />
+        <img src={whatsappLogo} alt="WhatsApp" className="w-5 h-5 object-contain" />
       </a>
       <a
         href="https://www.instagram.com/wilson.arquitectura"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t.footer.instagram}
-        className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-black border border-brand-black text-white grid place-items-center shadow-md hover:scale-110 transition-transform"
+        className="w-9 h-9 md:w-12 md:h-12 rounded-full bg-brand-black border border-brand-black text-white grid place-items-center shadow-md hover:scale-110 transition-transform"
       >
-        <Instagram className="w-4 h-4" />
+        <Instagram className="w-5 h-5" />
       </a>
       <a
         href="https://www.facebook.com/people/Wilson-Arquitectura/100067440165213"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t.footer.facebook}
-        className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-black border border-brand-black text-white grid place-items-center shadow-md hover:scale-110 transition-transform"
+        className="w-9 h-9 md:w-12 md:h-12 rounded-full bg-brand-black border border-brand-black text-white grid place-items-center shadow-md hover:scale-110 transition-transform"
       >
-        <Facebook className="w-4 h-4 fill-white stroke-white" />
+        <Facebook className="w-5 h-5 fill-white stroke-white" />
       </a>
       <a
         href="mailto:wilson.arquitectura5@gmail.com"
         aria-label={t.contact.sendEmailAria}
-        className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-black border border-brand-black text-white grid place-items-center shadow-md hover:scale-110 transition-transform"
+        className="w-9 h-9 md:w-12 md:h-12 rounded-full bg-brand-black border border-brand-black text-white grid place-items-center shadow-md hover:scale-110 transition-transform"
       >
-        <Mail className="w-4 h-4" />
+        <Mail className="w-5 h-5" />
       </a>
     </div>
   );
