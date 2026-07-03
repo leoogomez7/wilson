@@ -55,21 +55,27 @@ import casaNavarroInteriorLiving02 from "@/assets/Casas/Navarro/CasaNavarro-Inte
 import casaNavarroInteriorCocina from "@/assets/Casas/Navarro/CasaNavarro-InteriorCocina.png";
 import casaNavarroInteriorLiving from "@/assets/Casas/Navarro/CasaNavarro-InteriorLiving.png";
 import casaPiliBanio from "@/assets/Casas/Pili/Baño.jpg";
+import casaPiliBanioAmbos from "@/assets/Casas/Pili/Baño_ambos.jpg";
 import casaPiliBanioAntes from "@/assets/Casas/Pili/Baño_Antes.jpg";
 import casaPiliBanioDespues from "@/assets/Casas/Pili/Baño_Después.jpg";
 import casaPiliContrafrente from "@/assets/Casas/Pili/Contrafrente.png";
+import casaPiliContrafrenteAmbos from "@/assets/Casas/Pili/Contrafrente_ambos.jpg";
 import casaPiliContrafrenteAntes from "@/assets/Casas/Pili/Contrafrente_Antes.png";
 import casaPiliContrafrenteDespues from "@/assets/Casas/Pili/Contrafrente_Después.png";
 import casaPiliCocina from "@/assets/Casas/Pili/Cocina.jpg";
+import casaPiliCocinaAmbos from "@/assets/Casas/Pili/Cocina_ambos.jpg";
 import casaPiliCocinaAntes from "@/assets/Casas/Pili/Cocina_Antes.jpg";
 import casaPiliCocinaDespues from "@/assets/Casas/Pili/Cocina-Después.jpg";
 import casaPiliDormitorio from "@/assets/Casas/Pili/Dormitorio.png";
+import casaPiliDormitorioAmbos from "@/assets/Casas/Pili/Dormitorio_ambos.jpg";
 import casaPiliDormitorioAntes from "@/assets/Casas/Pili/Dormitorio_Antes.png";
 import casaPiliDormitorioDespues from "@/assets/Casas/Pili/Dormitorio_Después.png";
 import casaPiliFrente from "@/assets/Casas/Pili/Frente.jpg";
+import casaPiliFrenteAmbos from "@/assets/Casas/Pili/Frente_ambos.jpg";
 import casaPiliFrenteAntes from "@/assets/Casas/Pili/Frente_Antes.jpg";
 import casaPiliFrenteDespues from "@/assets/Casas/Pili/Frente_Después.jpg";
 import casaPiliFrenteLateral from "@/assets/Casas/Pili/Frente_Lateral.jpg";
+import casaPiliFrenteLateralAmbos from "@/assets/Casas/Pili/Frente_Lateral_ambos.jpg";
 import casaPiliFrenteLateralAntes from "@/assets/Casas/Pili/Frente_Lateral_Antes.jpg";
 import casaPiliFrenteLateralDespues from "@/assets/Casas/Pili/Frente_Lateral_Después.jpg";
 
@@ -84,6 +90,7 @@ type LocalizedString = {
 
 interface CasaGalleryItem {
   src: string;
+  openSrc?: string;
   label: LocalizedString;
   atmosphere: Exclude<AtmosphereType, "todos">;
   phase?: "antes" | "despues" | "ambos";
@@ -130,8 +137,8 @@ export const casaProjects: CasaProject[] = [
       en: "Single-family home — 2025",
       pt: "Casa unifamiliar — 2025",
     },
-    image: casaPiliFrente,
-    previewImages: [casaPiliFrente, casaPiliFrenteAntes, casaPiliFrenteDespues],
+    image: casaPiliFrenteAmbos,
+    previewImages: [casaPiliFrenteAmbos, casaPiliFrenteAntes, casaPiliFrenteDespues],
     location: "Luján, Buenos Aires",
     year: "2026",
     area: "65 m²",
@@ -164,7 +171,8 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
-        src: casaPiliFrente,
+        src: casaPiliFrenteAmbos,
+        openSrc: casaPiliFrente,
         atmosphere: "atardecer",
         phase: "ambos",
         label: {
@@ -194,7 +202,8 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
-        src: casaPiliFrenteLateral,
+        src: casaPiliFrenteLateralAmbos,
+        openSrc: casaPiliFrenteLateral,
         atmosphere: "atardecer",
         phase: "ambos",
         label: {
@@ -224,7 +233,8 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
-        src: casaPiliContrafrente,
+        src: casaPiliContrafrenteAmbos,
+        openSrc: casaPiliContrafrente,
         atmosphere: "atardecer",
         phase: "ambos",
         label: {
@@ -254,7 +264,8 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
-        src: casaPiliDormitorio,
+        src: casaPiliDormitorioAmbos,
+        openSrc: casaPiliDormitorio,
         atmosphere: "atardecer",
         phase: "ambos",
         label: {
@@ -284,7 +295,8 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
-        src: casaPiliCocina,
+        src: casaPiliCocinaAmbos,
+        openSrc: casaPiliCocina,
         atmosphere: "atardecer",
         phase: "ambos",
         label: {
@@ -314,7 +326,8 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
-        src: casaPiliBanio,
+        src: casaPiliBanioAmbos,
+        openSrc: casaPiliBanio,
         atmosphere: "amanecer",
         phase: "ambos",
         label: {

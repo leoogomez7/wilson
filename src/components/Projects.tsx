@@ -902,24 +902,12 @@ export function Projects({ mode = "home", section }: { mode?: SectionMode; secti
             >
             <div className="overflow-hidden mb-6 bg-brand-light aspect-4/3">
               {project.id === "casa-pili" && project.previewImages?.length ? (
-                <div className="relative h-full w-full p-2">
+                <div className="relative h-full w-full">
                   <img
                     src={project.previewImages[0]}
                     alt={project.title[language]}
                     loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <img
-                    src={project.previewImages[1]}
-                    alt={`${project.title[language]} lateral`}
-                    loading="lazy"
-                    className="absolute top-3 left-3 h-[34%] w-[38%] rounded-sm border-2 border-white object-cover shadow-lg"
-                  />
-                  <img
-                    src={project.previewImages[2] ?? project.previewImages[1]}
-                    alt={`${project.title[language]} detalle`}
-                    loading="lazy"
-                    className="absolute bottom-3 right-3 h-[34%] w-[38%] rounded-sm border-2 border-white object-cover shadow-lg"
+                    className="h-full w-full object-cover"
                   />
                 </div>
               ) : (
@@ -1312,7 +1300,7 @@ function ProjectModal({
           <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
             <button
               type="button"
-              onClick={() => window.open(activeItem.src, "_blank", "noopener,noreferrer")}
+              onClick={() => window.open(activeItem.openSrc ?? activeItem.src, "_blank", "noopener,noreferrer")}
               aria-label={t.projects.modal.openImage}
               title={t.projects.modal.openImage}
               className="text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
