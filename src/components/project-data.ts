@@ -71,6 +71,24 @@ import casaPiliFrenteAntes from "@/assets/Casas/Pili/Frente_Antes.jpg";
 import casaPiliFrenteDespues from "@/assets/Casas/Pili/Frente_Después.jpg";
 import casaPiliFrenteLateralAntes from "@/assets/Casas/Pili/Frente_Lateral_Antes.jpg";
 import casaPiliFrenteLateralDespues from "@/assets/Casas/Pili/Frente_Lateral_Después.jpg";
+import casaBonziBanio01Antes from "@/assets/Casas/Bonzi/CasaBonzi_Baño01_Antes.png";
+import casaBonziBanio01Despues from "@/assets/Casas/Bonzi/CasaBonzi_Baño01_Despues.png";
+import casaBonziBanio02Antes from "@/assets/Casas/Bonzi/CasaBonzi_Baño02_Antes.png";
+import casaBonziBanio02Despues from "@/assets/Casas/Bonzi/CasaBonzi_Baño02_Despues.png";
+import casaBonziCocina01Antes from "@/assets/Casas/Bonzi/CasaBonzi_Cocina01_Antes.png";
+import casaBonziCocina01Despues from "@/assets/Casas/Bonzi/CasaBonzi_Cocina01_Despues.png";
+import casaBonziCocina02Antes from "@/assets/Casas/Bonzi/CasaBonzi_Cocina02_Antes.png";
+import casaBonziCocina02Despues from "@/assets/Casas/Bonzi/CasaBonzi_Cocina02_Despues.png";
+import casaBonziComedorAntes from "@/assets/Casas/Bonzi/CasaBonzi_Comedor_Antes.png";
+import casaBonziComedorDespues from "@/assets/Casas/Bonzi/CasaBonzi_Comedor_Despues.png";
+import casaBonziLivingAntes from "@/assets/Casas/Bonzi/CasaBonzi_Living_Antes.png";
+import casaBonziLivingDespues from "@/assets/Casas/Bonzi/CasaBonzi_Living_Despues.png";
+import casaBonziTerraza01Antes from "@/assets/Casas/Bonzi/CasaBonzi_Terraza01_Antes.png";
+import casaBonziTerraza01Despues from "@/assets/Casas/Bonzi/CasaBonzi_Terraza01_Despues.png";
+import casaBonziTerraza02Antes from "@/assets/Casas/Bonzi/CasaBonzi_Terraza02_Antes.png";
+import casaBonziTerraza02Despues from "@/assets/Casas/Bonzi/CasaBonzi_Terraza02_Despues.png";
+import casaBonziTerraza03Antes from "@/assets/Casas/Bonzi/CasaBonzi_Terraza03_Antes.png";
+import casaBonziTerraza03Despues from "@/assets/Casas/Bonzi/CasaBonzi_Terraza03_Despues.png";
 
 type Category = "todos" | "viviendas" | "reformas";
 type AtmosphereType = "todos" | "anochecer" | "atardecer" | "amanecer";
@@ -202,6 +220,42 @@ export const casaProjects: Project[] = [
         phase: "antes",
         label: { es: "Baño antes", en: "Bathroom before", pt: "Banheiro antes" },
       },
+    ],
+  },
+  {
+    id: "casa-bonzi",
+    title: { es: "Casa Bonzi", en: "Casa Bonzi", pt: "Casa Bonzi" },
+    meta: { es: "Vivienda Unifamiliar - 2026", en: "Single-family home — 2026", pt: "Casa unifamiliar — 2026" },
+    image: casaBonziLivingDespues,
+    location: "Aldo Bonzi, Buenos Aires",
+    year: "2026",
+    area: "115 m²",
+    description: {
+      es: "La intervención parte de una lectura integral de la vivienda existente, transformando sus espacios mediante una propuesta que revaloriza su identidad y mejora la calidad arquitectónica sin perder su esencia original. La reorganización interior optimiza la funcionalidad y la relación entre los ambientes, mientras que la renovación de la materialidad y los acabados aporta mayor luminosidad, amplitud y confort para responder a las necesidades actuales.",
+      en: "The intervention begins from a comprehensive reading of the existing home, transforming its spaces through a proposal that revalues its identity and improves architectural quality without losing its original essence. The interior reorganization optimizes functionality and the relationship between rooms, while the renovation of materials and finishes brings more light, openness, and comfort to respond to current needs.",
+      pt: "A intervenção parte de uma leitura integral da casa existente, transformando seus espaços por meio de uma proposta que revaloriza sua identidade e melhora a qualidade arquitetônica sem perder sua essência original. A reorganização interna otimiza a funcionalidade e a relação entre os ambientes, enquanto a renovação da materialidade e dos acabamentos traz mais luminosidade, amplitude e conforto para atender às necessidades atuais.",
+    },
+    category: "viviendas",
+    origin: "casas",
+    gallery: [
+      { src: casaBonziLivingDespues, phase: "despues", label: { es: "Living después", en: "Living after", pt: "Living depois" } },
+      { src: casaBonziLivingAntes, phase: "antes", label: { es: "Living antes", en: "Living before", pt: "Living antes" } },
+      { src: casaBonziComedorDespues, phase: "despues", label: { es: "Comedor después", en: "Dining room after", pt: "Sala de jantar depois" } },
+      { src: casaBonziComedorAntes, phase: "antes", label: { es: "Comedor antes", en: "Dining room before", pt: "Sala de jantar antes" } },
+      { src: casaBonziCocina01Despues, phase: "despues", label: { es: "Cocina 01 después", en: "Kitchen 01 after", pt: "Cozinha 01 depois" } },
+      { src: casaBonziCocina01Antes, phase: "antes", label: { es: "Cocina 01 antes", en: "Kitchen 01 before", pt: "Cozinha 01 antes" } },
+      { src: casaBonziCocina02Despues, phase: "despues", label: { es: "Cocina 02 después", en: "Kitchen 02 after", pt: "Cozinha 02 depois" } },
+      { src: casaBonziCocina02Antes, phase: "antes", label: { es: "Cocina 02 antes", en: "Kitchen 02 before", pt: "Cozinha 02 antes" } },
+      { src: casaBonziTerraza01Despues, phase: "despues", label: { es: "Terraza 01 después", en: "Terrace 01 after", pt: "Terraço 01 depois" } },
+      { src: casaBonziTerraza01Antes, phase: "antes", label: { es: "Terraza 01 antes", en: "Terrace 01 before", pt: "Terraço 01 antes" } },
+      { src: casaBonziTerraza02Despues, phase: "despues", label: { es: "Terraza 02 después", en: "Terrace 02 after", pt: "Terraço 02 depois" } },
+      { src: casaBonziTerraza02Antes, phase: "antes", label: { es: "Terraza 02 antes", en: "Terrace 02 before", pt: "Terraço 02 antes" } },
+      { src: casaBonziTerraza03Despues, phase: "despues", label: { es: "Terraza 03 después", en: "Terrace 03 after", pt: "Terraço 03 depois" } },
+      { src: casaBonziTerraza03Antes, phase: "antes", label: { es: "Terraza 03 antes", en: "Terrace 03 before", pt: "Terraço 03 antes" } },
+      { src: casaBonziBanio01Despues, phase: "despues", label: { es: "Baño 01 después", en: "Bathroom 01 after", pt: "Banheiro 01 depois" } },
+      { src: casaBonziBanio01Antes, phase: "antes", label: { es: "Baño 01 antes", en: "Bathroom 01 before", pt: "Banheiro 01 antes" } },
+      { src: casaBonziBanio02Despues, phase: "despues", label: { es: "Baño 02 después", en: "Bathroom 02 after", pt: "Banheiro 02 depois" } },
+      { src: casaBonziBanio02Antes, phase: "antes", label: { es: "Baño 02 antes", en: "Bathroom 02 before", pt: "Banheiro 02 antes" } },
     ],
   },
   {

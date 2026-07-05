@@ -59,6 +59,31 @@ import proyectoCarlaHallAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-Ha
 import proyectoCarlaInterior from "@/assets/Proyectos/Carla/ProyectoCarla-Interior.png";
 import proyectoCarlaInterior02 from "@/assets/Proyectos/Carla/ProyectoCarla-Interior02.png";
 import proyectoCarlaParrillaAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-Parrilla_Anochecer de Verano.png";
+import casaBonziBanio01Antes from "@/assets/Casas/Bonzi/CasaBonzi_Baño01_Antes.png";
+import casaBonziBanio01Despues from "@/assets/Casas/Bonzi/CasaBonzi_Baño01_Despues.png";
+import casaBonziBanio02Antes from "@/assets/Casas/Bonzi/CasaBonzi_Baño02_Antes.png";
+import casaBonziBanio02Despues from "@/assets/Casas/Bonzi/CasaBonzi_Baño02_Despues.png";
+import casaBonziCocina01Antes from "@/assets/Casas/Bonzi/CasaBonzi_Cocina01_Antes.png";
+import casaBonziCocina01Despues from "@/assets/Casas/Bonzi/CasaBonzi_Cocina01_Despues.png";
+import casaBonziCocina02Antes from "@/assets/Casas/Bonzi/CasaBonzi_Cocina02_Antes.png";
+import casaBonziCocina02Despues from "@/assets/Casas/Bonzi/CasaBonzi_Cocina02_Despues.png";
+import casaBonziComedorAntes from "@/assets/Casas/Bonzi/CasaBonzi_Comedor_Antes.png";
+import casaBonziComedorDespues from "@/assets/Casas/Bonzi/CasaBonzi_Comedor_Despues.png";
+import casaBonziLivingAntes from "@/assets/Casas/Bonzi/CasaBonzi_Living_Antes.png";
+import casaBonziLivingDespues from "@/assets/Casas/Bonzi/CasaBonzi_Living_Despues.png";
+import casaBonziTerraza01Antes from "@/assets/Casas/Bonzi/CasaBonzi_Terraza01_Antes.png";
+import casaBonziTerraza01Despues from "@/assets/Casas/Bonzi/CasaBonzi_Terraza01_Despues.png";
+import casaBonziTerraza02Antes from "@/assets/Casas/Bonzi/CasaBonzi_Terraza02_Antes.png";
+import casaBonziTerraza02Despues from "@/assets/Casas/Bonzi/CasaBonzi_Terraza02_Despues.png";
+import casaBonziTerraza03Antes from "@/assets/Casas/Bonzi/CasaBonzi_Terraza03_Antes.png";
+import casaBonziTerraza03Despues from "@/assets/Casas/Bonzi/CasaBonzi_Terraza03_Despues.png";
+import motoqueroExteriorAnochecer from "@/assets/Proyectos/Motoquero/Motoquero-Exterior_Anochecer de Verano.png";
+import motoqueroExteriorAtardecer from "@/assets/Proyectos/Motoquero/Motoquero-Exterior_Atardecer de Otoño.png";
+import motoqueroExteriorAmanecer from "@/assets/Proyectos/Motoquero/Motoquero-Exterior_Amanecer de Primavera.png";
+import motoqueroInteriorTaller from "@/assets/Proyectos/Motoquero/Motoquero-Interior_Taller.png";
+import motoqueroInteriorTaller2 from "@/assets/Proyectos/Motoquero/Motoquero-Interior_Taller2.png";
+import motoqueroInteriorTaller3 from "@/assets/Proyectos/Motoquero/Motoquero-Interior_Taller3.png";
+import motoqueroInteriorTienda from "@/assets/Proyectos/Motoquero/Motoquero-Interior_Tienda de respuestos.png";
 import { useTranslation } from "@/lib/i18n";
 import { casaProjects } from "@/components/project-data";
 
@@ -455,6 +480,46 @@ export const projects: Project[] = [
           pt: "filtro de anoitecer de verão",
         },
       },
+    ],
+  },
+  {
+    id: "proyecto-motoquero",
+    title: {
+      es: "Motoquero",
+      en: "Motoquero",
+      pt: "Motoquero",
+    },
+    meta: {
+      es: "Local Comercial - 2026",
+      en: "Commercial space — 2026",
+      pt: "Espaço comercial — 2026",
+    },
+    category: "comercial",
+    image: motoqueroExteriorAnochecer,
+    location: "Pilar, Buenos Aires",
+    year: "2026",
+    area: "235 m²",
+    description: {
+      es: "La propuesta arquitectónica se concibe como un espacio que integra el área de servicio técnico y la tienda de repuestos bajo una identidad única, proyectando una imagen ordenada y de fuerte carácter comercial. La distribución diferencia claramente las áreas de atención, venta y servicio técnico, optimizando la circulación y el funcionamiento diario, mientras que la materialidad industrial y la iluminación potencian un ambiente ordenado, moderno y eficiente.",
+      en: "The architectural proposal is conceived as a space that integrates the technical service area and the spare parts store under a single identity, projecting an orderly image with a strong commercial character. The layout clearly distinguishes the service, sales, and technical areas, optimizing circulation and daily operation, while the industrial materiality and lighting enhance an orderly, modern, and efficient environment.",
+      pt: "A proposta arquitetônica é concebida como um espaço que integra a área de serviço técnico e a loja de peças sob uma identidade única, projetando uma imagem ordenada e de forte caráter comercial. A distribuição diferencia claramente as áreas de atendimento, venda e serviço técnico, otimizando a circulação e o funcionamento diário, enquanto a materialidade industrial e a iluminação potencializam um ambiente ordenado, moderno e eficiente.",
+    },
+    gallery: [
+      { src: motoqueroExteriorAnochecer, atmosphere: "anochecer", label: { es: "Anochecer de verano", en: "Summer dusk", pt: "Anoitecer de verão" } },
+      { src: motoqueroExteriorAtardecer, atmosphere: "atardecer", label: { es: "Atardecer de otoño", en: "Autumn sunset", pt: "Entardecer de outono" } },
+      { src: motoqueroExteriorAmanecer, atmosphere: "amanecer", label: { es: "Amanecer de primavera", en: "Spring sunrise", pt: "Amanhecer de primavera" } },
+      { src: motoqueroInteriorTaller, atmosphere: "anochecer", label: { es: "Taller", en: "Workshop", pt: "Oficina técnica" } },
+      { src: motoqueroInteriorTaller2, atmosphere: "anochecer", label: { es: "Taller 2", en: "Workshop 2", pt: "Oficina técnica 2" } },
+      { src: motoqueroInteriorTaller3, atmosphere: "anochecer", label: { es: "Taller 3", en: "Workshop 3", pt: "Oficina técnica 3" } },
+      { src: motoqueroInteriorTienda, atmosphere: "anochecer", label: { es: "Tienda de repuestos", en: "Spare parts shop", pt: "Loja de peças" } },
+      { src: motoqueroInteriorTaller, atmosphere: "atardecer", label: { es: "Taller", en: "Workshop", pt: "Oficina técnica" } },
+      { src: motoqueroInteriorTaller2, atmosphere: "atardecer", label: { es: "Taller 2", en: "Workshop 2", pt: "Oficina técnica 2" } },
+      { src: motoqueroInteriorTaller3, atmosphere: "atardecer", label: { es: "Taller 3", en: "Workshop 3", pt: "Oficina técnica 3" } },
+      { src: motoqueroInteriorTienda, atmosphere: "atardecer", label: { es: "Tienda de repuestos", en: "Spare parts shop", pt: "Loja de peças" } },
+      { src: motoqueroInteriorTaller, atmosphere: "amanecer", label: { es: "Taller", en: "Workshop", pt: "Oficina técnica" } },
+      { src: motoqueroInteriorTaller2, atmosphere: "amanecer", label: { es: "Taller 2", en: "Workshop 2", pt: "Oficina técnica 2" } },
+      { src: motoqueroInteriorTaller3, atmosphere: "amanecer", label: { es: "Taller 3", en: "Workshop 3", pt: "Oficina técnica 3" } },
+      { src: motoqueroInteriorTienda, atmosphere: "amanecer", label: { es: "Tienda de repuestos", en: "Spare parts shop", pt: "Loja de peças" } },
     ],
   },
   {
@@ -1047,7 +1112,7 @@ function ProjectModal({
   const { t, language } = useTranslation();
   const [modalAtmosphere, setModalAtmosphere] = useState<AtmosphereType>(selectedAtmosphere);
   const [piliFilter, setPiliFilter] = useState<"all" | "antes" | "despues">("all");
-  const isPiliProject = project.id === "casa-pili";
+  const isPhaseFilterProject = project.id === "casa-pili" || project.id === "casa-bonzi";
   const atmosphereButtons: Array<{ key: AtmosphereType; label: string }> = [
     { key: "todos", label: t.projects.atmospheres.todos },
     { key: "anochecer", label: t.projects.atmospheres.anochecer },
@@ -1058,7 +1123,7 @@ function ProjectModal({
     { key: "antes", label: t.projects.piliFilters.antes },
     { key: "despues", label: t.projects.piliFilters.despues },
   ] as const;
-  const galleryItems = isPiliProject
+  const galleryItems = isPhaseFilterProject
     ? uniqueGalleryBySrc(project.gallery ?? []).filter((item) => {
         if (piliFilter === "all") return true;
         return item.phase === piliFilter;
@@ -1083,6 +1148,61 @@ function ProjectModal({
     }
     return res;
   };
+
+  if (project.id === "casa-bonzi") {
+    const desiredSrcOrder =
+      piliFilter === "all"
+        ? [
+            casaBonziLivingDespues,
+            casaBonziLivingAntes,
+            casaBonziComedorDespues,
+            casaBonziComedorAntes,
+            casaBonziCocina01Despues,
+            casaBonziCocina01Antes,
+            casaBonziCocina02Despues,
+            casaBonziCocina02Antes,
+            casaBonziTerraza01Despues,
+            casaBonziTerraza01Antes,
+            casaBonziTerraza02Despues,
+            casaBonziTerraza02Antes,
+            casaBonziTerraza03Despues,
+            casaBonziTerraza03Antes,
+            casaBonziBanio01Despues,
+            casaBonziBanio01Antes,
+            casaBonziBanio02Despues,
+            casaBonziBanio02Antes,
+          ]
+        : piliFilter === "antes"
+          ? [
+              casaBonziLivingAntes,
+              casaBonziComedorAntes,
+              casaBonziCocina01Antes,
+              casaBonziCocina02Antes,
+              casaBonziTerraza01Antes,
+              casaBonziTerraza02Antes,
+              casaBonziTerraza03Antes,
+              casaBonziBanio01Antes,
+              casaBonziBanio02Antes,
+            ]
+          : [
+              casaBonziLivingDespues,
+              casaBonziComedorDespues,
+              casaBonziCocina01Despues,
+              casaBonziCocina02Despues,
+              casaBonziTerraza01Despues,
+              casaBonziTerraza02Despues,
+              casaBonziTerraza03Despues,
+              casaBonziBanio01Despues,
+              casaBonziBanio02Despues,
+            ];
+
+    reorderedGalleryItems = desiredSrcOrder
+      .map((src) => reorderedGalleryItems.find((item) => item.src === src))
+      .filter((item): item is (typeof reorderedGalleryItems)[number] => Boolean(item));
+
+    const rest = reorderedGalleryItems.filter((item) => !desiredSrcOrder.includes(item.src));
+    reorderedGalleryItems = [...reorderedGalleryItems, ...rest];
+  }
 
   // Casa del Limonero exact ordering for atmosphere filters
   if (project.id === "casa-del-limonero") {
@@ -1303,6 +1423,50 @@ function ProjectModal({
     }
   }
 
+  if (project.id === "proyecto-motoquero") {
+    const desiredSrcOrder =
+      modalAtmosphere === "anochecer"
+        ? [
+            motoqueroExteriorAnochecer,
+            motoqueroInteriorTaller,
+            motoqueroInteriorTaller2,
+            motoqueroInteriorTaller3,
+            motoqueroInteriorTienda,
+          ]
+        : modalAtmosphere === "atardecer"
+          ? [
+              motoqueroExteriorAtardecer,
+              motoqueroInteriorTaller,
+              motoqueroInteriorTaller2,
+              motoqueroInteriorTaller3,
+              motoqueroInteriorTienda,
+            ]
+          : modalAtmosphere === "amanecer"
+            ? [
+                motoqueroExteriorAmanecer,
+                motoqueroInteriorTaller,
+                motoqueroInteriorTaller2,
+                motoqueroInteriorTaller3,
+                motoqueroInteriorTienda,
+              ]
+            : [
+                motoqueroExteriorAnochecer,
+                motoqueroExteriorAtardecer,
+                motoqueroExteriorAmanecer,
+                motoqueroInteriorTaller,
+                motoqueroInteriorTaller2,
+                motoqueroInteriorTaller3,
+                motoqueroInteriorTienda,
+              ];
+
+    reorderedGalleryItems = desiredSrcOrder
+      .map((src) => reorderedGalleryItems.find((item) => item.src === src))
+      .filter((item): item is (typeof reorderedGalleryItems)[number] => Boolean(item));
+
+    const rest = reorderedGalleryItems.filter((item) => !desiredSrcOrder.includes(item.src));
+    reorderedGalleryItems = [...reorderedGalleryItems, ...rest];
+  }
+
   const [activeSlide, setActiveSlide] = useState(0);
   const activeIndex = reorderedGalleryItems.length > 0 ? activeSlide % reorderedGalleryItems.length : 0;
 
@@ -1311,10 +1475,10 @@ function ProjectModal({
   }, [selectedAtmosphere]);
 
   useEffect(() => {
-    if (isPiliProject) {
+    if (isPhaseFilterProject) {
       setPiliFilter("all");
     }
-  }, [isPiliProject, project.id]);
+  }, [isPhaseFilterProject, project.id]);
 
   useEffect(() => {
     setActiveSlide(0);
@@ -1394,7 +1558,7 @@ function ProjectModal({
                 </button>
               </div>
               <div className="mt-4 flex flex-nowrap items-center justify-center gap-3 overflow-visible py-1">
-                {isPiliProject ? (
+                {isPhaseFilterProject ? (
                   pilisFilterButtons.map((button) => {
                     const isActive = piliFilter === button.key;
                     return (
