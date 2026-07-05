@@ -2,6 +2,9 @@ import delLimoneroAtardecer from "@/assets/Casas/Del Limonero/Exterior_Atardecer
 import delLimoneroAmanecer from "@/assets/Casas/Del Limonero/Exterior_Amanecer de primavera.jpeg";
 import delLimoneroAnochecer from "@/assets/Casas/Del Limonero/Exterior_Anochecer de verano.jpeg";
 import delLimoneroExteriorGaleria from "@/assets/Casas/Del Limonero/CasaDelLimonero-Exterior_Galería.png";
+import delLimoneroExteriorLateralAtardecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Atardecer de Otoño.png";
+import delLimoneroExteriorLateralAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Anochecer de Verano.png";
+import delLimoneroExteriorLateralAmanecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Amanecer de Primavera.png";
 import delLimoneroContrafachadaAmanecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Amanecer de Primavera.png";
 import delLimoneroContrafachadaAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Anochecer de Invierno.png";
 import delLimoneroContrafachadaAtardecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Atardecer de Otoño..png";
@@ -54,30 +57,18 @@ import casaNavarroInteriorDormitorio02 from "@/assets/Casas/Navarro/CasaNavarro-
 import casaNavarroInteriorLiving02 from "@/assets/Casas/Navarro/CasaNavarro-Interior_Living02.png";
 import casaNavarroInteriorCocina from "@/assets/Casas/Navarro/CasaNavarro-InteriorCocina.png";
 import casaNavarroInteriorLiving from "@/assets/Casas/Navarro/CasaNavarro-InteriorLiving.png";
-import casaPiliBanio from "@/assets/Casas/Pili/Baño.jpg";
-import casaPiliBanioAmbos from "@/assets/Casas/Pili/Baño_ambos.jpg";
 import casaPiliBanioAntes from "@/assets/Casas/Pili/Baño_Antes.jpg";
 import casaPiliBanioAntesModal from "@/assets/Casas/Pili/Baño_Antes_modal.jpg";
 import casaPiliBanioDespues from "@/assets/Casas/Pili/Baño_Después.jpg";
 import casaPiliBanioDespuesModal from "@/assets/Casas/Pili/Baño_Después_modal.jpg";
-import casaPiliContrafrente from "@/assets/Casas/Pili/Contrafrente.png";
-import casaPiliContrafrenteAmbos from "@/assets/Casas/Pili/Contrafrente_ambos.jpg";
 import casaPiliContrafrenteAntes from "@/assets/Casas/Pili/Contrafrente_Antes.png";
 import casaPiliContrafrenteDespues from "@/assets/Casas/Pili/Contrafrente_Después.png";
-import casaPiliCocina from "@/assets/Casas/Pili/Cocina.jpg";
-import casaPiliCocinaAmbos from "@/assets/Casas/Pili/Cocina_ambos.jpg";
 import casaPiliCocinaAntes from "@/assets/Casas/Pili/Cocina_Antes.jpg";
 import casaPiliCocinaDespues from "@/assets/Casas/Pili/Cocina-Después.jpg";
-import casaPiliDormitorio from "@/assets/Casas/Pili/Dormitorio.png";
-import casaPiliDormitorioAmbos from "@/assets/Casas/Pili/Dormitorio_ambos.jpg";
 import casaPiliDormitorioAntes from "@/assets/Casas/Pili/Dormitorio_Antes.png";
 import casaPiliDormitorioDespues from "@/assets/Casas/Pili/Dormitorio_Después.png";
-import casaPiliFrente from "@/assets/Casas/Pili/Frente.jpg";
-import casaPiliFrenteAmbos from "@/assets/Casas/Pili/Frente_ambos.jpg";
 import casaPiliFrenteAntes from "@/assets/Casas/Pili/Frente_Antes.jpg";
 import casaPiliFrenteDespues from "@/assets/Casas/Pili/Frente_Después.jpg";
-import casaPiliFrenteLateral from "@/assets/Casas/Pili/Frente_Lateral.jpg";
-import casaPiliFrenteLateralAmbos from "@/assets/Casas/Pili/Frente_Lateral_ambos.jpg";
 import casaPiliFrenteLateralAntes from "@/assets/Casas/Pili/Frente_Lateral_Antes.jpg";
 import casaPiliFrenteLateralDespues from "@/assets/Casas/Pili/Frente_Lateral_Después.jpg";
 
@@ -87,261 +78,129 @@ type AtmosphereType = "todos" | "anochecer" | "atardecer" | "amanecer";
 type LocalizedString = {
   es: string;
   en: string;
-  pt: string;
+  pt?: string;
 };
 
-interface CasaGalleryItem {
-  src: string;
-  openSrc?: string;
-  imageClassName?: string;
-  label: LocalizedString;
-  atmosphere: Exclude<AtmosphereType, "todos">;
-  phase?: "antes" | "despues" | "ambos";
-  isFeatured?: boolean;
-}
-
-interface CasaProject {
-  id?: string;
+type Project = {
+  id: string;
   title: LocalizedString;
-  meta: LocalizedString;
-  description: LocalizedString;
-  category: Category extends "todos" ? never : Exclude<Category, "todos">;
-  image: string;
-  previewImages?: string[];
-  location: string;
-  year: string;
-  area: string;
-  offset?: string;
-  origin?: "casas";
-  gallery?: CasaGalleryItem[];
-}
+  meta?: LocalizedString;
+  image: any;
+  location?: string;
+  year?: string;
+  area?: string;
+  description?: LocalizedString;
+  category?: Category;
+  origin?: string;
+  gallery?: any[];
+  previewImages?: any[];
+};
 
-const uniqueGalleryBySrc = (gallery: CasaGalleryItem[]) =>
-  gallery.reduce(
-    (acc, item) => {
-      if (!acc.some((existing) => existing.src === item.src)) {
-        acc.push(item);
-      }
-      return acc;
-    },
-    [] as CasaGalleryItem[]
-  );
-
-export const casaProjects: CasaProject[] = [
+export const casaProjects: Project[] = [
   {
     id: "casa-pili",
-    title: {
-      es: "Casa Pili",
-      en: "Casa Pili",
-      pt: "Casa Pili",
-    },
-    meta: {
-      es: "Vivienda Unifamiliar - 2025",
-      en: "Single-family home — 2025",
-      pt: "Casa unifamiliar — 2025",
-    },
-    image: casaPiliFrenteAmbos,
-    previewImages: [casaPiliFrenteAmbos, casaPiliFrenteAntes, casaPiliFrenteDespues],
-    location: "Luján, Buenos Aires",
-    year: "2026",
-    area: "65 m²",
+    title: { es: "Casa Pili", en: "Casa Pili", pt: "Casa Pili" },
+    meta: { es: "Reforma - 2023", en: "Renovation - 2023", pt: "Reforma - 2023" },
+    image: casaPiliFrenteDespues,
+    location: "Pilar, Buenos Aires",
+    year: "2023",
+    area: "—",
     description: {
-      es: "La intervención redefine la imagen de la vivienda mediante una composición de planos puros y una materialidad contemporánea, otorgándole una identidad renovada y mayor presencia urbana. La propuesta mejora la funcionalidad y la privacidad del conjunto, incorporando un cerramiento metálico y una paleta de materiales sobria que aportan unidad, durabilidad y carácter.",
-      en: "The intervention redefines the home’s image through a composition of pure planes and contemporary materials, giving it a renewed identity and greater urban presence. The proposal improves the functionality and privacy of the ensemble by incorporating a metal enclosure and a sober material palette that brings unity, durability, and character.",
-      pt: "A intervenção redefine a imagem da residência por meio de uma composição de planos puros e uma materialidade contemporânea, conferindo-lhe uma identidade renovada e maior presença urbana. A proposta melhora a funcionalidade e a privacidade do conjunto, incorporando um fechamento metálico e uma paleta de materiais sóbria que trazem unidade, durabilidade e caráter.",
+      es: "Reforma integral que conserva la esencia original y optimiza la circulación interna.",
+      en: "Full renovation that preserves the original essence and optimizes internal circulation.",
+      pt: "Reforma integral que preserva a essência original e otimiza a circulação interna.",
     },
     category: "reformas",
     origin: "casas",
     gallery: [
-      {
-        src: casaPiliFrenteAntes,
-        atmosphere: "amanecer",
-        phase: "antes",
-        label: {
-          es: "Frente antes",
-          en: "Front before",
-          pt: "Fachada anterior",
-        },
-      },
+      // 1 - frente_despues
       {
         src: casaPiliFrenteDespues,
         atmosphere: "anochecer",
         phase: "despues",
-        label: {
-          es: "Frente después",
-          en: "Front after",
-          pt: "Fachada depois",
-        },
+        label: { es: "Frente después", en: "Front after", pt: "Fachada depois" },
       },
+      // 2 - frente_antes
       {
-        src: casaPiliFrenteAmbos,
-        openSrc: casaPiliFrente,
-        atmosphere: "atardecer",
-        phase: "ambos",
-        label: {
-          es: "Frente",
-          en: "Front",
-          pt: "Fachada",
-        },
-      },
-      {
-        src: casaPiliFrenteLateralAntes,
+        src: casaPiliFrenteAntes,
         atmosphere: "amanecer",
         phase: "antes",
-        label: {
-          es: "Frente lateral antes",
-          en: "Side before",
-          pt: "Vista lateral antes",
-        },
+        label: { es: "Frente antes", en: "Front before", pt: "Fachada anterior" },
       },
+      // 3 - frente_lateral_despues
       {
         src: casaPiliFrenteLateralDespues,
         atmosphere: "anochecer",
         phase: "despues",
-        label: {
-          es: "Frente lateral después",
-          en: "Side after",
-          pt: "Vista lateral depois",
-        },
+        label: { es: "Frente lateral después", en: "Side after", pt: "Vista lateral depois" },
       },
+      // 4 - frente_lateral_antes
       {
-        src: casaPiliFrenteLateralAmbos,
-        openSrc: casaPiliFrenteLateral,
-        atmosphere: "atardecer",
-        phase: "ambos",
-        label: {
-          es: "Frente lateral",
-          en: "Side view",
-          pt: "Vista lateral",
-        },
-      },
-      {
-        src: casaPiliContrafrenteAntes,
+        src: casaPiliFrenteLateralAntes,
         atmosphere: "amanecer",
         phase: "antes",
-        label: {
-          es: "Contrafrente antes",
-          en: "Rear before",
-          pt: "Contrafachada antes",
-        },
+        label: { es: "Frente lateral antes", en: "Side before", pt: "Vista lateral antes" },
       },
+      // 5 - contrafrente_despues
       {
         src: casaPiliContrafrenteDespues,
         atmosphere: "anochecer",
         phase: "despues",
-        label: {
-          es: "Contrafrente después",
-          en: "Rear after",
-          pt: "Contrafachada depois",
-        },
+        label: { es: "Contrafrente después", en: "Rear after", pt: "Contrafachada depois" },
       },
+      // 6 - contrafrente_antes
       {
-        src: casaPiliContrafrenteAmbos,
-        openSrc: casaPiliContrafrente,
-        atmosphere: "atardecer",
-        phase: "ambos",
-        label: {
-          es: "Contrafrente",
-          en: "Rear façade",
-          pt: "Contrafachada",
-        },
-      },
-      {
-        src: casaPiliDormitorioAntes,
+        src: casaPiliContrafrenteAntes,
         atmosphere: "amanecer",
         phase: "antes",
-        label: {
-          es: "Dormitorio antes",
-          en: "Bedroom before",
-          pt: "Quarto antes",
-        },
+        label: { es: "Contrafrente antes", en: "Rear before", pt: "Contrafachada antes" },
       },
+
+      // 7 - dormitorio_despues
       {
         src: casaPiliDormitorioDespues,
         atmosphere: "anochecer",
         phase: "despues",
-        label: {
-          es: "Dormitorio después",
-          en: "Bedroom after",
-          pt: "Quarto depois",
-        },
+        label: { es: "Dormitorio después", en: "Bedroom after", pt: "Quarto depois" },
       },
+      // 8 - dormitorio_antes
       {
-        src: casaPiliDormitorioAmbos,
-        openSrc: casaPiliDormitorio,
-        atmosphere: "atardecer",
-        phase: "ambos",
-        label: {
-          es: "Dormitorio",
-          en: "Bedroom",
-          pt: "Quarto",
-        },
-      },
-      {
-        src: casaPiliCocinaAntes,
+        src: casaPiliDormitorioAntes,
         atmosphere: "amanecer",
         phase: "antes",
-        label: {
-          es: "Cocina antes",
-          en: "Kitchen before",
-          pt: "Cozinha antes",
-        },
+        label: { es: "Dormitorio antes", en: "Bedroom before", pt: "Quarto antes" },
       },
+      // 9 - cocina_despues
       {
         src: casaPiliCocinaDespues,
         atmosphere: "anochecer",
         phase: "despues",
-        label: {
-          es: "Cocina después",
-          en: "Kitchen after",
-          pt: "Cozinha depois",
-        },
+        label: { es: "Cocina después", en: "Kitchen after", pt: "Cozinha depois" },
       },
+      // 10 - cocina_antes
       {
-        src: casaPiliCocinaAmbos,
-        openSrc: casaPiliCocina,
-        atmosphere: "atardecer",
-        phase: "ambos",
-        label: {
-          es: "Cocina",
-          en: "Kitchen",
-          pt: "Cozinha",
-        },
-      },
-      {
-        src: casaPiliBanioAntesModal,
-        openSrc: casaPiliBanioAntes,
-        imageClassName: "object-contain",
+        src: casaPiliCocinaAntes,
         atmosphere: "amanecer",
         phase: "antes",
-        label: {
-          es: "Baño antes",
-          en: "Bathroom before",
-          pt: "Banheiro antes",
-        },
+        label: { es: "Cocina antes", en: "Kitchen before", pt: "Cozinha antes" },
       },
+      // 11 - baño_despues_modal
       {
         src: casaPiliBanioDespuesModal,
         openSrc: casaPiliBanioDespues,
         imageClassName: "object-contain",
         atmosphere: "anochecer",
         phase: "despues",
-        label: {
-          es: "Baño después",
-          en: "Bathroom after",
-          pt: "Banheiro depois",
-        },
+        label: { es: "Baño después", en: "Bathroom after", pt: "Banheiro depois" },
       },
+      // 12 - baño_antes_modal
       {
-        src: casaPiliBanioAmbos,
-        openSrc: casaPiliBanio,
+        src: casaPiliBanioAntesModal,
+        openSrc: casaPiliBanioAntes,
+        imageClassName: "object-contain",
         atmosphere: "amanecer",
-        phase: "ambos",
-        label: {
-          es: "Baño",
-          en: "Bathroom",
-          pt: "Banheiro",
-        },
+        phase: "antes",
+        label: { es: "Baño antes", en: "Bathroom before", pt: "Banheiro antes" },
       },
     ],
   },
@@ -433,6 +292,57 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
+        src: delLimoneroExteriorLateralAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "Casa del Limonero-Exterior Lateral_Anochecer de Verano.png",
+          en: "Casa Del Limonero - Lateral Exterior (summer dusk)",
+        },
+      },
+      {
+        src: delLimoneroExteriorLateralAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "Casa del Limonero-Exterior Lateral_Atardecer de Otoño.png",
+          en: "Casa Del Limonero - Lateral Exterior (autumn sunset)",
+        },
+      },
+      {
+        src: delLimoneroExteriorLateralAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "Casa del Limonero-Exterior Lateral_Amanecer de Primavera.png",
+          en: "Casa Del Limonero - Lateral Exterior (spring sunrise)",
+        },
+      },
+      {
+        src: delLimoneroDormitorio,
+        atmosphere: "anochecer",
+        label: {
+          es: "imagen adicional de dormitorio",
+          en: "additional bedroom image",
+          pt: "imagem adicional de quarto",
+        },
+      },
+      {
+        src: delLimoneroLiving,
+        atmosphere: "anochecer",
+        label: {
+          es: "imagen adicional de living",
+          en: "additional living room image",
+          pt: "imagem adicional de sala",
+        },
+      },
+      {
+        src: delLimoneroOficina,
+        atmosphere: "anochecer",
+        label: {
+          es: "imagen adicional de oficina",
+          en: "additional office image",
+          pt: "imagem adicional de escritório",
+        },
+      },
+      {
         src: delLimoneroExteriorGaleria,
         atmosphere: "amanecer",
         label: {
@@ -461,15 +371,6 @@ export const casaProjects: CasaProject[] = [
       },
       {
         src: delLimoneroDormitorio,
-        atmosphere: "anochecer",
-        label: {
-          es: "imagen adicional de dormitorio",
-          en: "additional bedroom image",
-          pt: "imagem adicional de quarto",
-        },
-      },
-      {
-        src: delLimoneroDormitorio,
         atmosphere: "amanecer",
         label: {
           es: "imagen adicional de dormitorio",
@@ -496,15 +397,6 @@ export const casaProjects: CasaProject[] = [
         },
       },
       {
-        src: delLimoneroLiving,
-        atmosphere: "anochecer",
-        label: {
-          es: "imagen adicional de living",
-          en: "additional living room image",
-          pt: "imagem adicional de sala",
-        },
-      },
-      {
         src: delLimoneroOficina,
         atmosphere: "amanecer",
         label: {
@@ -516,15 +408,6 @@ export const casaProjects: CasaProject[] = [
       {
         src: delLimoneroOficina,
         atmosphere: "atardecer",
-        label: {
-          es: "imagen adicional de oficina",
-          en: "additional office image",
-          pt: "imagem adicional de escritório",
-        },
-      },
-      {
-        src: delLimoneroOficina,
-        atmosphere: "anochecer",
         label: {
           es: "imagen adicional de oficina",
           en: "additional office image",
@@ -545,7 +428,7 @@ export const casaProjects: CasaProject[] = [
       en: "Single-family home - 2023",
       pt: "Casa unifamiliar - 2023",
     },
-    image: casaIntiContrafachadaAnochecer,
+    image: casaIntiExteriorAnochecer,
     location: "Manzanares, Pilar, Buenos Aires",
     year: "2023",
     area: "76 m²",
@@ -557,6 +440,33 @@ export const casaProjects: CasaProject[] = [
     category: "viviendas",
     origin: "casas",
     gallery: [
+      {
+        src: casaIntiExteriorAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "imagen adicional de exterior",
+          en: "additional exterior image",
+          pt: "imagem adicional de exterior",
+        },
+      },
+      {
+        src: casaIntiExteriorAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "imagen adicional de exterior",
+          en: "additional exterior image",
+          pt: "imagem adicional de exterior",
+        },
+      },
+      {
+        src: casaIntiExteriorAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "imagen adicional de exterior",
+          en: "additional exterior image",
+          pt: "imagem adicional de exterior",
+        },
+      },
       {
         src: casaIntiContrafachadaAnochecer,
         atmosphere: "anochecer",
@@ -585,33 +495,6 @@ export const casaProjects: CasaProject[] = [
           es: "filtro de Atardecer de Otoño",
           en: "autumn sunset filter",
           pt: "filtro de entardecer de outono",
-        },
-      },
-      {
-        src: casaIntiExteriorAmanecer,
-        atmosphere: "amanecer",
-        label: {
-          es: "imagen adicional de exterior",
-          en: "additional exterior image",
-          pt: "imagem adicional de exterior",
-        },
-      },
-      {
-        src: casaIntiExteriorAnochecer,
-        atmosphere: "anochecer",
-        label: {
-          es: "imagen adicional de exterior",
-          en: "additional exterior image",
-          pt: "imagem adicional de exterior",
-        },
-      },
-      {
-        src: casaIntiExteriorAtardecer,
-        atmosphere: "atardecer",
-        label: {
-          es: "imagen adicional de exterior",
-          en: "additional exterior image",
-          pt: "imagem adicional de exterior",
         },
       },
       {

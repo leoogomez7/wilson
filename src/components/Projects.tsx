@@ -2,6 +2,19 @@ import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import p1 from "@/assets/project-1.jpg";
 import p4 from "@/assets/project-4.jpg";
+import delLimoneroAtardecer from "@/assets/Casas/Del Limonero/Exterior_Atardecer de otoño.jpeg";
+import delLimoneroAmanecer from "@/assets/Casas/Del Limonero/Exterior_Amanecer de primavera.jpeg";
+import delLimoneroAnochecer from "@/assets/Casas/Del Limonero/Exterior_Anochecer de verano.jpeg";
+import delLimoneroExteriorGaleria from "@/assets/Casas/Del Limonero/CasaDelLimonero-Exterior_Galería.png";
+import delLimoneroExteriorLateralAtardecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Atardecer de Otoño.png";
+import delLimoneroExteriorLateralAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Anochecer de Verano.png";
+import delLimoneroExteriorLateralAmanecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Amanecer de Primavera.png";
+import delLimoneroContrafachadaAmanecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Amanecer de Primavera.png";
+import delLimoneroContrafachadaAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Anochecer de Invierno.png";
+import delLimoneroContrafachadaAtardecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Atardecer de Otoño..png";
+import delLimoneroDormitorio from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Dormitorio.png";
+import delLimoneroLiving from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Living.png";
+import delLimoneroOficina from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Oficina.png";
 import zAmanecer from "@/assets/Proyectos/Z/Amanecer de primavera.png";
 import zAmanecerCF from "@/assets/Proyectos/Z/Amanecer de primavera_CF.png";
 import zAmanecerExterior from "@/assets/Proyectos/Z/Amanecer de Primavera_Exterior L.png";
@@ -1033,7 +1046,7 @@ function ProjectModal({
 }) {
   const { t, language } = useTranslation();
   const [modalAtmosphere, setModalAtmosphere] = useState<AtmosphereType>(selectedAtmosphere);
-  const [piliFilter, setPiliFilter] = useState<"antes" | "despues" | "ambos">("ambos");
+  const [piliFilter, setPiliFilter] = useState<"all" | "antes" | "despues">("all");
   const isPiliProject = project.id === "casa-pili";
   const atmosphereButtons: Array<{ key: AtmosphereType; label: string }> = [
     { key: "todos", label: t.projects.atmospheres.todos },
@@ -1044,11 +1057,10 @@ function ProjectModal({
   const pilisFilterButtons = [
     { key: "antes", label: t.projects.piliFilters.antes },
     { key: "despues", label: t.projects.piliFilters.despues },
-    { key: "ambos", label: t.projects.piliFilters.ambos },
   ] as const;
   const galleryItems = isPiliProject
     ? uniqueGalleryBySrc(project.gallery ?? []).filter((item) => {
-        if (piliFilter === "ambos") return item.phase === "ambos";
+        if (piliFilter === "all") return true;
         return item.phase === piliFilter;
       })
     : uniqueGalleryBySrc(
@@ -1072,14 +1084,54 @@ function ProjectModal({
     return res;
   };
 
-  // Casa del Limonero: 4->6, 5->4, 6->5
+  // Casa del Limonero exact ordering for atmosphere filters
   if (project.id === "casa-del-limonero") {
-    // Move 4th item so it appears after the 6th (1-based: 4 -> after 6 -> zero-based: 3 -> 6)
     reorderedGalleryItems = applyMoves(reorderedGalleryItems, [
       { from: 3, to: 6 },
-      // Move 6th to become 7th (1-based 6 -> 7 => zero-based 5 -> 6)
       { from: 5, to: 6 },
     ]);
+
+    const getOrderedItems = (desiredSrcOrder: string[]) => {
+      const ordered = desiredSrcOrder
+        .map((src) => reorderedGalleryItems.find((item) => item.src === src))
+        .filter((item): item is typeof reorderedGalleryItems[number] => Boolean(item));
+      const rest = reorderedGalleryItems.filter((item) => !desiredSrcOrder.includes(item.src));
+      return [...ordered, ...rest];
+    };
+
+    if (modalAtmosphere === "anochecer") {
+      reorderedGalleryItems = getOrderedItems([
+        delLimoneroAnochecer,
+        delLimoneroExteriorGaleria,
+        delLimoneroContrafachadaAnochecer,
+        delLimoneroExteriorLateralAnochecer,
+        delLimoneroDormitorio,
+        delLimoneroLiving,
+        delLimoneroOficina,
+      ]);
+    }
+
+    if (modalAtmosphere === "atardecer") {
+      reorderedGalleryItems = getOrderedItems([
+        delLimoneroAtardecer,
+        delLimoneroContrafachadaAtardecer,
+        delLimoneroExteriorLateralAtardecer,
+        delLimoneroDormitorio,
+        delLimoneroLiving,
+        delLimoneroOficina,
+      ]);
+    }
+
+    if (modalAtmosphere === "amanecer") {
+      reorderedGalleryItems = getOrderedItems([
+        delLimoneroAmanecer,
+        delLimoneroContrafachadaAmanecer,
+        delLimoneroExteriorLateralAmanecer,
+        delLimoneroDormitorio,
+        delLimoneroLiving,
+        delLimoneroOficina,
+      ]);
+    }
   }
 
   // Casa Coffee: 1 stays, swap 2<->3, then rotate 4->5,5->6,6->4
@@ -1119,22 +1171,9 @@ function ProjectModal({
     }
   }
 
-  // Casa Inti: 1 stays, swap 2<->3, then rotate 4..6 (4->6,5->4,6->5)
+  // Casa Inti: no special-case reorder here, the gallery order in project-data already defines the desired swap.
   if (project.id === "casa-inti") {
-    if (galleryItems.length >= 6) {
-      reorderedGalleryItems = [
-        galleryItems[0],
-        galleryItems[2],
-        galleryItems[1],
-        galleryItems[4],
-        galleryItems[5],
-        galleryItems[3],
-        ...galleryItems.slice(6),
-      ];
-    } else if (galleryItems.length >= 3) {
-      // simple swap 2 and 3
-      reorderedGalleryItems = [galleryItems[0], galleryItems[2], galleryItems[1], ...galleryItems.slice(3)];
-    }
+    reorderedGalleryItems = reorderedGalleryItems;
   }
 
   // Casa Navarro exact mapping:
@@ -1273,7 +1312,7 @@ function ProjectModal({
 
   useEffect(() => {
     if (isPiliProject) {
-      setPiliFilter("ambos");
+      setPiliFilter("all");
     }
   }, [isPiliProject, project.id]);
 
