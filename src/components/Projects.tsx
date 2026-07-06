@@ -1498,7 +1498,7 @@ function ProjectModal({
     const expandedItem = reorderedGalleryItems[expandedImageIndex];
     return (
       <div
-        className="fixed inset-0 z-90 bg-brand-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
+        className="fixed inset-0 z-90 bg-brand-black/95 backdrop-blur-sm flex items-center justify-center p-2 md:p-12"
         onClick={() => setExpandedImageIndex(null)}
       >
         <div
@@ -1509,7 +1509,7 @@ function ProjectModal({
             type="button"
             onClick={() => setExpandedImageIndex(null)}
             aria-label={t.projects.modal.close}
-            className="absolute top-2 right-20 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
+            className="absolute top-2 right-2 md:right-20 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
           >
             {t.projects.modal.close}
           </button>

@@ -44,7 +44,7 @@ export function Contact({ mode = "home" }: { mode?: SectionMode }) {
                 href="https://wa.me/5491136115429"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-16 py-5 bg-brand-black text-white uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-brand-black/90 transition-colors whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 px-6 md:px-16 py-5 bg-brand-black text-white uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-brand-black/90 transition-colors"
               >
                 {t.contact.whatsappButton}
                 <img src={whatsappLogo} alt="WhatsApp" className="w-4 h-4 object-contain" />
@@ -74,7 +74,7 @@ export function Contact({ mode = "home" }: { mode?: SectionMode }) {
                 <div className="md:col-span-2 pt-8 text-center">
                   <button
                     type="submit"
-                    className="px-16 py-5 bg-brand-black text-white uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-brand-black/90 transition-colors whitespace-nowrap"
+                    className="px-6 md:px-16 py-5 bg-brand-black text-white uppercase text-[10px] font-bold tracking-[0.3em] hover:bg-brand-black/90 transition-colors"
                   >
                     {t.contact.sendButton}
                   </button>

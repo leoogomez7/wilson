@@ -8,7 +8,7 @@ export function MapSection() {
   return (
     <section id="mapa" className="bg-white border-t border-border">
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="p-12 md:p-20 flex flex-col justify-center">
+        <div className="px-6 md:px-20 py-5 md:py-8 flex flex-col justify-center">
           <span className="text-[15px] uppercase tracking-[0.4em] text-brand-gray/60 block mb-2">
             {t.map.sectionLabel}
           </span>
