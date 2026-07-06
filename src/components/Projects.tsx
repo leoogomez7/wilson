@@ -115,12 +115,14 @@ interface Project {
     label: LocalizedString;
     atmosphere: Exclude<AtmosphereType, "todos">;
     phase?: "antes" | "despues";
+    isFeatured?: boolean;
+    imageClassName?: string;
   }>;
   origin?: "casas" | "proyectos";
 }
 
 const uniqueGalleryBySrc = (
-  gallery: Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>
+  gallery: Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos">; phase?: "antes" | "despues"; isFeatured?: boolean; imageClassName?: string }>
 ) =>
   gallery.reduce(
     (acc, item) => {
@@ -129,7 +131,7 @@ const uniqueGalleryBySrc = (
       }
       return acc;
     },
-    [] as Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos"> }>
+    [] as Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos">; phase?: "antes" | "despues"; isFeatured?: boolean; imageClassName?: string }>
   );
 
 export const projects: Project[] = [
@@ -872,7 +874,7 @@ export function Projects({ mode = "home", section }: { mode?: SectionMode; secti
     ...projects
       .filter((project) => !casaIds.has(project.id))
       .map((project) => ({ ...project, origin: "proyectos" as const })),
-  ];
+  ] as Project[];
 
   const source = combinedProjects;
   const sectionId = mode === "section" && section ? section : "proyectos";
@@ -1468,6 +1470,7 @@ function ProjectModal({
   }
 
   const [activeSlide, setActiveSlide] = useState(0);
+  const [expandedImageIndex, setExpandedImageIndex] = useState<number | null>(null);
   const activeIndex = reorderedGalleryItems.length > 0 ? activeSlide % reorderedGalleryItems.length : 0;
 
   useEffect(() => {
@@ -1490,6 +1493,36 @@ function ProjectModal({
 
   const activeItem = reorderedGalleryItems[activeIndex];
 
+  // If an image is expanded, show the expanded view
+  if (expandedImageIndex !== null) {
+    const expandedItem = reorderedGalleryItems[expandedImageIndex];
+    return (
+      <div
+        className="fixed inset-0 z-90 bg-brand-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
+        onClick={() => setExpandedImageIndex(null)}
+      >
+        <div
+          className="relative max-w-full max-h-[90vh] w-full h-full flex items-center justify-center"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            type="button"
+            onClick={() => setExpandedImageIndex(null)}
+            aria-label={t.projects.modal.close}
+            className="absolute top-2 right-20 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
+          >
+            {t.projects.modal.close}
+          </button>
+          <img
+            src={expandedItem.src}
+            alt={expandedItem.label[language]}
+            className={`max-w-full max-h-full ${expandedItem.imageClassName ?? "object-contain"}`}
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className="fixed inset-0 z-80 bg-brand-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
@@ -1500,16 +1533,7 @@ function ProjectModal({
         onClick={(e) => e.stopPropagation()}
       >
         {galleryItems.length > 0 ? (
-          <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => window.open(activeItem.openSrc ?? activeItem.src, "_blank", "noopener,noreferrer")}
-              aria-label={t.projects.modal.openImage}
-              title={t.projects.modal.openImage}
-              className="text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
-            >
-              {t.projects.modal.openImage}
-            </button>
+          <div className="absolute top-4 right-4 z-10">
             <button
               type="button"
               onClick={onClose}
@@ -1531,11 +1555,14 @@ function ProjectModal({
         )}
         {galleryItems.length > 0 ? (
           <div className="w-full">
-            <div className="overflow-hidden h-90 sm:h-105 bg-brand-light">
+            <div
+              className="overflow-hidden h-90 sm:h-105 bg-brand-light cursor-pointer group"
+              onClick={() => setExpandedImageIndex(activeIndex)}
+            >
               <img
                 src={activeItem.src}
                 alt={activeItem.label[language]}
-                className={`w-full h-full ${activeItem.imageClassName ?? "object-cover"}`}
+                className={`w-full h-full ${activeItem.imageClassName ?? "object-cover"} transition-transform group-hover:scale-105`}
               />
             </div>
             <div className="px-8 md:px-12 pt-4">

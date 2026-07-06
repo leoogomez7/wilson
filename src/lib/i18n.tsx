@@ -780,6 +780,11 @@ const translations = {
         comercial: "Comercial",
         reformas: "Reformas",
       },
+      piliFilters: {
+        antes: "Antes",
+        despues: "Depois",
+        ambos: "Ambos",
+      },
       categoryFilterTitle: "Categoria",
       typeFilterTitle: "Tipo de projeto",
       originFilterTitle: "Origem",
