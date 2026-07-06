@@ -131,17 +131,65 @@ export function Team({ mode = "home" }: { mode?: SectionMode }) {
             const memberSize = memberImageSizes[member.id] ?? "w-52 h-52 md:w-64 md:h-64";
             return (
               <article key={member.id} className="group flex flex-col items-center text-center">
-                <div
-                  className={`overflow-hidden rounded-full bg-brand-light mb-6 flex items-center justify-center ${memberSize}`}
-                >
-                  <img
-                    src={memberImg}
-                    alt={`Retrato de ${member.name}`}
-                    loading="lazy"
-                    style={{ objectPosition: memberImagePositions[member.id] || "center" }}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
-                  />
-                </div>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <div
+                      className={`overflow-hidden rounded-full bg-brand-light mb-6 flex items-center justify-center ${memberSize} cursor-pointer`}
+                    >
+                      <img
+                        src={memberImg}
+                        alt={`Retrato de ${member.name}`}
+                        loading="lazy"
+                        style={{ objectPosition: memberImagePositions[member.id] || "center" }}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
+                      />
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent
+                    className="w-[90vw] max-w-[90vw] rounded-none sm:rounded-none overflow-y-auto max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-4rem)] min-h-[60vh] sm:min-h-[70vh] pt-4 px-4 pb-0 sm:pt-6 sm:px-6 sm:pb-0"
+                    ref={scrollRef}
+                  >
+                    <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
+                      <div className="overflow-hidden w-full max-w-[20rem] h-80 sm:w-88 sm:h-88 shrink-0 rounded-none">
+                        <img
+                          src={memberImg}
+                          alt={`Foto de ${member.name}`}
+                          style={{ objectPosition: memberModalImagePositions[member.id] || "center" }}
+                          className="w-full h-full object-cover rounded-none"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <DialogHeader>
+                          <DialogTitle>{member.name}</DialogTitle>
+                          <DialogDescription className="text-sm text-brand-gray">
+                            {member.role}
+                          </DialogDescription>
+                        </DialogHeader>
+                        <div className="text-sm leading-relaxed text-brand-gray mt-4">
+                          {member.bio}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="sticky bottom-0 z-10 flex items-center justify-center border-t border-brand-gray/10 bg-white/95 pb-0 backdrop-blur-sm sm:hidden">
+                      <button
+                        type="button"
+                        className="w-full max-w-[18rem] text-center text-[15px] uppercase tracking-[0.4em] text-brand-black font-bold py-3"
+                        onClick={() => {
+                          const container = scrollRef.current;
+                          if (container) {
+                            container.scrollTo({
+                              top: container.scrollHeight - container.clientHeight,
+                              behavior: "smooth",
+                            });
+                          }
+                        }}
+                      >
+                        {t.common.scroll}
+                      </button>
+                    </div>
+                  </DialogContent>
+                </Dialog>
                 <h3 className="font-serif text-2xl">{member.name}</h3>
                 <p className="text-[10px] uppercase tracking-[0.3em] opacity-60 mt-2 mb-4">
                   {member.role}

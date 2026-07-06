@@ -1499,25 +1499,32 @@ function ProjectModal({
     return (
       <div
         className="fixed inset-0 z-90 bg-brand-black/95 backdrop-blur-sm flex items-center justify-center p-2 md:p-12"
-        onClick={() => setExpandedImageIndex(null)}
+        onPointerDown={(event) => {
+          if (event.target === event.currentTarget) {
+            setExpandedImageIndex(null);
+          }
+        }}
       >
-        <div
-          className="relative max-w-full max-h-[90vh] w-full h-full flex items-center justify-center"
-          onClick={(e) => e.stopPropagation()}
-        >
+        <div className="relative max-w-full max-h-[90vh] w-full h-full flex items-center justify-center">
           <button
             type="button"
             onClick={() => setExpandedImageIndex(null)}
             aria-label={t.projects.modal.close}
-            className="absolute top-2 right-2 md:right-20 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
+            className="absolute top-4 right-4 md:right-6 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
           >
             {t.projects.modal.close}
           </button>
-          <img
-            src={expandedItem.src}
-            alt={expandedItem.label[language]}
-            className={`max-w-full max-h-full ${expandedItem.imageClassName ?? "object-contain"}`}
-          />
+          <div
+            className="flex h-full w-full items-center justify-center"
+            onPointerDown={(event) => event.stopPropagation()}
+          >
+            <img
+              src={expandedItem.src}
+              alt={expandedItem.label[language]}
+              onClick={(e) => e.stopPropagation()}
+              className={`max-w-full max-h-full ${expandedItem.imageClassName ?? "object-contain"}`}
+            />
+          </div>
         </div>
       </div>
     );
