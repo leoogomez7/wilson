@@ -121,18 +121,22 @@ interface Project {
   origin?: "casas" | "proyectos";
 }
 
-const uniqueGalleryBySrc = (
-  gallery: Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos">; phase?: "antes" | "despues"; isFeatured?: boolean; imageClassName?: string }>
-) =>
-  gallery.reduce(
-    (acc, item) => {
-      if (!acc.some((existing) => existing.src === item.src)) {
-        acc.push(item);
-      }
-      return acc;
-    },
-    [] as Array<{ src: string; label: LocalizedString; atmosphere: Exclude<AtmosphereType, "todos">; phase?: "antes" | "despues"; isFeatured?: boolean; imageClassName?: string }>
-  );
+type GalleryItem = {
+  src: string;
+  label: LocalizedString;
+  atmosphere: Exclude<AtmosphereType, "todos">;
+  phase?: "antes" | "despues";
+  isFeatured?: boolean;
+  imageClassName?: string;
+};
+
+const uniqueGalleryBySrc = (gallery: GalleryItem[]) =>
+  gallery.reduce((acc, item) => {
+    if (!acc.some((existing) => existing.src === item.src)) {
+      acc.push(item);
+    }
+    return acc;
+  }, [] as GalleryItem[]);
 
 export const projects: Project[] = [
   {
@@ -310,13 +314,13 @@ export const projects: Project[] = [
     id: "proyecto-carla",
     title: {
       es: "Proyecto Carla",
-      en: "Proyecto Carla",
-      pt: "Proyecto Carla",
+      en: "Carla Project",
+      pt: "Projeto Carla",
     },
     meta: {
-      es: "Local de eventos + Quincho - 2026",
-      en: "Event Venue + Pavilion — 2026",
-      pt: "Local de eventos + Pabellón — 2026",
+      es: "Comercial - 2026",
+      en: "Commercial — 2026",
+      pt: "Comercial — 2026",
     },
     category: "comercial",
     image: proyectoCarlaExteriorAnochecer,
@@ -874,7 +878,7 @@ export function Projects({ mode = "home", section }: { mode?: SectionMode; secti
     ...projects
       .filter((project) => !casaIds.has(project.id))
       .map((project) => ({ ...project, origin: "proyectos" as const })),
-  ] as Project[];
+  ];
 
   const source = combinedProjects;
   const sectionId = mode === "section" && section ? section : "proyectos";
@@ -1491,37 +1495,33 @@ function ProjectModal({
     setActiveSlide(0);
   }, [project.id, selectedAtmosphere]);
 
-  const activeItem = reorderedGalleryItems[activeIndex];
+  const activeItem = reorderedGalleryItems[activeIndex]!;
 
   // If an image is expanded, show the expanded view
   if (expandedImageIndex !== null) {
-    const expandedItem = reorderedGalleryItems[expandedImageIndex];
+    const expandedItem = reorderedGalleryItems[expandedImageIndex]!;
     return (
       <div
-        className="fixed inset-0 z-90 bg-brand-black/95 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 md:p-10"
+        className="fixed inset-0 z-90 bg-brand-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
         onClick={() => setExpandedImageIndex(null)}
       >
-        <div className="relative flex h-full w-full max-w-[95vw] items-center justify-center">
-          <div className="absolute inset-0" />
+        <div
+          className="relative max-w-full max-h-[90vh] w-full h-full flex items-center justify-center"
+          onClick={(e) => e.stopPropagation()}
+        >
           <button
             type="button"
-            onClick={(event) => {
-              event.stopPropagation();
-              setExpandedImageIndex(null);
-            }}
+            onClick={() => setExpandedImageIndex(null)}
             aria-label={t.projects.modal.close}
-            className="absolute top-3 right-3 z-20 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap sm:top-4 sm:right-4 md:top-6 md:right-6"
+            className="absolute top-4 right-4 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
           >
             {t.projects.modal.close}
           </button>
-          <div className="relative z-10 flex h-full w-full items-center justify-center">
-            <img
-              src={expandedItem.src}
-              alt={expandedItem.label[language]}
-              onClick={(event) => event.stopPropagation()}
-              className={`h-auto w-auto max-h-[90vh] max-w-[90vw] ${expandedItem.imageClassName ?? "object-contain"}`}
-            />
-          </div>
+          <img
+            src={expandedItem.src}
+            alt={expandedItem.label[language]}
+            className={`max-w-full max-h-full ${expandedItem.imageClassName ?? "object-contain"}`}
+          />
         </div>
       </div>
     );
@@ -1537,7 +1537,7 @@ function ProjectModal({
         onClick={(e) => e.stopPropagation()}
       >
         {galleryItems.length > 0 ? (
-          <div className="absolute top-3 right-3 z-10 sm:top-4 sm:right-4 md:top-6 md:right-6">
+          <div className="absolute top-4 right-4 z-10">
             <button
               type="button"
               onClick={onClose}
@@ -1552,7 +1552,7 @@ function ProjectModal({
             type="button"
             onClick={onClose}
             aria-label={t.projects.modal.close}
-            className="absolute top-3 right-3 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap sm:top-4 sm:right-4 md:top-6 md:right-6"
+            className="absolute top-4 right-4 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
           >
             {t.projects.modal.close}
           </button>
