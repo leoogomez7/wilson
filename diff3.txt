@@ -1,0 +1,779 @@
+﻿diff --git a/src/components/Projects.tsx b/src/components/Projects.tsx
+index 7c7f2cc..f5d041b 100644
+--- a/src/components/Projects.tsx
++++ b/src/components/Projects.tsx
+@@ -18,10 +18,46 @@ import casaCoffeeExteriorAmanecer from "@/assets/Casas/Coffee/CasaCoffee-Exterio
+ import casaCoffeeExteriorAnochecer from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Anochecer de verano..png";
+ import casaCoffeeExteriorAtardecer from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Atardecer de oto├▒o..png";
+ import casaCoffeeContrafachadaAmanecer from "@/assets/Casas/Coffee/CasaCoffee_Contrafachada_Amanecer de Primavera.png";
+-import casaCoffeeContrafachadaAnochecer from "@/assets/Casas/Coffee/CasaCoffe-Contrafachada_Anochecer de verano.png";
+-import casaCoffeeContrafachadaAtardecer from "@/assets/Casas/Coffee/CasaCoffe-Contrafachada_Atardecer de oto├▒o.png";
++import casaCoffeeContrafachadaAnochecer from "@/assets/Casas/Coffee/CasaCoffee-Contrafachada_Anochecer de verano.png";
++import casaCoffeeContrafachadaAtardecer from "@/assets/Casas/Coffee/CasaCoffee-Contrafachada_Atardecer de oto├▒o.png";
+ import casaCoffeeInteriorLiving from "@/assets/Casas/Coffee/CasaCoffee-Interior_Living..png";
+ import casaCoffeeInteriorSuite from "@/assets/Casas/Coffee/CasaCoffee-Interior_Suite..png";
++import casaIntiContrafachadaAmanecer from "@/assets/Casas/Inti/CasaInti-Contrafachada_Amanecer de Primavera.png";
++import casaIntiContrafachadaAnochecer from "@/assets/Casas/Inti/CasaInti-Contrafachada_Anochecer de Verano.png";
++import casaIntiContrafachadaAtardecer from "@/assets/Casas/Inti/CasaInti-Contrafachada_Atardecer de Oto├▒o.png";
++import casaIntiExteriorAmanecer from "@/assets/Casas/Inti/CasaInti-Exterior_Amanecer de Primavera.png";
++import casaIntiExteriorAnochecer from "@/assets/Casas/Inti/CasaInti-Exterior_Anochecer de Verano.png";
++import casaIntiExteriorAtardecer from "@/assets/Casas/Inti/CasaInti-Exterior_Atardecer de Oto├▒o.png";
++import casaIntiInterior from "@/assets/Casas/Inti/CasaInti-Interior.png";
++import casaIntiInteriorCocina from "@/assets/Casas/Inti/CasaInti-Interior_Cocina.png";
++import casaIntiInteriorLiving from "@/assets/Casas/Inti/CasaInti-Interior_Living.png";
++import casaIntiInteriorLiving02 from "@/assets/Casas/Inti/CasaInti-Interior_Living02.png";
++import casaNavarroExteriorAmanecer from "@/assets/Casas/Navarro/CasaNavarro-Exterior_Amanecer de Primavera.png";
++import casaNavarroExteriorAnochecer from "@/assets/Casas/Navarro/CasaNavarro-Exterior_Anochecer de Verano.png";
++import casaNavarroExteriorAtardecer from "@/assets/Casas/Navarro/CasaNavarro-Exterior_Atardecer de oto├▒o.png";
++import casaNavarroExteriorContrafrenteAmanecer from "@/assets/Casas/Navarro/CasaNavarro-ExteriorContrafrente_Amanecer de Primavera.png";
++import casaNavarroExteriorContrafrenteAnochecer from "@/assets/Casas/Navarro/CasaNavarro-ExteriorContrafrente_Anochcer de Verano.png";
++import casaNavarroExteriorContrafrenteAtardecer from "@/assets/Casas/Navarro/CasaNavarro-ExteriorContrafrente_Atardecer de oto├▒o.png";
++import casaNavarroExteriorGaleriaAmanecer from "@/assets/Casas/Navarro/CasaNavarro-ExteriorGaler├¡a_Amaanecer de Primavera.png";
++import casaNavarroExteriorGaleriaAnochecer from "@/assets/Casas/Navarro/CasaNavarro-ExteriorGaler├¡a_Anochecer de verano.png";
++import casaNavarroExteriorGaleriaAtardecer from "@/assets/Casas/Navarro/CasaNavarro-ExteriorGaler├¡a_Atardecer de Oto├▒o.png";
++import casaNavarroExteriorLateralAmanecer from "@/assets/Casas/Navarro/CasaNavarro-ExteriorLateral_Amanecer de Primavera.png";
++import casaNavarroExteriorLateralAnochecer from "@/assets/Casas/Navarro/CasaNavarro-ExteriorLateral_Anochcer de Verano.png";
++import casaNavarroExteriorLateralAtardecer from "@/assets/Casas/Navarro/CasaNavarro-ExteriorLateral_Atardecer de oto├▒o.png";
++import casaNavarroInteriorDormitorio from "@/assets/Casas/Navarro/CasaNavarro-Interior_Dormitorio.png";
++import casaNavarroInteriorDormitorio02 from "@/assets/Casas/Navarro/CasaNavarro-Interior_Dormitorio02.png";
++import casaNavarroInteriorLiving02 from "@/assets/Casas/Navarro/CasaNavarro-Interior_Living02.png";
++import casaNavarroInteriorCocina from "@/assets/Casas/Navarro/CasaNavarro-InteriorCocina.png";
++import casaNavarroInteriorLiving from "@/assets/Casas/Navarro/CasaNavarro-InteriorLiving.png";
++import casaScottExteriorAmanecer from "@/assets/Casas/Scott/CasaScott-Exterior_Amanecer de primavera.png";
++import casaScottExteriorAnochecer from "@/assets/Casas/Scott/CasaScott-Exterior_Anochecer de verano.png";
++import casaScottExteriorAtardecer from "@/assets/Casas/Scott/CasaScott-Exterior_Atardecer de oto├▒o.png";
++import casaScottContrafachadaAmanecer from "@/assets/Casas/Scott/CasaScott-Contrafachada_Amanecer de Primavera.png";
++import casaScottContrafachadaAnochecer from "@/assets/Casas/Scott/CasaScott-Contrafachada_Anochecer de Verano.png";
++import casaScottContrafachadaAtardecer from "@/assets/Casas/Scott/CasaScott-Contrafachada_Atardecer de Oto├▒o.png";
++import casaScottInteriorCocina from "@/assets/Casas/Scott/CasaScott-Interior_Cocina..png";
++import casaScottInteriorLiving from "@/assets/Casas/Scott/CasaScott-Interior_Living.png";
++import casaScottInteriorSuite from "@/assets/Casas/Scott/CasaScott-Interior_Suite..png";
+ import zAmanecer from "@/assets/Proyectos/Z/Frente_Amanecer de primavera.png";
+ import zAmanecerExterior from "@/assets/Proyectos/Z/Frente_Lateral_Amanecer de Primavera.png";
+ import zAnochecerFrente from "@/assets/Proyectos/Z/Frente_Anochecer de verano.png";
+@@ -146,13 +182,23 @@ type GalleryItem = {
+   openSrc?: string;
+ };
+ 
+-const uniqueGalleryBySrc = (gallery: GalleryItem[]) =>
+-  gallery.reduce((acc, item) => {
+-    if (!acc.some((existing) => existing.src === item.src)) {
++const uniqueGalleryBySrc = (gallery: GalleryItem[], targetAtmosphere?: AtmosphereType) => {
++  const acc: GalleryItem[] = [];
++
++  for (const item of gallery) {
++    const existingIndex = acc.findIndex((existing) => existing.src === item.src);
++    if (existingIndex === -1) {
+       acc.push(item);
++      continue;
++    }
++
++    if (targetAtmosphere && item.atmosphere === targetAtmosphere) {
++      acc[existingIndex] = item;
+     }
+-    return acc;
+-  }, [] as GalleryItem[]);
++  }
++
++  return acc;
++};
+ 
+ export const projects: Project[] = [
+   {
+@@ -330,8 +376,8 @@ export const projects: Project[] = [
+     id: "proyecto-carla",
+     title: {
+       es: "Proyecto Carla",
+-      en: "Carla Project",
+-      pt: "Projeto Carla",
++      en: "Proyecto Carla",
++      pt: "Proyecto Carla",
+     },
+     meta: {
+       es: "Comercial - 2026",
+@@ -517,8 +563,8 @@ export const projects: Project[] = [
+     id: "proyecto-salem",
+     title: {
+       es: "Proyecto Salem",
+-      en: "Salem Project - 2025",
+-      pt: "Projeto Salem - 2025",
++      en: "Proyecto Salem",
++      pt: "Proyecto Salem",
+     },
+     meta: {
+       es: "Comercial - 2025",
+@@ -557,9 +603,9 @@ export const projects: Project[] = [
+   {
+     id: "proyecto-motoquero",
+     title: {
+-      es: "Motoquero",
+-      en: "Motoquero",
+-      pt: "Motoquero",
++      es: "El Motoquero",
++      en: "El Motoquero",
++      pt: "El Motoquero",
+     },
+     meta: {
+       es: "Local Comercial - 2026",
+@@ -869,44 +915,13 @@ import { SectionMode } from "@/components/SectionMode";
+ export function Projects({ mode = "home", section }: { mode?: SectionMode; section?: SectionOrigin }) {
+   const { t, language } = useTranslation();
+   const [active, setActive] = useState<Category>("todos");
+-  const [originFilter, setOriginFilter] = useState<"all" | "casas" | "proyectos">("all");
+   const [listAtmosphere, setListAtmosphere] = useState<AtmosphereType>("todos");
+   const [selectedId, setSelectedId] = useState<string | null>(null);
+   const [navChoiceOpen, setNavChoiceOpen] = useState(false);
+ 
+-  const updateOriginFilterFromHash = () => {
+-    if (typeof window === "undefined") return;
+-    if (mode !== "section" || section !== "proyectos") return;
+-
+-    const hash = window.location.hash.replace("#", "");
+-    const [, queryString] = hash.split("?", 2);
+-    const params = new URLSearchParams(queryString ?? "");
+-    const type = params.get("type");
+-
+-    if (type === "casas") {
+-      setOriginFilter("casas");
+-    } else if (type === "proyectos") {
+-      setOriginFilter("proyectos");
+-    } else if (type === "all" || type === "todos") {
+-      setOriginFilter("all");
+-    }
+-  };
+-
+   useEffect(() => {
+     if (mode !== "section" || section !== "proyectos") return;
+-    setOriginFilter("all");
+-  }, [mode, section]);
+-
+-  useEffect(() => {
+-    updateOriginFilterFromHash();
+-    if (typeof window === "undefined") return;
+-
+-    const handleHashChange = () => {
+-      updateOriginFilterFromHash();
+-    };
+-
+-    window.addEventListener("hashchange", handleHashChange);
+-    return () => window.removeEventListener("hashchange", handleHashChange);
++    setActive("todos");
+   }, [mode, section]);
+ 
+   const casaProjectsWithIds = casaProjects
+@@ -933,10 +948,7 @@ export function Projects({ mode = "home", section }: { mode?: SectionMode; secti
+   const sectionId = mode === "section" && section ? section : "proyectos";
+   const filteredByCategory =
+     active === "todos" ? source : source.filter((p) => p.category === active);
+-  const visibleByOrigin =
+-    originFilter === "all"
+-      ? filteredByCategory
+-      : filteredByCategory.filter((p) => p.origin === originFilter);
++  const visibleByOrigin = filteredByCategory;
+   const visible =
+     listAtmosphere === "todos"
+       ? visibleByOrigin
+@@ -956,12 +968,6 @@ export function Projects({ mode = "home", section }: { mode?: SectionMode; secti
+     { key: "comercial", label: t.projects.filters.comercial },
+     { key: "reformas", label: t.projects.filters.reformas },
+   ];
+-  const typeFilters: Array<{ key: "all" | "casas" | "proyectos"; label: string }> = [
+-    { key: "all", label: t.projects.originFilterLabels.all },
+-    { key: "casas", label: t.projects.originFilterLabels.casas },
+-    { key: "proyectos", label: t.projects.originFilterLabels.proyectos },
+-  ];
+-
+   return (
+     <section id="proyectos" className="relative py-5 md:py-8 px-6 md:px-20 bg-white">
+       <div id="casas" className="absolute -top-24" />
+@@ -1002,25 +1008,6 @@ export function Projects({ mode = "home", section }: { mode?: SectionMode; secti
+         </div>
+       </div>
+ 
+-      <div className="mb-6">
+-        <div className="text-[10px] uppercase tracking-[0.3em] font-semibold text-brand-gray mb-4">
+-          {t.projects.typeFilterTitle}
+-        </div>
+-        <div className="flex flex-wrap gap-6 md:gap-8 text-[10px] uppercase tracking-[0.25em] font-semibold">
+-          {typeFilters.map((f) => (
+-            <button
+-              key={f.key}
+-              onClick={() => setOriginFilter(f.key)}
+-              className={`rounded-none border border-brand-light px-4 py-2 uppercase transition whitespace-nowrap ${
+-                originFilter === f.key ? "bg-brand-black text-white border-brand-black" : "bg-white text-brand-black hover:bg-brand-light"
+-              }`}
+-            >
+-              {f.label}
+-            </button>
+-          ))}
+-        </div>
+-      </div>
+-
+       <div className="grid grid-cols-12 gap-y-16 md:gap-y-24 md:gap-x-12">
+         {visible.length === 0 ? (
+           <div className="col-span-12 rounded-none border border-brand-light bg-brand-gray/5 p-8 text-center text-sm uppercase tracking-[0.3em] text-brand-gray">
+@@ -1231,9 +1218,7 @@ function ProjectModal({
+         .trim();
+     };
+ 
+-    const currentItem = project.gallery.find(
+-      (item) => item.src === src || item.openSrc === src
+-    );
++    const currentItem = project.gallery.find((item) => item.src === src);
+     if (!currentItem) return null;
+ 
+     if (currentItem.phase === targetPhase) return currentItem.src;
+@@ -1358,6 +1343,46 @@ function ProjectModal({
+     ];
+   };
+ 
++  const getCasaCoffeeDesiredSrcOrder = (atm: AtmosphereType): string[] => {
++    if (atm === "todos") {
++      return [
++        casaCoffeeExteriorAnochecer,
++        casaCoffeeExteriorAtardecer,
++        casaCoffeeExteriorAmanecer,
++        casaCoffeeContrafachadaAnochecer,
++        casaCoffeeContrafachadaAtardecer,
++        casaCoffeeContrafachadaAmanecer,
++        casaCoffeeInteriorLiving,
++        casaCoffeeInteriorSuite,
++      ];
++    }
++
++    if (atm === "anochecer") {
++      return [
++        casaCoffeeExteriorAnochecer,
++        casaCoffeeContrafachadaAnochecer,
++        casaCoffeeInteriorLiving,
++        casaCoffeeInteriorSuite,
++      ];
++    }
++
++    if (atm === "atardecer") {
++      return [
++        casaCoffeeExteriorAtardecer,
++        casaCoffeeContrafachadaAtardecer,
++        casaCoffeeInteriorLiving,
++        casaCoffeeInteriorSuite,
++      ];
++    }
++
++    return [
++      casaCoffeeExteriorAmanecer,
++      casaCoffeeContrafachadaAmanecer,
++      casaCoffeeInteriorLiving,
++      casaCoffeeInteriorSuite,
++    ];
++  };
++
+   const galleryItems = isPhaseFilterProject
+     ? uniqueGalleryBySrc(project.gallery ?? []).filter((item) => {
+         if (piliFilter === "all") return true;
+@@ -1365,8 +1390,15 @@ function ProjectModal({
+       })
+     : project.id === "proyecto-salem"
+     ? modalAtmosphere === "todos"
+-      ? project.gallery ?? []
++      ? uniqueGalleryBySrc(project.gallery ?? [])
+       : (project.gallery ?? []).filter((item) => item.atmosphere === modalAtmosphere)
++    : project.id === "casa-del-limonero"
++    ? (project.gallery ?? []).filter(
++        (item) =>
++          modalAtmosphere === "todos" ||
++          item.atmosphere === modalAtmosphere ||
++          [delLimoneroDormitorio, delLimoneroLiving, delLimoneroOficina].includes(item.src)
++      )
+     : project.id === "proyecto-carla"
+     ? orderGalleryItemsBySrc(
+         uniqueGalleryBySrc(project.gallery ?? []),
+@@ -1381,77 +1413,33 @@ function ProjectModal({
+ 
+   let reorderedGalleryItems = galleryItems;
+ 
+-  // Casa del Limonero exact ordering for atmosphere filters
+-  if (project.id === "casa-del-limonero") {
+-    reorderedGalleryItems = applyMoves(reorderedGalleryItems, [
+-      { from: 3, to: 6 },
+-      { from: 5, to: 6 },
+-    ]);
+-
+-    const getOrderedItems = (desiredSrcOrder: string[]) => {
+-      const ordered: typeof reorderedGalleryItems = [];
+-      const remaining = [...reorderedGalleryItems];
+-
+-      for (const src of desiredSrcOrder) {
+-        const index = remaining.findIndex((item) => item.src === src);
+-        if (index >= 0) {
+-          ordered.push(remaining.splice(index, 1)[0]);
+-        }
+-      }
+-
+-      return [...ordered, ...remaining];
+-    };
+-
+-    if (modalAtmosphere === "anochecer") {
+-      reorderedGalleryItems = getOrderedItems([
++  if (project.id === "casa-del-limonero" && modalAtmosphere === "todos") {
++    reorderedGalleryItems = orderGalleryItemsBySrc(
++      reorderedGalleryItems,
++      [
+         delLimoneroAnochecer,
+         delLimoneroAtardecer,
++        delLimoneroAmanecer,
+         delLimoneroContrafachadaAnochecer,
+-        delLimoneroExteriorLateralAnochecer,
+-        delLimoneroDormitorio,
+-        delLimoneroLiving,
+-        delLimoneroOficina,
+-      ]);
+-    }
+-
+-    if (modalAtmosphere === "atardecer") {
+-      reorderedGalleryItems = getOrderedItems([
+-        delLimoneroAtardecer,
+         delLimoneroContrafachadaAtardecer,
+-        delLimoneroExteriorLateralAtardecer,
+-        delLimoneroDormitorio,
+-        delLimoneroLiving,
+-        delLimoneroOficina,
+-      ]);
+-    }
+-
+-    if (modalAtmosphere === "amanecer") {
+-      reorderedGalleryItems = getOrderedItems([
+-        delLimoneroAmanecer,
+         delLimoneroContrafachadaAmanecer,
++        delLimoneroExteriorLateralAnochecer,
++        delLimoneroExteriorLateralAtardecer,
+         delLimoneroExteriorLateralAmanecer,
+         delLimoneroDormitorio,
+         delLimoneroLiving,
+         delLimoneroOficina,
+-      ]);
+-    }
++      ],
++      false
++    );
+   }
+ 
+-  // Casa Coffee: 1 stays, swap 2<->3, then rotate 4->5,5->6,6->4
+   if (project.id === "casa-coffee") {
+-    if (galleryItems.length >= 6) {
+-      reorderedGalleryItems = [
+-        galleryItems[0],
+-        galleryItems[2],
+-        galleryItems[1],
+-        galleryItems[4],
+-        galleryItems[5],
+-        galleryItems[3],
+-        ...galleryItems.slice(6),
+-      ];
+-    } else if (galleryItems.length >= 3) {
+-      reorderedGalleryItems = [galleryItems[0], galleryItems[2], galleryItems[1], ...galleryItems.slice(3)];
+-    }
++    reorderedGalleryItems = orderGalleryItemsBySrc(
++      reorderedGalleryItems,
++      getCasaCoffeeDesiredSrcOrder(modalAtmosphere),
++      false
++    );
+   }
+ 
+   // Casa Scott: user-specified mapping
+@@ -1637,6 +1625,7 @@ function ProjectModal({
+   const [expandedImageIndex, setExpandedImageIndex] = useState<number | null>(null);
+   const [atmosphereError, setAtmosphereError] = useState<string | null>(null);
+   const [desiredActiveSrc, setDesiredActiveSrc] = useState<string | null>(null);
++  const [preserveActiveSlide, setPreserveActiveSlide] = useState(false);
+   const activeIndex = reorderedGalleryItems.length > 0 ? activeSlide % reorderedGalleryItems.length : 0;
+ 
+   const getCasaCoffeeTargetSrc = (src?: string, targetAtmosphere?: AtmosphereType): string | null => {
+@@ -1651,6 +1640,72 @@ function ProjectModal({
+     return null;
+   };
+ 
++  const delLimoneroSrcTargets: Record<
++    string,
++    Record<Exclude<AtmosphereType, "todos">, string>
++  > = {
++    [delLimoneroContrafachadaAmanecer]: {
++      anochecer: delLimoneroContrafachadaAnochecer,
++      atardecer: delLimoneroContrafachadaAtardecer,
++      amanecer: delLimoneroContrafachadaAmanecer,
++    },
++    [delLimoneroContrafachadaAnochecer]: {
++      anochecer: delLimoneroContrafachadaAnochecer,
++      atardecer: delLimoneroContrafachadaAtardecer,
++      amanecer: delLimoneroContrafachadaAmanecer,
++    },
++    [delLimoneroContrafachadaAtardecer]: {
++      anochecer: delLimoneroContrafachadaAnochecer,
++      atardecer: delLimoneroContrafachadaAtardecer,
++      amanecer: delLimoneroContrafachadaAmanecer,
++    },
++    [delLimoneroExteriorLateralAmanecer]: {
++      anochecer: delLimoneroExteriorLateralAnochecer,
++      atardecer: delLimoneroExteriorLateralAtardecer,
++      amanecer: delLimoneroExteriorLateralAmanecer,
++    },
++    [delLimoneroExteriorLateralAnochecer]: {
++      anochecer: delLimoneroExteriorLateralAnochecer,
++      atardecer: delLimoneroExteriorLateralAtardecer,
++      amanecer: delLimoneroExteriorLateralAmanecer,
++    },
++    [delLimoneroExteriorLateralAtardecer]: {
++      anochecer: delLimoneroExteriorLateralAnochecer,
++      atardecer: delLimoneroExteriorLateralAtardecer,
++      amanecer: delLimoneroExteriorLateralAmanecer,
++    },
++    [delLimoneroAmanecer]: {
++      anochecer: delLimoneroAnochecer,
++      atardecer: delLimoneroAtardecer,
++      amanecer: delLimoneroAmanecer,
++    },
++    [delLimoneroAnochecer]: {
++      anochecer: delLimoneroAnochecer,
++      atardecer: delLimoneroAtardecer,
++      amanecer: delLimoneroAmanecer,
++    },
++    [delLimoneroAtardecer]: {
++      anochecer: delLimoneroAnochecer,
++      atardecer: delLimoneroAtardecer,
++      amanecer: delLimoneroAmanecer,
++    },
++    [delLimoneroDormitorio]: {
++      anochecer: delLimoneroDormitorio,
++      atardecer: delLimoneroDormitorio,
++      amanecer: delLimoneroDormitorio,
++    },
++    [delLimoneroLiving]: {
++      anochecer: delLimoneroLiving,
++      atardecer: delLimoneroLiving,
++      amanecer: delLimoneroLiving,
++    },
++    [delLimoneroOficina]: {
++      anochecer: delLimoneroOficina,
++      atardecer: delLimoneroOficina,
++      amanecer: delLimoneroOficina,
++    },
++  };
++
+   const getCasaBonziTargetSrc = (src?: string, targetPhase?: "antes" | "despues"): string | null => {
+     if (!src || !targetPhase) return null;
+ 
+@@ -1683,8 +1738,189 @@ function ProjectModal({
+     return null;
+   };
+ 
++  const createThreeWayAtmosphereMap = (
++    anochecerSrc: string,
++    atardecerSrc: string,
++    amanecerSrc: string
++  ) => ({
++    [anochecerSrc]: { anochecer: anochecerSrc, atardecer: atardecerSrc, amanecer: amanecerSrc },
++    [atardecerSrc]: { anochecer: anochecerSrc, atardecer: atardecerSrc, amanecer: amanecerSrc },
++    [amanecerSrc]: { anochecer: anochecerSrc, atardecer: atardecerSrc, amanecer: amanecerSrc },
++  });
++
++  const getProjectAlwaysVisibleSrcs = (projectId: string) => {
++    if (projectId === "casa-del-limonero") {
++      return [delLimoneroDormitorio, delLimoneroLiving, delLimoneroOficina];
++    }
++
++    if (projectId === "casa-coffee") {
++      return [casaCoffeeInteriorLiving, casaCoffeeInteriorSuite];
++    }
++
++    if (projectId === "casa-scott") {
++      return [
++        casaScottInteriorCocina,
++        casaScottInteriorLiving,
++        casaScottInteriorSuite,
++      ];
++    }
++
++    return [];
++  };
++
++  const getSceneKey = (label: LocalizedString) => {
++    const text = (label.es || label.en || label.pt || "").toLowerCase();
++    return text
++      .normalize("NFD")
++      .replace(/[\u0300-\u036f]/g, "")
++      .replace(/[^a-z0-9]+/g, " ")
++      .trim();
++  };
++
++  const getAtmosphereSceneKey = (label: LocalizedString) => {
++    return getSceneKey(label)
++      .replace(/\b(antes|despues|despu├®s|depois|before|after)\b/g, "")
++      .replace(/\s+/g, " ")
++      .trim();
++  };
++
++  const getProjectAtmosphereTargetSrc = (
++    projectId: string,
++    currentSrc?: string,
++    targetAtmosphere?: AtmosphereType,
++    gallery?: GalleryItem[]
++  ): string | null => {
++    if (!currentSrc || !targetAtmosphere || targetAtmosphere === "todos") return null;
++
++    const alwaysVisible = getProjectAlwaysVisibleSrcs(projectId);
++    if (alwaysVisible.includes(currentSrc)) return currentSrc;
++
++    const currentItem = gallery?.find((item) => item.src === currentSrc);
++    if (
++      projectId === "casa-coffee" &&
++      [casaCoffeeInteriorLiving, casaCoffeeInteriorSuite].includes(currentSrc)
++    ) {
++      return currentSrc;
++    }
++
++    if (currentItem) {
++      if (currentItem.atmosphere === targetAtmosphere) return currentSrc;
++
++      const currentSceneKey = getAtmosphereSceneKey(currentItem.label);
++      const targetItem = gallery?.find(
++        (item) =>
++          item.atmosphere === targetAtmosphere && getAtmosphereSceneKey(item.label) === currentSceneKey
++      );
++      if (targetItem) return targetItem.src;
++    }
++
++    const targetMap: Record<
++      string,
++      Record<string, Record<Exclude<AtmosphereType, "todos">, string>>
++    > = {
++      "casa-inti": {
++        ...createThreeWayAtmosphereMap(casaIntiExteriorAnochecer, casaIntiExteriorAtardecer, casaIntiExteriorAmanecer),
++        ...createThreeWayAtmosphereMap(casaIntiContrafachadaAnochecer, casaIntiContrafachadaAtardecer, casaIntiContrafachadaAmanecer),
++      },
++      "casa-coffee": {
++        ...createThreeWayAtmosphereMap(casaCoffeeExteriorAnochecer, casaCoffeeExteriorAtardecer, casaCoffeeExteriorAmanecer),
++        ...createThreeWayAtmosphereMap(casaCoffeeContrafachadaAnochecer, casaCoffeeContrafachadaAtardecer, casaCoffeeContrafachadaAmanecer),
++        [casaCoffeeInteriorLiving]: {
++          anochecer: casaCoffeeInteriorLiving,
++          atardecer: casaCoffeeInteriorLiving,
++          amanecer: casaCoffeeInteriorLiving,
++        },
++        [casaCoffeeInteriorSuite]: {
++          anochecer: casaCoffeeInteriorSuite,
++          atardecer: casaCoffeeInteriorSuite,
++          amanecer: casaCoffeeInteriorSuite,
++        },
++      },
++      "casa-scott": {
++        ...createThreeWayAtmosphereMap(casaScottExteriorAnochecer, casaScottExteriorAtardecer, casaScottExteriorAmanecer),
++        ...createThreeWayAtmosphereMap(casaScottContrafachadaAnochecer, casaScottContrafachadaAtardecer, casaScottContrafachadaAmanecer),
++        [casaScottInteriorCocina]: {
++          anochecer: casaScottInteriorCocina,
++          atardecer: casaScottInteriorCocina,
++          amanecer: casaScottInteriorCocina,
++        },
++        [casaScottInteriorLiving]: {
++          anochecer: casaScottInteriorLiving,
++          atardecer: casaScottInteriorLiving,
++          amanecer: casaScottInteriorLiving,
++        },
++        [casaScottInteriorSuite]: {
++          anochecer: casaScottInteriorSuite,
++          atardecer: casaScottInteriorSuite,
++          amanecer: casaScottInteriorSuite,
++        },
++      },
++      "casa-navarro": {
++        ...createThreeWayAtmosphereMap(casaNavarroExteriorAnochecer, casaNavarroExteriorAtardecer, casaNavarroExteriorAmanecer),
++        ...createThreeWayAtmosphereMap(casaNavarroExteriorContrafrenteAnochecer, casaNavarroExteriorContrafrenteAtardecer, casaNavarroExteriorContrafrenteAmanecer),
++        ...createThreeWayAtmosphereMap(casaNavarroExteriorGaleriaAnochecer, casaNavarroExteriorGaleriaAtardecer, casaNavarroExteriorGaleriaAmanecer),
++        ...createThreeWayAtmosphereMap(casaNavarroExteriorLateralAnochecer, casaNavarroExteriorLateralAtardecer, casaNavarroExteriorLateralAmanecer),
++      },
++      "proyecto-cyg": {
++        ...createThreeWayAtmosphereMap(cAnochecer, cAtardecer, cAmanecer),
++        ...createThreeWayAtmosphereMap(cAnochecerBack, cContrafachadaAtardecer, cContrafachadaAmanecer),
++        [cAtardecerFrente]: { anochecer: cAnochecer, atardecer: cAtardecer, amanecer: cAmanecer },
++      },
++      "proyecto-carla": {
++        ...createThreeWayAtmosphereMap(proyectoCarlaExteriorAnochecer, proyectoCarlaExteriorAtardecer, proyectoCarlaExteriorAmanecer),
++        ...createThreeWayAtmosphereMap(proyectoCarlaExteriorLateralAnochecer, proyectoCarlaExteriorLateralAtardecer, proyectoCarlaExteriorLateralAmanecer),
++        ...createThreeWayAtmosphereMap(proyectoCarlaExteriorContrafachadaAnochecer, proyectoCarlaContrafachadaAtardecer, proyectoCarlaContrafachadaAmanecer),
++        ...createThreeWayAtmosphereMap(proyectoCarlaExteriorHallAnochecer, proyectoCarlaExtHallAtardecer, proyectoCarlaHallAmanecer),
++        [proyectoCarlaInterior02]: { anochecer: proyectoCarlaInterior02, atardecer: proyectoCarlaInterior02, amanecer: proyectoCarlaInterior02 },
++        [proyectoCarlaParrillaAnochecer]: { anochecer: proyectoCarlaParrillaAnochecer, atardecer: proyectoCarlaParrillaAnochecer, amanecer: proyectoCarlaParrillaAmanecer },
++        [proyectoCarlaParrillaAmanecer]: { anochecer: proyectoCarlaParrillaAnochecer, atardecer: proyectoCarlaParrillaAmanecer, amanecer: proyectoCarlaParrillaAmanecer },
++        [proyectoCarlaContrafachadaLateralAmanecer]: {
++          anochecer: proyectoCarlaContrafachadaLateralAmanecer,
++          atardecer: proyectoCarlaContrafachadaLateralAmanecer,
++          amanecer: proyectoCarlaContrafachadaLateralAmanecer,
++        },
++      },
++      "proyecto-salem": {
++        ...createThreeWayAtmosphereMap(salemFrenteAnochecer, salemFrenteAtardecer, salemFrenteAmanecer),
++        ...createThreeWayAtmosphereMap(salemFrenteLateralExteriorAnochecer, salemFrenteLateralExteriorAtardecer, salemFrenteLateralExteriorAmanecer),
++      },
++      "proyecto-motoquero": {
++        ...createThreeWayAtmosphereMap(motoqueroExteriorAnochecer, motoqueroExteriorAtardecer, motoqueroExteriorAmanecer),
++      },
++      "proyecto-z": {
++        ...createThreeWayAtmosphereMap(zAnochecerFrente, zAtardecerJpg, zAmanecer),
++        ...createThreeWayAtmosphereMap(zAnochecerExterior, zAtardecerExterior, zAmanecerExterior),
++        ...createThreeWayAtmosphereMap(zAnochecerCF, zAtardecer, zContrafachadaAmanecer),
++      },
++    };
++
++    return targetMap[projectId]?.[currentSrc]?.[targetAtmosphere] ?? null;
++  };
++
++  const getDelLimoneroOrderedGalleryItems = (atm: AtmosphereType) => {
++    return (project.gallery ?? []).filter(
++      (item) =>
++        atm === "todos" ||
++        item.atmosphere === atm ||
++        [delLimoneroDormitorio, delLimoneroLiving, delLimoneroOficina].includes(item.src)
++    );
++  };
++
++  const getCurrentSrcInTargetAtmosphere = (
++    currentSrc?: string,
++    targetAtmosphere?: AtmosphereType
++  ) => {
++    if (!currentSrc || !targetAtmosphere || targetAtmosphere === "todos") return null;
++    return (project.gallery ?? []).some(
++      (item) => item.src === currentSrc && item.atmosphere === targetAtmosphere
++    )
++      ? currentSrc
++      : null;
++  };
++
+   const handleAtmosphereChange = (atm: AtmosphereType) => {
+     if (atm === "todos") {
++      setPreserveActiveSlide(false);
+       setDesiredActiveSrc(null);
+       setModalAtmosphere(atm);
+       setAtmosphereError(null);
+@@ -1697,20 +1933,71 @@ function ProjectModal({
+       return;
+     }
+ 
+-    if (project.id === "casa-coffee") {
++    const currentSrc = reorderedGalleryItems[activeIndex]?.src ?? galleryItems[activeIndex]?.src;
++
++    if (project.id === "casa-bonzi") {
++      const targetPhase = atm === "anochecer" ? "despues" : atm === "amanecer" ? "antes" : null;
++      if (targetPhase) {
++        const targetSrc = getCasaBonziTargetSrc(currentSrc, targetPhase);
++        setPreserveActiveSlide(Boolean(targetSrc));
++        setDesiredActiveSrc(targetSrc);
++      } else {
++        setPreserveActiveSlide(false);
++        setDesiredActiveSrc(null);
++      }
++    } else if (project.id === "casa-del-limonero") {
++      const targetSrc = currentSrc ? delLimoneroSrcTargets[currentSrc]?.[atm] ?? null : null;
++
++      if (targetSrc) {
++        const targetItems = getDelLimoneroOrderedGalleryItems(atm);
++        const targetIndex = targetItems.findIndex((item) => item.src === targetSrc);
++
++        if (targetIndex >= 0) {
++          setActiveSlide(targetIndex);
++          setPreserveActiveSlide(true);
++        } else {
++          setActiveSlide(0);
++          setPreserveActiveSlide(false);
++        }
++
++        setDesiredActiveSrc(null);
++      } else {
++        setPreserveActiveSlide(false);
++        setDesiredActiveSrc(null);
++      }
++    } else if (project.id === "casa-coffee") {
+       const currentSrc = reorderedGalleryItems[activeIndex]?.src ?? galleryItems[activeIndex]?.src;
+       setDesiredActiveSrc(getCasaCoffeeTargetSrc(currentSrc, atm));
+-    } else if (project.id === "casa-bonzi") {
+-      // Preserve the same scene when switching between antes/despues on Casa Bonzi.
++    } else if (project.id === "casa-scott") {
+       const currentSrc = reorderedGalleryItems[activeIndex]?.src ?? galleryItems[activeIndex]?.src;
+-      const targetPhase = atm === "anochecer" ? "despues" : atm === "amanecer" ? "antes" : null;
+-      // If there is no direct mapping because the filter is not phase-based, just reset normally.
+-      if (targetPhase) {
+-        setDesiredActiveSrc(getCasaBonziTargetSrc(currentSrc, targetPhase));
++      if (getCurrentSrcInTargetAtmosphere(currentSrc, atm)) {
++        setPreserveActiveSlide(true);
++        setDesiredActiveSrc(currentSrc);
+       } else {
++        setPreserveActiveSlide(false);
++        setDesiredActiveSrc(null);
++      }
++    } else if (
++      [
++        "casa-navarro",
++        "proyecto-cyg",
++        "proyecto-carla",
++        "proyecto-salem",
++        "proyecto-motoquero",
++        "proyecto-z",
++      ].includes(project.id)
++    ) {
++      const currentSrc = reorderedGalleryItems[activeIndex]?.src ?? galleryItems[activeIndex]?.src;
++      const targetSrc = getProjectAtmosphereTargetSrc(project.id, currentSrc, atm, project.gallery);
++      if (targetSrc) {
++        setPreserveActiveSlide(true);
++        setDesiredActiveSrc(targetSrc);
++      } else {
++        setPreserveActiveSlide(false);
+         setDesiredActiveSrc(null);
+       }
+     } else {
++      setPreserveActiveSlide(false);
+       setDesiredActiveSrc(null);
+     }
+ 
+@@ -1746,16 +2033,27 @@ function ProjectModal({
+       setExpandedImageIndex((prev) =>
+         prev === null ? null : Math.min(prev, galleryItems.length - 1)
+       );
+-    } else if (!desiredActiveSrc) {
++    } else if (!preserveActiveSlide && !desiredActiveSrc) {
+       setActiveSlide(0);
+       setExpandedImageIndex(null);
+     }
+-  }, [modalAtmosphere, piliFilter, galleryItems.length, isPhaseFilterProject, desiredActiveSrc]);
++  }, [
++    modalAtmosphere,
++    piliFilter,
++    galleryItems.length,
++    isPhaseFilterProject,
++    desiredActiveSrc,
++    preserveActiveSlide,
++  ]);
+ 
+   useEffect(() => {
+-    if (!desiredActiveSrc || reorderedGalleryItems.length === 0) return;
++    if (!desiredActiveSrc) return;
++    if (reorderedGalleryItems.length === 0) return;
++
+     const nextIndex = reorderedGalleryItems.findIndex((item) => item.src === desiredActiveSrc);
++
+     setActiveSlide(nextIndex >= 0 ? nextIndex : 0);
++    setPreserveActiveSlide(false);
+     setDesiredActiveSrc(null);
+   }, [desiredActiveSrc, reorderedGalleryItems]);
+ 
+@@ -1763,11 +2061,13 @@ function ProjectModal({
+     setActiveSlide(0);
+   }, [project.id, selectedAtmosphere]);
+ 
+-  const activeItem = reorderedGalleryItems[activeIndex]!;
++  const activeItem = reorderedGalleryItems[activeIndex] ?? reorderedGalleryItems[0];
++  if (!activeItem) return null;
+ 
+   // If an image is expanded, show the expanded view
+   if (expandedImageIndex !== null) {
+-    const expandedItem = reorderedGalleryItems[expandedImageIndex]!;
++    const expandedItem = reorderedGalleryItems[expandedImageIndex];
++    if (!expandedItem) return null;
+     return (
+       <div
+         className="fixed inset-0 z-90 bg-brand-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"

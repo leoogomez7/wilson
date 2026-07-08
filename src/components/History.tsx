@@ -20,14 +20,6 @@ export function History({ mode = "home" }: { mode?: SectionMode }) {
               <p>{t.history.description}</p>
             </div>
           </div>
-          <div className="flex justify-end">
-            <a
-              href="#estudio"
-              className="text-[10px] uppercase tracking-[0.3em] font-bold hover:opacity-70 transition-opacity whitespace-nowrap"
-            >
-              {t.common.seeMore}
-            </a>
-          </div>
         </div>
       </div>
     </section>

@@ -70,7 +70,7 @@ const translations = {
         "Cada proyecto comienza con una conversación cercana con el cliente y un análisis profundo del contexto, para ofrecer soluciones constructivas elegantes y duraderas.",
     },
     projects: {
-      sectionLabel: "Análisis y Visión",
+      sectionLabel: "Ideas materializadas",
       homeLabel: "Casas y Proyectos",
       originLabels: {
         casas: "Casas",
@@ -195,7 +195,7 @@ const translations = {
       sectionLabel: "12 años de trayectoria",
       heading: "El Estudio",
       homeDescription:
-        "Nuestra trayectoria está guiada por la pasión de crear lugares que trasciendan en el tiempo. Diseñamos espacios únicos que reflejan una visión de futuro y se transforman en el escenario de historias memorables. Unimos visión, creatividad y precisión para crear espacios que inspiran, perduran y mejoran la experiencia de quienes los habitan.",
+        "Nuestra trayectoria está guiada por la pasión de crear espacios que trasciendan en el tiempo. Diseñamos espacios únicos que reflejan una identidad propia y den vida a escenarios donde nacen historias memorables. Unimos creatividad, precisión y compromiso para crear espacios que inspiran, perduran y enriquecen la experiencia de quienes los habitan.",
       imageAlt: "Equipo Wilson Arquitectura",
       members: [
         {
@@ -411,7 +411,7 @@ const translations = {
         "Each project begins with a close conversation with the client and a thorough reading of the context, to propose elegant, lasting constructive solutions.",
     },
     projects: {
-      sectionLabel: "Analysis and Vision",
+      sectionLabel: "Materialized ideas",
       homeLabel: "Houses & Projects",
       originLabels: {
         casas: "Houses",
@@ -753,7 +753,7 @@ const translations = {
         "Cada projeto começa com uma conversa próxima com o cliente e uma leitura cuidadosa do contexto, para propor soluções construtivas elegantes e duradouras.",
     },
     projects: {
-      sectionLabel: "Análise e Visão",
+      sectionLabel: "Ideias materializadas",
       homeLabel: "Casas e Projetos",
       originLabels: {
         casas: "Casas",
@@ -1048,19 +1048,6 @@ function getPreferredLocale(): Locale {
   const query = new URLSearchParams(window.location.search).get("lang") as Locale | null;
   if (query && locales.includes(query)) {
     return query;
-  }
-
-  const stored = window.localStorage.getItem("wilson_language") as Locale | null;
-  if (stored && locales.includes(stored)) {
-    return stored;
-  }
-
-  const browserLang = window.navigator.language.slice(0, 2).toLowerCase();
-  if (browserLang === "pt") {
-    return "pt";
-  }
-  if (browserLang === "en") {
-    return "en";
   }
 
   return defaultLocale;

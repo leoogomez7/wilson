@@ -14,8 +14,8 @@ import casaCoffeeExteriorAmanecer from "@/assets/Casas/Coffee/CasaCoffee-Exterio
 import casaCoffeeExteriorAnochecer from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Anochecer de verano..png";
 import casaCoffeeExteriorAtardecer from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Atardecer de otoño..png";
 import casaCoffeeContrafachadaAmanecer from "@/assets/Casas/Coffee/CasaCoffee_Contrafachada_Amanecer de Primavera.png";
-import casaCoffeeContrafachadaAnochecer from "@/assets/Casas/Coffee/CasaCoffe-Contrafachada_Anochecer de verano.png";
-import casaCoffeeContrafachadaAtardecer from "@/assets/Casas/Coffee/CasaCoffe-Contrafachada_Atardecer de otoño.png";
+import casaCoffeeContrafachadaAnochecer from "@/assets/Casas/Coffee/CasaCoffee-Contrafachada_Anochecer de verano.png";
+import casaCoffeeContrafachadaAtardecer from "@/assets/Casas/Coffee/CasaCoffee-Contrafachada_Atardecer de otoño.png";
 import casaCoffeeInteriorLiving from "@/assets/Casas/Coffee/CasaCoffee-Interior_Living..png";
 import casaCoffeeInteriorSuite from "@/assets/Casas/Coffee/CasaCoffee-Interior_Suite..png";
 import casaScottExteriorAmanecer from "@/assets/Casas/Scott/CasaScott-Exterior_Amanecer de primavera.png";
@@ -232,7 +232,7 @@ export const casaProjects: Project[] = [
       en: "The intervention begins from a comprehensive reading of the existing home, transforming its spaces through a proposal that revalues its identity and improves architectural quality without losing its original essence. The interior reorganization optimizes functionality and the relationship between rooms, while the renovation of materials and finishes brings more light, openness, and comfort to respond to current needs.",
       pt: "A intervenção parte de uma leitura integral da casa existente, transformando seus espaços por meio de uma proposta que revaloriza sua identidade e melhora a qualidade arquitetônica sem perder sua essência original. A reorganização interna otimiza a funcionalidade e a relação entre os ambientes, enquanto a renovação da materialidade e dos acabamentos traz mais luminosidade, amplitude e conforto para atender às necessidades atuais.",
     },
-    category: "viviendas",
+    category: "reformas",
     origin: "casas",
     gallery: [
       { src: casaBonziLivingDespues, phase: "despues", label: { es: "Living después", en: "Living after", pt: "Living depois" } },
@@ -334,15 +334,6 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: delLimoneroAtardecer,
-        atmosphere: "anochecer",
-        label: {
-          es: "imagen adicional de exterior",
-          en: "additional exterior image",
-          pt: "imagem adicional de exterior",
-        },
-      },
-      {
         src: delLimoneroExteriorLateralAnochecer,
         atmosphere: "anochecer",
         label: {
@@ -387,78 +378,6 @@ export const casaProjects: Project[] = [
       {
         src: delLimoneroOficina,
         atmosphere: "anochecer",
-        label: {
-          es: "imagen adicional de oficina",
-          en: "additional office image",
-          pt: "imagem adicional de escritório",
-        },
-      },
-      {
-        src: delLimoneroAtardecer,
-        atmosphere: "amanecer",
-        label: {
-          es: "imagen adicional de exterior",
-          en: "additional exterior image",
-          pt: "imagem adicional de exterior",
-        },
-      },
-      {
-        src: delLimoneroAtardecer,
-        atmosphere: "atardecer",
-        label: {
-          es: "imagen adicional de exterior",
-          en: "additional exterior image",
-          pt: "imagem adicional de exterior",
-        },
-      },
-      {
-        src: delLimoneroDormitorio,
-        atmosphere: "atardecer",
-        label: {
-          es: "imagen adicional de dormitorio",
-          en: "additional bedroom image",
-          pt: "imagem adicional de quarto",
-        },
-      },
-      {
-        src: delLimoneroDormitorio,
-        atmosphere: "amanecer",
-        label: {
-          es: "imagen adicional de dormitorio",
-          en: "additional bedroom image",
-          pt: "imagem adicional de quarto",
-        },
-      },
-      {
-        src: delLimoneroLiving,
-        atmosphere: "amanecer",
-        label: {
-          es: "imagen adicional de living",
-          en: "additional living room image",
-          pt: "imagem adicional de sala",
-        },
-      },
-      {
-        src: delLimoneroLiving,
-        atmosphere: "atardecer",
-        label: {
-          es: "imagen adicional de living",
-          en: "additional living room image",
-          pt: "imagem adicional de sala",
-        },
-      },
-      {
-        src: delLimoneroOficina,
-        atmosphere: "amanecer",
-        label: {
-          es: "imagen adicional de oficina",
-          en: "additional office image",
-          pt: "imagem adicional de escritório",
-        },
-      },
-      {
-        src: delLimoneroOficina,
-        atmosphere: "atardecer",
         label: {
           es: "imagen adicional de oficina",
           en: "additional office image",
