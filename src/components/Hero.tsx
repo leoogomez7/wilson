@@ -17,7 +17,9 @@ export function Hero() {
           imageClassName="h-full w-full object-cover opacity-60 animate-slow-zoom"
           intervalMs={1700}
           images={[
-            ...casaProjects.map((project) => project.image),
+            ...casaProjects
+              .filter((project) => project.id !== "casa-bonzi")
+              .map((project) => project.image),
             ...projects.map((project) => project.image),
           ]}
         />

@@ -1,12 +1,11 @@
 import delLimoneroAtardecer from "@/assets/Casas/Del Limonero/Exterior_Atardecer de otoño.jpeg";
 import delLimoneroAmanecer from "@/assets/Casas/Del Limonero/Exterior_Amanecer de primavera.jpeg";
 import delLimoneroAnochecer from "@/assets/Casas/Del Limonero/Exterior_Anochecer de verano.jpeg";
-import delLimoneroExteriorGaleria from "@/assets/Casas/Del Limonero/CasaDelLimonero-Exterior_Galería.png";
 import delLimoneroExteriorLateralAtardecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Atardecer de Otoño.png";
 import delLimoneroExteriorLateralAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Anochecer de Verano.png";
 import delLimoneroExteriorLateralAmanecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Amanecer de Primavera.png";
 import delLimoneroContrafachadaAmanecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Amanecer de Primavera.png";
-import delLimoneroContrafachadaAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Anochecer de Invierno.png";
+import delLimoneroContrafachadaAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Anochecer de verano.png";
 import delLimoneroContrafachadaAtardecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Atardecer de Otoño..png";
 import delLimoneroDormitorio from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Dormitorio.png";
 import delLimoneroLiving from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Living.png";
@@ -14,7 +13,6 @@ import delLimoneroOficina from "@/assets/Casas/Del Limonero/CasaDelLimonero-Inte
 import casaCoffeeExteriorAmanecer from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Amanecer de primavera.png";
 import casaCoffeeExteriorAnochecer from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Anochecer de verano..png";
 import casaCoffeeExteriorAtardecer from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Atardecer de otoño..png";
-import casaCoffeeExteriorContrafachada from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Contrafachada..png";
 import casaCoffeeContrafachadaAmanecer from "@/assets/Casas/Coffee/CasaCoffee_Contrafachada_Amanecer de Primavera.png";
 import casaCoffeeContrafachadaAnochecer from "@/assets/Casas/Coffee/CasaCoffe-Contrafachada_Anochecer de verano.png";
 import casaCoffeeContrafachadaAtardecer from "@/assets/Casas/Coffee/CasaCoffe-Contrafachada_Atardecer de otoño.png";
@@ -23,7 +21,6 @@ import casaCoffeeInteriorSuite from "@/assets/Casas/Coffee/CasaCoffee-Interior_S
 import casaScottExteriorAmanecer from "@/assets/Casas/Scott/CasaScott-Exterior_Amanecer de primavera.png";
 import casaScottExteriorAnochecer from "@/assets/Casas/Scott/CasaScott-Exterior_Anochecer de verano.png";
 import casaScottExteriorAtardecer from "@/assets/Casas/Scott/CasaScott-Exterior_Atardecer de otoño.png";
-import casaScottExteriorContrafachada from "@/assets/Casas/Scott/CasaScott-Exterior_Contrafachada.png";
 import casaScottContrafachadaAmanecer from "@/assets/Casas/Scott/CasaScott-Contrafachada_Amanecer de Primavera.png";
 import casaScottContrafachadaAnochecer from "@/assets/Casas/Scott/CasaScott-Contrafachada_Anochecer de Verano.png";
 import casaScottContrafachadaAtardecer from "@/assets/Casas/Scott/CasaScott-Contrafachada_Atardecer de Otoño.png";
@@ -145,73 +142,64 @@ export const casaProjects: Project[] = [
         phase: "antes",
         label: { es: "Frente antes", en: "Front before", pt: "Fachada anterior" },
       },
-      // 3 - frente_lateral_despues
-      {
-        src: casaPiliFrenteLateralDespues,
-        atmosphere: "anochecer",
-        phase: "despues",
-        label: { es: "Frente lateral después", en: "Side after", pt: "Vista lateral depois" },
-      },
-      // 4 - frente_lateral_antes
+      // 3 - frente_lateral_antes
       {
         src: casaPiliFrenteLateralAntes,
         atmosphere: "amanecer",
         phase: "antes",
         label: { es: "Frente lateral antes", en: "Side before", pt: "Vista lateral antes" },
       },
-      // 5 - contrafrente_despues
+      // 4 - frente_lateral_despues
       {
-        src: casaPiliContrafrenteDespues,
+        src: casaPiliFrenteLateralDespues,
         atmosphere: "anochecer",
         phase: "despues",
-        label: { es: "Contrafrente después", en: "Rear after", pt: "Contrafachada depois" },
+        label: { es: "Frente lateral después", en: "Side after", pt: "Vista lateral depois" },
       },
-      // 6 - contrafrente_antes
+      // 5 - contrafrente_antes
       {
         src: casaPiliContrafrenteAntes,
         atmosphere: "amanecer",
         phase: "antes",
         label: { es: "Contrafrente antes", en: "Rear before", pt: "Contrafachada antes" },
       },
-
-      // 7 - dormitorio_despues
+      // 6 - contrafrente_despues
       {
-        src: casaPiliDormitorioDespues,
+        src: casaPiliContrafrenteDespues,
         atmosphere: "anochecer",
         phase: "despues",
-        label: { es: "Dormitorio después", en: "Bedroom after", pt: "Quarto depois" },
+        label: { es: "Contrafrente después", en: "Rear after", pt: "Contrafachada depois" },
       },
-      // 8 - dormitorio_antes
+
+      // 7 - dormitorio_antes
       {
         src: casaPiliDormitorioAntes,
         atmosphere: "amanecer",
         phase: "antes",
         label: { es: "Dormitorio antes", en: "Bedroom before", pt: "Quarto antes" },
       },
-      // 9 - cocina_despues
+      // 8 - dormitorio_despues
       {
-        src: casaPiliCocinaDespues,
+        src: casaPiliDormitorioDespues,
         atmosphere: "anochecer",
         phase: "despues",
-        label: { es: "Cocina después", en: "Kitchen after", pt: "Cozinha depois" },
+        label: { es: "Dormitorio después", en: "Bedroom after", pt: "Quarto depois" },
       },
-      // 10 - cocina_antes
+      // 9 - cocina_antes
       {
         src: casaPiliCocinaAntes,
         atmosphere: "amanecer",
         phase: "antes",
         label: { es: "Cocina antes", en: "Kitchen before", pt: "Cozinha antes" },
       },
-      // 11 - baño_despues_modal
+      // 10 - cocina_despues
       {
-        src: casaPiliBanioDespuesModal,
-        openSrc: casaPiliBanioDespues,
-        imageClassName: "object-contain",
+        src: casaPiliCocinaDespues,
         atmosphere: "anochecer",
         phase: "despues",
-        label: { es: "Baño después", en: "Bathroom after", pt: "Banheiro depois" },
+        label: { es: "Cocina después", en: "Kitchen after", pt: "Cozinha depois" },
       },
-      // 12 - baño_antes_modal
+      // 11 - baño_antes_modal
       {
         src: casaPiliBanioAntesModal,
         openSrc: casaPiliBanioAntes,
@@ -219,6 +207,15 @@ export const casaProjects: Project[] = [
         atmosphere: "amanecer",
         phase: "antes",
         label: { es: "Baño antes", en: "Bathroom before", pt: "Banheiro antes" },
+      },
+      // 12 - baño_despues_modal
+      {
+        src: casaPiliBanioDespuesModal,
+        openSrc: casaPiliBanioDespues,
+        imageClassName: "object-contain",
+        atmosphere: "anochecer",
+        phase: "despues",
+        label: { es: "Baño después", en: "Bathroom after", pt: "Banheiro depois" },
       },
     ],
   },
@@ -240,22 +237,22 @@ export const casaProjects: Project[] = [
     gallery: [
       { src: casaBonziLivingDespues, phase: "despues", label: { es: "Living después", en: "Living after", pt: "Living depois" } },
       { src: casaBonziLivingAntes, phase: "antes", label: { es: "Living antes", en: "Living before", pt: "Living antes" } },
-      { src: casaBonziComedorDespues, phase: "despues", label: { es: "Comedor después", en: "Dining room after", pt: "Sala de jantar depois" } },
       { src: casaBonziComedorAntes, phase: "antes", label: { es: "Comedor antes", en: "Dining room before", pt: "Sala de jantar antes" } },
-      { src: casaBonziCocina01Despues, phase: "despues", label: { es: "Cocina 01 después", en: "Kitchen 01 after", pt: "Cozinha 01 depois" } },
+      { src: casaBonziComedorDespues, phase: "despues", label: { es: "Comedor después", en: "Dining room after", pt: "Sala de jantar depois" } },
       { src: casaBonziCocina01Antes, phase: "antes", label: { es: "Cocina 01 antes", en: "Kitchen 01 before", pt: "Cozinha 01 antes" } },
-      { src: casaBonziCocina02Despues, phase: "despues", label: { es: "Cocina 02 después", en: "Kitchen 02 after", pt: "Cozinha 02 depois" } },
+      { src: casaBonziCocina01Despues, phase: "despues", label: { es: "Cocina 01 después", en: "Kitchen 01 after", pt: "Cozinha 01 depois" } },
       { src: casaBonziCocina02Antes, phase: "antes", label: { es: "Cocina 02 antes", en: "Kitchen 02 before", pt: "Cozinha 02 antes" } },
-      { src: casaBonziTerraza01Despues, phase: "despues", label: { es: "Terraza 01 después", en: "Terrace 01 after", pt: "Terraço 01 depois" } },
+      { src: casaBonziCocina02Despues, phase: "despues", label: { es: "Cocina 02 después", en: "Kitchen 02 after", pt: "Cozinha 02 depois" } },
       { src: casaBonziTerraza01Antes, phase: "antes", label: { es: "Terraza 01 antes", en: "Terrace 01 before", pt: "Terraço 01 antes" } },
-      { src: casaBonziTerraza02Despues, phase: "despues", label: { es: "Terraza 02 después", en: "Terrace 02 after", pt: "Terraço 02 depois" } },
+      { src: casaBonziTerraza01Despues, phase: "despues", label: { es: "Terraza 01 después", en: "Terrace 01 after", pt: "Terraço 01 depois" } },
       { src: casaBonziTerraza02Antes, phase: "antes", label: { es: "Terraza 02 antes", en: "Terrace 02 before", pt: "Terraço 02 antes" } },
-      { src: casaBonziTerraza03Despues, phase: "despues", label: { es: "Terraza 03 después", en: "Terrace 03 after", pt: "Terraço 03 depois" } },
+      { src: casaBonziTerraza02Despues, phase: "despues", label: { es: "Terraza 02 después", en: "Terrace 02 after", pt: "Terraço 02 depois" } },
       { src: casaBonziTerraza03Antes, phase: "antes", label: { es: "Terraza 03 antes", en: "Terrace 03 before", pt: "Terraço 03 antes" } },
-      { src: casaBonziBanio01Despues, phase: "despues", label: { es: "Baño 01 después", en: "Bathroom 01 after", pt: "Banheiro 01 depois" } },
+      { src: casaBonziTerraza03Despues, phase: "despues", label: { es: "Terraza 03 después", en: "Terrace 03 after", pt: "Terraço 03 depois" } },
       { src: casaBonziBanio01Antes, phase: "antes", label: { es: "Baño 01 antes", en: "Bathroom 01 before", pt: "Banheiro 01 antes" } },
-      { src: casaBonziBanio02Despues, phase: "despues", label: { es: "Baño 02 después", en: "Bathroom 02 after", pt: "Banheiro 02 depois" } },
+      { src: casaBonziBanio01Despues, phase: "despues", label: { es: "Baño 01 después", en: "Bathroom 01 after", pt: "Banheiro 01 depois" } },
       { src: casaBonziBanio02Antes, phase: "antes", label: { es: "Baño 02 antes", en: "Bathroom 02 before", pt: "Banheiro 02 antes" } },
+      { src: casaBonziBanio02Despues, phase: "despues", label: { es: "Baño 02 después", en: "Bathroom 02 after", pt: "Banheiro 02 depois" } },
     ],
   },
   {
@@ -337,7 +334,7 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: delLimoneroExteriorGaleria,
+        src: delLimoneroAtardecer,
         atmosphere: "anochecer",
         label: {
           es: "imagen adicional de exterior",
@@ -397,7 +394,7 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: delLimoneroExteriorGaleria,
+        src: delLimoneroAtardecer,
         atmosphere: "amanecer",
         label: {
           es: "imagen adicional de exterior",
@@ -406,7 +403,7 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: delLimoneroExteriorGaleria,
+        src: delLimoneroAtardecer,
         atmosphere: "atardecer",
         label: {
           es: "imagen adicional de exterior",
@@ -504,8 +501,8 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: casaIntiExteriorAmanecer,
-        atmosphere: "amanecer",
+        src: casaIntiExteriorAtardecer,
+        atmosphere: "atardecer",
         label: {
           es: "imagen adicional de exterior",
           en: "additional exterior image",
@@ -513,8 +510,8 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: casaIntiExteriorAtardecer,
-        atmosphere: "atardecer",
+        src: casaIntiExteriorAmanecer,
+        atmosphere: "amanecer",
         label: {
           es: "imagen adicional de exterior",
           en: "additional exterior image",
@@ -532,16 +529,6 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: casaIntiContrafachadaAmanecer,
-        atmosphere: "amanecer",
-        isFeatured: true,
-        label: {
-          es: "filtro de Amanecer de Primavera",
-          en: "spring sunrise filter",
-          pt: "filtro de amanhecer de primavera",
-        },
-      },
-      {
         src: casaIntiContrafachadaAtardecer,
         atmosphere: "atardecer",
         isFeatured: true,
@@ -549,6 +536,16 @@ export const casaProjects: Project[] = [
           es: "filtro de Atardecer de Otoño",
           en: "autumn sunset filter",
           pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: casaIntiContrafachadaAmanecer,
+        atmosphere: "amanecer",
+        isFeatured: true,
+        label: {
+          es: "filtro de Amanecer de Primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
         },
       },
       {
@@ -746,7 +743,7 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: casaCoffeeExteriorContrafachada,
+        src: casaCoffeeContrafachadaAmanecer,
         atmosphere: "amanecer",
         label: {
           es: "imagen adicional de contrafachada",
@@ -755,7 +752,7 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: casaCoffeeExteriorContrafachada,
+        src: casaCoffeeContrafachadaAtardecer,
         atmosphere: "atardecer",
         label: {
           es: "imagen adicional de contrafachada",
@@ -764,7 +761,7 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: casaCoffeeExteriorContrafachada,
+        src: casaCoffeeContrafachadaAnochecer,
         atmosphere: "anochecer",
         label: {
           es: "imagen adicional de contrafachada",
@@ -913,7 +910,7 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: casaScottExteriorContrafachada,
+        src: casaScottContrafachadaAmanecer,
         atmosphere: "amanecer",
         label: {
           es: "imagen adicional de contrafachada",
@@ -922,7 +919,7 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: casaScottExteriorContrafachada,
+        src: casaScottContrafachadaAtardecer,
         atmosphere: "atardecer",
         label: {
           es: "imagen adicional de contrafachada",
@@ -931,7 +928,7 @@ export const casaProjects: Project[] = [
         },
       },
       {
-        src: casaScottExteriorContrafachada,
+        src: casaScottContrafachadaAnochecer,
         atmosphere: "anochecer",
         label: {
           es: "imagen adicional de contrafachada",

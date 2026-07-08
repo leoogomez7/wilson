@@ -5,60 +5,74 @@ import p4 from "@/assets/project-4.jpg";
 import delLimoneroAtardecer from "@/assets/Casas/Del Limonero/Exterior_Atardecer de otoño.jpeg";
 import delLimoneroAmanecer from "@/assets/Casas/Del Limonero/Exterior_Amanecer de primavera.jpeg";
 import delLimoneroAnochecer from "@/assets/Casas/Del Limonero/Exterior_Anochecer de verano.jpeg";
-import delLimoneroExteriorGaleria from "@/assets/Casas/Del Limonero/CasaDelLimonero-Exterior_Galería.png";
 import delLimoneroExteriorLateralAtardecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Atardecer de Otoño.png";
 import delLimoneroExteriorLateralAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Anochecer de Verano.png";
 import delLimoneroExteriorLateralAmanecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Amanecer de Primavera.png";
 import delLimoneroContrafachadaAmanecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Amanecer de Primavera.png";
-import delLimoneroContrafachadaAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Anochecer de Invierno.png";
+import delLimoneroContrafachadaAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Anochecer de verano.png";
 import delLimoneroContrafachadaAtardecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Contrafachada_Atardecer de Otoño..png";
 import delLimoneroDormitorio from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Dormitorio.png";
 import delLimoneroLiving from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Living.png";
 import delLimoneroOficina from "@/assets/Casas/Del Limonero/CasaDelLimonero-Interior_Oficina.png";
-import zAmanecer from "@/assets/Proyectos/Z/Amanecer de primavera.png";
-import zAmanecerCF from "@/assets/Proyectos/Z/Amanecer de primavera_CF.png";
-import zAmanecerExterior from "@/assets/Proyectos/Z/Amanecer de Primavera_Exterior L.png";
-import zAnochecerCF from "@/assets/Proyectos/Z/Anochecer de verano_CF.png";
-import zAnochecerFrente from "@/assets/Proyectos/Z/Anochecer de verano_Frente.png";
-import zAnochecerExterior from "@/assets/Proyectos/Z/Anochecer de vernano_Exterior L.png";
-import zAtardecer from "@/assets/Proyectos/Z/Atardecer de otoño.png";
-import zAtardecerJpg from "@/assets/Proyectos/Z/Atardecer de otoño.jpeg";
-import zAtardecerExterior from "@/assets/Proyectos/Z/Atardecer de otoño_ Exterior.png";
-import zContrafachadaAmanecer from "@/assets/Proyectos/Z/ProyectoZ-Contrafachada_Amanecer de Primavera..png";
-import zContrafachadaAtardecer from "@/assets/Proyectos/Z/ProyectoZ-Contrafachada_Atardecer de Otoño..png";
+import casaCoffeeExteriorAmanecer from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Amanecer de primavera.png";
+import casaCoffeeExteriorAnochecer from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Anochecer de verano..png";
+import casaCoffeeExteriorAtardecer from "@/assets/Casas/Coffee/CasaCoffee-Exterior_Atardecer de otoño..png";
+import casaCoffeeContrafachadaAmanecer from "@/assets/Casas/Coffee/CasaCoffee_Contrafachada_Amanecer de Primavera.png";
+import casaCoffeeContrafachadaAnochecer from "@/assets/Casas/Coffee/CasaCoffe-Contrafachada_Anochecer de verano.png";
+import casaCoffeeContrafachadaAtardecer from "@/assets/Casas/Coffee/CasaCoffe-Contrafachada_Atardecer de otoño.png";
+import casaCoffeeInteriorLiving from "@/assets/Casas/Coffee/CasaCoffee-Interior_Living..png";
+import casaCoffeeInteriorSuite from "@/assets/Casas/Coffee/CasaCoffee-Interior_Suite..png";
+import zAmanecer from "@/assets/Proyectos/Z/Frente_Amanecer de primavera.png";
+import zAmanecerExterior from "@/assets/Proyectos/Z/Frente_Lateral_Amanecer de Primavera.png";
+import zAnochecerFrente from "@/assets/Proyectos/Z/Frente_Anochecer de verano.png";
+import zAnochecerCF from "@/assets/Proyectos/Z/Contrafachada_Anochecer de verano.png";
+import zAnochecerExterior from "@/assets/Proyectos/Z/Frente_Lateral_Anochecer de vernano.png";
+import zAtardecer from "@/assets/Proyectos/Z/Contrafachada_Atardecer de otoño.png";
+import zAtardecerJpg from "@/assets/Proyectos/Z/Frente_Atardecer de otoño.jpeg";
+import zAtardecerExterior from "@/assets/Proyectos/Z/Frente_Lateral_Atardecer de otoño.png";
+import zContrafachadaAmanecer from "@/assets/Proyectos/Z/Contrafachada_Amanecer de Primavera.png";
 import zInteriorCocina from "@/assets/Proyectos/Z/Interior_Cocina.png";
 import zInteriorComedor from "@/assets/Proyectos/Z/Interior_Comedor.png";
 import zInteriorLivingComedor from "@/assets/Proyectos/Z/Interior_Living_Comedor.png";
 import zInteriorLiving from "@/assets/Proyectos/Z/Interior_Living.png";
 import zInteriorLiving02 from "@/assets/Proyectos/Z/Interior_Living02.png";
 import zInteriorVistaPiso from "@/assets/Proyectos/Z/Interior_Vista entre piso.png";
-import cAmanecer from "@/assets/Proyectos/CyG/Amanecer de primavera.png";
-import cAnochecer from "@/assets/Proyectos/CyG/Anochecer de verano.png";
-import cAnochecerBack from "@/assets/Proyectos/CyG/Anochecer de verano_Contrafrente.png";
-import cAtardecer from "@/assets/Proyectos/CyG/Atardecer de otoño.png";
-import cAtardecerFrente from "@/assets/Proyectos/CyG/Frente_Atardecer de otoño.png";
+import cAmanecer from "@/assets/Proyectos/CyG/Frente_Amanecer de primavera.png";
+import cAnochecer from "@/assets/Proyectos/CyG/Frente_Anochecer de verano.png";
+import cAnochecerBack from "@/assets/Proyectos/CyG/CasaCyG-Contrafachada_Anochecer de verano.png";
+import cAtardecer from "@/assets/Proyectos/CyG/Frente_Atardecer de otoño.png";
+import cAtardecerFrente from "@/assets/Proyectos/CyG/FrenteLateral_Atardecer de otoño.png";
 import cContrafachadaAmanecer from "@/assets/Proyectos/CyG/CasaCyG-Contrafachada_Amanecer de Primavera.png";
 import cContrafachadaAtardecer from "@/assets/Proyectos/CyG/CasaCyG-Contrafachada_Atardecer de Otoño.png";
 import cInteriorComedor from "@/assets/Proyectos/CyG/Interior_Comedor.png";
 import cInteriorLiving from "@/assets/Proyectos/CyG/Interior_Living.png";
 import cInteriorSuite from "@/assets/Proyectos/CyG/Interior_Suite.png";
-import proyectoCarlaContrafachadaAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-Contrafachada_Amanecer de Primavera.png";
-import proyectoCarlaContrafachadaAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-Contrafachada_Anochecer de Verano.png";
-import proyectoCarlaContrafachadaAtardecer from "@/assets/Proyectos/Carla/ProyectoCarla-Contrafachada_Atardecer de Otoño.jpeg";
+import proyectoCarlaContrafachadaAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-ExteriorContraf._Amanecer de Primavera.png";
+import proyectoCarlaContrafachadaAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-ContrafachadaLateral_Anochecer de Verano.png";
+import proyectoCarlaContrafachadaAtardecer from "@/assets/Proyectos/Carla/ProyectoCarla-ContrafachadaLateral_Atardecer de Otoño.jpeg";
 import proyectoCarlaContrafachadaLateralAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-ContrafachadaLateral_Amanecer de Primavera.png";
-import proyectoCarlaExtHallAtardecer from "@/assets/Proyectos/Carla/ProyectoCarla-Ext.Hall_Atardecer de Otoño.png";
+import proyectoCarlaExtHallAtardecer from "@/assets/Proyectos/Carla/ProyectoCarla-Hall_Atardecer de Otoño.png";
 import proyectoCarlaExteriorAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-Exterior_Amanecer de Primavera.png";
 import proyectoCarlaExteriorAtardecer from "@/assets/Proyectos/Carla/ProyectoCarla-Exterior_Atardecer de otoño.png";
 import proyectoCarlaExteriorAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-Exterior-Anochecer de Verano.png";
 import proyectoCarlaExteriorContrafachadaAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-ExteriorContraf._Anochecer de Verano.png";
-import proyectoCarlaExteriorHallAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-ExteriorHall_Anochecer de verano.png";
+import proyectoCarlaExteriorHallAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-Hall_Anochecer de verano.png";
 import proyectoCarlaExteriorLateralAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-ExteriorLateral_Amanecer de Primavera.png";
 import proyectoCarlaExteriorLateralAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-ExteriorLateral_Anochecer de Varano.png";
 import proyectoCarlaExteriorLateralAtardecer from "@/assets/Proyectos/Carla/ProyectoCarla-ExteriorLateral_Atardecer de otoño.png";
 import proyectoCarlaHallAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-Hall_Amanecer de Primavera.png";
-import proyectoCarlaInterior from "@/assets/Proyectos/Carla/ProyectoCarla-Interior.png";
+import proyectoCarlaParrillaAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-Parrilla_Amanecer de Primavera.png";
 import proyectoCarlaInterior02 from "@/assets/Proyectos/Carla/ProyectoCarla-Interior02.png";
 import proyectoCarlaParrillaAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-Parrilla_Anochecer de Verano.png";
+import salemFrenteAnochecer from "@/assets/Proyectos/Salem/Proyecto-CentroSalem_Frente_Anochecer de Verano.png";
+import salemFrenteAtardecer from "@/assets/Proyectos/Salem/Proyecto-CentroSalem_Frente_Atardecer de Otoño.png";
+import salemFrenteAmanecer from "@/assets/Proyectos/Salem/Proyecto-CentroSalem_Frente_Amanecer de Primavera.png";
+import salemFrenteLateralExteriorAnochecer from "@/assets/Proyectos/Salem/Proyecto-CentroSalem_Frente_Lateral_Exterior_Anochecer de Verano.png";
+import salemFrenteLateralExteriorAtardecer from "@/assets/Proyectos/Salem/Proyecto-CentroSalem_Frente_Lateral_Exterior_Atardecer de otoño.png";
+import salemFrenteLateralExteriorAmanecer from "@/assets/Proyectos/Salem/Proyecto-CentroSalem_Frente_Lateral_Exterior_Amanecer de Primavera.png";
+import salemInterior from "@/assets/Proyectos/Salem/Proyecto_CentroSalem_Interior.png";
+import salemInteriorLateral from "@/assets/Proyectos/Salem/Proyecto_CentroSalem_Interior_Lateral.png";
+import salemBufet from "@/assets/Proyectos/Salem/Proyecto_CentroSalem_Bufet.png";
 import casaBonziBanio01Antes from "@/assets/Casas/Bonzi/CasaBonzi_Baño01_Antes.png";
 import casaBonziBanio01Despues from "@/assets/Casas/Bonzi/CasaBonzi_Baño01_Despues.png";
 import casaBonziBanio02Antes from "@/assets/Casas/Bonzi/CasaBonzi_Baño02_Antes.png";
@@ -96,7 +110,7 @@ type SectionOrigin = "casas" | "proyectos";
 interface LocalizedString {
   es: string;
   en: string;
-  pt: string;
+  pt?: string;
 }
 
 interface Project {
@@ -112,6 +126,7 @@ interface Project {
   description: LocalizedString;
   gallery?: Array<{
     src: string;
+    openSrc?: string;
     label: LocalizedString;
     atmosphere: Exclude<AtmosphereType, "todos">;
     phase?: "antes" | "despues";
@@ -128,6 +143,7 @@ type GalleryItem = {
   phase?: "antes" | "despues";
   isFeatured?: boolean;
   imageClassName?: string;
+  openSrc?: string;
 };
 
 const uniqueGalleryBySrc = (gallery: GalleryItem[]) =>
@@ -343,6 +359,15 @@ export const projects: Project[] = [
         },
       },
       {
+        src: proyectoCarlaExteriorAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de Anochecer de Verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
         src: proyectoCarlaExteriorAtardecer,
         atmosphere: "atardecer",
         label: {
@@ -352,7 +377,43 @@ export const projects: Project[] = [
         },
       },
       {
-        src: proyectoCarlaExteriorAnochecer,
+        src: proyectoCarlaExteriorAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de Amanecer de Primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: proyectoCarlaExteriorLateralAnochecer,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de Anochecer de Verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: proyectoCarlaExteriorLateralAtardecer,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de Atardecer de otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
+        },
+      },
+      {
+        src: proyectoCarlaExteriorLateralAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de Amanecer de Primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: proyectoCarlaExteriorContrafachadaAnochecer,
         atmosphere: "anochecer",
         label: {
           es: "filtro de Anochecer de Verano",
@@ -397,16 +458,7 @@ export const projects: Project[] = [
         },
       },
       {
-        src: proyectoCarlaExtHallAtardecer,
-        atmosphere: "atardecer",
-        label: {
-          es: "filtro de Atardecer de Otoño",
-          en: "autumn sunset filter",
-          pt: "filtro de entardecer de outono",
-        },
-      },
-      {
-        src: proyectoCarlaExteriorContrafachadaAnochecer,
+        src: proyectoCarlaExteriorHallAnochecer,
         atmosphere: "anochecer",
         label: {
           es: "filtro de Anochecer de Verano",
@@ -415,34 +467,7 @@ export const projects: Project[] = [
         },
       },
       {
-        src: proyectoCarlaExteriorHallAnochecer,
-        atmosphere: "anochecer",
-        label: {
-          es: "filtro de Anochecer de verano",
-          en: "summer dusk filter",
-          pt: "filtro de anoitecer de verão",
-        },
-      },
-      {
-        src: proyectoCarlaExteriorLateralAmanecer,
-        atmosphere: "amanecer",
-        label: {
-          es: "filtro de Amanecer de Primavera",
-          en: "spring sunrise filter",
-          pt: "filtro de amanhecer de primavera",
-        },
-      },
-      {
-        src: proyectoCarlaExteriorLateralAnochecer,
-        atmosphere: "anochecer",
-        label: {
-          es: "filtro de Anochecer de Varano",
-          en: "summer dusk filter",
-          pt: "filtro de anoitecer de verão",
-        },
-      },
-      {
-        src: proyectoCarlaExteriorLateralAtardecer,
+        src: proyectoCarlaExtHallAtardecer,
         atmosphere: "atardecer",
         label: {
           es: "filtro de Atardecer de otoño",
@@ -460,21 +485,12 @@ export const projects: Project[] = [
         },
       },
       {
-        src: proyectoCarlaInterior,
-        atmosphere: "amanecer",
-        label: {
-          es: "sin filtro",
-          en: "no filter",
-          pt: "sem filtro",
-        },
-      },
-      {
         src: proyectoCarlaInterior02,
         atmosphere: "atardecer",
         label: {
-          es: "sin filtro",
-          en: "no filter",
-          pt: "sem filtro",
+          es: "Interior 02",
+          en: "Interior 02",
+          pt: "Interior 02",
         },
       },
       {
@@ -486,6 +502,56 @@ export const projects: Project[] = [
           pt: "filtro de anoitecer de verão",
         },
       },
+      {
+        src: proyectoCarlaParrillaAmanecer,
+        atmosphere: "amanecer",
+        label: {
+          es: "filtro de Amanecer de Primavera",
+          en: "spring sunrise filter",
+          pt: "filtro de amanhecer de primavera",
+        },
+      },
+    ],
+  },
+  {
+    id: "proyecto-salem",
+    title: {
+      es: "Proyecto Salem",
+      en: "Salem Project - 2025",
+      pt: "Projeto Salem - 2025",
+    },
+    meta: {
+      es: "Comercial - 2025",
+      en: "Commercial — 2025",
+      pt: "Comercial — 2025",
+    },
+    category: "comercial",
+    origin: "proyectos",
+    image: salemFrenteAnochecer,
+    location: "Pilar, Buenos Aires",
+    year: "2025",
+    area: "807 m²",
+    description: {
+      es: "La propuesta se concibe como un espacio de encuentro y reflexión, donde la composición de volúmenes y la jerarquía del acceso expresan una identidad arquitectónica sólida y acogedora. El proyecto organiza sus espacios para favorecer la congregación, incorporando materiales sobrios y amplias superficies vidriadas que potencian la luz natural y la conexión con el exterior.",
+      en: "The proposal is conceived as a space for gathering and reflection, where the composition of volumes and the hierarchy of the entrance express a solid and welcoming architectural identity. The project organizes its spaces to favor congregation, incorporating sober materials and large glazed surfaces that enhance natural light and the connection with the exterior.",
+      pt: "A proposta é concebida como um espaço de encontro e reflexão, onde a composição de volumes e a hierarquia do acesso expressam uma identidade arquitetônica sólida e acolhedora. O projeto organiza seus espaços para favorecer a congregação, incorporando materiais sóbrios e amplas superfícies envidraçadas que potencializam a luz natural e a conexão com o exterior.",
+    },
+    gallery: [
+      { src: salemFrenteAnochecer, atmosphere: "anochecer", label: { es: "Frente Anochecer de verano", en: "Front Summer Dusk", pt: "Frente Anoitecer de verão" } },
+      { src: salemFrenteAtardecer, atmosphere: "atardecer", label: { es: "Frente Atardecer de otoño", en: "Front Autumn Sunset", pt: "Frente Entardecer de outono" } },
+      { src: salemFrenteAmanecer, atmosphere: "amanecer", label: { es: "Frente Amanecer de primavera", en: "Front Spring Sunrise", pt: "Frente Amanhecer de primavera" } },
+      { src: salemFrenteLateralExteriorAnochecer, atmosphere: "anochecer", label: { es: "Frente Lateral Exterior Anochecer de verano", en: "Side Exterior Summer Dusk", pt: "Lateral Exterior Anoitecer de verão" } },
+      { src: salemFrenteLateralExteriorAtardecer, atmosphere: "atardecer", label: { es: "Frente Lateral Exterior Atardecer de otoño", en: "Side Exterior Autumn Sunset", pt: "Lateral Exterior Entardecer de outono" } },
+      { src: salemFrenteLateralExteriorAmanecer, atmosphere: "amanecer", label: { es: "Frente Lateral Exterior Amanecer de primavera", en: "Side Exterior Spring Sunrise", pt: "Lateral Exterior Amanhecer de primavera" } },
+      { src: salemInterior, atmosphere: "anochecer", label: { es: "Interior", en: "Interior", pt: "Interior" } },
+      { src: salemInteriorLateral, atmosphere: "anochecer", label: { es: "Interior Lateral", en: "Interior Side", pt: "Interior Lateral" } },
+      { src: salemBufet, atmosphere: "anochecer", label: { es: "Bufet", en: "Buffet", pt: "Bufê" } },
+      { src: salemInterior, atmosphere: "atardecer", label: { es: "Interior", en: "Interior", pt: "Interior" } },
+      { src: salemInteriorLateral, atmosphere: "atardecer", label: { es: "Interior Lateral", en: "Interior Side", pt: "Interior Lateral" } },
+      { src: salemBufet, atmosphere: "atardecer", label: { es: "Bufet", en: "Buffet", pt: "Bufê" } },
+      { src: salemInterior, atmosphere: "amanecer", label: { es: "Interior", en: "Interior", pt: "Interior" } },
+      { src: salemInteriorLateral, atmosphere: "amanecer", label: { es: "Interior Lateral", en: "Interior Side", pt: "Interior Lateral" } },
+      { src: salemBufet, atmosphere: "amanecer", label: { es: "Bufet", en: "Buffet", pt: "Bufê" } },
     ],
   },
   {
@@ -552,12 +618,21 @@ export const projects: Project[] = [
     },
     gallery: [
       {
-        src: zAmanecerCF,
-        atmosphere: "amanecer",
+        src: zAnochecerFrente,
+        atmosphere: "anochecer",
         label: {
-          es: "filtro de amanecer de primavera",
-          en: "spring sunrise filter",
-          pt: "filtro de amanhecer de primavera",
+          es: "filtro de anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: zAtardecerJpg,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de atardecer de otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
         },
       },
       {
@@ -567,6 +642,24 @@ export const projects: Project[] = [
           es: "filtro de amanecer de primavera",
           en: "spring sunrise filter",
           pt: "filtro de amanhecer de primavera",
+        },
+      },
+      {
+        src: zAnochecerExterior,
+        atmosphere: "anochecer",
+        label: {
+          es: "filtro de anochecer de verano",
+          en: "summer dusk filter",
+          pt: "filtro de anoitecer de verão",
+        },
+      },
+      {
+        src: zAtardecerExterior,
+        atmosphere: "atardecer",
+        label: {
+          es: "filtro de atardecer de otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
         },
       },
       {
@@ -588,21 +681,12 @@ export const projects: Project[] = [
         },
       },
       {
-        src: zAnochecerFrente,
-        atmosphere: "anochecer",
+        src: zAtardecer,
+        atmosphere: "atardecer",
         label: {
-          es: "filtro de anochecer de verano",
-          en: "summer dusk filter",
-          pt: "filtro de anoitecer de verão",
-        },
-      },
-      {
-        src: zAnochecerExterior,
-        atmosphere: "anochecer",
-        label: {
-          es: "filtro de anochecer de verano",
-          en: "summer dusk filter",
-          pt: "filtro de anoitecer de verão",
+          es: "filtro de atardecer de otoño",
+          en: "autumn sunset filter",
+          pt: "filtro de entardecer de outono",
         },
       },
       {
@@ -615,116 +699,17 @@ export const projects: Project[] = [
         },
       },
       {
-        src: zContrafachadaAtardecer,
-        atmosphere: "atardecer",
-        label: {
-          es: "FILTRO DE ATARDECER OTOÑO",
-          en: "autumn sunset filter",
-          pt: "filtro de entardecer de outono",
-        },
-      },
-      {
-        src: zAtardecer,
-        atmosphere: "atardecer",
-        label: {
-          es: "filtro de atardecer de otoño",
-          en: "autumn sunset filter",
-          pt: "filtro de entardecer de outono",
-        },
-      },
-      {
-        src: zAtardecerJpg,
-        atmosphere: "atardecer",
-        label: {
-          es: "filtro de atardecer de otoño",
-          en: "autumn sunset filter",
-          pt: "filtro de entardecer de outono",
-        },
-      },
-      {
-        src: zAtardecerExterior,
-        atmosphere: "atardecer",
-        label: {
-          es: "filtro de atardecer de otoño",
-          en: "autumn sunset filter",
-          pt: "filtro de entardecer de outono",
-        },
-      },
-      {
-        src: zInteriorCocina,
+        src: zInteriorVistaPiso,
         atmosphere: "amanecer",
         label: {
-          es: "interior de cocina",
-          en: "kitchen interior",
-          pt: "interior da cozinha",
-        },
-      },
-      {
-        src: zInteriorCocina,
-        atmosphere: "anochecer",
-        label: {
-          es: "interior de cocina",
-          en: "kitchen interior",
-          pt: "interior da cozinha",
-        },
-      },
-      {
-        src: zInteriorCocina,
-        atmosphere: "atardecer",
-        label: {
-          es: "interior de cocina",
-          en: "kitchen interior",
-          pt: "interior da cozinha",
-        },
-      },
-      {
-        src: zInteriorComedor,
-        atmosphere: "amanecer",
-        label: {
-          es: "interior de comedor",
-          en: "dining room interior",
-          pt: "interior da sala de jantar",
-        },
-      },
-      {
-        src: zInteriorComedor,
-        atmosphere: "anochecer",
-        label: {
-          es: "interior de comedor",
-          en: "dining room interior",
-          pt: "interior da sala de jantar",
-        },
-      },
-      {
-        src: zInteriorComedor,
-        atmosphere: "atardecer",
-        label: {
-          es: "interior de comedor",
-          en: "dining room interior",
-          pt: "interior da sala de jantar",
+          es: "vista entre piso",
+          en: "between-floor view",
+          pt: "vista entre os pisos",
         },
       },
       {
         src: zInteriorLivingComedor,
         atmosphere: "amanecer",
-        label: {
-          es: "interior living comedor",
-          en: "living and dining interior",
-          pt: "interior da sala de estar e jantar",
-        },
-      },
-      {
-        src: zInteriorLivingComedor,
-        atmosphere: "anochecer",
-        label: {
-          es: "interior living comedor",
-          en: "living and dining interior",
-          pt: "interior da sala de estar e jantar",
-        },
-      },
-      {
-        src: zInteriorLivingComedor,
-        atmosphere: "atardecer",
         label: {
           es: "interior living comedor",
           en: "living and dining interior",
@@ -741,24 +726,6 @@ export const projects: Project[] = [
         },
       },
       {
-        src: zInteriorLiving,
-        atmosphere: "anochecer",
-        label: {
-          es: "interior living",
-          en: "living room interior",
-          pt: "interior da sala de estar",
-        },
-      },
-      {
-        src: zInteriorLiving,
-        atmosphere: "atardecer",
-        label: {
-          es: "interior living",
-          en: "living room interior",
-          pt: "interior da sala de estar",
-        },
-      },
-      {
         src: zInteriorLiving02,
         atmosphere: "amanecer",
         label: {
@@ -768,30 +735,21 @@ export const projects: Project[] = [
         },
       },
       {
-        src: zInteriorLiving02,
-        atmosphere: "anochecer",
-        label: {
-          es: "interior living 02",
-          en: "living room interior 02",
-          pt: "interior da sala de estar 02",
-        },
-      },
-      {
-        src: zInteriorLiving02,
-        atmosphere: "atardecer",
-        label: {
-          es: "interior living 02",
-          en: "living room interior 02",
-          pt: "interior da sala de estar 02",
-        },
-      },
-      {
-        src: zInteriorVistaPiso,
+        src: zInteriorComedor,
         atmosphere: "amanecer",
         label: {
-          es: "vista entre piso",
-          en: "between-floor view",
-          pt: "vista entre os pisos",
+          es: "interior de comedor",
+          en: "dining room interior",
+          pt: "interior da sala de jantar",
+        },
+      },
+      {
+        src: zInteriorCocina,
+        atmosphere: "amanecer",
+        label: {
+          es: "interior de cocina",
+          en: "kitchen interior",
+          pt: "interior da cozinha",
         },
       },
       {
@@ -804,12 +762,102 @@ export const projects: Project[] = [
         },
       },
       {
+        src: zInteriorLivingComedor,
+        atmosphere: "anochecer",
+        label: {
+          es: "interior living comedor",
+          en: "living and dining interior",
+          pt: "interior da sala de estar e jantar",
+        },
+      },
+      {
+        src: zInteriorLiving,
+        atmosphere: "anochecer",
+        label: {
+          es: "interior living",
+          en: "living room interior",
+          pt: "interior da sala de estar",
+        },
+      },
+      {
+        src: zInteriorLiving02,
+        atmosphere: "anochecer",
+        label: {
+          es: "interior living 02",
+          en: "living room interior 02",
+          pt: "interior da sala de estar 02",
+        },
+      },
+      {
+        src: zInteriorComedor,
+        atmosphere: "anochecer",
+        label: {
+          es: "interior de comedor",
+          en: "dining room interior",
+          pt: "interior da sala de jantar",
+        },
+      },
+      {
+        src: zInteriorCocina,
+        atmosphere: "anochecer",
+        label: {
+          es: "interior de cocina",
+          en: "kitchen interior",
+          pt: "interior da cozinha",
+        },
+      },
+      {
         src: zInteriorVistaPiso,
         atmosphere: "atardecer",
         label: {
           es: "vista entre piso",
           en: "between-floor view",
           pt: "vista entre os pisos",
+        },
+      },
+      {
+        src: zInteriorLivingComedor,
+        atmosphere: "atardecer",
+        label: {
+          es: "interior living comedor",
+          en: "living and dining interior",
+          pt: "interior da sala de estar e jantar",
+        },
+      },
+      {
+        src: zInteriorLiving,
+        atmosphere: "atardecer",
+        label: {
+          es: "interior living",
+          en: "living room interior",
+          pt: "interior da sala de estar",
+        },
+      },
+      {
+        src: zInteriorLiving02,
+        atmosphere: "atardecer",
+        label: {
+          es: "interior living 02",
+          en: "living room interior 02",
+          pt: "interior da sala de estar 02",
+        },
+      },
+      {
+        src: zInteriorComedor,
+        atmosphere: "atardecer",
+        label: {
+          es: "interior de comedor",
+          en: "dining room interior",
+          pt: "interior da sala de jantar",
+        },
+      },
+      {
+        src: zInteriorCocina,
+        atmosphere: "atardecer",
+        label: {
+          es: "interior de cocina",
+          en: "kitchen interior",
+          pt: "interior da cozinha",
         },
       },
     ],
@@ -861,10 +909,11 @@ export function Projects({ mode = "home", section }: { mode?: SectionMode; secti
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, [mode, section]);
 
-  const casaProjectsWithIds = casaProjects.map((project, index) => ({
-    ...project,
-    id: project.id ?? `casa-${index + 1}`,
-  }));
+  const casaProjectsWithIds = casaProjects
+    .map((project, index) => ({
+      ...project,
+      id: project.id ?? `casa-${index + 1}`,
+    })) as Project[];
   const casaIds = new Set(casaProjectsWithIds.map((project) => project.id));
   const combinedProjects: Project[] = [
     ...casaProjectsWithIds.map((project) => ({
@@ -872,7 +921,7 @@ export function Projects({ mode = "home", section }: { mode?: SectionMode; secti
       origin: project.origin ?? ("casas" as const),
       gallery: project.gallery?.map((item) => ({
         ...item,
-        label: project.title,
+        label: item.label || project.title,
       })),
     })),
     ...projects
@@ -1129,18 +1178,95 @@ function ProjectModal({
     { key: "antes", label: t.projects.piliFilters.antes },
     { key: "despues", label: t.projects.piliFilters.despues },
   ] as const;
-  const galleryItems = isPhaseFilterProject
-    ? uniqueGalleryBySrc(project.gallery ?? []).filter((item) => {
-        if (piliFilter === "all") return true;
-        return item.phase === piliFilter;
-      })
-    : uniqueGalleryBySrc(
-        project.gallery?.filter(
-          (item) => modalAtmosphere === "todos" || item.atmosphere === modalAtmosphere
-        ) ?? []
-      );
 
-  let reorderedGalleryItems = galleryItems;
+  const getCasaBonziPhaseTargetSrc = (
+    src?: string,
+    targetPhase?: "antes" | "despues"
+  ): string | null => {
+    if (!src || !targetPhase) return null;
+
+    const bonziPairs: Record<string, string> = {
+      [casaBonziBanio01Antes]: casaBonziBanio01Despues,
+      [casaBonziBanio02Antes]: casaBonziBanio02Despues,
+      [casaBonziCocina01Antes]: casaBonziCocina01Despues,
+      [casaBonziCocina02Antes]: casaBonziCocina02Despues,
+      [casaBonziComedorAntes]: casaBonziComedorDespues,
+      [casaBonziLivingAntes]: casaBonziLivingDespues,
+      [casaBonziTerraza01Antes]: casaBonziTerraza01Despues,
+      [casaBonziTerraza02Antes]: casaBonziTerraza02Despues,
+      [casaBonziTerraza03Antes]: casaBonziTerraza03Despues,
+    };
+
+    const counterpart =
+      bonziPairs[src] ??
+      Object.entries(bonziPairs).find(([, after]) => after === src)?.[0] ??
+      null;
+
+    if (targetPhase === "antes") {
+      if (Object.keys(bonziPairs).includes(src)) return src;
+      return counterpart;
+    }
+
+    if (targetPhase === "despues") {
+      if (Object.values(bonziPairs).includes(src)) return src;
+      return counterpart;
+    }
+
+    return null;
+  };
+
+  const getCasaPiliPhaseTargetSrc = (
+    src?: string,
+    targetPhase?: "antes" | "despues"
+  ): string | null => {
+    if (!src || !targetPhase || !project.gallery) return null;
+
+    const getSceneKey = (label: LocalizedString) => {
+      const text = (label.es || label.en || label.pt || "").toLowerCase();
+      return text
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\b(antes|despues|después|depois|before|after)\b/g, "")
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim();
+    };
+
+    const currentItem = project.gallery.find(
+      (item) => item.src === src || item.openSrc === src
+    );
+    if (!currentItem) return null;
+
+    if (currentItem.phase === targetPhase) return currentItem.src;
+
+    const currentSceneKey = getSceneKey(currentItem.label);
+    if (!currentSceneKey) return null;
+
+    const targetItem = project.gallery.find(
+      (item) => item.phase === targetPhase && getSceneKey(item.label) === currentSceneKey
+    );
+
+    return targetItem?.src ?? null;
+  };
+
+  const handlePiliFilterChange = (nextFilter: "antes" | "despues") => {
+    if (project.id === "casa-bonzi") {
+      const currentSrc = reorderedGalleryItems[activeIndex]?.src ?? galleryItems[activeIndex]?.src;
+      const targetSrc = getCasaBonziPhaseTargetSrc(currentSrc, nextFilter);
+      setPiliFilter(nextFilter);
+      setDesiredActiveSrc(targetSrc);
+      return;
+    }
+
+    if (project.id === "casa-pili") {
+      const currentSrc = reorderedGalleryItems[activeIndex]?.src ?? galleryItems[activeIndex]?.src;
+      const targetSrc = getCasaPiliPhaseTargetSrc(currentSrc, nextFilter);
+      setPiliFilter(nextFilter);
+      setDesiredActiveSrc(targetSrc);
+      return;
+    }
+
+    setPiliFilter(nextFilter);
+  };
 
   const applyMoves = <T,>(items: T[], moves: Array<{ from: number; to: number }>): T[] => {
     const res = items.slice();
@@ -1155,60 +1281,105 @@ function ProjectModal({
     return res;
   };
 
-  if (project.id === "casa-bonzi") {
-    const desiredSrcOrder =
-      piliFilter === "all"
-        ? [
-            casaBonziLivingDespues,
-            casaBonziLivingAntes,
-            casaBonziComedorDespues,
-            casaBonziComedorAntes,
-            casaBonziCocina01Despues,
-            casaBonziCocina01Antes,
-            casaBonziCocina02Despues,
-            casaBonziCocina02Antes,
-            casaBonziTerraza01Despues,
-            casaBonziTerraza01Antes,
-            casaBonziTerraza02Despues,
-            casaBonziTerraza02Antes,
-            casaBonziTerraza03Despues,
-            casaBonziTerraza03Antes,
-            casaBonziBanio01Despues,
-            casaBonziBanio01Antes,
-            casaBonziBanio02Despues,
-            casaBonziBanio02Antes,
-          ]
-        : piliFilter === "antes"
-          ? [
-              casaBonziLivingAntes,
-              casaBonziComedorAntes,
-              casaBonziCocina01Antes,
-              casaBonziCocina02Antes,
-              casaBonziTerraza01Antes,
-              casaBonziTerraza02Antes,
-              casaBonziTerraza03Antes,
-              casaBonziBanio01Antes,
-              casaBonziBanio02Antes,
-            ]
-          : [
-              casaBonziLivingDespues,
-              casaBonziComedorDespues,
-              casaBonziCocina01Despues,
-              casaBonziCocina02Despues,
-              casaBonziTerraza01Despues,
-              casaBonziTerraza02Despues,
-              casaBonziTerraza03Despues,
-              casaBonziBanio01Despues,
-              casaBonziBanio02Despues,
-            ];
+  const orderGalleryItemsBySrc = (
+    items: GalleryItem[],
+    desiredSrcOrder: string[],
+    includeRemaining = true
+  ) => {
+    const remaining = items.slice();
+    const ordered: GalleryItem[] = [];
 
-    reorderedGalleryItems = desiredSrcOrder
-      .map((src) => reorderedGalleryItems.find((item) => item.src === src))
-      .filter((item): item is (typeof reorderedGalleryItems)[number] => Boolean(item));
+    for (const src of desiredSrcOrder) {
+      const index = remaining.findIndex((item) => item.src === src);
+      if (index >= 0) {
+        ordered.push(remaining.splice(index, 1)[0]);
+      }
+    }
 
-    const rest = reorderedGalleryItems.filter((item) => !desiredSrcOrder.includes(item.src));
-    reorderedGalleryItems = [...reorderedGalleryItems, ...rest];
-  }
+    return includeRemaining ? [...ordered, ...remaining] : ordered;
+  };
+
+  const getCarlaDesiredSrcOrder = (atm: AtmosphereType): string[] => {
+    const fullOrder = [
+      proyectoCarlaExteriorAnochecer,
+      proyectoCarlaExteriorAtardecer,
+      proyectoCarlaExteriorAmanecer,
+      proyectoCarlaExteriorLateralAnochecer,
+      proyectoCarlaExteriorLateralAtardecer,
+      proyectoCarlaExteriorLateralAmanecer,
+      proyectoCarlaExteriorContrafachadaAnochecer,
+      proyectoCarlaContrafachadaAmanecer,
+      proyectoCarlaContrafachadaAnochecer,
+      proyectoCarlaContrafachadaAtardecer,
+      proyectoCarlaContrafachadaLateralAmanecer,
+      proyectoCarlaExteriorHallAnochecer,
+      proyectoCarlaExtHallAtardecer,
+      proyectoCarlaHallAmanecer,
+      proyectoCarlaInterior02,
+      proyectoCarlaParrillaAnochecer,
+      proyectoCarlaParrillaAmanecer,
+    ];
+
+    if (atm === "todos") {
+      return fullOrder;
+    }
+
+    if (atm === "anochecer") {
+      return [
+        proyectoCarlaExteriorAnochecer,
+        proyectoCarlaExteriorLateralAnochecer,
+        proyectoCarlaExteriorContrafachadaAnochecer,
+        proyectoCarlaContrafachadaAnochecer,
+        proyectoCarlaExteriorHallAnochecer,
+        proyectoCarlaInterior02,
+        proyectoCarlaParrillaAnochecer,
+      ];
+    }
+
+    if (atm === "atardecer") {
+      return [
+        proyectoCarlaExteriorAtardecer,
+        proyectoCarlaExteriorLateralAtardecer,
+        proyectoCarlaContrafachadaAtardecer,
+        proyectoCarlaExtHallAtardecer,
+        proyectoCarlaHallAmanecer,
+        proyectoCarlaInterior02,
+      ];
+    }
+
+    return [
+      proyectoCarlaExteriorAmanecer,
+      proyectoCarlaExteriorLateralAmanecer,
+      proyectoCarlaContrafachadaAmanecer,
+      proyectoCarlaContrafachadaLateralAmanecer,
+      proyectoCarlaHallAmanecer,
+      proyectoCarlaInterior02,
+      proyectoCarlaParrillaAmanecer,
+    ];
+  };
+
+  const galleryItems = isPhaseFilterProject
+    ? uniqueGalleryBySrc(project.gallery ?? []).filter((item) => {
+        if (piliFilter === "all") return true;
+        return item.phase === piliFilter;
+      })
+    : project.id === "proyecto-salem"
+    ? modalAtmosphere === "todos"
+      ? project.gallery ?? []
+      : (project.gallery ?? []).filter((item) => item.atmosphere === modalAtmosphere)
+    : project.id === "proyecto-carla"
+    ? orderGalleryItemsBySrc(
+        uniqueGalleryBySrc(project.gallery ?? []),
+        getCarlaDesiredSrcOrder(modalAtmosphere),
+        false
+      )
+    : uniqueGalleryBySrc(
+        project.gallery?.filter(
+          (item) => modalAtmosphere === "todos" || item.atmosphere === modalAtmosphere
+        ) ?? []
+      );
+
+  let reorderedGalleryItems = galleryItems;
 
   // Casa del Limonero exact ordering for atmosphere filters
   if (project.id === "casa-del-limonero") {
@@ -1218,17 +1389,23 @@ function ProjectModal({
     ]);
 
     const getOrderedItems = (desiredSrcOrder: string[]) => {
-      const ordered = desiredSrcOrder
-        .map((src) => reorderedGalleryItems.find((item) => item.src === src))
-        .filter((item): item is typeof reorderedGalleryItems[number] => Boolean(item));
-      const rest = reorderedGalleryItems.filter((item) => !desiredSrcOrder.includes(item.src));
-      return [...ordered, ...rest];
+      const ordered: typeof reorderedGalleryItems = [];
+      const remaining = [...reorderedGalleryItems];
+
+      for (const src of desiredSrcOrder) {
+        const index = remaining.findIndex((item) => item.src === src);
+        if (index >= 0) {
+          ordered.push(remaining.splice(index, 1)[0]);
+        }
+      }
+
+      return [...ordered, ...remaining];
     };
 
     if (modalAtmosphere === "anochecer") {
       reorderedGalleryItems = getOrderedItems([
         delLimoneroAnochecer,
-        delLimoneroExteriorGaleria,
+        delLimoneroAtardecer,
         delLimoneroContrafachadaAnochecer,
         delLimoneroExteriorLateralAnochecer,
         delLimoneroDormitorio,
@@ -1332,33 +1509,6 @@ function ProjectModal({
     }
   }
 
-  // Proyecto Z exact ordering by asset:
-  // 1=Anochecer de verano_Frente, 2=Atardecer de otoño.jpeg, 3=Amanecer de primavera,
-  // 4=Anochecer de vernano_Exterior L, 5=Atardecer de otoño_ Exterior,
-  // 6=Amanecer de Primavera_Exterior L, 7=Anochecer de verano_CF,
-  // 8=Atardecer de otoño.png, 9=Amanecer de primavera_CF,
-  // 10=ProyectoZ-Contrafachada_Atardecer de Otoño., 11=ProyectoZ-Contrafachada_Amanecer de Primavera.
-  if (project.id === "proyecto-z") {
-    if (galleryItems.length >= 11) {
-      reorderedGalleryItems = [
-        galleryItems[4],
-        galleryItems[9],
-        galleryItems[1],
-        galleryItems[5],
-        galleryItems[10],
-        galleryItems[2],
-        galleryItems[3],
-        galleryItems[0],
-        galleryItems[8],
-        galleryItems[7],
-        galleryItems[6],
-        ...galleryItems.slice(11),
-      ];
-    } else {
-      reorderedGalleryItems = reorderedGalleryItems;
-    }
-  }
-
   // Proyecto CyG exact mapping by asset:
   // 1=Anochecer de verano, 2=Atardecer de otoño, 3=Frente_Atardecer de otoño,
   // 4=Amanecer de primavera, 5=Anochecer de verano_Contrafrente,
@@ -1387,46 +1537,56 @@ function ProjectModal({
     }
   }
 
-  // Proyecto Carla exact ordering by asset:
-  // 1=Exterior-Anochecer de Verano, 2=Exterior_Atardecer de otoño,
-  // 3=Exterior_Amanecer de Primavera, 4=ExteriorContraf._Anochecer de Verano,
-  // 5=Contrafachada_Amanecer de Primavera, 6=Contrafachada_Anochecer de Verano,
-  // 7=Contrafachada_Atardecer de Otoño, 8=ContrafachadaLateral_Amanecer de Primavera,
-  // 9=ExteriorHall_Anochecer de verano, 10=Ext.Hall_Atardecer de Otoño,
-  // 11=Hall_Amanecer de Primavera, 12=ExteriorLateral_Anochecer de Varano,
-  // 13=ExteriorLateral_Atardecer de otoño, 14=ExteriorLateral_Amanecer de Primavera,
-  // 15=Interior02, 16=Parrilla_Anochecer de Verano, 17=Interior
-  if (project.id === "proyecto-carla") {
-    if (galleryItems.length >= 17) {
-      reorderedGalleryItems = [
-        galleryItems[2],
-        galleryItems[1],
-        galleryItems[0],
-        galleryItems[8],
-        galleryItems[3],
-        galleryItems[4],
-        galleryItems[5],
-        galleryItems[6],
-        galleryItems[9],
-        galleryItems[7],
-        galleryItems[13],
-        galleryItems[11],
-        galleryItems[12],
-        galleryItems[10],
-        galleryItems[15],
-        galleryItems[16],
-        galleryItems[14],
-        ...galleryItems.slice(17),
-      ];
-    } else {
-      reorderedGalleryItems = applyMoves(reorderedGalleryItems, [
-        { from: 0, to: 2 },
-        { from: 2, to: 0 },
-        { from: 3, to: 5 },
-        { from: 4, to: 3 },
-        { from: 5, to: 4 },
-      ]);
-    }
+  if (project.id === "proyecto-salem") {
+    const desiredSrcOrder =
+      modalAtmosphere === "anochecer"
+        ? [
+            salemFrenteAnochecer,
+            salemFrenteLateralExteriorAnochecer,
+            salemInterior,
+            salemInteriorLateral,
+            salemBufet,
+          ]
+        : modalAtmosphere === "atardecer"
+          ? [
+              salemFrenteAtardecer,
+              salemFrenteLateralExteriorAtardecer,
+              salemInterior,
+              salemInteriorLateral,
+              salemBufet,
+            ]
+          : modalAtmosphere === "amanecer"
+            ? [
+                salemFrenteAmanecer,
+                salemFrenteLateralExteriorAmanecer,
+                salemInterior,
+                salemInteriorLateral,
+                salemBufet,
+              ]
+            : [
+                salemFrenteAnochecer,
+                salemFrenteAtardecer,
+                salemFrenteAmanecer,
+                salemFrenteLateralExteriorAnochecer,
+                salemFrenteLateralExteriorAtardecer,
+                salemFrenteLateralExteriorAmanecer,
+                salemInterior,
+                salemInteriorLateral,
+                salemBufet,
+                salemInterior,
+                salemInteriorLateral,
+                salemBufet,
+                salemInterior,
+                salemInteriorLateral,
+                salemBufet,
+              ];
+
+    reorderedGalleryItems = desiredSrcOrder
+      .map((src) => reorderedGalleryItems.find((item) => item.src === src))
+      .filter((item): item is (typeof reorderedGalleryItems)[number] => Boolean(item));
+
+    const rest = reorderedGalleryItems.filter((item) => !desiredSrcOrder.includes(item.src));
+    reorderedGalleryItems = [...reorderedGalleryItems, ...rest];
   }
 
   if (project.id === "proyecto-motoquero") {
@@ -1475,11 +1635,98 @@ function ProjectModal({
 
   const [activeSlide, setActiveSlide] = useState(0);
   const [expandedImageIndex, setExpandedImageIndex] = useState<number | null>(null);
+  const [atmosphereError, setAtmosphereError] = useState<string | null>(null);
+  const [desiredActiveSrc, setDesiredActiveSrc] = useState<string | null>(null);
   const activeIndex = reorderedGalleryItems.length > 0 ? activeSlide % reorderedGalleryItems.length : 0;
+
+  const getCasaCoffeeTargetSrc = (src?: string, targetAtmosphere?: AtmosphereType): string | null => {
+    if (!src || !targetAtmosphere || targetAtmosphere === "todos") return null;
+    if (src === casaCoffeeExteriorAnochecer) {
+      if (targetAtmosphere === "atardecer") return casaCoffeeContrafachadaAtardecer;
+      if (targetAtmosphere === "amanecer") return casaCoffeeContrafachadaAmanecer;
+    }
+    if (src === casaCoffeeContrafachadaAtardecer && targetAtmosphere === "amanecer") {
+      return casaCoffeeContrafachadaAmanecer;
+    }
+    return null;
+  };
+
+  const getCasaBonziTargetSrc = (src?: string, targetPhase?: "antes" | "despues"): string | null => {
+    if (!src || !targetPhase) return null;
+
+    const bonziPairs: Record<string, string> = {
+      [casaBonziBanio01Antes]: casaBonziBanio01Despues,
+      [casaBonziBanio02Antes]: casaBonziBanio02Despues,
+      [casaBonziCocina01Antes]: casaBonziCocina01Despues,
+      [casaBonziCocina02Antes]: casaBonziCocina02Despues,
+      [casaBonziComedorAntes]: casaBonziComedorDespues,
+      [casaBonziLivingAntes]: casaBonziLivingDespues,
+      [casaBonziTerraza01Antes]: casaBonziTerraza01Despues,
+      [casaBonziTerraza02Antes]: casaBonziTerraza02Despues,
+      [casaBonziTerraza03Antes]: casaBonziTerraza03Despues,
+    };
+
+    const counterpart = bonziPairs[src] ?? Object.entries(bonziPairs).find(([, after]) => after === src)?.[0];
+    const isAntes = Object.keys(bonziPairs).includes(src);
+    const isDespues = Object.values(bonziPairs).includes(src);
+
+    if (targetPhase === "antes") {
+      if (isAntes) return src;
+      return counterpart ?? null;
+    }
+
+    if (targetPhase === "despues") {
+      if (isDespues) return src;
+      return counterpart ?? null;
+    }
+
+    return null;
+  };
+
+  const handleAtmosphereChange = (atm: AtmosphereType) => {
+    if (atm === "todos") {
+      setDesiredActiveSrc(null);
+      setModalAtmosphere(atm);
+      setAtmosphereError(null);
+      return;
+    }
+
+    const hasAtmosphere = (project.gallery ?? []).some((item) => item.atmosphere === atm);
+    if (!hasAtmosphere) {
+      setAtmosphereError(t.projects.modal.atmosphereUnavailable);
+      return;
+    }
+
+    if (project.id === "casa-coffee") {
+      const currentSrc = reorderedGalleryItems[activeIndex]?.src ?? galleryItems[activeIndex]?.src;
+      setDesiredActiveSrc(getCasaCoffeeTargetSrc(currentSrc, atm));
+    } else if (project.id === "casa-bonzi") {
+      // Preserve the same scene when switching between antes/despues on Casa Bonzi.
+      const currentSrc = reorderedGalleryItems[activeIndex]?.src ?? galleryItems[activeIndex]?.src;
+      const targetPhase = atm === "anochecer" ? "despues" : atm === "amanecer" ? "antes" : null;
+      // If there is no direct mapping because the filter is not phase-based, just reset normally.
+      if (targetPhase) {
+        setDesiredActiveSrc(getCasaBonziTargetSrc(currentSrc, targetPhase));
+      } else {
+        setDesiredActiveSrc(null);
+      }
+    } else {
+      setDesiredActiveSrc(null);
+    }
+
+    setModalAtmosphere(atm);
+    setAtmosphereError(null);
+  };
 
   useEffect(() => {
     setModalAtmosphere(selectedAtmosphere);
   }, [selectedAtmosphere]);
+
+  useEffect(() => {
+    if (!atmosphereError) return;
+    const timeout = window.setTimeout(() => setAtmosphereError(null), 3000);
+    return () => window.clearTimeout(timeout);
+  }, [atmosphereError]);
 
   useEffect(() => {
     if (isPhaseFilterProject) {
@@ -1488,8 +1735,29 @@ function ProjectModal({
   }, [isPhaseFilterProject, project.id]);
 
   useEffect(() => {
-    setActiveSlide(0);
-  }, [modalAtmosphere, piliFilter, galleryItems.length]);
+    if (galleryItems.length === 0) {
+      setActiveSlide(0);
+      setExpandedImageIndex(null);
+      return;
+    }
+
+    if (isPhaseFilterProject) {
+      setActiveSlide((prev) => Math.min(prev, galleryItems.length - 1));
+      setExpandedImageIndex((prev) =>
+        prev === null ? null : Math.min(prev, galleryItems.length - 1)
+      );
+    } else if (!desiredActiveSrc) {
+      setActiveSlide(0);
+      setExpandedImageIndex(null);
+    }
+  }, [modalAtmosphere, piliFilter, galleryItems.length, isPhaseFilterProject, desiredActiveSrc]);
+
+  useEffect(() => {
+    if (!desiredActiveSrc || reorderedGalleryItems.length === 0) return;
+    const nextIndex = reorderedGalleryItems.findIndex((item) => item.src === desiredActiveSrc);
+    setActiveSlide(nextIndex >= 0 ? nextIndex : 0);
+    setDesiredActiveSrc(null);
+  }, [desiredActiveSrc, reorderedGalleryItems]);
 
   useEffect(() => {
     setActiveSlide(0);
@@ -1596,7 +1864,7 @@ function ProjectModal({
                       <button
                         key={button.key}
                         type="button"
-                        onClick={() => setPiliFilter(button.key)}
+                        onClick={() => handlePiliFilterChange(button.key)}
                         title={button.label}
                         aria-label={button.label}
                         className={`relative rounded-none border px-4 py-2 text-[10px] uppercase tracking-[0.3em] transition ${
@@ -1626,7 +1894,7 @@ function ProjectModal({
                         <button
                           key={atm.key}
                           type="button"
-                          onClick={() => setModalAtmosphere(atm.key)}
+                          onClick={() => handleAtmosphereChange(atm.key)}
                           title={atm.label}
                           aria-label={atm.label}
                           className={`relative inline-flex h-10 w-10 items-center justify-center rounded-full border transition ${
@@ -1641,6 +1909,11 @@ function ProjectModal({
                     })
                 )}
               </div>
+              {atmosphereError ? (
+                <div className="mt-3 text-center text-sm text-red-600">
+                  {atmosphereError}
+                </div>
+              ) : null}
             </div>
           </div>
         ) : null}

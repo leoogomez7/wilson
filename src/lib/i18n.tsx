@@ -100,6 +100,7 @@ const translations = {
         year: "Año",
         area: "Superficie",
         description: "Descripción",
+        atmosphereUnavailable: "Atmósfera de la imagen seleccionada no está disponible",
       },
       pagination: {
         previous: "Anterior",
@@ -454,6 +455,7 @@ const translations = {
         year: "Year",
         area: "Area",
         description: "Description",
+        atmosphereUnavailable: "Selected image atmosphere is not available",
       },
       pagination: {
         previous: "Previous",
@@ -795,6 +797,7 @@ const translations = {
         year: "Ano",
         area: "Área",
         description: "Descrição",
+        atmosphereUnavailable: "Atmosfera da imagem selecionada não está disponível",
       },
       pagination: {
         previous: "Anterior",
