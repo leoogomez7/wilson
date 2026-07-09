@@ -1284,6 +1284,52 @@ function ProjectModal({
     return includeRemaining ? [...ordered, ...remaining] : ordered;
   };
 
+  const getCygDesiredSrcOrder = (atm: AtmosphereType): string[] => {
+    if (atm === "todos") {
+      return [
+        cAnochecer,
+        cAtardecer,
+        cAmanecer,
+        cAtardecerFrente,
+        cAnochecerBack,
+        cContrafachadaAtardecer,
+        cContrafachadaAmanecer,
+        cInteriorComedor,
+        cInteriorLiving,
+        cInteriorSuite,
+      ];
+    }
+
+    if (atm === "anochecer") {
+      return [
+        cAnochecer,
+        cAnochecerBack,
+        cInteriorComedor,
+        cInteriorLiving,
+        cInteriorSuite,
+      ];
+    }
+
+    if (atm === "atardecer") {
+      return [
+        cAtardecer,
+        cAtardecerFrente,
+        cContrafachadaAtardecer,
+        cInteriorComedor,
+        cInteriorLiving,
+        cInteriorSuite,
+      ];
+    }
+
+    return [
+      cAmanecer,
+      cContrafachadaAmanecer,
+      cInteriorComedor,
+      cInteriorLiving,
+      cInteriorSuite,
+    ];
+  };
+
   const getCarlaDesiredSrcOrder = (atm: AtmosphereType): string[] => {
     const fullOrder = [
       proyectoCarlaExteriorAnochecer,
@@ -1399,6 +1445,12 @@ function ProjectModal({
           item.atmosphere === modalAtmosphere ||
           [delLimoneroDormitorio, delLimoneroLiving, delLimoneroOficina].includes(item.src)
       )
+    : project.id === "proyecto-cyg"
+    ? orderGalleryItemsBySrc(
+        uniqueGalleryBySrc(project.gallery ?? []),
+        getCygDesiredSrcOrder(modalAtmosphere),
+        false
+      )
     : project.id === "proyecto-carla"
     ? orderGalleryItemsBySrc(
         uniqueGalleryBySrc(project.gallery ?? []),
@@ -1511,34 +1563,6 @@ function ProjectModal({
         { from: 2, to: 0 },
         { from: 3, to: 5 },
         { from: 5, to: 3 },
-      ]);
-    }
-  }
-
-  // Proyecto CyG exact mapping by asset:
-  // 1=Anochecer de verano, 2=Atardecer de otoño, 3=Frente_Atardecer de otoño,
-  // 4=Amanecer de primavera, 5=Anochecer de verano_Contrafrente,
-  // 6=CasaCyG-Contrafachada_Atardecer de Otoño,
-  // 7=CasaCyG-Contrafachada_Amanecer de Primavera
-  if (project.id === "proyecto-cyg") {
-    if (galleryItems.length >= 7) {
-      reorderedGalleryItems = [
-        galleryItems[1],
-        galleryItems[4],
-        galleryItems[5],
-        galleryItems[0],
-        galleryItems[2],
-        galleryItems[6],
-        galleryItems[3],
-        ...galleryItems.slice(7),
-      ];
-    } else {
-      reorderedGalleryItems = applyMoves(reorderedGalleryItems, [
-        { from: 1, to: 0 },
-        { from: 4, to: 1 },
-        { from: 5, to: 2 },
-        { from: 0, to: 3 },
-        { from: 2, to: 4 },
       ]);
     }
   }
@@ -1815,6 +1839,57 @@ function ProjectModal({
     },
   };
 
+  const casaNavarroSrcTargets: Record<
+    string,
+    Record<Exclude<AtmosphereType, "todos">, string>
+  > = {
+    ...createThreeWayAtmosphereMap(
+      casaNavarroExteriorAnochecer,
+      casaNavarroExteriorAtardecer,
+      casaNavarroExteriorAmanecer
+    ),
+    ...createThreeWayAtmosphereMap(
+      casaNavarroExteriorContrafrenteAnochecer,
+      casaNavarroExteriorContrafrenteAtardecer,
+      casaNavarroExteriorContrafrenteAmanecer
+    ),
+    ...createThreeWayAtmosphereMap(
+      casaNavarroExteriorGaleriaAnochecer,
+      casaNavarroExteriorGaleriaAtardecer,
+      casaNavarroExteriorGaleriaAmanecer
+    ),
+    ...createThreeWayAtmosphereMap(
+      casaNavarroExteriorLateralAnochecer,
+      casaNavarroExteriorLateralAtardecer,
+      casaNavarroExteriorLateralAmanecer
+    ),
+    [casaNavarroInteriorDormitorio]: {
+      anochecer: casaNavarroInteriorDormitorio,
+      atardecer: casaNavarroInteriorDormitorio,
+      amanecer: casaNavarroInteriorDormitorio,
+    },
+    [casaNavarroInteriorDormitorio02]: {
+      anochecer: casaNavarroInteriorDormitorio02,
+      atardecer: casaNavarroInteriorDormitorio02,
+      amanecer: casaNavarroInteriorDormitorio02,
+    },
+    [casaNavarroInteriorLiving02]: {
+      anochecer: casaNavarroInteriorLiving02,
+      atardecer: casaNavarroInteriorLiving02,
+      amanecer: casaNavarroInteriorLiving02,
+    },
+    [casaNavarroInteriorCocina]: {
+      anochecer: casaNavarroInteriorCocina,
+      atardecer: casaNavarroInteriorCocina,
+      amanecer: casaNavarroInteriorCocina,
+    },
+    [casaNavarroInteriorLiving]: {
+      anochecer: casaNavarroInteriorLiving,
+      atardecer: casaNavarroInteriorLiving,
+      amanecer: casaNavarroInteriorLiving,
+    },
+  };
+
   const getCasaIntiOrderedGalleryItems = (atm: AtmosphereType) => {
     return (project.gallery ?? []).filter(
       (item) => atm === "todos" || item.atmosphere === atm
@@ -1901,15 +1976,17 @@ function ProjectModal({
     return null;
   };
 
-  const createThreeWayAtmosphereMap = (
+  function createThreeWayAtmosphereMap(
     anochecerSrc: string,
     atardecerSrc: string,
     amanecerSrc: string
-  ) => ({
-    [anochecerSrc]: { anochecer: anochecerSrc, atardecer: atardecerSrc, amanecer: amanecerSrc },
-    [atardecerSrc]: { anochecer: anochecerSrc, atardecer: atardecerSrc, amanecer: amanecerSrc },
-    [amanecerSrc]: { anochecer: anochecerSrc, atardecer: atardecerSrc, amanecer: amanecerSrc },
-  });
+  ) {
+    return {
+      [anochecerSrc]: { anochecer: anochecerSrc, atardecer: atardecerSrc, amanecer: amanecerSrc },
+      [atardecerSrc]: { anochecer: anochecerSrc, atardecer: atardecerSrc, amanecer: amanecerSrc },
+      [amanecerSrc]: { anochecer: anochecerSrc, atardecer: atardecerSrc, amanecer: amanecerSrc },
+    };
+  }
 
   const getProjectAlwaysVisibleSrcs = (projectId: string) => {
     if (projectId === "casa-del-limonero") {
@@ -1934,6 +2011,40 @@ function ProjectModal({
         casaScottInteriorCocina,
         casaScottInteriorLiving,
         casaScottInteriorSuite,
+      ];
+    }
+
+    if (projectId === "casa-navarro") {
+      return [
+        casaNavarroInteriorDormitorio,
+        casaNavarroInteriorDormitorio02,
+        casaNavarroInteriorLiving02,
+        casaNavarroInteriorCocina,
+        casaNavarroInteriorLiving,
+      ];
+    }
+
+    if (projectId === "proyecto-salem") {
+      return [salemInterior, salemInteriorLateral, salemBufet];
+    }
+
+    if (projectId === "proyecto-motoquero") {
+      return [
+        motoqueroInteriorTaller,
+        motoqueroInteriorTaller2,
+        motoqueroInteriorTaller3,
+        motoqueroInteriorTienda,
+      ];
+    }
+
+    if (projectId === "proyecto-z") {
+      return [
+        zInteriorCocina,
+        zInteriorComedor,
+        zInteriorLiving,
+        zInteriorLiving02,
+        zInteriorLivingComedor,
+        zInteriorVistaPiso,
       ];
     }
 
@@ -1970,6 +2081,7 @@ function ProjectModal({
   const getAtmosphereSceneKey = (label: LocalizedString) => {
     return getSceneKey(label)
       .replace(/\b(antes|despues|después|depois|before|after)\b/g, "")
+      .replace(/\b(anochecer|atardecer|amanecer|verano|otoño|otono|primavera|invierno)\b/g, "")
       .replace(/\s+/g, " ")
       .trim();
   };
@@ -1991,17 +2103,6 @@ function ProjectModal({
       [casaCoffeeInteriorLiving, casaCoffeeInteriorSuite].includes(currentSrc)
     ) {
       return currentSrc;
-    }
-
-    if (currentItem) {
-      if (currentItem.atmosphere === targetAtmosphere) return currentSrc;
-
-      const currentSceneKey = getAtmosphereSceneKey(currentItem.label);
-      const targetItem = gallery?.find(
-        (item) =>
-          item.atmosphere === targetAtmosphere && getAtmosphereSceneKey(item.label) === currentSceneKey
-      );
-      if (targetItem) return targetItem.src;
     }
 
     const targetMap: Record<
@@ -2070,32 +2171,92 @@ function ProjectModal({
         ...createThreeWayAtmosphereMap(casaNavarroExteriorContrafrenteAnochecer, casaNavarroExteriorContrafrenteAtardecer, casaNavarroExteriorContrafrenteAmanecer),
         ...createThreeWayAtmosphereMap(casaNavarroExteriorGaleriaAnochecer, casaNavarroExteriorGaleriaAtardecer, casaNavarroExteriorGaleriaAmanecer),
         ...createThreeWayAtmosphereMap(casaNavarroExteriorLateralAnochecer, casaNavarroExteriorLateralAtardecer, casaNavarroExteriorLateralAmanecer),
+        [casaNavarroInteriorDormitorio]: {
+          anochecer: casaNavarroInteriorDormitorio,
+          atardecer: casaNavarroInteriorDormitorio,
+          amanecer: casaNavarroInteriorDormitorio,
+        },
+        [casaNavarroInteriorDormitorio02]: {
+          anochecer: casaNavarroInteriorDormitorio02,
+          atardecer: casaNavarroInteriorDormitorio02,
+          amanecer: casaNavarroInteriorDormitorio02,
+        },
+        [casaNavarroInteriorLiving02]: {
+          anochecer: casaNavarroInteriorLiving02,
+          atardecer: casaNavarroInteriorLiving02,
+          amanecer: casaNavarroInteriorLiving02,
+        },
+        [casaNavarroInteriorCocina]: {
+          anochecer: casaNavarroInteriorCocina,
+          atardecer: casaNavarroInteriorCocina,
+          amanecer: casaNavarroInteriorCocina,
+        },
+        [casaNavarroInteriorLiving]: {
+          anochecer: casaNavarroInteriorLiving,
+          atardecer: casaNavarroInteriorLiving,
+          amanecer: casaNavarroInteriorLiving,
+        },
       },
       "proyecto-cyg": {
         ...createThreeWayAtmosphereMap(cAnochecer, cAtardecer, cAmanecer),
         ...createThreeWayAtmosphereMap(cAnochecerBack, cContrafachadaAtardecer, cContrafachadaAmanecer),
-        [cAtardecerFrente]: { anochecer: cAnochecer, atardecer: cAtardecer, amanecer: cAmanecer },
+        [cAtardecerFrente]: { anochecer: cAnochecer, atardecer: cAtardecerFrente, amanecer: cAmanecer },
       },
       "proyecto-carla": {
         ...createThreeWayAtmosphereMap(proyectoCarlaExteriorAnochecer, proyectoCarlaExteriorAtardecer, proyectoCarlaExteriorAmanecer),
         ...createThreeWayAtmosphereMap(proyectoCarlaExteriorLateralAnochecer, proyectoCarlaExteriorLateralAtardecer, proyectoCarlaExteriorLateralAmanecer),
         ...createThreeWayAtmosphereMap(proyectoCarlaExteriorContrafachadaAnochecer, proyectoCarlaContrafachadaAtardecer, proyectoCarlaContrafachadaAmanecer),
+        ...createThreeWayAtmosphereMap(proyectoCarlaContrafachadaAnochecer, proyectoCarlaContrafachadaAtardecer, proyectoCarlaContrafachadaLateralAmanecer),
         ...createThreeWayAtmosphereMap(proyectoCarlaExteriorHallAnochecer, proyectoCarlaExtHallAtardecer, proyectoCarlaHallAmanecer),
         [proyectoCarlaInterior02]: { anochecer: proyectoCarlaInterior02, atardecer: proyectoCarlaInterior02, amanecer: proyectoCarlaInterior02 },
         [proyectoCarlaParrillaAnochecer]: { anochecer: proyectoCarlaParrillaAnochecer, atardecer: proyectoCarlaParrillaAnochecer, amanecer: proyectoCarlaParrillaAmanecer },
         [proyectoCarlaParrillaAmanecer]: { anochecer: proyectoCarlaParrillaAnochecer, atardecer: proyectoCarlaParrillaAmanecer, amanecer: proyectoCarlaParrillaAmanecer },
-        [proyectoCarlaContrafachadaLateralAmanecer]: {
-          anochecer: proyectoCarlaContrafachadaLateralAmanecer,
-          atardecer: proyectoCarlaContrafachadaLateralAmanecer,
-          amanecer: proyectoCarlaContrafachadaLateralAmanecer,
-        },
       },
       "proyecto-salem": {
         ...createThreeWayAtmosphereMap(salemFrenteAnochecer, salemFrenteAtardecer, salemFrenteAmanecer),
-        ...createThreeWayAtmosphereMap(salemFrenteLateralExteriorAnochecer, salemFrenteLateralExteriorAtardecer, salemFrenteLateralExteriorAmanecer),
+        ...createThreeWayAtmosphereMap(
+          salemFrenteLateralExteriorAnochecer,
+          salemFrenteLateralExteriorAtardecer,
+          salemFrenteLateralExteriorAmanecer
+        ),
+        [salemInterior]: {
+          anochecer: salemInterior,
+          atardecer: salemInterior,
+          amanecer: salemInterior,
+        },
+        [salemInteriorLateral]: {
+          anochecer: salemInteriorLateral,
+          atardecer: salemInteriorLateral,
+          amanecer: salemInteriorLateral,
+        },
+        [salemBufet]: {
+          anochecer: salemBufet,
+          atardecer: salemBufet,
+          amanecer: salemBufet,
+        },
       },
       "proyecto-motoquero": {
         ...createThreeWayAtmosphereMap(motoqueroExteriorAnochecer, motoqueroExteriorAtardecer, motoqueroExteriorAmanecer),
+        [motoqueroInteriorTaller]: {
+          anochecer: motoqueroInteriorTaller,
+          atardecer: motoqueroInteriorTaller,
+          amanecer: motoqueroInteriorTaller,
+        },
+        [motoqueroInteriorTaller2]: {
+          anochecer: motoqueroInteriorTaller2,
+          atardecer: motoqueroInteriorTaller2,
+          amanecer: motoqueroInteriorTaller2,
+        },
+        [motoqueroInteriorTaller3]: {
+          anochecer: motoqueroInteriorTaller3,
+          atardecer: motoqueroInteriorTaller3,
+          amanecer: motoqueroInteriorTaller3,
+        },
+        [motoqueroInteriorTienda]: {
+          anochecer: motoqueroInteriorTienda,
+          atardecer: motoqueroInteriorTienda,
+          amanecer: motoqueroInteriorTienda,
+        },
       },
       "proyecto-z": {
         ...createThreeWayAtmosphereMap(zAnochecerFrente, zAtardecerJpg, zAmanecer),
@@ -2104,7 +2265,22 @@ function ProjectModal({
       },
     };
 
-    return targetMap[projectId]?.[currentSrc]?.[targetAtmosphere] ?? null;
+    const explicitTargetSrc = targetMap[projectId]?.[currentSrc]?.[targetAtmosphere];
+    if (explicitTargetSrc) return explicitTargetSrc;
+
+    if (currentItem) {
+      if (currentItem.atmosphere === targetAtmosphere) return currentSrc;
+
+      const currentSceneKey = getAtmosphereSceneKey(currentItem.label);
+      const targetItem = gallery?.find(
+        (item) =>
+          item.atmosphere === targetAtmosphere &&
+          getAtmosphereSceneKey(item.label) === currentSceneKey
+      );
+      if (targetItem) return targetItem.src;
+    }
+
+    return null;
   };
 
   const getDelLimoneroOrderedGalleryItems = (atm: AtmosphereType) => {
@@ -2132,7 +2308,15 @@ function ProjectModal({
     const currentSrc = reorderedGalleryItems[activeIndex]?.src ?? galleryItems[activeIndex]?.src;
     if (atm === "todos") {
       const shouldKeepCurrentInterior =
-        ["casa-coffee", "casa-inti", "casa-scott"].includes(project.id) &&
+        [
+          "casa-coffee",
+          "casa-inti",
+          "casa-scott",
+          "casa-navarro",
+          "proyecto-salem",
+          "proyecto-motoquero",
+          "proyecto-z",
+        ].includes(project.id) &&
         getProjectAlwaysVisibleSrcs(project.id).includes(currentSrc);
 
       setPreserveActiveSlide(shouldKeepCurrentInterior);
@@ -2144,6 +2328,33 @@ function ProjectModal({
 
     const hasAtmosphere = (project.gallery ?? []).some((item) => item.atmosphere === atm);
     if (!hasAtmosphere) {
+      setAtmosphereError(t.projects.modal.atmosphereUnavailable);
+      return;
+    }
+
+    if (
+      project.id === "proyecto-carla" &&
+      atm === "atardecer" &&
+      [proyectoCarlaParrillaAnochecer, proyectoCarlaParrillaAmanecer].includes(currentSrc)
+    ) {
+      setAtmosphereError(t.projects.modal.atmosphereUnavailable);
+      return;
+    }
+
+    if (
+      project.id === "proyecto-carla" &&
+      atm === "atardecer" &&
+      [proyectoCarlaExteriorContrafachadaAnochecer, proyectoCarlaContrafachadaAmanecer].includes(currentSrc)
+    ) {
+      setAtmosphereError(t.projects.modal.atmosphereUnavailable);
+      return;
+    }
+
+    if (
+      project.id === "proyecto-cyg" &&
+      currentSrc === cAtardecerFrente &&
+      atm !== "atardecer"
+    ) {
       setAtmosphereError(t.projects.modal.atmosphereUnavailable);
       return;
     }
@@ -2222,6 +2433,31 @@ function ProjectModal({
         setPreserveActiveSlide(false);
         setDesiredActiveSrc(null);
       }
+    } else if (project.id === "casa-navarro") {
+      const targetSrc = currentSrc
+        ? casaNavarroSrcTargets[currentSrc]?.[atm] ?? null
+        : null;
+
+      if (targetSrc) {
+        const targetItems = uniqueGalleryBySrc(
+          (project.gallery ?? []).filter((item) => atm === "todos" || item.atmosphere === atm),
+          atm
+        );
+        const targetIndex = targetItems.findIndex((item) => item.src === targetSrc);
+
+        if (targetIndex >= 0) {
+          setActiveSlide(targetIndex);
+          setPreserveActiveSlide(true);
+        } else {
+          setActiveSlide(0);
+          setPreserveActiveSlide(false);
+        }
+
+        setDesiredActiveSrc(null);
+      } else {
+        setPreserveActiveSlide(false);
+        setDesiredActiveSrc(null);
+      }
     } else if (project.id === "casa-scott") {
       const shouldKeepInterior = getProjectAlwaysVisibleSrcs(project.id).includes(currentSrc);
       const targetSrc = shouldKeepInterior || getCurrentSrcInTargetAtmosphere(currentSrc, atm)
@@ -2245,6 +2481,42 @@ function ProjectModal({
         setPreserveActiveSlide(false);
         setDesiredActiveSrc(null);
       }
+    } else if (project.id === "proyecto-salem") {
+      const shouldKeepCurrentInterior = getProjectAlwaysVisibleSrcs(project.id).includes(currentSrc);
+      const targetSrc = shouldKeepCurrentInterior || getCurrentSrcInTargetAtmosphere(currentSrc, atm)
+        ? currentSrc
+        : getProjectAtmosphereTargetSrc(project.id, currentSrc, atm, project.gallery);
+
+      if (targetSrc) {
+        const targetItems = (project.gallery ?? []).filter((item) => item.atmosphere === atm);
+        const targetIndex = targetItems.findIndex((item) => item.src === targetSrc);
+
+        if (targetIndex >= 0) {
+          setActiveSlide(targetIndex);
+          setPreserveActiveSlide(true);
+        } else {
+          setActiveSlide(0);
+          setPreserveActiveSlide(false);
+        }
+
+        setDesiredActiveSrc(null);
+      } else {
+        setPreserveActiveSlide(false);
+        setDesiredActiveSrc(null);
+      }
+    } else if (project.id === "proyecto-z") {
+      const shouldKeepCurrentInterior = getProjectAlwaysVisibleSrcs(project.id).includes(currentSrc);
+      const targetSrc = shouldKeepCurrentInterior || getCurrentSrcInTargetAtmosphere(currentSrc, atm)
+        ? currentSrc
+        : getProjectAtmosphereTargetSrc(project.id, currentSrc, atm, project.gallery);
+
+      if (targetSrc) {
+        setPreserveActiveSlide(true);
+        setDesiredActiveSrc(targetSrc);
+      } else {
+        setPreserveActiveSlide(false);
+        setDesiredActiveSrc(null);
+      }
     } else if (
       [
         "casa-navarro",
@@ -2252,7 +2524,6 @@ function ProjectModal({
         "proyecto-carla",
         "proyecto-salem",
         "proyecto-motoquero",
-        "proyecto-z",
       ].includes(project.id)
     ) {
       const targetSrc = getProjectAtmosphereTargetSrc(project.id, currentSrc, atm, project.gallery);
@@ -2278,9 +2549,8 @@ function ProjectModal({
 
   useEffect(() => {
     if (!atmosphereError) return;
-    const timeout = window.setTimeout(() => setAtmosphereError(null), 3000);
-    return () => window.clearTimeout(timeout);
-  }, [atmosphereError]);
+    setAtmosphereError(null);
+  }, [activeIndex]);
 
   useEffect(() => {
     if (isPhaseFilterProject) {
@@ -2325,6 +2595,7 @@ function ProjectModal({
     const nextIndex = reorderedGalleryItems.findIndex((item) => item.src === desiredActiveSrc);
 
     setActiveSlide(nextIndex >= 0 ? nextIndex : 0);
+    skipActiveSlideResetRef.current = true;
     setPreserveActiveSlide(false);
     setDesiredActiveSrc(null);
   }, [desiredActiveSrc, reorderedGalleryItems]);
