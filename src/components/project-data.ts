@@ -54,6 +54,37 @@ import casaNavarroInteriorDormitorio02 from "@/assets/Casas/Navarro/CasaNavarro-
 import casaNavarroInteriorLiving02 from "@/assets/Casas/Navarro/CasaNavarro-Interior_Living02.png";
 import casaNavarroInteriorCocina from "@/assets/Casas/Navarro/CasaNavarro-InteriorCocina.png";
 import casaNavarroInteriorLiving from "@/assets/Casas/Navarro/CasaNavarro-InteriorLiving.png";
+import casaSaraExteriorAmanecer from "@/assets/Casas/Sara/CasaSara-Exterior_Amanecer de Primavera.png";
+import casaSaraExteriorAnochecer from "@/assets/Casas/Sara/CasaSara-Exterior_Anochecer de Verano.png";
+import casaSaraExteriorAtardecer from "@/assets/Casas/Sara/CasaSara-Exterior_Atardecer de Otoño.png";
+import casaSaraInteriorCocina1 from "@/assets/Casas/Sara/CasaSara-Interior_Cocina1.png";
+import casaSaraInteriorCocina2 from "@/assets/Casas/Sara/CasaSara-Interior_Cocina2.png";
+import casaSaraInteriorCocina3 from "@/assets/Casas/Sara/CasaSara-Interior_Cocina3.png";
+import casaSaraInteriorDormitorio from "@/assets/Casas/Sara/CasaSara-Interior_Dormitorio.png";
+import casaSaraInteriorLiving1 from "@/assets/Casas/Sara/CasaSara-Interior_Living1.png";
+import casaSaraInteriorLiving2 from "@/assets/Casas/Sara/CasaSara-Interior_Living2.png";
+import casaSaraInteriorOficina from "@/assets/Casas/Sara/CasaSara-Interior_Oficina.png";
+import casaAvalosExteriorAmanecer from "@/assets/Casas/Avalos/CasaNicoAvalos-Exterior_Amanecer de Primavera.png";
+import casaAvalosExteriorAnochecer from "@/assets/Casas/Avalos/CasaNicoAvalos-Exterior_Anochecer de Verano.png";
+import casaAvalosExteriorAtardecer from "@/assets/Casas/Avalos/CasaNicoAvalos-Exterior_Atardecer de Otoño.png";
+import casaAvalosExteriorContrafrenteAmanecer from "@/assets/Casas/Avalos/CasaNicoAvalos-ExteriorContrafrente_Amanecer de Primavera.png";
+import casaAvalosExteriorContrafrenteAnochecer from "@/assets/Casas/Avalos/CasaNicoAvalos-ExteriorContrafrente_Anochecer de Verano.png";
+import casaAvalosExteriorContrafrenteAtardecer from "@/assets/Casas/Avalos/CasaNicoAvalos-ExteriorContrafente_Atardecer de Otoño.png";
+import casaAvalosExteriorLateralAmanecer from "@/assets/Casas/Avalos/CasaNicoAvalos-ExteriorLateral_Amanecer de Primavera.png";
+import casaAvalosExteriorLateralAnochecer from "@/assets/Casas/Avalos/CasaNicoAvalos-ExteriorLateral_Anochecer de Verano..png";
+import casaAvalosExteriorLateralAtardecer from "@/assets/Casas/Avalos/CasaNicoAvalos-ExteriorLateral_Atardecer de Otoño.png";
+import casaAvalosInteriorBaño from "@/assets/Casas/Avalos/CasaAvalos-Interior_Baño.png";
+import casaAvalosInteriorBañoSuite from "@/assets/Casas/Avalos/CasaAvalos-Interior_Baño de Suite.png";
+import casaAvalosInteriorBañoSuite2 from "@/assets/Casas/Avalos/CasaAvalos-Interior_Baño de Suite2.png";
+import casaAvalosInteriorCocina from "@/assets/Casas/Avalos/CasaAvalos-Interior_Cocina.png";
+import casaAvalosInteriorDormitorio from "@/assets/Casas/Avalos/CasaAvalos-Interior_Dormitorio.png";
+import casaAvalosInteriorDormitorio2 from "@/assets/Casas/Avalos/CasaAvalos-Interior_Dormitorio2.png";
+import casaAvalosInteriorLiving from "@/assets/Casas/Avalos/CasaNicoAvalos-Interior_Living.png";
+import casaAvalosInteriorLiving2 from "@/assets/Casas/Avalos/CasaNicoAvalos-Interior_Living2.png";
+import casaAvalosInteriorLiving3 from "@/assets/Casas/Avalos/CasaNicoAvalos-Interior_Living3.png";
+import casaAvalosInteriorParrilla from "@/assets/Casas/Avalos/CasaAvalos-Interior_Parrilla.png";
+import casaAvalosInteriorSuite from "@/assets/Casas/Avalos/CasaAvalos-Interior_Suite.png";
+import casaAvalosInteriorSuite2 from "@/assets/Casas/Avalos/CasaAvalos-Interior Suite2.png";
 import casaPiliBanioAntes from "@/assets/Casas/Pili/Baño_Antes.jpg";
 import casaPiliBanioAntesModal from "@/assets/Casas/Pili/Baño_Antes_modal.jpg";
 import casaPiliBanioDespues from "@/assets/Casas/Pili/Baño_Después.jpg";
@@ -1211,6 +1242,73 @@ export const casaProjects: Project[] = [
           pt: "imagem adicional de sala",
         },
       },
+    ],
+  },
+  {
+    id: "casa-sara",
+    title: { es: "Casa Sara", en: "Casa Sara", pt: "Casa Sara" },
+    meta: { es: "Vivienda Unifamiliar - 2026", en: "Single-family home — 2026", pt: "Casa unifamiliar — 2026" },
+    image: casaSaraExteriorAnochecer,
+    location: "Solis, Buenos Aires",
+    year: "2026",
+    area: "120.60 m²",
+    description: {
+      es: "La remodelación plantea una renovación integral que reorganiza la vivienda y fortalece la continuidad entre sus espacios, logrando una arquitectura más abierta, equilibrada y acorde al estilo de vida de sus usuarios. La incorporación de una galería como extensión del área social y la actualización de los acabados mejoran la habitabilidad, la iluminación y la calidad espacial de cada ambiente.",
+      en: "The renovation proposes a comprehensive update that reorganizes the home and strengthens the continuity between spaces, creating a more open, balanced architecture aligned with the users' lifestyle. The addition of a gallery as an extension of the social area and the upgrade of finishes improve habitability, lighting, and spatial quality throughout the home.",
+      pt: "A reforma propõe uma renovação integral que reorganiza a residência e fortalece a continuidade entre os ambientes, gerando uma arquitetura mais aberta, equilibrada e alinhada ao estilo de vida de seus usuários. A incorporação de uma galeria como extensão da área social e a atualização dos acabamentos melhoram a habitabilidade, a iluminação e a qualidade espacial de cada ambiente.",
+    },
+    category: "viviendas",
+    origin: "casas",
+    gallery: [
+      { src: casaSaraExteriorAnochecer, atmosphere: "anochecer", label: { es: "Exterior verano", en: "Summer exterior", pt: "Exterior verão" } },
+      { src: casaSaraExteriorAtardecer, atmosphere: "atardecer", label: { es: "Exterior otoño", en: "Autumn exterior", pt: "Exterior outono" } },
+      { src: casaSaraExteriorAmanecer, atmosphere: "amanecer", label: { es: "Exterior primavera", en: "Spring exterior", pt: "Exterior primavera" } },
+      { src: casaSaraInteriorLiving1, atmosphere: "anochecer", label: { es: "Interior living 1", en: "Living room 1", pt: "Living 1" } },
+      { src: casaSaraInteriorLiving2, atmosphere: "anochecer", label: { es: "Interior living 2", en: "Living room 2", pt: "Living 2" } },
+      { src: casaSaraInteriorCocina1, atmosphere: "anochecer", label: { es: "Interior cocina 1", en: "Kitchen 1", pt: "Cozinha 1" } },
+      { src: casaSaraInteriorCocina2, atmosphere: "anochecer", label: { es: "Interior cocina 2", en: "Kitchen 2", pt: "Cozinha 2" } },
+      { src: casaSaraInteriorCocina3, atmosphere: "anochecer", label: { es: "Interior cocina 3", en: "Kitchen 3", pt: "Cozinha 3" } },
+      { src: casaSaraInteriorOficina, atmosphere: "anochecer", label: { es: "Interior oficina", en: "Office", pt: "Escritório" } },
+      { src: casaSaraInteriorDormitorio, atmosphere: "anochecer", label: { es: "Interior dormitorio", en: "Bedroom", pt: "Quarto" } },
+    ],
+  },
+  {
+    id: "casa-avalos",
+    title: { es: "Casa Ávalos", en: "Casa Avalos", pt: "Casa Ávalos" },
+    meta: { es: "Vivienda Unifamiliar - 2023", en: "Single-family home — 2023", pt: "Casa unifamiliar — 2023" },
+    image: casaAvalosExteriorAnochecer,
+    location: "Maschwitz, Escobar",
+    year: "2023",
+    area: "171 m²",
+    description: {
+      es: "La propuesta arquitectónica se define por una volumetría de marcada horizontalidad, donde el acceso se destaca como un elemento jerárquico que equilibra la composición y refuerza la identidad del conjunto. La organización del proyecto promueve una transición fluida entre los ambientes interiores y las áreas de expansión, incorporando materiales de bajo mantenimiento y soluciones que optimizan el confort y el aprovechamiento de la luz natural.",
+      en: "The architectural proposal is defined by a strongly horizontal volume, where the access becomes a hierarchical element that balances the composition and reinforces the identity of the whole. The organization promotes a fluid transition between interior spaces and expansion areas, incorporating low-maintenance materials and solutions that optimize comfort and the use of natural light.",
+      pt: "A proposta arquitetônica se define por uma volumetria de marcante horizontalidade, em que o acesso se destaca como um elemento hierárquico que equilibra a composição e reforça a identidade do conjunto. A organização do projeto promove uma transição fluida entre os ambientes internos e as áreas de expansão, incorporando materiais de baixa manutenção e soluções que otimizam o conforto e o aproveitamento da luz natural.",
+    },
+    category: "reformas",
+    origin: "casas",
+    gallery: [
+      { src: casaAvalosExteriorAnochecer, atmosphere: "anochecer", label: { es: "Exterior verano", en: "Summer exterior", pt: "Exterior verão" } },
+      { src: casaAvalosExteriorAtardecer, atmosphere: "atardecer", label: { es: "Exterior otoño", en: "Autumn exterior", pt: "Exterior outono" } },
+      { src: casaAvalosExteriorAmanecer, atmosphere: "amanecer", label: { es: "Exterior primavera", en: "Spring exterior", pt: "Exterior primavera" } },
+      { src: casaAvalosExteriorLateralAnochecer, atmosphere: "anochecer", label: { es: "Exterior lateral verano", en: "Summer side exterior", pt: "Exterior lateral verão" } },
+      { src: casaAvalosExteriorLateralAtardecer, atmosphere: "atardecer", label: { es: "Exterior lateral otoño", en: "Autumn side exterior", pt: "Exterior lateral outono" } },
+      { src: casaAvalosExteriorLateralAmanecer, atmosphere: "amanecer", label: { es: "Exterior lateral primavera", en: "Spring side exterior", pt: "Exterior lateral primavera" } },
+      { src: casaAvalosExteriorContrafrenteAnochecer, atmosphere: "anochecer", label: { es: "Exterior contrafrente verano", en: "Summer rear exterior", pt: "Exterior contrafrente verão" } },
+      { src: casaAvalosExteriorContrafrenteAtardecer, atmosphere: "atardecer", label: { es: "Exterior contrafrente otoño", en: "Autumn rear exterior", pt: "Exterior contrafrente outono" } },
+      { src: casaAvalosExteriorContrafrenteAmanecer, atmosphere: "amanecer", label: { es: "Exterior contrafrente primavera", en: "Spring rear exterior", pt: "Exterior contrafrente primavera" } },
+      { src: casaAvalosInteriorLiving, atmosphere: "anochecer", label: { es: "Interior living", en: "Interior living", pt: "Living interno" } },
+      { src: casaAvalosInteriorLiving2, atmosphere: "anochecer", label: { es: "Interior living 2", en: "Interior living 2", pt: "Living 2 interno" } },
+      { src: casaAvalosInteriorLiving3, atmosphere: "anochecer", label: { es: "Interior living 3", en: "Interior living 3", pt: "Living 3 interno" } },
+      { src: casaAvalosInteriorCocina, atmosphere: "anochecer", label: { es: "Interior cocina", en: "Kitchen interior", pt: "Cozinha interna" } },
+      { src: casaAvalosInteriorDormitorio, atmosphere: "anochecer", label: { es: "Interior dormitorio", en: "Bedroom interior", pt: "Quarto interno" } },
+      { src: casaAvalosInteriorDormitorio2, atmosphere: "anochecer", label: { es: "Interior dormitorio 2", en: "Bedroom interior 2", pt: "Quarto interno 2" } },
+      { src: casaAvalosInteriorBaño, atmosphere: "anochecer", label: { es: "Interior baño", en: "Bathroom interior", pt: "Banheiro interno" } },
+      { src: casaAvalosInteriorSuite, atmosphere: "anochecer", label: { es: "Interior suite", en: "Suite interior", pt: "Suite interna" } },
+      { src: casaAvalosInteriorBañoSuite, atmosphere: "anochecer", label: { es: "Interior baño de suite", en: "Bathroom of suite interior", pt: "Banheiro de suíte" } },
+      { src: casaAvalosInteriorSuite2, atmosphere: "anochecer", label: { es: "Interior suite 2", en: "Suite interior 2", pt: "Suite interna 2" } },
+      { src: casaAvalosInteriorBañoSuite2, atmosphere: "anochecer", label: { es: "Interior baño de suite 2", en: "Bathroom of suite interior 2", pt: "Banheiro de suíte 2" } },
+      { src: casaAvalosInteriorParrilla, atmosphere: "anochecer", label: { es: "Interior parrilla", en: "Patio grill interior", pt: "Parrilla interna" } },
     ],
   },
 ];

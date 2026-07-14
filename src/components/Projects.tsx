@@ -58,6 +58,37 @@ import casaScottContrafachadaAtardecer from "@/assets/Casas/Scott/CasaScott-Cont
 import casaScottInteriorCocina from "@/assets/Casas/Scott/CasaScott-Interior_Cocina..png";
 import casaScottInteriorLiving from "@/assets/Casas/Scott/CasaScott-Interior_Living.png";
 import casaScottInteriorSuite from "@/assets/Casas/Scott/CasaScott-Interior_Suite..png";
+import casaSaraExteriorAmanecer from "@/assets/Casas/Sara/CasaSara-Exterior_Amanecer de Primavera.png";
+import casaSaraExteriorAnochecer from "@/assets/Casas/Sara/CasaSara-Exterior_Anochecer de Verano.png";
+import casaSaraExteriorAtardecer from "@/assets/Casas/Sara/CasaSara-Exterior_Atardecer de Otoño.png";
+import casaSaraInteriorCocina1 from "@/assets/Casas/Sara/CasaSara-Interior_Cocina1.png";
+import casaSaraInteriorCocina2 from "@/assets/Casas/Sara/CasaSara-Interior_Cocina2.png";
+import casaSaraInteriorCocina3 from "@/assets/Casas/Sara/CasaSara-Interior_Cocina3.png";
+import casaSaraInteriorDormitorio from "@/assets/Casas/Sara/CasaSara-Interior_Dormitorio.png";
+import casaSaraInteriorLiving1 from "@/assets/Casas/Sara/CasaSara-Interior_Living1.png";
+import casaSaraInteriorLiving2 from "@/assets/Casas/Sara/CasaSara-Interior_Living2.png";
+import casaSaraInteriorOficina from "@/assets/Casas/Sara/CasaSara-Interior_Oficina.png";
+import casaAvalosExteriorAmanecer from "@/assets/Casas/Avalos/CasaNicoAvalos-Exterior_Amanecer de Primavera.png";
+import casaAvalosExteriorAnochecer from "@/assets/Casas/Avalos/CasaNicoAvalos-Exterior_Anochecer de Verano.png";
+import casaAvalosExteriorAtardecer from "@/assets/Casas/Avalos/CasaNicoAvalos-Exterior_Atardecer de Otoño.png";
+import casaAvalosExteriorContrafrenteAmanecer from "@/assets/Casas/Avalos/CasaNicoAvalos-ExteriorContrafrente_Amanecer de Primavera.png";
+import casaAvalosExteriorContrafrenteAnochecer from "@/assets/Casas/Avalos/CasaNicoAvalos-ExteriorContrafrente_Anochecer de Verano.png";
+import casaAvalosExteriorContrafrenteAtardecer from "@/assets/Casas/Avalos/CasaNicoAvalos-ExteriorContrafente_Atardecer de Otoño.png";
+import casaAvalosExteriorLateralAmanecer from "@/assets/Casas/Avalos/CasaNicoAvalos-ExteriorLateral_Amanecer de Primavera.png";
+import casaAvalosExteriorLateralAnochecer from "@/assets/Casas/Avalos/CasaNicoAvalos-ExteriorLateral_Anochecer de Verano..png";
+import casaAvalosExteriorLateralAtardecer from "@/assets/Casas/Avalos/CasaNicoAvalos-ExteriorLateral_Atardecer de Otoño.png";
+import casaAvalosInteriorBaño from "@/assets/Casas/Avalos/CasaAvalos-Interior_Baño.png";
+import casaAvalosInteriorBañoSuite from "@/assets/Casas/Avalos/CasaAvalos-Interior_Baño de Suite.png";
+import casaAvalosInteriorBañoSuite2 from "@/assets/Casas/Avalos/CasaAvalos-Interior_Baño de Suite2.png";
+import casaAvalosInteriorCocina from "@/assets/Casas/Avalos/CasaAvalos-Interior_Cocina.png";
+import casaAvalosInteriorDormitorio from "@/assets/Casas/Avalos/CasaAvalos-Interior_Dormitorio.png";
+import casaAvalosInteriorDormitorio2 from "@/assets/Casas/Avalos/CasaAvalos-Interior_Dormitorio2.png";
+import casaAvalosInteriorLiving from "@/assets/Casas/Avalos/CasaNicoAvalos-Interior_Living.png";
+import casaAvalosInteriorLiving2 from "@/assets/Casas/Avalos/CasaNicoAvalos-Interior_Living2.png";
+import casaAvalosInteriorLiving3 from "@/assets/Casas/Avalos/CasaNicoAvalos-Interior_Living3.png";
+import casaAvalosInteriorParrilla from "@/assets/Casas/Avalos/CasaAvalos-Interior_Parrilla.png";
+import casaAvalosInteriorSuite from "@/assets/Casas/Avalos/CasaAvalos-Interior_Suite.png";
+import casaAvalosInteriorSuite2 from "@/assets/Casas/Avalos/CasaAvalos-Interior Suite2.png";
 import zAmanecer from "@/assets/Proyectos/Z/Frente_Amanecer de primavera.png";
 import zAmanecerExterior from "@/assets/Proyectos/Z/Frente_Lateral_Amanecer de Primavera.png";
 import zAnochecerFrente from "@/assets/Proyectos/Z/Frente_Anochecer de verano.png";
@@ -1429,6 +1460,146 @@ function ProjectModal({
     ];
   };
 
+  const getCasaSaraDesiredSrcOrder = (atm: AtmosphereType): string[] => {
+    if (atm === "todos") {
+      return [
+        casaSaraExteriorAnochecer,
+        casaSaraExteriorAtardecer,
+        casaSaraExteriorAmanecer,
+        casaSaraInteriorLiving1,
+        casaSaraInteriorLiving2,
+        casaSaraInteriorCocina1,
+        casaSaraInteriorCocina2,
+        casaSaraInteriorCocina3,
+        casaSaraInteriorOficina,
+        casaSaraInteriorDormitorio,
+      ];
+    }
+
+    if (atm === "anochecer") {
+      return [
+        casaSaraExteriorAnochecer,
+        casaSaraInteriorLiving1,
+        casaSaraInteriorLiving2,
+        casaSaraInteriorCocina1,
+        casaSaraInteriorCocina2,
+        casaSaraInteriorCocina3,
+        casaSaraInteriorOficina,
+        casaSaraInteriorDormitorio,
+      ];
+    }
+
+    if (atm === "atardecer") {
+      return [
+        casaSaraExteriorAtardecer,
+        casaSaraInteriorLiving1,
+        casaSaraInteriorLiving2,
+        casaSaraInteriorCocina1,
+        casaSaraInteriorCocina2,
+        casaSaraInteriorCocina3,
+        casaSaraInteriorOficina,
+        casaSaraInteriorDormitorio,
+      ];
+    }
+
+    return [
+      casaSaraExteriorAmanecer,
+      casaSaraInteriorLiving1,
+      casaSaraInteriorLiving2,
+      casaSaraInteriorCocina1,
+      casaSaraInteriorCocina2,
+      casaSaraInteriorCocina3,
+      casaSaraInteriorOficina,
+      casaSaraInteriorDormitorio,
+    ];
+  };
+
+  const getCasaAvalosDesiredSrcOrder = (atm: AtmosphereType): string[] => {
+    if (atm === "todos") {
+      return [
+        casaAvalosExteriorAnochecer,
+        casaAvalosExteriorAtardecer,
+        casaAvalosExteriorAmanecer,
+        casaAvalosExteriorLateralAnochecer,
+        casaAvalosExteriorLateralAtardecer,
+        casaAvalosExteriorLateralAmanecer,
+        casaAvalosExteriorContrafrenteAnochecer,
+        casaAvalosExteriorContrafrenteAtardecer,
+        casaAvalosExteriorContrafrenteAmanecer,
+        casaAvalosInteriorLiving,
+        casaAvalosInteriorLiving2,
+        casaAvalosInteriorLiving3,
+        casaAvalosInteriorCocina,
+        casaAvalosInteriorDormitorio,
+        casaAvalosInteriorDormitorio2,
+        casaAvalosInteriorBaño,
+        casaAvalosInteriorSuite,
+        casaAvalosInteriorBañoSuite,
+        casaAvalosInteriorSuite2,
+        casaAvalosInteriorBañoSuite2,
+        casaAvalosInteriorParrilla,
+      ];
+    }
+
+    if (atm === "anochecer") {
+      return [
+        casaAvalosExteriorAnochecer,
+        casaAvalosExteriorLateralAnochecer,
+        casaAvalosExteriorContrafrenteAnochecer,
+        casaAvalosInteriorLiving,
+        casaAvalosInteriorLiving2,
+        casaAvalosInteriorLiving3,
+        casaAvalosInteriorCocina,
+        casaAvalosInteriorDormitorio,
+        casaAvalosInteriorDormitorio2,
+        casaAvalosInteriorBaño,
+        casaAvalosInteriorSuite,
+        casaAvalosInteriorBañoSuite,
+        casaAvalosInteriorSuite2,
+        casaAvalosInteriorBañoSuite2,
+        casaAvalosInteriorParrilla,
+      ];
+    }
+
+    if (atm === "atardecer") {
+      return [
+        casaAvalosExteriorAtardecer,
+        casaAvalosExteriorLateralAtardecer,
+        casaAvalosExteriorContrafrenteAtardecer,
+        casaAvalosInteriorLiving,
+        casaAvalosInteriorLiving2,
+        casaAvalosInteriorLiving3,
+        casaAvalosInteriorCocina,
+        casaAvalosInteriorDormitorio,
+        casaAvalosInteriorDormitorio2,
+        casaAvalosInteriorBaño,
+        casaAvalosInteriorSuite,
+        casaAvalosInteriorBañoSuite,
+        casaAvalosInteriorSuite2,
+        casaAvalosInteriorBañoSuite2,
+        casaAvalosInteriorParrilla,
+      ];
+    }
+
+    return [
+      casaAvalosExteriorAmanecer,
+      casaAvalosExteriorLateralAmanecer,
+      casaAvalosExteriorContrafrenteAmanecer,
+      casaAvalosInteriorLiving,
+      casaAvalosInteriorLiving2,
+      casaAvalosInteriorLiving3,
+      casaAvalosInteriorCocina,
+      casaAvalosInteriorDormitorio,
+      casaAvalosInteriorDormitorio2,
+      casaAvalosInteriorBaño,
+      casaAvalosInteriorSuite,
+      casaAvalosInteriorBañoSuite,
+      casaAvalosInteriorSuite2,
+      casaAvalosInteriorBañoSuite2,
+      casaAvalosInteriorParrilla,
+    ];
+  };
+
   const galleryItems = isPhaseFilterProject
     ? uniqueGalleryBySrc(project.gallery ?? []).filter((item) => {
         if (piliFilter === "all") return true;
@@ -1455,6 +1626,18 @@ function ProjectModal({
     ? orderGalleryItemsBySrc(
         uniqueGalleryBySrc(project.gallery ?? []),
         getCarlaDesiredSrcOrder(modalAtmosphere),
+        false
+      )
+    : project.id === "casa-sara"
+    ? orderGalleryItemsBySrc(
+        uniqueGalleryBySrc(project.gallery ?? []),
+        getCasaSaraDesiredSrcOrder(modalAtmosphere),
+        false
+      )
+    : project.id === "casa-avalos"
+    ? orderGalleryItemsBySrc(
+        uniqueGalleryBySrc(project.gallery ?? []),
+        getCasaAvalosDesiredSrcOrder(modalAtmosphere),
         false
       )
     : uniqueGalleryBySrc(
@@ -2212,6 +2395,33 @@ function ProjectModal({
         [proyectoCarlaParrillaAnochecer]: { anochecer: proyectoCarlaParrillaAnochecer, atardecer: proyectoCarlaParrillaAnochecer, amanecer: proyectoCarlaParrillaAmanecer },
         [proyectoCarlaParrillaAmanecer]: { anochecer: proyectoCarlaParrillaAnochecer, atardecer: proyectoCarlaParrillaAmanecer, amanecer: proyectoCarlaParrillaAmanecer },
       },
+      "casa-sara": {
+        ...createThreeWayAtmosphereMap(casaSaraExteriorAnochecer, casaSaraExteriorAtardecer, casaSaraExteriorAmanecer),
+        [casaSaraInteriorLiving1]: { anochecer: casaSaraInteriorLiving1, atardecer: casaSaraInteriorLiving1, amanecer: casaSaraInteriorLiving1 },
+        [casaSaraInteriorLiving2]: { anochecer: casaSaraInteriorLiving2, atardecer: casaSaraInteriorLiving2, amanecer: casaSaraInteriorLiving2 },
+        [casaSaraInteriorCocina1]: { anochecer: casaSaraInteriorCocina1, atardecer: casaSaraInteriorCocina1, amanecer: casaSaraInteriorCocina1 },
+        [casaSaraInteriorCocina2]: { anochecer: casaSaraInteriorCocina2, atardecer: casaSaraInteriorCocina2, amanecer: casaSaraInteriorCocina2 },
+        [casaSaraInteriorCocina3]: { anochecer: casaSaraInteriorCocina3, atardecer: casaSaraInteriorCocina3, amanecer: casaSaraInteriorCocina3 },
+        [casaSaraInteriorOficina]: { anochecer: casaSaraInteriorOficina, atardecer: casaSaraInteriorOficina, amanecer: casaSaraInteriorOficina },
+        [casaSaraInteriorDormitorio]: { anochecer: casaSaraInteriorDormitorio, atardecer: casaSaraInteriorDormitorio, amanecer: casaSaraInteriorDormitorio },
+      },
+      "casa-avalos": {
+        ...createThreeWayAtmosphereMap(casaAvalosExteriorAnochecer, casaAvalosExteriorAtardecer, casaAvalosExteriorAmanecer),
+        ...createThreeWayAtmosphereMap(casaAvalosExteriorLateralAnochecer, casaAvalosExteriorLateralAtardecer, casaAvalosExteriorLateralAmanecer),
+        ...createThreeWayAtmosphereMap(casaAvalosExteriorContrafrenteAnochecer, casaAvalosExteriorContrafrenteAtardecer, casaAvalosExteriorContrafrenteAmanecer),
+        [casaAvalosInteriorLiving]: { anochecer: casaAvalosInteriorLiving, atardecer: casaAvalosInteriorLiving, amanecer: casaAvalosInteriorLiving },
+        [casaAvalosInteriorLiving2]: { anochecer: casaAvalosInteriorLiving2, atardecer: casaAvalosInteriorLiving2, amanecer: casaAvalosInteriorLiving2 },
+        [casaAvalosInteriorLiving3]: { anochecer: casaAvalosInteriorLiving3, atardecer: casaAvalosInteriorLiving3, amanecer: casaAvalosInteriorLiving3 },
+        [casaAvalosInteriorCocina]: { anochecer: casaAvalosInteriorCocina, atardecer: casaAvalosInteriorCocina, amanecer: casaAvalosInteriorCocina },
+        [casaAvalosInteriorDormitorio]: { anochecer: casaAvalosInteriorDormitorio, atardecer: casaAvalosInteriorDormitorio, amanecer: casaAvalosInteriorDormitorio },
+        [casaAvalosInteriorDormitorio2]: { anochecer: casaAvalosInteriorDormitorio2, atardecer: casaAvalosInteriorDormitorio2, amanecer: casaAvalosInteriorDormitorio2 },
+        [casaAvalosInteriorBaño]: { anochecer: casaAvalosInteriorBaño, atardecer: casaAvalosInteriorBaño, amanecer: casaAvalosInteriorBaño },
+        [casaAvalosInteriorSuite]: { anochecer: casaAvalosInteriorSuite, atardecer: casaAvalosInteriorSuite, amanecer: casaAvalosInteriorSuite },
+        [casaAvalosInteriorBañoSuite]: { anochecer: casaAvalosInteriorBañoSuite, atardecer: casaAvalosInteriorBañoSuite, amanecer: casaAvalosInteriorBañoSuite },
+        [casaAvalosInteriorSuite2]: { anochecer: casaAvalosInteriorSuite2, atardecer: casaAvalosInteriorSuite2, amanecer: casaAvalosInteriorSuite2 },
+        [casaAvalosInteriorBañoSuite2]: { anochecer: casaAvalosInteriorBañoSuite2, atardecer: casaAvalosInteriorBañoSuite2, amanecer: casaAvalosInteriorBañoSuite2 },
+        [casaAvalosInteriorParrilla]: { anochecer: casaAvalosInteriorParrilla, atardecer: casaAvalosInteriorParrilla, amanecer: casaAvalosInteriorParrilla },
+      },
       "proyecto-salem": {
         ...createThreeWayAtmosphereMap(salemFrenteAnochecer, salemFrenteAtardecer, salemFrenteAmanecer),
         ...createThreeWayAtmosphereMap(
@@ -2524,6 +2734,8 @@ function ProjectModal({
         "proyecto-carla",
         "proyecto-salem",
         "proyecto-motoquero",
+        "casa-sara",
+        "casa-avalos",
       ].includes(project.id)
     ) {
       const targetSrc = getProjectAtmosphereTargetSrc(project.id, currentSrc, atm, project.gallery);
@@ -2533,6 +2745,7 @@ function ProjectModal({
       } else {
         setPreserveActiveSlide(false);
         setDesiredActiveSrc(null);
+        setAtmosphereError(t.projects.modal.atmosphereUnavailable);
       }
     } else {
       setPreserveActiveSlide(false);
