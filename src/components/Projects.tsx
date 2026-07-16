@@ -131,6 +131,34 @@ import proyectoCarlaHallAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-Ha
 import proyectoCarlaParrillaAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-Parrilla_Amanecer de Primavera.png";
 import proyectoCarlaInterior02 from "@/assets/Proyectos/Carla/ProyectoCarla-Interior02.png";
 import proyectoCarlaParrillaAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-Parrilla_Anochecer de Verano.png";
+import casaJorvalExteriorAmanecer from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Amanecer de Verano.png";
+import casaJorvalExteriorAnochecer from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Anochecer de Verano.png";
+import casaJorvalExteriorAtardecer from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Atardecer de Otoño.png";
+import casaJorvalExteriorContrafachada from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Contrafachada.png";
+import casaJorvalExteriorGaleria from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Galería.png";
+import casaJorvalExteriorLateralAmanecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorLateral_Amanecer de Primavera.png";
+import casaJorvalExteriorLateralAnochecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorLateral_Anochecer de Verano.png";
+import casaJorvalExteriorLateralAtardecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorLateral_Atardecer de Otoño.png";
+import casaJorvalExteriorEsquinaAmanecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorEsquina_Amanecer de Primavera.png";
+import casaJorvalExteriorEsquinaAnochecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorEsquina_Anochecer de Verano.png";
+import casaJorvalExteriorEsquinaAtardecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorEsquina_Atardecer de Otoño.png";
+import casaJorvalInteriorComedor from "@/assets/Casas/Jorval/Proyecto Jorval-Interior_Comedor.png";
+import casaJorvalInteriorLiving from "@/assets/Casas/Jorval/Proyecto Jorval-Interior_Living.png";
+import casaRosalesGaleriaAmanecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Amanecer de Primavera.png";
+import casaRosalesGaleriaAnochecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Anochecer de Verano.png";
+import casaRosalesGaleriaAtardecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Atardecer de Otoño.png";
+import casaRosalesGaleria01 from "@/assets/Casas/Rosales/Casa Rosales-Galería 01.png";
+import casaRosalesGaleria02 from "@/assets/Casas/Rosales/Casa Rosales-Galería 02.png";
+import casaRosalesGaleria03 from "@/assets/Casas/Rosales/Casa Rosales-Galería 03.png";
+import casaVasquezExteriorAmanecer from "@/assets/Casas/Vasquez/Casa Vasquez-Exterior_Amanecer de Primavera.png";
+import casaVasquezExteriorAnochecer from "@/assets/Casas/Vasquez/Casa Vasquez-Exterior_Anochecer de Verano.png";
+import casaVasquezExteriorAtardecer from "@/assets/Casas/Vasquez/Casa Vasquez-Exterior_Atardecer de Otoño.png";
+import casaVasquezContrafrenteAmanecer from "@/assets/Casas/Vasquez/Casa Vasquez-Contrafrente_Amanecer de Primavera.png";
+import casaVasquezContrafrenteAnochecer from "@/assets/Casas/Vasquez/Casa Vasquez-Contrafrente_Anochecer de Verano.png";
+import casaVasquezContrafrenteAtardecer from "@/assets/Casas/Vasquez/Casa Vasquez-Contrafrente_Atardecer de Otoño.png";
+import casaVasquezInteriorComedor from "@/assets/Casas/Vasquez/Casa Vasquez-Interior_ Comedor.png";
+import casaVasquezInteriorLiving from "@/assets/Casas/Vasquez/Casa Vasquez-Interior_Living.png";
+import casaVasquezInteriorLiving02 from "@/assets/Casas/Vasquez/Casa Vasquez-Interior_Living02.png";
 import salemFrenteAnochecer from "@/assets/Proyectos/Salem/Proyecto-CentroSalem_Frente_Anochecer de Verano.png";
 import salemFrenteAtardecer from "@/assets/Proyectos/Salem/Proyecto-CentroSalem_Frente_Atardecer de Otoño.png";
 import salemFrenteAmanecer from "@/assets/Proyectos/Salem/Proyecto-CentroSalem_Frente_Amanecer de Primavera.png";
@@ -1361,6 +1389,142 @@ function ProjectModal({
     ];
   };
 
+  const getJorvalDesiredSrcOrder = (atm: AtmosphereType): string[] => {
+    if (atm === "todos") {
+      return [
+        casaJorvalExteriorAnochecer,
+        casaJorvalExteriorAtardecer,
+        casaJorvalExteriorAmanecer,
+        casaJorvalExteriorEsquinaAnochecer,
+        casaJorvalExteriorEsquinaAtardecer,
+        casaJorvalExteriorEsquinaAmanecer,
+        casaJorvalExteriorLateralAnochecer,
+        casaJorvalExteriorLateralAtardecer,
+        casaJorvalExteriorLateralAmanecer,
+        casaJorvalExteriorContrafachada,
+        casaJorvalExteriorGaleria,
+        casaJorvalInteriorComedor,
+        casaJorvalInteriorLiving,
+      ];
+    }
+
+    if (atm === "anochecer") {
+      return [
+        casaJorvalExteriorAnochecer,
+        casaJorvalExteriorEsquinaAnochecer,
+        casaJorvalExteriorLateralAnochecer,
+        casaJorvalExteriorContrafachada,
+        casaJorvalExteriorGaleria,
+        casaJorvalInteriorComedor,
+        casaJorvalInteriorLiving,
+      ];
+    }
+
+    if (atm === "atardecer") {
+      return [
+        casaJorvalExteriorAtardecer,
+        casaJorvalExteriorEsquinaAtardecer,
+        casaJorvalExteriorLateralAtardecer,
+        casaJorvalExteriorContrafachada,
+        casaJorvalExteriorGaleria,
+        casaJorvalInteriorComedor,
+        casaJorvalInteriorLiving,
+      ];
+    }
+
+    return [
+      casaJorvalExteriorAmanecer,
+      casaJorvalExteriorEsquinaAmanecer,
+      casaJorvalExteriorLateralAmanecer,
+      casaJorvalExteriorContrafachada,
+      casaJorvalExteriorGaleria,
+      casaJorvalInteriorComedor,
+      casaJorvalInteriorLiving,
+    ];
+  };
+
+  const getVasquezDesiredSrcOrder = (atm: AtmosphereType): string[] => {
+    if (atm === "todos") {
+      return [
+        casaVasquezExteriorAnochecer,
+        casaVasquezExteriorAtardecer,
+        casaVasquezExteriorAmanecer,
+        casaVasquezContrafrenteAnochecer,
+        casaVasquezContrafrenteAtardecer,
+        casaVasquezContrafrenteAmanecer,
+        casaVasquezInteriorComedor,
+        casaVasquezInteriorLiving,
+        casaVasquezInteriorLiving02,
+      ];
+    }
+
+    if (atm === "anochecer") {
+      return [
+        casaVasquezExteriorAnochecer,
+        casaVasquezContrafrenteAnochecer,
+        casaVasquezInteriorComedor,
+        casaVasquezInteriorLiving,
+        casaVasquezInteriorLiving02,
+      ];
+    }
+
+    if (atm === "atardecer") {
+      return [
+        casaVasquezExteriorAtardecer,
+        casaVasquezContrafrenteAtardecer,
+        casaVasquezInteriorComedor,
+        casaVasquezInteriorLiving,
+        casaVasquezInteriorLiving02,
+      ];
+    }
+
+    return [
+      casaVasquezExteriorAmanecer,
+      casaVasquezContrafrenteAmanecer,
+      casaVasquezInteriorComedor,
+      casaVasquezInteriorLiving,
+      casaVasquezInteriorLiving02,
+    ];
+  };
+
+  const getRosalesDesiredSrcOrder = (atm: AtmosphereType): string[] => {
+    if (atm === "todos") {
+      return [
+        casaRosalesGaleriaAnochecer,
+        casaRosalesGaleriaAtardecer,
+        casaRosalesGaleriaAmanecer,
+        casaRosalesGaleria01,
+        casaRosalesGaleria02,
+        casaRosalesGaleria03,
+      ];
+    }
+
+    if (atm === "anochecer") {
+      return [
+        casaRosalesGaleriaAnochecer,
+        casaRosalesGaleria01,
+        casaRosalesGaleria02,
+        casaRosalesGaleria03,
+      ];
+    }
+
+    if (atm === "atardecer") {
+      return [
+        casaRosalesGaleriaAtardecer,
+        casaRosalesGaleria01,
+        casaRosalesGaleria02,
+        casaRosalesGaleria03,
+      ];
+    }
+
+    return [
+      casaRosalesGaleriaAmanecer,
+      casaRosalesGaleria01,
+      casaRosalesGaleria02,
+      casaRosalesGaleria03,
+    ];
+  };
+
   const getCarlaDesiredSrcOrder = (atm: AtmosphereType): string[] => {
     const fullOrder = [
       proyectoCarlaExteriorAnochecer,
@@ -1626,6 +1790,24 @@ function ProjectModal({
     ? orderGalleryItemsBySrc(
         uniqueGalleryBySrc(project.gallery ?? []),
         getCarlaDesiredSrcOrder(modalAtmosphere),
+        false
+      )
+    : project.id === "casa-jorval"
+    ? orderGalleryItemsBySrc(
+        uniqueGalleryBySrc(project.gallery ?? []),
+        getJorvalDesiredSrcOrder(modalAtmosphere),
+        false
+      )
+    : project.id === "casa-vasquez"
+    ? orderGalleryItemsBySrc(
+        uniqueGalleryBySrc(project.gallery ?? []),
+        getVasquezDesiredSrcOrder(modalAtmosphere),
+        false
+      )
+    : project.id === "casa-rosales"
+    ? orderGalleryItemsBySrc(
+        uniqueGalleryBySrc(project.gallery ?? []),
+        getRosalesDesiredSrcOrder(modalAtmosphere),
         false
       )
     : project.id === "casa-sara"
@@ -2211,6 +2393,18 @@ function ProjectModal({
       return [salemInterior, salemInteriorLateral, salemBufet];
     }
 
+    if (projectId === "casa-jorval") {
+      return [casaJorvalInteriorComedor, casaJorvalInteriorLiving];
+    }
+
+    if (projectId === "casa-vasquez") {
+      return [casaVasquezInteriorComedor, casaVasquezInteriorLiving, casaVasquezInteriorLiving02];
+    }
+
+    if (projectId === "casa-rosales") {
+      return [casaRosalesGaleria01, casaRosalesGaleria02, casaRosalesGaleria03];
+    }
+
     if (projectId === "proyecto-motoquero") {
       return [
         motoqueroInteriorTaller,
@@ -2421,6 +2615,28 @@ function ProjectModal({
         [casaAvalosInteriorSuite2]: { anochecer: casaAvalosInteriorSuite2, atardecer: casaAvalosInteriorSuite2, amanecer: casaAvalosInteriorSuite2 },
         [casaAvalosInteriorBañoSuite2]: { anochecer: casaAvalosInteriorBañoSuite2, atardecer: casaAvalosInteriorBañoSuite2, amanecer: casaAvalosInteriorBañoSuite2 },
         [casaAvalosInteriorParrilla]: { anochecer: casaAvalosInteriorParrilla, atardecer: casaAvalosInteriorParrilla, amanecer: casaAvalosInteriorParrilla },
+      },
+      "casa-jorval": {
+        ...createThreeWayAtmosphereMap(casaJorvalExteriorAnochecer, casaJorvalExteriorAtardecer, casaJorvalExteriorAmanecer),
+        ...createThreeWayAtmosphereMap(casaJorvalExteriorEsquinaAnochecer, casaJorvalExteriorEsquinaAtardecer, casaJorvalExteriorEsquinaAmanecer),
+        ...createThreeWayAtmosphereMap(casaJorvalExteriorLateralAnochecer, casaJorvalExteriorLateralAtardecer, casaJorvalExteriorLateralAmanecer),
+        [casaJorvalExteriorContrafachada]: { anochecer: casaJorvalExteriorContrafachada, atardecer: casaJorvalExteriorContrafachada, amanecer: casaJorvalExteriorContrafachada },
+        [casaJorvalExteriorGaleria]: { anochecer: casaJorvalExteriorGaleria, atardecer: casaJorvalExteriorGaleria, amanecer: casaJorvalExteriorGaleria },
+        [casaJorvalInteriorComedor]: { anochecer: casaJorvalInteriorComedor, atardecer: casaJorvalInteriorComedor, amanecer: casaJorvalInteriorComedor },
+        [casaJorvalInteriorLiving]: { anochecer: casaJorvalInteriorLiving, atardecer: casaJorvalInteriorLiving, amanecer: casaJorvalInteriorLiving },
+      },
+      "casa-vasquez": {
+        ...createThreeWayAtmosphereMap(casaVasquezExteriorAnochecer, casaVasquezExteriorAtardecer, casaVasquezExteriorAmanecer),
+        ...createThreeWayAtmosphereMap(casaVasquezContrafrenteAnochecer, casaVasquezContrafrenteAtardecer, casaVasquezContrafrenteAmanecer),
+        [casaVasquezInteriorComedor]: { anochecer: casaVasquezInteriorComedor, atardecer: casaVasquezInteriorComedor, amanecer: casaVasquezInteriorComedor },
+        [casaVasquezInteriorLiving]: { anochecer: casaVasquezInteriorLiving, atardecer: casaVasquezInteriorLiving, amanecer: casaVasquezInteriorLiving },
+        [casaVasquezInteriorLiving02]: { anochecer: casaVasquezInteriorLiving02, atardecer: casaVasquezInteriorLiving02, amanecer: casaVasquezInteriorLiving02 },
+      },
+      "casa-rosales": {
+        ...createThreeWayAtmosphereMap(casaRosalesGaleriaAnochecer, casaRosalesGaleriaAtardecer, casaRosalesGaleriaAmanecer),
+        [casaRosalesGaleria01]: { anochecer: casaRosalesGaleria01, atardecer: casaRosalesGaleria01, amanecer: casaRosalesGaleria01 },
+        [casaRosalesGaleria02]: { anochecer: casaRosalesGaleria02, atardecer: casaRosalesGaleria02, amanecer: casaRosalesGaleria02 },
+        [casaRosalesGaleria03]: { anochecer: casaRosalesGaleria03, atardecer: casaRosalesGaleria03, amanecer: casaRosalesGaleria03 },
       },
       "proyecto-salem": {
         ...createThreeWayAtmosphereMap(salemFrenteAnochecer, salemFrenteAtardecer, salemFrenteAmanecer),
@@ -2736,6 +2952,9 @@ function ProjectModal({
         "proyecto-motoquero",
         "casa-sara",
         "casa-avalos",
+        "casa-jorval",
+        "casa-vasquez",
+        "casa-rosales",
       ].includes(project.id)
     ) {
       const targetSrc = getProjectAtmosphereTargetSrc(project.id, currentSrc, atm, project.gallery);

@@ -85,6 +85,34 @@ import casaAvalosInteriorLiving3 from "@/assets/Casas/Avalos/CasaNicoAvalos-Inte
 import casaAvalosInteriorParrilla from "@/assets/Casas/Avalos/CasaAvalos-Interior_Parrilla.png";
 import casaAvalosInteriorSuite from "@/assets/Casas/Avalos/CasaAvalos-Interior_Suite.png";
 import casaAvalosInteriorSuite2 from "@/assets/Casas/Avalos/CasaAvalos-Interior Suite2.png";
+import casaJorvalExteriorAmanecer from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Amanecer de Verano.png";
+import casaJorvalExteriorAnochecer from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Anochecer de Verano.png";
+import casaJorvalExteriorAtardecer from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Atardecer de Otoño.png";
+import casaJorvalExteriorContrafachada from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Contrafachada.png";
+import casaJorvalExteriorGaleria from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Galería.png";
+import casaJorvalExteriorLateralAmanecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorLateral_Amanecer de Primavera.png";
+import casaJorvalExteriorLateralAnochecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorLateral_Anochecer de Verano.png";
+import casaJorvalExteriorLateralAtardecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorLateral_Atardecer de Otoño.png";
+import casaJorvalExteriorEsquinaAmanecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorEsquina_Amanecer de Primavera.png";
+import casaJorvalExteriorEsquinaAnochecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorEsquina_Anochecer de Verano.png";
+import casaJorvalExteriorEsquinaAtardecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorEsquina_Atardecer de Otoño.png";
+import casaJorvalInteriorComedor from "@/assets/Casas/Jorval/Proyecto Jorval-Interior_Comedor.png";
+import casaJorvalInteriorLiving from "@/assets/Casas/Jorval/Proyecto Jorval-Interior_Living.png";
+import casaRosalesGaleriaAmanecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Amanecer de Primavera.png";
+import casaRosalesGaleriaAnochecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Anochecer de Verano.png";
+import casaRosalesGaleriaAtardecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Atardecer de Otoño.png";
+import casaRosalesGaleria01 from "@/assets/Casas/Rosales/Casa Rosales-Galería 01.png";
+import casaRosalesGaleria02 from "@/assets/Casas/Rosales/Casa Rosales-Galería 02.png";
+import casaRosalesGaleria03 from "@/assets/Casas/Rosales/Casa Rosales-Galería 03.png";
+import casaVasquezExteriorAmanecer from "@/assets/Casas/Vasquez/Casa Vasquez-Exterior_Amanecer de Primavera.png";
+import casaVasquezExteriorAnochecer from "@/assets/Casas/Vasquez/Casa Vasquez-Exterior_Anochecer de Verano.png";
+import casaVasquezExteriorAtardecer from "@/assets/Casas/Vasquez/Casa Vasquez-Exterior_Atardecer de Otoño.png";
+import casaVasquezContrafrenteAmanecer from "@/assets/Casas/Vasquez/Casa Vasquez-Contrafrente_Amanecer de Primavera.png";
+import casaVasquezContrafrenteAnochecer from "@/assets/Casas/Vasquez/Casa Vasquez-Contrafrente_Anochecer de Verano.png";
+import casaVasquezContrafrenteAtardecer from "@/assets/Casas/Vasquez/Casa Vasquez-Contrafrente_Atardecer de Otoño.png";
+import casaVasquezInteriorComedor from "@/assets/Casas/Vasquez/Casa Vasquez-Interior_ Comedor.png";
+import casaVasquezInteriorLiving from "@/assets/Casas/Vasquez/Casa Vasquez-Interior_Living.png";
+import casaVasquezInteriorLiving02 from "@/assets/Casas/Vasquez/Casa Vasquez-Interior_Living02.png";
 import casaPiliBanioAntes from "@/assets/Casas/Pili/Baño_Antes.jpg";
 import casaPiliBanioAntesModal from "@/assets/Casas/Pili/Baño_Antes_modal.jpg";
 import casaPiliBanioDespues from "@/assets/Casas/Pili/Baño_Después.jpg";
@@ -414,6 +442,224 @@ export const casaProjects: Project[] = [
           en: "additional office image",
           pt: "imagem adicional de escritório",
         },
+      },
+    ],
+  },
+  {
+    id: "casa-jorval",
+    title: {
+      es: "Casa Jorval",
+      en: "Casa Jorval",
+      pt: "Casa Jorval",
+    },
+    meta: {
+      es: "Vivienda Unifamiliar - 2023",
+      en: "Single-family home — 2023",
+      pt: "Casa unifamiliar — 2023",
+    },
+    image: casaJorvalExteriorAnochecer,
+    location: "Moreno, Buenos Aires",
+    year: "2023",
+    area: "323 m²",
+    description: {
+      es: "La implantación en esquina se convierte en una composición que articula ambos frentes, donde un volumen revestido en piedra que alberga el núcleo de circulación vertical jerarquiza la fachada y organiza la expresión arquitectónica del conjunto. El proyecto integra el interior con el paisaje mediante una materialidad continua y una estrategia bioclimática, incorporando álamos como filtro solar estacional que permiten la incidencia del sol en invierno y aportan protección durante los meses de mayor radiación.",
+      en: "The corner implantation becomes a composition that articulates both fronts, where a stone-clad volume housing the vertical circulation core gives hierarchy to the façade and organizes the architectural expression of the whole. The project integrates the interior with the landscape through a continuous materiality and a bioclimatic strategy, incorporating poplars as a seasonal solar filter that allow winter sun and provide protection during the months of highest radiation.",
+      pt: "A implantação em esquina se transforma em uma composição que articula ambos os fronts, onde um volume revestido de pedra que abriga o núcleo de circulação vertical hierarquiza a fachada e organiza a expressão arquitetônica do conjunto. O projeto integra o interior com a paisagem por meio de uma materialidade contínua e uma estratégia bioclimática, incorporando choupos como filtro solar sazonal que permitem a incidência do sol no inverno e oferecem proteção durante os meses de maior radiação.",
+    },
+    category: "viviendas",
+    origin: "casas",
+    gallery: [
+      {
+        src: casaJorvalExteriorAnochecer,
+        atmosphere: "anochecer",
+        label: { es: "Exterior verano", en: "Exterior summer", pt: "Exterior verão" },
+      },
+      {
+        src: casaJorvalExteriorAtardecer,
+        atmosphere: "atardecer",
+        label: { es: "Exterior otoño", en: "Exterior autumn", pt: "Exterior outono" },
+      },
+      {
+        src: casaJorvalExteriorAmanecer,
+        atmosphere: "amanecer",
+        label: { es: "Exterior primavera", en: "Exterior spring", pt: "Exterior primavera" },
+      },
+      {
+        src: casaJorvalExteriorEsquinaAnochecer,
+        atmosphere: "anochecer",
+        label: { es: "Exterior esquina verano", en: "Corner exterior summer", pt: "Exterior de esquina verão" },
+      },
+      {
+        src: casaJorvalExteriorEsquinaAtardecer,
+        atmosphere: "atardecer",
+        label: { es: "Exterior esquina otoño", en: "Corner exterior autumn", pt: "Exterior de esquina outono" },
+      },
+      {
+        src: casaJorvalExteriorEsquinaAmanecer,
+        atmosphere: "amanecer",
+        label: { es: "Exterior esquina primavera", en: "Corner exterior spring", pt: "Exterior de esquina primavera" },
+      },
+      {
+        src: casaJorvalExteriorLateralAnochecer,
+        atmosphere: "anochecer",
+        label: { es: "Exterior lateral verano", en: "Lateral exterior summer", pt: "Exterior lateral verão" },
+      },
+      {
+        src: casaJorvalExteriorLateralAtardecer,
+        atmosphere: "atardecer",
+        label: { es: "Exterior lateral otoño", en: "Lateral exterior autumn", pt: "Exterior lateral outono" },
+      },
+      {
+        src: casaJorvalExteriorLateralAmanecer,
+        atmosphere: "amanecer",
+        label: { es: "Exterior lateral primavera", en: "Lateral exterior spring", pt: "Exterior lateral primavera" },
+      },
+      {
+        src: casaJorvalExteriorContrafachada,
+        atmosphere: "anochecer",
+        label: { es: "Exterior contrafachada", en: "Rear façade exterior", pt: "Exterior contrafachada" },
+      },
+      {
+        src: casaJorvalExteriorGaleria,
+        atmosphere: "anochecer",
+        label: { es: "Exterior galería", en: "Exterior gallery", pt: "Exterior galeria" },
+      },
+      {
+        src: casaJorvalInteriorComedor,
+        atmosphere: "anochecer",
+        label: { es: "Interior comedor", en: "Dining interior", pt: "Interior sala de jantar" },
+      },
+      {
+        src: casaJorvalInteriorLiving,
+        atmosphere: "anochecer",
+        label: { es: "Interior living", en: "Living room interior", pt: "Interior sala de estar" },
+      },
+    ],
+  },
+  {
+    id: "casa-vasquez",
+    title: {
+      es: "Casa Vásquez",
+      en: "Casa Vásquez",
+      pt: "Casa Vásquez",
+    },
+    meta: {
+      es: "Vivienda Unifamiliar - 2022",
+      en: "Single-family home — 2022",
+      pt: "Casa unifamiliar — 2022",
+    },
+    image: casaVasquezExteriorAnochecer,
+    location: "Exaltación de la Cruz, Buenos Aires",
+    year: "2022",
+    area: "135 m²",
+    description: {
+      es: "El proyecto explora una arquitectura de carácter industrial, destacando la autenticidad de los materiales expuestos y una expresión formal que transmite solidez, sencillez y permanencia. Su resolución constructiva apuesta por soluciones racionales y de bajo mantenimiento, favoreciendo el aprovechamiento de la luz natural y una experiencia de habitar práctica, eficiente y duradera.",
+      en: "The project explores an industrial character architecture, highlighting the authenticity of exposed materials and a formal expression that conveys solidity, simplicity, and permanence. Its constructive resolution relies on rational and low-maintenance solutions, favoring the use of natural light and a practical, efficient, and lasting living experience.",
+      pt: "O projeto explora uma arquitetura de caráter industrial, destacando a autenticidade dos materiais expostos e uma expressão formal que transmite solidez, simplicidade e permanência. Sua resolução construtiva aposta em soluções racionais e de baixo manutenção, favorecendo o aproveitamento da luz natural e uma experiência de morar prática, eficiente e duradoura.",
+    },
+    category: "viviendas",
+    origin: "casas",
+    gallery: [
+      {
+        src: casaVasquezExteriorAnochecer,
+        atmosphere: "anochecer",
+        label: { es: "Exterior verano", en: "Exterior summer", pt: "Exterior verão" },
+      },
+      {
+        src: casaVasquezExteriorAtardecer,
+        atmosphere: "atardecer",
+        label: { es: "Exterior otoño", en: "Exterior autumn", pt: "Exterior outono" },
+      },
+      {
+        src: casaVasquezExteriorAmanecer,
+        atmosphere: "amanecer",
+        label: { es: "Exterior primavera", en: "Exterior spring", pt: "Exterior primavera" },
+      },
+      {
+        src: casaVasquezContrafrenteAnochecer,
+        atmosphere: "anochecer",
+        label: { es: "Contrafrente verano", en: "Rear façade summer", pt: "Contrafrente verão" },
+      },
+      {
+        src: casaVasquezContrafrenteAtardecer,
+        atmosphere: "atardecer",
+        label: { es: "Contrafrente otoño", en: "Rear façade autumn", pt: "Contrafrente outono" },
+      },
+      {
+        src: casaVasquezContrafrenteAmanecer,
+        atmosphere: "amanecer",
+        label: { es: "Contrafrente primavera", en: "Rear façade spring", pt: "Contrafrente primavera" },
+      },
+      {
+        src: casaVasquezInteriorComedor,
+        atmosphere: "anochecer",
+        label: { es: "Interior comedor", en: "Dining interior", pt: "Interior sala de jantar" },
+      },
+      {
+        src: casaVasquezInteriorLiving,
+        atmosphere: "anochecer",
+        label: { es: "Interior living", en: "Living room interior", pt: "Interior sala de estar" },
+      },
+      {
+        src: casaVasquezInteriorLiving02,
+        atmosphere: "anochecer",
+        label: { es: "Interior living 02", en: "Living room interior 02", pt: "Interior sala de estar 02" },
+      },
+    ],
+  },
+  {
+    id: "casa-rosales",
+    title: {
+      es: "Casa Rosales",
+      en: "Casa Rosales",
+      pt: "Casa Rosales",
+    },
+    meta: {
+      es: "Vivienda Unifamiliar - 2023",
+      en: "Single-family home — 2023",
+      pt: "Casa unifamiliar — 2023",
+    },
+    image: casaRosalesGaleriaAnochecer,
+    location: "Gral. Rodríguez, Buenos Aires",
+    year: "2023",
+    area: "66 m²",
+    description: {
+      es: "La galería se concibe con una extensión de la vivienda, donde la disposición de cada elemento construye una secuencia de experiencias vinculadas con la naturaleza y el habitar al aire libre. La integración entre la galería, el área de fuego, la piscina y los espacios verdes genera un recorrido continuo, complementado por soluciones constructivas pensadas para el uso cotidiano y el disfrute en todas las estaciones.",
+      en: "The gallery is conceived as an extension of the house, where the arrangement of each element builds a sequence of experiences linked to nature and outdoor living. The integration between the gallery, fire area, pool, and green spaces creates a continuous journey, complemented by constructive solutions designed for everyday use and enjoyment in all seasons.",
+      pt: "A galeria é concebida como uma extensão da casa, onde a disposição de cada elemento constrói uma sequência de experiências ligadas à natureza e ao viver ao ar livre. A integração entre a galeria, a área de fogo, a piscina e os espaços verdes gera um percurso contínuo, complementado por soluções construtivas pensadas para o uso cotidiano e o desfrute em todas as estações.",
+    },
+    category: "viviendas",
+    origin: "casas",
+    gallery: [
+      {
+        src: casaRosalesGaleriaAnochecer,
+        atmosphere: "anochecer",
+        label: { es: "Galería verano", en: "Gallery summer", pt: "Galeria verão" },
+      },
+      {
+        src: casaRosalesGaleriaAtardecer,
+        atmosphere: "atardecer",
+        label: { es: "Galería otoño", en: "Gallery autumn", pt: "Galeria outono" },
+      },
+      {
+        src: casaRosalesGaleriaAmanecer,
+        atmosphere: "amanecer",
+        label: { es: "Galería primavera", en: "Gallery spring", pt: "Galeria primavera" },
+      },
+      {
+        src: casaRosalesGaleria01,
+        atmosphere: "anochecer",
+        label: { es: "Galería 01", en: "Gallery 01", pt: "Galeria 01" },
+      },
+      {
+        src: casaRosalesGaleria02,
+        atmosphere: "anochecer",
+        label: { es: "Galería 02", en: "Gallery 02", pt: "Galeria 02" },
+      },
+      {
+        src: casaRosalesGaleria03,
+        atmosphere: "anochecer",
+        label: { es: "Galería 03", en: "Gallery 03", pt: "Galeria 03" },
       },
     ],
   },

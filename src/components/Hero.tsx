@@ -18,9 +18,11 @@ export function Hero() {
           intervalMs={1700}
           images={[
             ...casaProjects
-              .filter((project) => project.id !== "casa-bonzi")
+              .filter((project) => project.id !== "casa-bonzi" && project.id !== "casa-rosales")
               .map((project) => project.image),
-            ...projects.map((project) => project.image),
+            ...projects
+              .filter((project) => project.id !== "casa-rosales")
+              .map((project) => project.image),
           ]}
         />
         <div className="absolute inset-0 .bg-gradient-to-b from-brand-black/40 via-transparent to-brand-black/70" />
