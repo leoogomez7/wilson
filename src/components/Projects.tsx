@@ -1244,7 +1244,30 @@ function ProjectModal({
   const { t, language } = useTranslation();
   const [modalAtmosphere, setModalAtmosphere] = useState<AtmosphereType>(selectedAtmosphere);
   const [piliFilter, setPiliFilter] = useState<"all" | "antes" | "despues">("all");
+  const [showPlans, setShowPlans] = useState(false);
+  const [expandedPlanIndex, setExpandedPlanIndex] = useState<number | null>(null);
   const isPhaseFilterProject = project.id === "casa-pili" || project.id === "casa-bonzi";
+  const planImageModules = import.meta.glob("../assets/Planos/*/*.{png,jpg,jpeg}", {
+    eager: true,
+    import: "default",
+  }) as Record<string, string>;
+  const projectPlanFolderById: Record<string, string> = {
+    "proyecto-cyg": "CyG",
+    "proyecto-carla": "Carla",
+    "casa-coffee": "Coffee",
+    "casa-del-limonero": "Del Limonero",
+    "casa-inti": "Inti",
+    "proyecto-jorval": "Jorval",
+    "casa-scott": "Scott",
+    "proyecto-z": "Z",
+  };
+  const planImages = Object.entries(planImageModules)
+    .filter(([path]) => {
+      const folderName = projectPlanFolderById[project.id];
+      return folderName ? path.includes(`/Planos/${folderName}/`) : false;
+    })
+    .map(([, src]) => src);
+  const hasPlanImages = planImages.length > 0;
   const atmosphereButtons: Array<{ key: AtmosphereType; label: string }> = [
     { key: "todos", label: t.projects.atmospheres.todos },
     { key: "anochecer", label: t.projects.atmospheres.anochecer },
@@ -3070,6 +3093,36 @@ function ProjectModal({
   const activeItem = reorderedGalleryItems[activeIndex] ?? reorderedGalleryItems[0];
   if (!activeItem) return null;
 
+  if (expandedPlanIndex !== null) {
+    const expandedPlan = planImages[expandedPlanIndex];
+    if (!expandedPlan) return null;
+    return (
+      <div
+        className="fixed inset-0 z-110 bg-brand-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
+        onClick={() => setExpandedPlanIndex(null)}
+      >
+        <div
+          className="relative max-w-full max-h-[90vh] w-full h-full flex items-center justify-center"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            type="button"
+            onClick={() => setExpandedPlanIndex(null)}
+            aria-label={t.projects.modal.close}
+            className="absolute top-4 right-4 z-10 text-[10px] uppercase tracking-[0.3em] bg-white px-4 py-2 border border-brand-black whitespace-nowrap"
+          >
+            {t.projects.modal.close}
+          </button>
+          <img
+            src={expandedPlan}
+            alt={t.projects.modal.close}
+            className="max-w-full max-h-full object-contain"
+          />
+        </div>
+      </div>
+    );
+  }
+
   // If an image is expanded, show the expanded view
   if (expandedImageIndex !== null) {
     const expandedItem = reorderedGalleryItems[expandedImageIndex];
@@ -3243,6 +3296,41 @@ function ProjectModal({
             </div>
           </div>
           <p className="text-base leading-relaxed text-brand-gray">{project.description[language]}</p>
+          <div className="mt-8 border-t border-border pt-6">
+            <button
+              type="button"
+              onClick={() => setShowPlans((prev) => !prev)}
+              className="rounded-none border border-brand-black px-5 py-3 text-[10px] uppercase tracking-[0.3em] font-semibold transition hover:bg-brand-black hover:text-white"
+            >
+              {t.projects.modal.viewPlans}
+            </button>
+            {showPlans ? (
+              <div className="mt-6">
+                {hasPlanImages ? (
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {planImages.map((planSrc, index) => (
+                      <button
+                        key={`${planSrc}-${index}`}
+                        type="button"
+                        onClick={() => setExpandedPlanIndex(index)}
+                        className="group overflow-hidden border border-border bg-brand-light text-left"
+                      >
+                        <img
+                          src={planSrc}
+                          alt={`${t.projects.modal.viewPlans}-${index + 1}`}
+                          className="h-48 w-full object-cover transition duration-300 group-hover:scale-105"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-sm font-semibold text-red-600">
+                    {t.projects.modal.noPlans}
+                  </p>
+                )}
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
     </div>

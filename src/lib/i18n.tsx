@@ -101,6 +101,8 @@ const translations = {
         area: "Superficie",
         description: "Descripción",
         atmosphereUnavailable: "Atmósfera de la imagen seleccionada no está disponible",
+        viewPlans: "Ver planos",
+        noPlans: "No hay planos que mostrar",
       },
       pagination: {
         previous: "Anterior",
@@ -456,6 +458,8 @@ const translations = {
         area: "Area",
         description: "Description",
         atmosphereUnavailable: "Selected image atmosphere is not available",
+        viewPlans: "View plans",
+        noPlans: "No plans to show",
       },
       pagination: {
         previous: "Previous",
@@ -798,6 +802,8 @@ const translations = {
         area: "Área",
         description: "Descrição",
         atmosphereUnavailable: "Atmosfera da imagem selecionada não está disponível",
+        viewPlans: "Ver planos",
+        noPlans: "Nenhum plano para mostrar",
       },
       pagination: {
         previous: "Anterior",
