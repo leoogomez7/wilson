@@ -193,6 +193,52 @@ import motoqueroInteriorTaller from "@/assets/Proyectos/Motoquero/Motoquero-Inte
 import motoqueroInteriorTaller2 from "@/assets/Proyectos/Motoquero/Motoquero-Interior_Taller2.png";
 import motoqueroInteriorTaller3 from "@/assets/Proyectos/Motoquero/Motoquero-Interior_Taller3.png";
 import motoqueroInteriorTienda from "@/assets/Proyectos/Motoquero/Motoquero-Interior_Tienda de respuestos.png";
+import carlaPlantaBaja from "@/assets/Planos/Carla/Proyecto Carla-PlantaBaja.png";
+import carlaEntrepiso from "@/assets/Planos/Carla/Proyecto Carla-EntrePiso.png";
+import carlaCorteAA from "@/assets/Planos/Carla/Proyecto Carla-Corte A-A.png";
+import carlaCorteBB from "@/assets/Planos/Carla/Proyecto Carla-Corte B-B.png";
+import carlaVistaFrente from "@/assets/Planos/Carla/Proyecto Carla-Vista Frente.png";
+import carlaVistaContrafrente from "@/assets/Planos/Carla/Proyecto Carla-Vista Contrafrente.png";
+import coffeePlantaBaja from "@/assets/Planos/Coffee/Casa Coffee-Arq_PlantaBaja.png";
+import coffeePlantaAlta from "@/assets/Planos/Coffee/Casa Coffee-Arq_PlantaAlta.png";
+import coffeeCorteAA from "@/assets/Planos/Coffee/Casa Coffee-Corte A-A.png";
+import coffeeCorteBB from "@/assets/Planos/Coffee/Casa Coffee-Corte B-B.png";
+import coffeeVistaFrente from "@/assets/Planos/Coffee/Casa Coffee-Vista Frente.png";
+import coffeeVistaContrafrente from "@/assets/Planos/Coffee/Casa Coffee-Vista Contrafrente.png";
+import cygPlantaBaja from "@/assets/Planos/CyG/Casa CyG-Arq_PlantaBaja.png";
+import cygPlantaAlta from "@/assets/Planos/CyG/Casa CyG-Arq_PlantaAlta.png";
+import cygCorteAA from "@/assets/Planos/CyG/Casa CyG-Corte A-A.png";
+import cygCorteBB from "@/assets/Planos/CyG/Casa CyG-Corte B-B.png";
+import cygVistaFrente from "@/assets/Planos/CyG/Casa CyG-Vista Frente.png";
+import cygVistaContrafrente from "@/assets/Planos/CyG/Casa CyG-Vista Contrafrente.png";
+import limoneroPlantaBaja from "@/assets/Planos/Del Limonero/Casa del Limonero-Arq_PlantaBaja.png";
+import limoneroCorteAA from "@/assets/Planos/Del Limonero/Casa del Limonero-Corte A-A.png";
+import limoneroCorteBB from "@/assets/Planos/Del Limonero/Casa del Limonero-Corte B-B.png";
+import limoneroVistaFrente from "@/assets/Planos/Del Limonero/Casa del Limonero-Vista Frente.png";
+import limoneroVistaContrafrente from "@/assets/Planos/Del Limonero/Casa del Limonero-Vista Contrafrente.png";
+import intiPlantaBaja from "@/assets/Planos/Inti/Casa Inti-Arq_PlantaBaja.png";
+import intiCorteAA from "@/assets/Planos/Inti/Casa Inti-Corte A-A.png";
+import intiCorteBB from "@/assets/Planos/Inti/Casa Inti-Corte B-B.png";
+import intiVistaFrente from "@/assets/Planos/Inti/Casa Inti-Vista Frente.png";
+import intiVistaContrafrente from "@/assets/Planos/Inti/Casa Inti-Vista Contrafrente.png";
+import jorvalPlantaBaja from "@/assets/Planos/Jorval/Proyecto Jorval-Arq_PlantaBaja.png";
+import jorvalPlantaAlta from "@/assets/Planos/Jorval/Proyecto Jorval-Arq_PlantaAlta.png";
+import jorvalCorteAA from "@/assets/Planos/Jorval/Proyecto Jorval-Corte A-A.png";
+import jorvalCorteBB from "@/assets/Planos/Jorval/Proyecto Jorval-Corte B-B.png";
+import jorvalVistaFrente from "@/assets/Planos/Jorval/Proyecto Jorval-Vista Frente.png";
+import jorvalVistaLateral from "@/assets/Planos/Jorval/Proyecto Jorval - Vista Lateral.png";
+import scottPlantaBaja from "@/assets/Planos/Scott/Casa Scott-Arq_PlantaBaja.png";
+import scottPlantaAlta from "@/assets/Planos/Scott/Casa Scott-Arq_PlantaAlta.png";
+import scottCorteAA from "@/assets/Planos/Scott/Casa Scott- Corte A-A.png";
+import scottCorteBB from "@/assets/Planos/Scott/Casa Scott- Corte B-B.png";
+import scottVistaFrente from "@/assets/Planos/Scott/Casa Scott-Vista Frente.png";
+import scottVistaContrafrente from "@/assets/Planos/Scott/Casa Scott-Vista Contrafrente.png";
+import zPlantaBaja from "@/assets/Planos/Z/Proyecto Z-PlantaBaja.png";
+import zPlantaAlta from "@/assets/Planos/Z/Proyecto Z-PlantaAlta.png";
+import zCorteAA from "@/assets/Planos/Z/Proyecto Z-Corte A-A.png";
+import zCorteBB from "@/assets/Planos/Z/Proyecto Z-Corte B-B.png";
+import zVistaFrente from "@/assets/Planos/Z/Proyecto Z-Vista Frente.png";
+import zVistaContrafrente from "@/assets/Planos/Z/Proyecto Z-Vista Contrafrente.png";
 import { useTranslation } from "@/lib/i18n";
 import { casaProjects } from "@/components/project-data";
 
@@ -1247,27 +1293,73 @@ function ProjectModal({
   const [showPlans, setShowPlans] = useState(false);
   const [expandedPlanIndex, setExpandedPlanIndex] = useState<number | null>(null);
   const isPhaseFilterProject = project.id === "casa-pili" || project.id === "casa-bonzi";
-  const planImageModules = import.meta.glob("../assets/Planos/*/*.{png,jpg,jpeg}", {
-    eager: true,
-    import: "default",
-  }) as Record<string, string>;
-  const projectPlanFolderById: Record<string, string> = {
-    "proyecto-cyg": "CyG",
-    "proyecto-carla": "Carla",
-    "casa-coffee": "Coffee",
-    "casa-del-limonero": "Del Limonero",
-    "casa-inti": "Inti",
-    "proyecto-jorval": "Jorval",
-    "casa-scott": "Scott",
-    "proyecto-z": "Z",
+  const planImagesByProjectId: Record<string, string[]> = {
+    "proyecto-cyg": [
+      cygPlantaBaja,
+      cygPlantaAlta,
+      cygCorteAA,
+      cygCorteBB,
+      cygVistaFrente,
+      cygVistaContrafrente,
+    ],
+    "proyecto-carla": [
+      carlaPlantaBaja,
+      carlaEntrepiso,
+      carlaCorteAA,
+      carlaCorteBB,
+      carlaVistaFrente,
+      carlaVistaContrafrente,
+    ],
+    "casa-coffee": [
+      coffeePlantaBaja,
+      coffeePlantaAlta,
+      coffeeCorteAA,
+      coffeeCorteBB,
+      coffeeVistaFrente,
+      coffeeVistaContrafrente,
+    ],
+    "casa-del-limonero": [
+      limoneroPlantaBaja,
+      limoneroCorteAA,
+      limoneroCorteBB,
+      limoneroVistaFrente,
+      limoneroVistaContrafrente,
+    ],
+    "casa-inti": [
+      intiPlantaBaja,
+      intiCorteAA,
+      intiCorteBB,
+      intiVistaFrente,
+      intiVistaContrafrente,
+    ],
+    "proyecto-jorval": [
+      jorvalPlantaBaja,
+      jorvalPlantaAlta,
+      jorvalCorteAA,
+      jorvalCorteBB,
+      jorvalVistaFrente,
+      jorvalVistaLateral,
+    ],
+    "casa-scott": [
+      scottPlantaBaja,
+      scottPlantaAlta,
+      scottCorteAA,
+      scottCorteBB,
+      scottVistaFrente,
+      scottVistaContrafrente,
+    ],
+    "proyecto-z": [
+      zPlantaBaja,
+      zPlantaAlta,
+      zCorteAA,
+      zCorteBB,
+      zVistaFrente,
+      zVistaContrafrente,
+    ],
   };
-  const planImages = Object.entries(planImageModules)
-    .filter(([path]) => {
-      const folderName = projectPlanFolderById[project.id];
-      return folderName ? path.includes(`/Planos/${folderName}/`) : false;
-    })
-    .map(([, src]) => src);
-  const hasPlanImages = planImages.length > 0;
+
+  const orderedPlanImages = planImagesByProjectId[project.id] ?? [];
+  const hasPlanImages = orderedPlanImages.length > 0;
   const atmosphereButtons: Array<{ key: AtmosphereType; label: string }> = [
     { key: "todos", label: t.projects.atmospheres.todos },
     { key: "anochecer", label: t.projects.atmospheres.anochecer },
@@ -3094,8 +3186,10 @@ function ProjectModal({
   if (!activeItem) return null;
 
   if (expandedPlanIndex !== null) {
-    const expandedPlan = planImages[expandedPlanIndex];
+    const expandedPlan = orderedPlanImages[expandedPlanIndex];
     if (!expandedPlan) return null;
+    const hasPreviousPlan = expandedPlanIndex > 0;
+    const hasNextPlan = expandedPlanIndex < orderedPlanImages.length - 1;
     return (
       <div
         className="fixed inset-0 z-110 bg-brand-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
@@ -3113,6 +3207,28 @@ function ProjectModal({
           >
             {t.projects.modal.close}
           </button>
+          <div className="absolute inset-x-0 bottom-4 z-10 flex items-center justify-between px-4 md:px-6">
+            <button
+              type="button"
+              onClick={() => setExpandedPlanIndex((prev) => (prev !== null ? Math.max(0, prev - 1) : 0))}
+              disabled={!hasPreviousPlan}
+              aria-label={t.projects.pagination.previous}
+              className="inline-flex items-center justify-center h-11 min-w-11 rounded-none border border-white bg-white/90 px-3 text-[10px] uppercase tracking-[0.3em] text-brand-black transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <ChevronLeft className="mr-1 h-4 w-4" />
+              {t.projects.pagination.previous}
+            </button>
+            <button
+              type="button"
+              onClick={() => setExpandedPlanIndex((prev) => (prev !== null ? Math.min(orderedPlanImages.length - 1, prev + 1) : 0))}
+              disabled={!hasNextPlan}
+              aria-label={t.projects.pagination.next}
+              className="inline-flex items-center justify-center h-11 min-w-11 rounded-none border border-white bg-white/90 px-3 text-[10px] uppercase tracking-[0.3em] text-brand-black transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {t.projects.pagination.next}
+              <ChevronRight className="ml-1 h-4 w-4" />
+            </button>
+          </div>
           <img
             src={expandedPlan}
             alt={t.projects.modal.close}
@@ -3127,6 +3243,8 @@ function ProjectModal({
   if (expandedImageIndex !== null) {
     const expandedItem = reorderedGalleryItems[expandedImageIndex];
     if (!expandedItem) return null;
+    const hasPreviousExpandedImage = expandedImageIndex > 0;
+    const hasNextExpandedImage = expandedImageIndex < reorderedGalleryItems.length - 1;
     return (
       <div
         className="fixed inset-0 z-90 bg-brand-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
@@ -3144,6 +3262,28 @@ function ProjectModal({
           >
             {t.projects.modal.close}
           </button>
+          <div className="absolute inset-x-0 bottom-4 z-10 flex items-center justify-between px-4 md:px-6">
+            <button
+              type="button"
+              onClick={() => setExpandedImageIndex((prev) => (prev !== null ? Math.max(0, prev - 1) : 0))}
+              disabled={!hasPreviousExpandedImage}
+              aria-label={t.projects.pagination.previous}
+              className="inline-flex items-center justify-center h-11 min-w-11 rounded-none border border-white bg-white/90 px-3 text-[10px] uppercase tracking-[0.3em] text-brand-black transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <ChevronLeft className="mr-1 h-4 w-4" />
+              {t.projects.pagination.previous}
+            </button>
+            <button
+              type="button"
+              onClick={() => setExpandedImageIndex((prev) => (prev !== null ? Math.min(reorderedGalleryItems.length - 1, prev + 1) : 0))}
+              disabled={!hasNextExpandedImage}
+              aria-label={t.projects.pagination.next}
+              className="inline-flex items-center justify-center h-11 min-w-11 rounded-none border border-white bg-white/90 px-3 text-[10px] uppercase tracking-[0.3em] text-brand-black transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {t.projects.pagination.next}
+              <ChevronRight className="ml-1 h-4 w-4" />
+            </button>
+          </div>
           <img
             src={expandedItem.src}
             alt={expandedItem.label[language]}
@@ -3308,7 +3448,7 @@ function ProjectModal({
               <div className="mt-6">
                 {hasPlanImages ? (
                   <div className="grid gap-4 sm:grid-cols-2">
-                    {planImages.map((planSrc, index) => (
+                    {orderedPlanImages.map((planSrc, index) => (
                       <button
                         key={`${planSrc}-${index}`}
                         type="button"

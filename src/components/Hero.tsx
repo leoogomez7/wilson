@@ -20,9 +20,20 @@ export function Hero() {
             ...sortProjectsByRequestedOrder(
               [
                 ...casaProjects.filter(
-                  (project) => project.id !== "casa-bonzi" && project.id !== "casa-rosales"
+                  (project) =>
+                    project.id !== "casa-pili" &&
+                    project.id !== "casa-bonzi" &&
+                    project.id !== "casa-sara" &&
+                    project.id !== "casa-rosales"
                 ),
-                ...projects.filter((project) => project.id !== "casa-rosales"),
+                ...projects.filter(
+                  (project) =>
+                    project.id !== "casa-pili" &&
+                    project.id !== "casa-bonzi" &&
+                    project.id !== "casa-sara" &&
+                    project.id !== "casa-rosales" &&
+                    project.id !== "proyecto-motoquero"
+                ),
               ]
             ).map((project) => project.image),
           ]}
