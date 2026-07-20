@@ -1,7 +1,7 @@
 import { useTranslation } from "@/lib/i18n";
 import { VideoImages } from "@/components/video-images";
 import { casaProjects } from "@/components/project-data";
-import { projects } from "@/components/Projects";
+import { projects, sortProjectsByRequestedOrder } from "@/components/Projects";
 
 export function Hero() {
   const { t } = useTranslation();
@@ -17,12 +17,14 @@ export function Hero() {
           imageClassName="h-full w-full object-cover opacity-60 animate-slow-zoom"
           intervalMs={1700}
           images={[
-            ...casaProjects
-              .filter((project) => project.id !== "casa-bonzi" && project.id !== "casa-rosales")
-              .map((project) => project.image),
-            ...projects
-              .filter((project) => project.id !== "casa-rosales")
-              .map((project) => project.image),
+            ...sortProjectsByRequestedOrder(
+              [
+                ...casaProjects.filter(
+                  (project) => project.id !== "casa-bonzi" && project.id !== "casa-rosales"
+                ),
+                ...projects.filter((project) => project.id !== "casa-rosales"),
+              ]
+            ).map((project) => project.image),
           ]}
         />
         <div className="absolute inset-0 .bg-gradient-to-b from-brand-black/40 via-transparent to-brand-black/70" />

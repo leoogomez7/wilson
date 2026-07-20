@@ -85,19 +85,6 @@ import casaAvalosInteriorLiving3 from "@/assets/Casas/Avalos/CasaNicoAvalos-Inte
 import casaAvalosInteriorParrilla from "@/assets/Casas/Avalos/CasaAvalos-Interior_Parrilla.png";
 import casaAvalosInteriorSuite from "@/assets/Casas/Avalos/CasaAvalos-Interior_Suite.png";
 import casaAvalosInteriorSuite2 from "@/assets/Casas/Avalos/CasaAvalos-Interior Suite2.png";
-import casaJorvalExteriorAmanecer from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Amanecer de Verano.png";
-import casaJorvalExteriorAnochecer from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Anochecer de Verano.png";
-import casaJorvalExteriorAtardecer from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Atardecer de Otoño.png";
-import casaJorvalExteriorContrafachada from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Contrafachada.png";
-import casaJorvalExteriorGaleria from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Galería.png";
-import casaJorvalExteriorLateralAmanecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorLateral_Amanecer de Primavera.png";
-import casaJorvalExteriorLateralAnochecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorLateral_Anochecer de Verano.png";
-import casaJorvalExteriorLateralAtardecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorLateral_Atardecer de Otoño.png";
-import casaJorvalExteriorEsquinaAmanecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorEsquina_Amanecer de Primavera.png";
-import casaJorvalExteriorEsquinaAnochecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorEsquina_Anochecer de Verano.png";
-import casaJorvalExteriorEsquinaAtardecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorEsquina_Atardecer de Otoño.png";
-import casaJorvalInteriorComedor from "@/assets/Casas/Jorval/Proyecto Jorval-Interior_Comedor.png";
-import casaJorvalInteriorLiving from "@/assets/Casas/Jorval/Proyecto Jorval-Interior_Living.png";
 import casaRosalesGaleriaAmanecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Amanecer de Primavera.png";
 import casaRosalesGaleriaAnochecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Anochecer de Verano.png";
 import casaRosalesGaleriaAtardecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Atardecer de Otoño.png";
@@ -145,6 +132,19 @@ import casaBonziTerraza02Antes from "@/assets/Casas/Bonzi/CasaBonzi_Terraza02_An
 import casaBonziTerraza02Despues from "@/assets/Casas/Bonzi/CasaBonzi_Terraza02_Despues.png";
 import casaBonziTerraza03Antes from "@/assets/Casas/Bonzi/CasaBonzi_Terraza03_Antes.png";
 import casaBonziTerraza03Despues from "@/assets/Casas/Bonzi/CasaBonzi_Terraza03_Despues.png";
+import proyectoJorvalExteriorAmanecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-Exterior_Amanecer de Verano.png";
+import proyectoJorvalExteriorAnochecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-Exterior_Anochecer de Verano.png";
+import proyectoJorvalExteriorAtardecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-Exterior_Atardecer de Otoño.png";
+import proyectoJorvalExteriorContrafachada from "@/assets/Proyectos/Jorval/Proyecto Jorval-Exterior_Contrafachada.png";
+import proyectoJorvalExteriorGaleria from "@/assets/Proyectos/Jorval/Proyecto Jorval-Exterior_Galería.png";
+import proyectoJorvalExteriorLateralAmanecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorLateral_Amanecer de Primavera.png";
+import proyectoJorvalExteriorLateralAnochecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorLateral_Anochecer de Verano.png";
+import proyectoJorvalExteriorLateralAtardecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorLateral_Atardecer de Otoño.png";
+import proyectoJorvalExteriorEsquinaAmanecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorEsquina_Amanecer de Primavera.png";
+import proyectoJorvalExteriorEsquinaAnochecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorEsquina_Anochecer de Verano.png";
+import proyectoJorvalExteriorEsquinaAtardecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorEsquina_Atardecer de Otoño.png";
+import proyectoJorvalInteriorComedor from "@/assets/Proyectos/Jorval/Proyecto Jorval-Interior_Comedor.png";
+import proyectoJorvalInteriorLiving from "@/assets/Proyectos/Jorval/Proyecto Jorval-Interior_Living.png";
 
 type Category = "todos" | "viviendas" | "reformas";
 type AtmosphereType = "todos" | "anochecer" | "atardecer" | "amanecer";
@@ -446,18 +446,18 @@ export const casaProjects: Project[] = [
     ],
   },
   {
-    id: "casa-jorval",
+    id: "proyecto-jorval",
     title: {
-      es: "Casa Jorval",
-      en: "Casa Jorval",
-      pt: "Casa Jorval",
+      es: "Proyecto Jorval",
+      en: "Proyecto Jorval",
+      pt: "Proyecto Jorval",
     },
     meta: {
       es: "Vivienda Unifamiliar - 2023",
       en: "Single-family home — 2023",
       pt: "Casa unifamiliar — 2023",
     },
-    image: casaJorvalExteriorAnochecer,
+    image: proyectoJorvalExteriorAnochecer,
     location: "Moreno, Buenos Aires",
     year: "2023",
     area: "323 m²",
@@ -470,67 +470,67 @@ export const casaProjects: Project[] = [
     origin: "casas",
     gallery: [
       {
-        src: casaJorvalExteriorAnochecer,
+        src: proyectoJorvalExteriorAnochecer,
         atmosphere: "anochecer",
         label: { es: "Exterior verano", en: "Exterior summer", pt: "Exterior verão" },
       },
       {
-        src: casaJorvalExteriorAtardecer,
+        src: proyectoJorvalExteriorAtardecer,
         atmosphere: "atardecer",
         label: { es: "Exterior otoño", en: "Exterior autumn", pt: "Exterior outono" },
       },
       {
-        src: casaJorvalExteriorAmanecer,
+        src: proyectoJorvalExteriorAmanecer,
         atmosphere: "amanecer",
         label: { es: "Exterior primavera", en: "Exterior spring", pt: "Exterior primavera" },
       },
       {
-        src: casaJorvalExteriorEsquinaAnochecer,
+        src: proyectoJorvalExteriorEsquinaAnochecer,
         atmosphere: "anochecer",
         label: { es: "Exterior esquina verano", en: "Corner exterior summer", pt: "Exterior de esquina verão" },
       },
       {
-        src: casaJorvalExteriorEsquinaAtardecer,
+        src: proyectoJorvalExteriorEsquinaAtardecer,
         atmosphere: "atardecer",
         label: { es: "Exterior esquina otoño", en: "Corner exterior autumn", pt: "Exterior de esquina outono" },
       },
       {
-        src: casaJorvalExteriorEsquinaAmanecer,
+        src: proyectoJorvalExteriorEsquinaAmanecer,
         atmosphere: "amanecer",
         label: { es: "Exterior esquina primavera", en: "Corner exterior spring", pt: "Exterior de esquina primavera" },
       },
       {
-        src: casaJorvalExteriorLateralAnochecer,
+        src: proyectoJorvalExteriorLateralAnochecer,
         atmosphere: "anochecer",
         label: { es: "Exterior lateral verano", en: "Lateral exterior summer", pt: "Exterior lateral verão" },
       },
       {
-        src: casaJorvalExteriorLateralAtardecer,
+        src: proyectoJorvalExteriorLateralAtardecer,
         atmosphere: "atardecer",
         label: { es: "Exterior lateral otoño", en: "Lateral exterior autumn", pt: "Exterior lateral outono" },
       },
       {
-        src: casaJorvalExteriorLateralAmanecer,
+        src: proyectoJorvalExteriorLateralAmanecer,
         atmosphere: "amanecer",
         label: { es: "Exterior lateral primavera", en: "Lateral exterior spring", pt: "Exterior lateral primavera" },
       },
       {
-        src: casaJorvalExteriorContrafachada,
+        src: proyectoJorvalExteriorContrafachada,
         atmosphere: "anochecer",
         label: { es: "Exterior contrafachada", en: "Rear façade exterior", pt: "Exterior contrafachada" },
       },
       {
-        src: casaJorvalExteriorGaleria,
+        src: proyectoJorvalExteriorGaleria,
         atmosphere: "anochecer",
         label: { es: "Exterior galería", en: "Exterior gallery", pt: "Exterior galeria" },
       },
       {
-        src: casaJorvalInteriorComedor,
+        src: proyectoJorvalInteriorComedor,
         atmosphere: "anochecer",
         label: { es: "Interior comedor", en: "Dining interior", pt: "Interior sala de jantar" },
       },
       {
-        src: casaJorvalInteriorLiving,
+        src: proyectoJorvalInteriorLiving,
         atmosphere: "anochecer",
         label: { es: "Interior living", en: "Living room interior", pt: "Interior sala de estar" },
       },

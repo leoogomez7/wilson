@@ -131,19 +131,19 @@ import proyectoCarlaHallAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-Ha
 import proyectoCarlaParrillaAmanecer from "@/assets/Proyectos/Carla/ProyectoCarla-Parrilla_Amanecer de Primavera.png";
 import proyectoCarlaInterior02 from "@/assets/Proyectos/Carla/ProyectoCarla-Interior02.png";
 import proyectoCarlaParrillaAnochecer from "@/assets/Proyectos/Carla/ProyectoCarla-Parrilla_Anochecer de Verano.png";
-import casaJorvalExteriorAmanecer from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Amanecer de Verano.png";
-import casaJorvalExteriorAnochecer from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Anochecer de Verano.png";
-import casaJorvalExteriorAtardecer from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Atardecer de Otoño.png";
-import casaJorvalExteriorContrafachada from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Contrafachada.png";
-import casaJorvalExteriorGaleria from "@/assets/Casas/Jorval/Proyecto Jorval-Exterior_Galería.png";
-import casaJorvalExteriorLateralAmanecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorLateral_Amanecer de Primavera.png";
-import casaJorvalExteriorLateralAnochecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorLateral_Anochecer de Verano.png";
-import casaJorvalExteriorLateralAtardecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorLateral_Atardecer de Otoño.png";
-import casaJorvalExteriorEsquinaAmanecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorEsquina_Amanecer de Primavera.png";
-import casaJorvalExteriorEsquinaAnochecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorEsquina_Anochecer de Verano.png";
-import casaJorvalExteriorEsquinaAtardecer from "@/assets/Casas/Jorval/Proyecto Jorval-ExteriorEsquina_Atardecer de Otoño.png";
-import casaJorvalInteriorComedor from "@/assets/Casas/Jorval/Proyecto Jorval-Interior_Comedor.png";
-import casaJorvalInteriorLiving from "@/assets/Casas/Jorval/Proyecto Jorval-Interior_Living.png";
+import proyectoJorvalExteriorAmanecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-Exterior_Amanecer de Verano.png";
+import proyectoJorvalExteriorAnochecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-Exterior_Anochecer de Verano.png";
+import proyectoJorvalExteriorAtardecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-Exterior_Atardecer de Otoño.png";
+import proyectoJorvalExteriorContrafachada from "@/assets/Proyectos/Jorval/Proyecto Jorval-Exterior_Contrafachada.png";
+import proyectoJorvalExteriorGaleria from "@/assets/Proyectos/Jorval/Proyecto Jorval-Exterior_Galería.png";
+import proyectoJorvalExteriorLateralAmanecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorLateral_Amanecer de Primavera.png";
+import proyectoJorvalExteriorLateralAnochecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorLateral_Anochecer de Verano.png";
+import proyectoJorvalExteriorLateralAtardecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorLateral_Atardecer de Otoño.png";
+import proyectoJorvalExteriorEsquinaAmanecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorEsquina_Amanecer de Primavera.png";
+import proyectoJorvalExteriorEsquinaAnochecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorEsquina_Anochecer de Verano.png";
+import proyectoJorvalExteriorEsquinaAtardecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorEsquina_Atardecer de Otoño.png";
+import proyectoJorvalInteriorComedor from "@/assets/Proyectos/Jorval/Proyecto Jorval-Interior_Comedor.png";
+import proyectoJorvalInteriorLiving from "@/assets/Proyectos/Jorval/Proyecto Jorval-Interior_Living.png";
 import casaRosalesGaleriaAmanecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Amanecer de Primavera.png";
 import casaRosalesGaleriaAnochecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Anochecer de Verano.png";
 import casaRosalesGaleriaAtardecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Atardecer de Otoño.png";
@@ -239,6 +239,37 @@ type GalleryItem = {
   isFeatured?: boolean;
   imageClassName?: string;
   openSrc?: string;
+};
+
+export const requestedProjectOrder = [
+  "proyecto-cyg",
+  "proyecto-jorval",
+  "casa-scott",
+  "casa-coffee",
+  "casa-inti",
+  "casa-del-limonero",
+  "casa-navarro",
+  "proyecto-z",
+  "proyecto-carla",
+  "proyecto-salem",
+  "casa-rosales",
+  "casa-vasquez",
+  "casa-avalos",
+  "casa-sara",
+  "proyecto-motoquero",
+  "casa-pili",
+  "casa-bonzi",
+] as const;
+
+export const sortProjectsByRequestedOrder = <T extends { id?: string }>(items: T[]) => {
+  const orderMap = new Map(requestedProjectOrder.map((id, index) => [id, index]));
+
+  return [...items].sort((a, b) => {
+    const aOrder = a.id ? orderMap.get(a.id) ?? Number.MAX_SAFE_INTEGER : Number.MAX_SAFE_INTEGER;
+    const bOrder = b.id ? orderMap.get(b.id) ?? Number.MAX_SAFE_INTEGER : Number.MAX_SAFE_INTEGER;
+
+    return aOrder - bOrder;
+  });
 };
 
 const uniqueGalleryBySrc = (gallery: GalleryItem[], targetAtmosphere?: AtmosphereType) => {
@@ -1003,7 +1034,7 @@ export function Projects({ mode = "home", section }: { mode?: SectionMode; secti
       .map((project) => ({ ...project, origin: "proyectos" as const })),
   ];
 
-  const source = combinedProjects;
+  const source = sortProjectsByRequestedOrder(combinedProjects);
   const sectionId = mode === "section" && section ? section : "proyectos";
   const filteredByCategory =
     active === "todos" ? source : source.filter((p) => p.category === active);
@@ -1392,54 +1423,54 @@ function ProjectModal({
   const getJorvalDesiredSrcOrder = (atm: AtmosphereType): string[] => {
     if (atm === "todos") {
       return [
-        casaJorvalExteriorAnochecer,
-        casaJorvalExteriorAtardecer,
-        casaJorvalExteriorAmanecer,
-        casaJorvalExteriorEsquinaAnochecer,
-        casaJorvalExteriorEsquinaAtardecer,
-        casaJorvalExteriorEsquinaAmanecer,
-        casaJorvalExteriorLateralAnochecer,
-        casaJorvalExteriorLateralAtardecer,
-        casaJorvalExteriorLateralAmanecer,
-        casaJorvalExteriorContrafachada,
-        casaJorvalExteriorGaleria,
-        casaJorvalInteriorComedor,
-        casaJorvalInteriorLiving,
+        proyectoJorvalExteriorAnochecer,
+        proyectoJorvalExteriorAtardecer,
+        proyectoJorvalExteriorAmanecer,
+        proyectoJorvalExteriorEsquinaAnochecer,
+        proyectoJorvalExteriorEsquinaAtardecer,
+        proyectoJorvalExteriorEsquinaAmanecer,
+        proyectoJorvalExteriorLateralAnochecer,
+        proyectoJorvalExteriorLateralAtardecer,
+        proyectoJorvalExteriorLateralAmanecer,
+        proyectoJorvalExteriorContrafachada,
+        proyectoJorvalExteriorGaleria,
+        proyectoJorvalInteriorComedor,
+        proyectoJorvalInteriorLiving,
       ];
     }
 
     if (atm === "anochecer") {
       return [
-        casaJorvalExteriorAnochecer,
-        casaJorvalExteriorEsquinaAnochecer,
-        casaJorvalExteriorLateralAnochecer,
-        casaJorvalExteriorContrafachada,
-        casaJorvalExteriorGaleria,
-        casaJorvalInteriorComedor,
-        casaJorvalInteriorLiving,
+        proyectoJorvalExteriorAnochecer,
+        proyectoJorvalExteriorEsquinaAnochecer,
+        proyectoJorvalExteriorLateralAnochecer,
+        proyectoJorvalExteriorContrafachada,
+        proyectoJorvalExteriorGaleria,
+        proyectoJorvalInteriorComedor,
+        proyectoJorvalInteriorLiving,
       ];
     }
 
     if (atm === "atardecer") {
       return [
-        casaJorvalExteriorAtardecer,
-        casaJorvalExteriorEsquinaAtardecer,
-        casaJorvalExteriorLateralAtardecer,
-        casaJorvalExteriorContrafachada,
-        casaJorvalExteriorGaleria,
-        casaJorvalInteriorComedor,
-        casaJorvalInteriorLiving,
+        proyectoJorvalExteriorAtardecer,
+        proyectoJorvalExteriorEsquinaAtardecer,
+        proyectoJorvalExteriorLateralAtardecer,
+        proyectoJorvalExteriorContrafachada,
+        proyectoJorvalExteriorGaleria,
+        proyectoJorvalInteriorComedor,
+        proyectoJorvalInteriorLiving,
       ];
     }
 
     return [
-      casaJorvalExteriorAmanecer,
-      casaJorvalExteriorEsquinaAmanecer,
-      casaJorvalExteriorLateralAmanecer,
-      casaJorvalExteriorContrafachada,
-      casaJorvalExteriorGaleria,
-      casaJorvalInteriorComedor,
-      casaJorvalInteriorLiving,
+      proyectoJorvalExteriorAmanecer,
+      proyectoJorvalExteriorEsquinaAmanecer,
+      proyectoJorvalExteriorLateralAmanecer,
+      proyectoJorvalExteriorContrafachada,
+      proyectoJorvalExteriorGaleria,
+      proyectoJorvalInteriorComedor,
+      proyectoJorvalInteriorLiving,
     ];
   };
 
@@ -1792,7 +1823,7 @@ function ProjectModal({
         getCarlaDesiredSrcOrder(modalAtmosphere),
         false
       )
-    : project.id === "casa-jorval"
+    : project.id === "proyecto-jorval"
     ? orderGalleryItemsBySrc(
         uniqueGalleryBySrc(project.gallery ?? []),
         getJorvalDesiredSrcOrder(modalAtmosphere),
@@ -2393,8 +2424,8 @@ function ProjectModal({
       return [salemInterior, salemInteriorLateral, salemBufet];
     }
 
-    if (projectId === "casa-jorval") {
-      return [casaJorvalInteriorComedor, casaJorvalInteriorLiving];
+    if (projectId === "proyecto-jorval") {
+      return [proyectoJorvalInteriorComedor, proyectoJorvalInteriorLiving];
     }
 
     if (projectId === "casa-vasquez") {
@@ -2616,14 +2647,14 @@ function ProjectModal({
         [casaAvalosInteriorBañoSuite2]: { anochecer: casaAvalosInteriorBañoSuite2, atardecer: casaAvalosInteriorBañoSuite2, amanecer: casaAvalosInteriorBañoSuite2 },
         [casaAvalosInteriorParrilla]: { anochecer: casaAvalosInteriorParrilla, atardecer: casaAvalosInteriorParrilla, amanecer: casaAvalosInteriorParrilla },
       },
-      "casa-jorval": {
-        ...createThreeWayAtmosphereMap(casaJorvalExteriorAnochecer, casaJorvalExteriorAtardecer, casaJorvalExteriorAmanecer),
-        ...createThreeWayAtmosphereMap(casaJorvalExteriorEsquinaAnochecer, casaJorvalExteriorEsquinaAtardecer, casaJorvalExteriorEsquinaAmanecer),
-        ...createThreeWayAtmosphereMap(casaJorvalExteriorLateralAnochecer, casaJorvalExteriorLateralAtardecer, casaJorvalExteriorLateralAmanecer),
-        [casaJorvalExteriorContrafachada]: { anochecer: casaJorvalExteriorContrafachada, atardecer: casaJorvalExteriorContrafachada, amanecer: casaJorvalExteriorContrafachada },
-        [casaJorvalExteriorGaleria]: { anochecer: casaJorvalExteriorGaleria, atardecer: casaJorvalExteriorGaleria, amanecer: casaJorvalExteriorGaleria },
-        [casaJorvalInteriorComedor]: { anochecer: casaJorvalInteriorComedor, atardecer: casaJorvalInteriorComedor, amanecer: casaJorvalInteriorComedor },
-        [casaJorvalInteriorLiving]: { anochecer: casaJorvalInteriorLiving, atardecer: casaJorvalInteriorLiving, amanecer: casaJorvalInteriorLiving },
+      "proyecto-jorval": {
+        ...createThreeWayAtmosphereMap(proyectoJorvalExteriorAnochecer, proyectoJorvalExteriorAtardecer, proyectoJorvalExteriorAmanecer),
+        ...createThreeWayAtmosphereMap(proyectoJorvalExteriorEsquinaAnochecer, proyectoJorvalExteriorEsquinaAtardecer, proyectoJorvalExteriorEsquinaAmanecer),
+        ...createThreeWayAtmosphereMap(proyectoJorvalExteriorLateralAnochecer, proyectoJorvalExteriorLateralAtardecer, proyectoJorvalExteriorLateralAmanecer),
+        [proyectoJorvalExteriorContrafachada]: { anochecer: proyectoJorvalExteriorContrafachada, atardecer: proyectoJorvalExteriorContrafachada, amanecer: proyectoJorvalExteriorContrafachada },
+        [proyectoJorvalExteriorGaleria]: { anochecer: proyectoJorvalExteriorGaleria, atardecer: proyectoJorvalExteriorGaleria, amanecer: proyectoJorvalExteriorGaleria },
+        [proyectoJorvalInteriorComedor]: { anochecer: proyectoJorvalInteriorComedor, atardecer: proyectoJorvalInteriorComedor, amanecer: proyectoJorvalInteriorComedor },
+        [proyectoJorvalInteriorLiving]: { anochecer: proyectoJorvalInteriorLiving, atardecer: proyectoJorvalInteriorLiving, amanecer: proyectoJorvalInteriorLiving },
       },
       "casa-vasquez": {
         ...createThreeWayAtmosphereMap(casaVasquezExteriorAnochecer, casaVasquezExteriorAtardecer, casaVasquezExteriorAmanecer),
@@ -2952,7 +2983,7 @@ function ProjectModal({
         "proyecto-motoquero",
         "casa-sara",
         "casa-avalos",
-        "casa-jorval",
+        "proyecto-jorval",
         "casa-vasquez",
         "casa-rosales",
       ].includes(project.id)
