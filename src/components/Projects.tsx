@@ -239,6 +239,21 @@ import zCorteAA from "@/assets/Planos/Z/Proyecto Z-Corte A-A.png";
 import zCorteBB from "@/assets/Planos/Z/Proyecto Z-Corte B-B.png";
 import zVistaFrente from "@/assets/Planos/Z/Proyecto Z-Vista Frente.png";
 import zVistaContrafrente from "@/assets/Planos/Z/Proyecto Z-Vista Contrafrente.png";
+import avalosPlantaBaja from "@/assets/Planos/Avalos/CasaÁvalos-Arq_PlantaBaja.png";
+import bonziPlantaAlta from "@/assets/Planos/Bonzi/Casa Bonzi-Arq_Planta Alta.png";
+import motoqueroPlantaBaja from "@/assets/Planos/El Motoquero/ElMotoquero-Arq_PlantaBaja.png";
+import navarroPlantaBaja from "@/assets/Planos/Navarro/CasaNavarro-Arq_PlantaBaja.png";
+import navarroCorteAA from "@/assets/Planos/Navarro/CasaNavarro-Corte A-A.png";
+import navarroCorteBB from "@/assets/Planos/Navarro/CasaNavarro-Corte B-B.png";
+import navarroVistaFrente from "@/assets/Planos/Navarro/CasaNavarro_VistaFrente.png";
+import navarroVistaContrafrente from "@/assets/Planos/Navarro/CasaNavarro_VistaContrafrente.png";
+import piliPlantaBaja from "@/assets/Planos/Pili/Casa Pili-Arq_PlantaBaja.png";
+import rosalesPlantaBaja from "@/assets/Planos/Rosales/CasaRosales-Arq_PlantaBaja.png";
+import rosalesVistaPileta from "@/assets/Planos/Rosales/CasaRosales_Vista Pileta.png";
+import saraPlantaBaja from "@/assets/Planos/Sara/CasaSara-Arq_PlantaBaja.png";
+import vasquezPlantaAlta from "@/assets/Planos/Vasquez/CasaVásquez-Arq_PlantaAlta.png";
+import vasquezPlantaBaja from "@/assets/Planos/Vasquez/CasaVásquez-Arq_PlantaBaja.png";
+import vasquezVistaFrente from "@/assets/Planos/Vasquez/CasaVásquez_VistaFrente.png";
 import { useTranslation } from "@/lib/i18n";
 import { casaProjects } from "@/components/project-data";
 
@@ -1356,6 +1371,20 @@ function ProjectModal({
       zVistaFrente,
       zVistaContrafrente,
     ],
+    "casa-avalos": [avalosPlantaBaja],
+    "casa-bonzi": [bonziPlantaAlta],
+    "proyecto-motoquero": [motoqueroPlantaBaja],
+    "casa-navarro": [
+      navarroPlantaBaja,
+      navarroCorteAA,
+      navarroCorteBB,
+      navarroVistaFrente,
+      navarroVistaContrafrente,
+    ],
+    "casa-pili": [piliPlantaBaja],
+    "casa-rosales": [rosalesPlantaBaja, rosalesVistaPileta],
+    "casa-sara": [saraPlantaBaja],
+    "casa-vasquez": [vasquezPlantaBaja, vasquezPlantaAlta, vasquezVistaFrente],
   };
 
   const orderedPlanImages = planImagesByProjectId[project.id] ?? [];
