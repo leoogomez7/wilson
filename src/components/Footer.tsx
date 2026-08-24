@@ -59,8 +59,13 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#contacto" className="hover:opacity-60 whitespace-nowrap">
-                  {t.nav.contacto}
+                <a
+                  href="https://es.trustpilot.com/review/psplusargentinaps4.empretienda.com.ar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-60 whitespace-nowrap"
+                >
+                  Reseñas
                 </a>
               </li>
             </ul>
@@ -104,7 +109,7 @@ export function Footer() {
                   href="https://www.instagram.com/wilson.arquitectura"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:opacity-60 whitespace-nowrap"
+                  className="inline-flex items-center gap-3 hover:opacity-60 whitespace-nowrap w-auto self-start"
                 >
                   <Instagram className="w-4 h-4" />
                   {t.footer.instagram}
@@ -115,18 +120,30 @@ export function Footer() {
                   href="https://www.facebook.com/people/Wilson-Arquitectura/100067440165213"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:opacity-60 whitespace-nowrap"
+                  className="inline-flex items-center gap-3 hover:opacity-60 whitespace-nowrap w-auto self-start"
                 >
                   <Facebook className="w-4 h-4" />
                   {t.footer.facebook}
                 </a>
               </li>
+                <li>
+                  <a
+                    href="https://es.trustpilot.com/review/psplusargentinaps4.empretienda.com.ar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 hover:opacity-60 whitespace-nowrap w-auto self-start"
+                    aria-label="Ver reseñas"
+                  >
+                    <span className="text-lg">⭐</span>
+                    <span className="leading-none">Reseñas</span>
+                  </a>
+                </li>
               <li>
                 <a
                   href="https://wa.me/5491136115429"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:opacity-60 whitespace-nowrap"
+                  className="inline-flex items-center gap-3 hover:opacity-60 whitespace-nowrap w-auto self-start"
                 >
                   <img src={whatsappLogo} alt="WhatsApp" className="w-4 h-4 object-contain" />
                   {t.footer.whatsapp}

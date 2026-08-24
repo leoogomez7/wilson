@@ -100,6 +100,18 @@ import casaVasquezContrafrenteAtardecer from "@/assets/Casas/Vasquez/Casa Vasque
 import casaVasquezInteriorComedor from "@/assets/Casas/Vasquez/Casa Vasquez-Interior_ Comedor.png";
 import casaVasquezInteriorLiving from "@/assets/Casas/Vasquez/Casa Vasquez-Interior_Living.png";
 import casaVasquezInteriorLiving02 from "@/assets/Casas/Vasquez/Casa Vasquez-Interior_Living02.png";
+import casaPupyAnochecer from "@/assets/Casas/Pupy/CasaPupy-Frente-Anochecer de Verano.png";
+import casaPupyAtardecer from "@/assets/Casas/Pupy/CasaPupy-Frente-Atardecer de Otoño.png";
+import casaPupyAmanecer from "@/assets/Casas/Pupy/CasaPupy-Frente-Amanecer de Primavera.png";
+import casaPupyFrontalAnochecer from "@/assets/Casas/Pupy/CasaPupy-Frontal_Anochecer de Verano.png";
+import casaPupyFrontalAtardecer from "@/assets/Casas/Pupy/CasaPupy-Frontal_Atardecer de Otoño.png";
+import casaPupyFrontalAmanecer from "@/assets/Casas/Pupy/CasaPupy-Frontal_Amanecer de Primavera.png";
+import casaPupyPiletaAnochecer from "@/assets/Casas/Pupy/CasaPupy-Pileta_Anochecer de Verano..png";
+import casaPupyPiletaAtardecer from "@/assets/Casas/Pupy/CasaPupy-Pileta_Atardecer de Otoño.png";
+import casaPupyPiletaAmanecer from "@/assets/Casas/Pupy/CasaPupy-Pileta_Amanecer de Primavera.png";
+import casaPupyComedor from "@/assets/Casas/Pupy/CasaPupy-Comedor.png";
+import casaPupyLiving02 from "@/assets/Casas/Pupy/CasaPupy-Living02.png";
+import casaPupyLiving03 from "@/assets/Casas/Pupy/CasaPupy-Living03.png";
 import casaPiliBanioAntes from "@/assets/Casas/Pili/Baño_Antes.jpg";
 import casaPiliBanioAntesModal from "@/assets/Casas/Pili/Baño_Antes_modal.jpg";
 import casaPiliBanioDespues from "@/assets/Casas/Pili/Baño_Después.jpg";
@@ -171,6 +183,36 @@ type Project = {
 };
 
 export const casaProjects: Project[] = [
+  {
+    id: "casa-pupy",
+    title: { es: "Casa Pupy", en: "Casa Pupy", pt: "Casa Pupy" },
+    meta: { es: "Vivienda Unifamiliar - 2026", en: "Single-family Home - 2026", pt: "Casa Unifamiliar - 2026" },
+    image: casaPupyAnochecer,
+    location: "Tortuguita, Buenos Aires",
+    year: "2026",
+    area: "142 m²",
+    description: {
+      es: "Una vivienda concebida desde la apertura y el contacto con el exterior, priorizando ambientes amplios y luminosos que acompañan la dinámica de una familia en crecimiento. La vivienda se implanta dejando un patio lateral que integra vegetación y amplía las áreas exteriores, fortaleciendo la conexión entre los espacios interiores y el entorno. Su distribución busca optimizar la funcionalidad y la circulación cotidiana, organizando los ambientes de manera práctica y favoreciendo una transición fluida entre las áreas sociales, privadas y exteriores.",
+      en: "A home conceived around openness and contact with the outdoors, prioritizing spacious, bright environments that support the dynamics of a growing family. The house is positioned to leave a side patio that integrates vegetation and expands the outdoor areas, strengthening the connection between the interior spaces and their surroundings. Its layout optimizes functionality and everyday circulation, organizing the rooms practically and enabling a fluid transition between social, private, and outdoor areas.",
+      pt: "Uma residência concebida a partir da abertura e do contato com o exterior, priorizando ambientes amplos e luminosos que acompanham a dinâmica de uma família em crescimento. A implantação deixa um pátio lateral que integra a vegetação e amplia as áreas externas, fortalecendo a conexão entre os espaços internos e o entorno. Sua distribuição otimiza a funcionalidade e a circulação cotidiana, organizando os ambientes de forma prática e favorecendo uma transição fluida entre as áreas sociais, privadas e externas.",
+    },
+    category: "viviendas",
+    origin: "casas",
+    gallery: [
+      { src: casaPupyAnochecer, atmosphere: "anochecer", label: { es: "Frente anochecer de verano", en: "Front summer dusk", pt: "Frente anoitecer de verão" } },
+      { src: casaPupyAtardecer, atmosphere: "atardecer", label: { es: "Frente atardecer de otoño", en: "Front autumn sunset", pt: "Frente entardecer de outono" } },
+      { src: casaPupyAmanecer, atmosphere: "amanecer", label: { es: "Frente amanecer de primavera", en: "Front spring sunrise", pt: "Frente amanhecer de primavera" } },
+      { src: casaPupyFrontalAnochecer, atmosphere: "anochecer", label: { es: "Frontal verano", en: "Front summer", pt: "Frontal verão" } },
+      { src: casaPupyFrontalAtardecer, atmosphere: "atardecer", label: { es: "Frontal otoño", en: "Front autumn", pt: "Frontal outono" } },
+      { src: casaPupyFrontalAmanecer, atmosphere: "amanecer", label: { es: "Frontal primavera", en: "Front spring", pt: "Frontal primavera" } },
+      { src: casaPupyPiletaAnochecer, atmosphere: "anochecer", label: { es: "Pileta verano", en: "Pool summer", pt: "Piscina verão" } },
+      { src: casaPupyPiletaAtardecer, atmosphere: "atardecer", label: { es: "Pileta otoño", en: "Pool autumn", pt: "Piscina outono" } },
+      { src: casaPupyPiletaAmanecer, atmosphere: "amanecer", label: { es: "Pileta primavera", en: "Pool spring", pt: "Piscina primavera" } },
+      { src: casaPupyComedor, atmosphere: "anochecer", label: { es: "Comedor", en: "Dining room", pt: "Sala de jantar" } },
+      { src: casaPupyLiving02, atmosphere: "anochecer", label: { es: "Living 02", en: "Living room 02", pt: "Sala de estar 02" } },
+      { src: casaPupyLiving03, atmosphere: "anochecer", label: { es: "Living 03", en: "Living room 03", pt: "Sala de estar 03" } },
+    ],
+  },
   {
     id: "casa-pili",
     title: { es: "Casa Pili", en: "Casa Pili", pt: "Casa Pili" },

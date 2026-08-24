@@ -159,6 +159,23 @@ import casaVasquezContrafrenteAtardecer from "@/assets/Casas/Vasquez/Casa Vasque
 import casaVasquezInteriorComedor from "@/assets/Casas/Vasquez/Casa Vasquez-Interior_ Comedor.png";
 import casaVasquezInteriorLiving from "@/assets/Casas/Vasquez/Casa Vasquez-Interior_Living.png";
 import casaVasquezInteriorLiving02 from "@/assets/Casas/Vasquez/Casa Vasquez-Interior_Living02.png";
+import casaPupyAnochecer from "@/assets/Casas/Pupy/CasaPupy-Frente-Anochecer de Verano.png";
+import casaPupyAtardecer from "@/assets/Casas/Pupy/CasaPupy-Frente-Atardecer de Otoño.png";
+import casaPupyAmanecer from "@/assets/Casas/Pupy/CasaPupy-Frente-Amanecer de Primavera.png";
+import casaPupyFrontalAnochecer from "@/assets/Casas/Pupy/CasaPupy-Frontal_Anochecer de Verano.png";
+import casaPupyFrontalAtardecer from "@/assets/Casas/Pupy/CasaPupy-Frontal_Atardecer de Otoño.png";
+import casaPupyFrontalAmanecer from "@/assets/Casas/Pupy/CasaPupy-Frontal_Amanecer de Primavera.png";
+import casaPupyPiletaAnochecer from "@/assets/Casas/Pupy/CasaPupy-Pileta_Anochecer de Verano..png";
+import casaPupyPiletaAtardecer from "@/assets/Casas/Pupy/CasaPupy-Pileta_Atardecer de Otoño.png";
+import casaPupyPiletaAmanecer from "@/assets/Casas/Pupy/CasaPupy-Pileta_Amanecer de Primavera.png";
+import casaPupyComedor from "@/assets/Casas/Pupy/CasaPupy-Comedor.png";
+import casaPupyLiving02 from "@/assets/Casas/Pupy/CasaPupy-Living02.png";
+import casaPupyLiving03 from "@/assets/Casas/Pupy/CasaPupy-Living03.png";
+import casaPupyPlantaBaja from "@/assets/Planos/Pupy/CasaPupy-Arq_PlantaBaja.png";
+import casaPupyVistaFrente from "@/assets/Planos/Pupy/CasaPupy-VistaFrente.png";
+import casaPupyVistaLateral from "@/assets/Planos/Pupy/CasaPupy-Vista_LateralIzquierdo.png";
+import casaPupyCorteAA from "@/assets/Planos/Pupy/CasaPupy_Corte A-A.png";
+import casaPupyCorteBB from "@/assets/Planos/Pupy/CasaPupy_Corte B-B.png";
 import salemFrenteAnochecer from "@/assets/Proyectos/Salem/Proyecto-CentroSalem_Frente_Anochecer de Verano.png";
 import salemFrenteAtardecer from "@/assets/Proyectos/Salem/Proyecto-CentroSalem_Frente_Atardecer de Otoño.png";
 import salemFrenteAmanecer from "@/assets/Proyectos/Salem/Proyecto-CentroSalem_Frente_Amanecer de Primavera.png";
@@ -306,6 +323,7 @@ export const requestedProjectOrder = [
   "proyecto-cyg",
   "proyecto-jorval",
   "casa-scott",
+  "casa-pupy",
   "casa-coffee",
   "casa-inti",
   "casa-del-limonero",
@@ -1215,7 +1233,7 @@ export function Projects({ mode = "home", section }: { mode?: SectionMode; secti
       {selected && (
         <ProjectModal
           project={selected}
-          selectedAtmosphere={listAtmosphere}
+          selectedAtmosphere={selected.id === "casa-pupy" ? "todos" : listAtmosphere}
           onClose={() => setSelectedId(null)}
         />
       )}
@@ -1373,6 +1391,7 @@ function ProjectModal({
     ],
     "casa-avalos": [avalosPlantaBaja],
     "casa-bonzi": [bonziPlantaAlta],
+    "casa-pupy": [casaPupyPlantaBaja, casaPupyCorteAA, casaPupyCorteBB, casaPupyVistaFrente, casaPupyVistaLateral],
     "proyecto-motoquero": [motoqueroPlantaBaja],
     "casa-navarro": [
       navarroPlantaBaja,
@@ -1939,6 +1958,35 @@ function ProjectModal({
     ];
   };
 
+  const getCasaPupyDesiredSrcOrder = (atm: AtmosphereType): string[] => {
+    if (atm === "anochecer") {
+      return [casaPupyAnochecer, casaPupyFrontalAnochecer, casaPupyPiletaAnochecer, casaPupyComedor, casaPupyLiving02, casaPupyLiving03];
+    }
+
+    if (atm === "atardecer") {
+      return [casaPupyAtardecer, casaPupyFrontalAtardecer, casaPupyPiletaAtardecer, casaPupyComedor, casaPupyLiving02, casaPupyLiving03];
+    }
+
+    if (atm === "amanecer") {
+      return [casaPupyAmanecer, casaPupyFrontalAmanecer, casaPupyPiletaAmanecer, casaPupyComedor, casaPupyLiving02, casaPupyLiving03];
+    }
+
+    return [
+      casaPupyAnochecer,
+      casaPupyAtardecer,
+      casaPupyAmanecer,
+      casaPupyFrontalAnochecer,
+      casaPupyFrontalAtardecer,
+      casaPupyFrontalAmanecer,
+      casaPupyPiletaAnochecer,
+      casaPupyPiletaAtardecer,
+      casaPupyPiletaAmanecer,
+      casaPupyComedor,
+      casaPupyLiving02,
+      casaPupyLiving03,
+    ];
+  };
+
   const galleryItems = isPhaseFilterProject
     ? uniqueGalleryBySrc(project.gallery ?? []).filter((item) => {
         if (piliFilter === "all") return true;
@@ -1995,6 +2043,20 @@ function ProjectModal({
     ? orderGalleryItemsBySrc(
         uniqueGalleryBySrc(project.gallery ?? []),
         getCasaAvalosDesiredSrcOrder(modalAtmosphere),
+        false
+      )
+    : project.id === "casa-pupy"
+    ? orderGalleryItemsBySrc(
+        uniqueGalleryBySrc(
+          (project.gallery ?? []).filter(
+            (item) =>
+              modalAtmosphere === "todos" ||
+              item.atmosphere === modalAtmosphere ||
+              getProjectAlwaysVisibleSrcs(project.id).includes(item.src)
+          ),
+          modalAtmosphere
+        ),
+        getCasaPupyDesiredSrcOrder(modalAtmosphere),
         false
       )
     : uniqueGalleryBySrc(
@@ -2209,6 +2271,7 @@ function ProjectModal({
   const [desiredActiveSrc, setDesiredActiveSrc] = useState<string | null>(null);
   const [preserveActiveSlide, setPreserveActiveSlide] = useState(false);
   const skipActiveSlideResetRef = useRef(false);
+  const activeSrcRef = useRef<string | undefined>();
   const activeIndex = reorderedGalleryItems.length > 0 ? activeSlide % reorderedGalleryItems.length : 0;
 
   const delLimoneroSrcTargets: Record<
@@ -2528,13 +2591,17 @@ function ProjectModal({
     };
   }
 
-  const getProjectAlwaysVisibleSrcs = (projectId: string) => {
+  function getProjectAlwaysVisibleSrcs(projectId: string) {
     if (projectId === "casa-del-limonero") {
       return [delLimoneroDormitorio, delLimoneroLiving, delLimoneroOficina];
     }
 
     if (projectId === "casa-coffee") {
       return [casaCoffeeInteriorLiving, casaCoffeeInteriorSuite];
+    }
+
+    if (projectId === "casa-pupy") {
+      return [casaPupyComedor, casaPupyLiving02, casaPupyLiving03];
     }
 
     if (projectId === "casa-inti") {
@@ -2601,7 +2668,7 @@ function ProjectModal({
     }
 
     return [];
-  };
+  }
 
   const casaIntiInteriorSrcs = [
     casaIntiInteriorCocina,
@@ -2698,6 +2765,14 @@ function ProjectModal({
           atardecer: casaCoffeeInteriorSuite,
           amanecer: casaCoffeeInteriorSuite,
         },
+      },
+      "casa-pupy": {
+        ...createThreeWayAtmosphereMap(casaPupyAnochecer, casaPupyAtardecer, casaPupyAmanecer),
+        ...createThreeWayAtmosphereMap(casaPupyFrontalAnochecer, casaPupyFrontalAtardecer, casaPupyFrontalAmanecer),
+        ...createThreeWayAtmosphereMap(casaPupyPiletaAnochecer, casaPupyPiletaAtardecer, casaPupyPiletaAmanecer),
+        [casaPupyComedor]: { anochecer: casaPupyComedor, atardecer: casaPupyComedor, amanecer: casaPupyComedor },
+        [casaPupyLiving02]: { anochecer: casaPupyLiving02, atardecer: casaPupyLiving02, amanecer: casaPupyLiving02 },
+        [casaPupyLiving03]: { anochecer: casaPupyLiving03, atardecer: casaPupyLiving03, amanecer: casaPupyLiving03 },
       },
       "casa-scott": {
         ...createThreeWayAtmosphereMap(casaScottExteriorAnochecer, casaScottExteriorAtardecer, casaScottExteriorAmanecer),
@@ -2884,6 +2959,24 @@ function ProjectModal({
     return null;
   };
 
+  const getCasaPupyAtmosphereTargetSrc = (
+    currentSrc: string | undefined,
+    targetAtmosphere: Exclude<AtmosphereType, "todos">
+  ) => {
+    if (!currentSrc) return null;
+
+    const targetMap: Record<string, Record<Exclude<AtmosphereType, "todos">, string>> = {
+      ...createThreeWayAtmosphereMap(casaPupyAnochecer, casaPupyAtardecer, casaPupyAmanecer),
+      ...createThreeWayAtmosphereMap(casaPupyFrontalAnochecer, casaPupyFrontalAtardecer, casaPupyFrontalAmanecer),
+      ...createThreeWayAtmosphereMap(casaPupyPiletaAnochecer, casaPupyPiletaAtardecer, casaPupyPiletaAmanecer),
+      [casaPupyComedor]: { anochecer: casaPupyComedor, atardecer: casaPupyComedor, amanecer: casaPupyComedor },
+      [casaPupyLiving02]: { anochecer: casaPupyLiving02, atardecer: casaPupyLiving02, amanecer: casaPupyLiving02 },
+      [casaPupyLiving03]: { anochecer: casaPupyLiving03, atardecer: casaPupyLiving03, amanecer: casaPupyLiving03 },
+    };
+
+    return targetMap[currentSrc]?.[targetAtmosphere] ?? null;
+  };
+
   const getDelLimoneroOrderedGalleryItems = (atm: AtmosphereType) => {
     return (project.gallery ?? []).filter(
       (item) =>
@@ -2906,7 +2999,7 @@ function ProjectModal({
   };
 
   const handleAtmosphereChange = (atm: AtmosphereType) => {
-    const currentSrc = reorderedGalleryItems[activeIndex]?.src ?? galleryItems[activeIndex]?.src;
+    const currentSrc = activeSrcRef.current ?? reorderedGalleryItems[activeIndex]?.src ?? galleryItems[activeIndex]?.src;
     if (atm === "todos") {
       const shouldKeepCurrentInterior =
         [
@@ -3118,6 +3211,22 @@ function ProjectModal({
         setPreserveActiveSlide(false);
         setDesiredActiveSrc(null);
       }
+    } else if (project.id === "casa-pupy") {
+      const sceneIndex =
+        modalAtmosphere === "todos"
+          ? activeSlide < 3
+            ? 0
+            : activeSlide < 6
+              ? 1
+              : activeSlide < 9
+                ? 2
+                : activeSlide - 6
+          : activeSlide;
+      const targetSrc = getCasaPupyDesiredSrcOrder(atm)[sceneIndex] ??
+        getCasaPupyAtmosphereTargetSrc(currentSrc, atm);
+      setPreserveActiveSlide(Boolean(targetSrc));
+      setDesiredActiveSrc(targetSrc);
+      if (!targetSrc) setAtmosphereError(t.projects.modal.atmosphereUnavailable);
     } else if (
       [
         "casa-navarro",
@@ -3213,6 +3322,7 @@ function ProjectModal({
 
   const activeItem = reorderedGalleryItems[activeIndex] ?? reorderedGalleryItems[0];
   if (!activeItem) return null;
+  activeSrcRef.current = activeItem.src;
 
   if (expandedPlanIndex !== null) {
     const expandedPlan = orderedPlanImages[expandedPlanIndex];
