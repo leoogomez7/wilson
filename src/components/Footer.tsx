@@ -58,16 +58,6 @@ export function Footer() {
                   {t.nav.otrosServicios}
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://es.trustpilot.com/review/psplusargentinaps4.empretienda.com.ar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-60 whitespace-nowrap"
-                >
-                  Reseñas
-                </a>
-              </li>
             </ul>
           </div>
           <div className="md:translate-x-10">
@@ -126,18 +116,6 @@ export function Footer() {
                   {t.footer.facebook}
                 </a>
               </li>
-                <li>
-                  <a
-                    href="https://es.trustpilot.com/review/psplusargentinaps4.empretienda.com.ar"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 hover:opacity-60 whitespace-nowrap w-auto self-start"
-                    aria-label="Ver reseñas"
-                  >
-                    <span className="text-lg">⭐</span>
-                    <span className="leading-none">Reseñas</span>
-                  </a>
-                </li>
               <li>
                 <a
                   href="https://wa.me/5491136115429"
