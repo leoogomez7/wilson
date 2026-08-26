@@ -187,7 +187,7 @@ export const casaProjects: Project[] = [
     id: "casa-pupy",
     title: { es: "Casa Pupy", en: "Casa Pupy", pt: "Casa Pupy" },
     meta: { es: "Vivienda Unifamiliar - 2026", en: "Single-family Home - 2026", pt: "Casa Unifamiliar - 2026" },
-    image: casaPupyAnochecer,
+    image: casaPupyFrontalAnochecer,
     location: "Tortuguita, Buenos Aires",
     year: "2026",
     area: "142 m²",

@@ -323,10 +323,10 @@ export const requestedProjectOrder = [
   "proyecto-cyg",
   "proyecto-jorval",
   "casa-scott",
-  "casa-pupy",
   "casa-coffee",
   "casa-inti",
   "casa-del-limonero",
+  "casa-pupy",
   "casa-navarro",
   "proyecto-z",
   "proyecto-carla",
@@ -341,7 +341,7 @@ export const requestedProjectOrder = [
 ] as const;
 
 export const sortProjectsByRequestedOrder = <T extends { id?: string }>(items: T[]) => {
-  const orderMap = new Map(requestedProjectOrder.map((id, index) => [id, index]));
+  const orderMap = new Map<string, number>(requestedProjectOrder.map((id, index) => [id, index]));
 
   return [...items].sort((a, b) => {
     const aOrder = a.id ? orderMap.get(a.id) ?? Number.MAX_SAFE_INTEGER : Number.MAX_SAFE_INTEGER;
@@ -367,6 +367,16 @@ const uniqueGalleryBySrc = (gallery: GalleryItem[], targetAtmosphere?: Atmospher
   }
 
   return acc;
+};
+
+const isRepeatedAcrossAtmospheres = (src: string, gallery: GalleryItem[]) => {
+  const atmospheres = new Set(
+    gallery.filter((item) => item.src === src).map((item) => item.atmosphere)
+  );
+
+  return ["anochecer", "atardecer", "amanecer"].every((atmosphere) =>
+    atmospheres.has(atmosphere as Exclude<AtmosphereType, "todos">)
+  );
 };
 
 export const projects: Project[] = [
@@ -1960,24 +1970,24 @@ function ProjectModal({
 
   const getCasaPupyDesiredSrcOrder = (atm: AtmosphereType): string[] => {
     if (atm === "anochecer") {
-      return [casaPupyAnochecer, casaPupyFrontalAnochecer, casaPupyPiletaAnochecer, casaPupyComedor, casaPupyLiving02, casaPupyLiving03];
+      return [casaPupyFrontalAnochecer, casaPupyAnochecer, casaPupyPiletaAnochecer, casaPupyComedor, casaPupyLiving02, casaPupyLiving03];
     }
 
     if (atm === "atardecer") {
-      return [casaPupyAtardecer, casaPupyFrontalAtardecer, casaPupyPiletaAtardecer, casaPupyComedor, casaPupyLiving02, casaPupyLiving03];
+      return [casaPupyFrontalAtardecer, casaPupyAtardecer, casaPupyPiletaAtardecer, casaPupyComedor, casaPupyLiving02, casaPupyLiving03];
     }
 
     if (atm === "amanecer") {
-      return [casaPupyAmanecer, casaPupyFrontalAmanecer, casaPupyPiletaAmanecer, casaPupyComedor, casaPupyLiving02, casaPupyLiving03];
+      return [casaPupyFrontalAmanecer, casaPupyAmanecer, casaPupyPiletaAmanecer, casaPupyComedor, casaPupyLiving02, casaPupyLiving03];
     }
 
     return [
-      casaPupyAnochecer,
-      casaPupyAtardecer,
-      casaPupyAmanecer,
       casaPupyFrontalAnochecer,
       casaPupyFrontalAtardecer,
       casaPupyFrontalAmanecer,
+      casaPupyAnochecer,
+      casaPupyAtardecer,
+      casaPupyAmanecer,
       casaPupyPiletaAnochecer,
       casaPupyPiletaAtardecer,
       casaPupyPiletaAmanecer,
@@ -2271,7 +2281,7 @@ function ProjectModal({
   const [desiredActiveSrc, setDesiredActiveSrc] = useState<string | null>(null);
   const [preserveActiveSlide, setPreserveActiveSlide] = useState(false);
   const skipActiveSlideResetRef = useRef(false);
-  const activeSrcRef = useRef<string | undefined>();
+  const activeSrcRef = useRef<string | undefined>(undefined);
   const activeIndex = reorderedGalleryItems.length > 0 ? activeSlide % reorderedGalleryItems.length : 0;
 
   const delLimoneroSrcTargets: Record<
@@ -2636,7 +2646,12 @@ function ProjectModal({
     }
 
     if (projectId === "proyecto-jorval") {
-      return [proyectoJorvalInteriorComedor, proyectoJorvalInteriorLiving];
+      return [
+        proyectoJorvalExteriorContrafachada,
+        proyectoJorvalExteriorGaleria,
+        proyectoJorvalInteriorComedor,
+        proyectoJorvalInteriorLiving,
+      ];
     }
 
     if (projectId === "casa-vasquez") {
@@ -2645,6 +2660,39 @@ function ProjectModal({
 
     if (projectId === "casa-rosales") {
       return [casaRosalesGaleria01, casaRosalesGaleria02, casaRosalesGaleria03];
+    }
+
+    if (projectId === "proyecto-carla") {
+      return [proyectoCarlaInterior02];
+    }
+
+    if (projectId === "casa-avalos") {
+      return [
+        casaAvalosInteriorLiving,
+        casaAvalosInteriorLiving2,
+        casaAvalosInteriorLiving3,
+        casaAvalosInteriorCocina,
+        casaAvalosInteriorDormitorio,
+        casaAvalosInteriorDormitorio2,
+        casaAvalosInteriorBaño,
+        casaAvalosInteriorSuite,
+        casaAvalosInteriorBañoSuite,
+        casaAvalosInteriorSuite2,
+        casaAvalosInteriorBañoSuite2,
+        casaAvalosInteriorParrilla,
+      ];
+    }
+
+    if (projectId === "casa-sara") {
+      return [
+        casaSaraInteriorLiving1,
+        casaSaraInteriorLiving2,
+        casaSaraInteriorCocina1,
+        casaSaraInteriorCocina2,
+        casaSaraInteriorCocina3,
+        casaSaraInteriorOficina,
+        casaSaraInteriorDormitorio,
+      ];
     }
 
     if (projectId === "proyecto-motoquero") {
@@ -2668,6 +2716,17 @@ function ProjectModal({
     }
 
     return [];
+  }
+
+  function getAtmosphereGalleryItems(atm: AtmosphereType, gallery = project.gallery ?? []) {
+    const alwaysVisibleSrcs = getProjectAlwaysVisibleSrcs(project.id);
+
+    return gallery.filter(
+      (item) =>
+        atm === "todos" ||
+        item.atmosphere === atm ||
+        alwaysVisibleSrcs.includes(item.src)
+    );
   }
 
   const casaIntiInteriorSrcs = [
@@ -3134,7 +3193,7 @@ function ProjectModal({
 
       if (targetSrc) {
         const targetItems = uniqueGalleryBySrc(
-          (project.gallery ?? []).filter((item) => atm === "todos" || item.atmosphere === atm),
+          (project.gallery ?? []).filter((item) => item.atmosphere === atm),
           atm
         );
         const targetIndex = targetItems.findIndex((item) => item.src === targetSrc);
@@ -3323,6 +3382,10 @@ function ProjectModal({
   const activeItem = reorderedGalleryItems[activeIndex] ?? reorderedGalleryItems[0];
   if (!activeItem) return null;
   activeSrcRef.current = activeItem.src;
+  const hideAtmosphereButtons = isRepeatedAcrossAtmospheres(
+    activeItem.src,
+    project.gallery ?? []
+  ) || getProjectAlwaysVisibleSrcs(project.id).includes(activeItem.src);
 
   if (expandedPlanIndex !== null) {
     const expandedPlan = orderedPlanImages[expandedPlanIndex];
@@ -3493,55 +3556,55 @@ function ProjectModal({
               <div className="mt-4 flex flex-nowrap items-center justify-center gap-3 overflow-visible py-1">
                 {isPhaseFilterProject ? (
                   pilisFilterButtons.map((button) => {
-                    const isActive = piliFilter === button.key;
-                    return (
-                      <button
-                        key={button.key}
-                        type="button"
-                        onClick={() => handlePiliFilterChange(button.key)}
-                        title={button.label}
-                        aria-label={button.label}
-                        className={`relative rounded-none border px-4 py-2 text-[10px] uppercase tracking-[0.3em] transition ${
-                          isActive
-                            ? "bg-brand-black text-white shadow-sm ring-2 ring-brand-black ring-offset-2"
-                            : "bg-white text-brand-black hover:bg-brand-black hover:text-white"
-                        }`}
-                      >
-                        {button.label}
-                      </button>
-                    );
-                  })
-                ) : (
-                  atmosphereButtons
-                    .filter((atm) => atm.key !== "todos")
-                    .map((atm) => {
-                      const colorClass =
-                        atm.key === "anochecer"
-                          ? "bg-brand-black text-white border-brand-black"
-                          : atm.key === "atardecer"
-                            ? "bg-[#d97706] text-white border-[#d97706]"
-                            : "bg-[#facc15] text-brand-black border-[#facc15]";
-
-                      const isActive = modalAtmosphere === atm.key;
-
+                      const isActive = piliFilter === button.key;
                       return (
                         <button
-                          key={atm.key}
+                          key={button.key}
                           type="button"
-                          onClick={() => handleAtmosphereChange(atm.key)}
-                          title={atm.label}
-                          aria-label={atm.label}
-                          className={`relative inline-flex h-10 w-10 items-center justify-center rounded-full border transition ${
-                            isActive ? "scale-105 shadow-sm ring-2 ring-brand-black ring-offset-2" : "hover:scale-105"
-                          } ${colorClass}`}
+                          onClick={() => handlePiliFilterChange(button.key)}
+                          title={button.label}
+                          aria-label={button.label}
+                          className={`relative rounded-none border px-4 py-2 text-[10px] uppercase tracking-[0.3em] transition ${
+                            isActive
+                              ? "bg-brand-black text-white shadow-sm ring-2 ring-brand-black ring-offset-2"
+                              : "bg-white text-brand-black hover:bg-brand-black hover:text-white"
+                          }`}
                         >
-                          {isActive ? (
-                            <span className="text-[14px] font-bold leading-none">✓</span>
-                          ) : null}
+                          {button.label}
                         </button>
                       );
                     })
-                )}
+                ) : !hideAtmosphereButtons ? (
+                    atmosphereButtons
+                      .filter((atm) => atm.key !== "todos")
+                      .map((atm) => {
+                        const colorClass =
+                          atm.key === "anochecer"
+                            ? "bg-brand-black text-white border-brand-black"
+                            : atm.key === "atardecer"
+                              ? "bg-[#d97706] text-white border-[#d97706]"
+                              : "bg-[#facc15] text-brand-black border-[#facc15]";
+
+                        const isActive = modalAtmosphere === atm.key;
+
+                        return (
+                          <button
+                            key={atm.key}
+                            type="button"
+                            onClick={() => handleAtmosphereChange(atm.key)}
+                            title={atm.label}
+                            aria-label={atm.label}
+                            className={`relative inline-flex h-10 w-10 items-center justify-center rounded-full border transition ${
+                              isActive ? "scale-105 shadow-sm ring-2 ring-brand-black ring-offset-2" : "hover:scale-105"
+                            } ${colorClass}`}
+                          >
+                            {isActive ? (
+                              <span className="text-[14px] font-bold leading-none">✓</span>
+                            ) : null}
+                          </button>
+                        );
+                      })
+                ) : null}
               </div>
               {atmosphereError ? (
                 <div className="mt-3 text-center text-sm text-red-600">
