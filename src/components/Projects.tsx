@@ -4,7 +4,7 @@ import p1 from "@/assets/project-1.jpg";
 import p4 from "@/assets/project-4.jpg";
 import delLimoneroAtardecer from "@/assets/Casas/Del Limonero/Exterior_Atardecer de otoño.jpeg";
 import delLimoneroAmanecer from "@/assets/Casas/Del Limonero/Exterior_Amanecer de primavera.jpeg";
-import delLimoneroAnochecer from "@/assets/Casas/Del Limonero/Exterior_Anochecer de verano.jpeg";
+import delLimoneroAnochecer from "@/assets/Casas/Del Limonero/Exterior_Anochecer de verano.png";
 import delLimoneroExteriorLateralAtardecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Atardecer de Otoño.png";
 import delLimoneroExteriorLateralAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Anochecer de Verano.png";
 import delLimoneroExteriorLateralAmanecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Amanecer de Primavera.png";
@@ -144,6 +144,9 @@ import proyectoJorvalExteriorEsquinaAnochecer from "@/assets/Proyectos/Jorval/Pr
 import proyectoJorvalExteriorEsquinaAtardecer from "@/assets/Proyectos/Jorval/Proyecto Jorval-ExteriorEsquina_Atardecer de Otoño.png";
 import proyectoJorvalInteriorComedor from "@/assets/Proyectos/Jorval/Proyecto Jorval-Interior_Comedor.png";
 import proyectoJorvalInteriorLiving from "@/assets/Proyectos/Jorval/Proyecto Jorval-Interior_Living.png";
+import casaRosalesAmanecer from "@/assets/Casas/Rosales/Casa Rosales-Amanecer de Primavera.png";
+import casaRosalesAnochecer from "@/assets/Casas/Rosales/Casa Rosales-Anochecer de Verano.png";
+import casaRosalesAtardecer from "@/assets/Casas/Rosales/Casa Rosales-Atardecer de Otoño.png";
 import casaRosalesGaleriaAmanecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Amanecer de Primavera.png";
 import casaRosalesGaleriaAnochecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Anochecer de Verano.png";
 import casaRosalesGaleriaAtardecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Atardecer de Otoño.png";
@@ -1694,6 +1697,9 @@ function ProjectModal({
   const getRosalesDesiredSrcOrder = (atm: AtmosphereType): string[] => {
     if (atm === "todos") {
       return [
+        casaRosalesAnochecer,
+        casaRosalesAtardecer,
+        casaRosalesAmanecer,
         casaRosalesGaleriaAnochecer,
         casaRosalesGaleriaAtardecer,
         casaRosalesGaleriaAmanecer,
@@ -1705,6 +1711,7 @@ function ProjectModal({
 
     if (atm === "anochecer") {
       return [
+        casaRosalesAnochecer,
         casaRosalesGaleriaAnochecer,
         casaRosalesGaleria01,
         casaRosalesGaleria02,
@@ -1714,6 +1721,7 @@ function ProjectModal({
 
     if (atm === "atardecer") {
       return [
+        casaRosalesAtardecer,
         casaRosalesGaleriaAtardecer,
         casaRosalesGaleria01,
         casaRosalesGaleria02,
@@ -1722,6 +1730,7 @@ function ProjectModal({
     }
 
     return [
+      casaRosalesAmanecer,
       casaRosalesGaleriaAmanecer,
       casaRosalesGaleria01,
       casaRosalesGaleria02,
@@ -2942,6 +2951,7 @@ function ProjectModal({
         [casaVasquezInteriorLiving02]: { anochecer: casaVasquezInteriorLiving02, atardecer: casaVasquezInteriorLiving02, amanecer: casaVasquezInteriorLiving02 },
       },
       "casa-rosales": {
+        ...createThreeWayAtmosphereMap(casaRosalesAnochecer, casaRosalesAtardecer, casaRosalesAmanecer),
         ...createThreeWayAtmosphereMap(casaRosalesGaleriaAnochecer, casaRosalesGaleriaAtardecer, casaRosalesGaleriaAmanecer),
         [casaRosalesGaleria01]: { anochecer: casaRosalesGaleria01, atardecer: casaRosalesGaleria01, amanecer: casaRosalesGaleria01 },
         [casaRosalesGaleria02]: { anochecer: casaRosalesGaleria02, atardecer: casaRosalesGaleria02, amanecer: casaRosalesGaleria02 },

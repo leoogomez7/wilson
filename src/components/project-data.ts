@@ -1,6 +1,6 @@
 import delLimoneroAtardecer from "@/assets/Casas/Del Limonero/Exterior_Atardecer de otoño.jpeg";
 import delLimoneroAmanecer from "@/assets/Casas/Del Limonero/Exterior_Amanecer de primavera.jpeg";
-import delLimoneroAnochecer from "@/assets/Casas/Del Limonero/Exterior_Anochecer de verano.jpeg";
+import delLimoneroAnochecer from "@/assets/Casas/Del Limonero/Exterior_Anochecer de verano.png";
 import delLimoneroExteriorLateralAtardecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Atardecer de Otoño.png";
 import delLimoneroExteriorLateralAnochecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Anochecer de Verano.png";
 import delLimoneroExteriorLateralAmanecer from "@/assets/Casas/Del Limonero/Casa del Limonero-Exterior Lateral_Amanecer de Primavera.png";
@@ -85,6 +85,9 @@ import casaAvalosInteriorLiving3 from "@/assets/Casas/Avalos/CasaNicoAvalos-Inte
 import casaAvalosInteriorParrilla from "@/assets/Casas/Avalos/CasaAvalos-Interior_Parrilla.png";
 import casaAvalosInteriorSuite from "@/assets/Casas/Avalos/CasaAvalos-Interior_Suite.png";
 import casaAvalosInteriorSuite2 from "@/assets/Casas/Avalos/CasaAvalos-Interior Suite2.png";
+import casaRosalesAmanecer from "@/assets/Casas/Rosales/Casa Rosales-Amanecer de Primavera.png";
+import casaRosalesAnochecer from "@/assets/Casas/Rosales/Casa Rosales-Anochecer de Verano.png";
+import casaRosalesAtardecer from "@/assets/Casas/Rosales/Casa Rosales-Atardecer de Otoño.png";
 import casaRosalesGaleriaAmanecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Amanecer de Primavera.png";
 import casaRosalesGaleriaAnochecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Anochecer de Verano.png";
 import casaRosalesGaleriaAtardecer from "@/assets/Casas/Rosales/Casa Rosales-Galería_Atardecer de Otoño.png";
@@ -661,7 +664,7 @@ export const casaProjects: Project[] = [
       en: "Single-family home — 2023",
       pt: "Casa unifamiliar — 2023",
     },
-    image: casaRosalesGaleriaAnochecer,
+    image: casaRosalesAnochecer,
     location: "Gral. Rodríguez, Buenos Aires",
     year: "2023",
     area: "66 m²",
@@ -673,6 +676,21 @@ export const casaProjects: Project[] = [
     category: "viviendas",
     origin: "casas",
     gallery: [
+      {
+        src: casaRosalesAnochecer,
+        atmosphere: "anochecer",
+        label: { es: "Anochecer de verano", en: "Summer dusk", pt: "Anoitecer de verão" },
+      },
+      {
+        src: casaRosalesAtardecer,
+        atmosphere: "atardecer",
+        label: { es: "Atardecer de otoño", en: "Autumn sunset", pt: "Pôr do sol de outono" },
+      },
+      {
+        src: casaRosalesAmanecer,
+        atmosphere: "amanecer",
+        label: { es: "Amanecer de primavera", en: "Spring sunrise", pt: "Amanhecer de primavera" },
+      },
       {
         src: casaRosalesGaleriaAnochecer,
         atmosphere: "anochecer",
