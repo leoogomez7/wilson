@@ -1,5 +1,5 @@
 # 🌐 Wilson Arquitectura
-**Wilson Arquitectura es una plataforma web oficial y portafolio interactivo de alto impacto diseñado exclusivamente para un estudio de arquitectura. El proyecto combina una estética visual sofisticada, minimalista y limpia con una experiencia de usuario (UX) sumamente fluida, pensada para exhibir proyectos residenciales, remodelaciones y direcciones de obra con el objetivo de convertir visitas en contrataciones directas.
+**Wilson Arquitectura** es una plataforma web oficial y portafolio interactivo de alto impacto diseñado exclusivamente para un estudio de arquitectura. El proyecto combina una estética visual sofisticada, minimalista y limpia con una experiencia de usuario (UX) sumamente fluida, pensada para exhibir proyectos residenciales, remodelaciones y direcciones de obra con el objetivo de convertir visitas en contrataciones directas.
 
 🌐 **Sitio Web Oficial:** [wilsonarquitectura.com.ar](https://wilsonarquitectura.com.ar/)
 
