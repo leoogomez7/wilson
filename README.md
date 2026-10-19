@@ -40,7 +40,7 @@ El proyecto está desarrollado con tecnologías web modernas y de tipado seguro 
 # ⚙️ Requisitos Previos
 Se recomienda contar con Node.js o Bun instalado en tu entorno local para la gestión de dependencias y ejecución de scripts.
 
-🚀 Instalación y Uso Local
+```🚀 Instalación y Uso Local
 Clonar el repositorio:
 
 Bash
@@ -48,7 +48,7 @@ git clone https://github.com/leoogomez7/wilson.git
 cd wilson
 Instalar dependencias:
 
-´´´Bash
+Bash
 bun install
 # o bien
 npm install
